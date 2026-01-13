@@ -70,7 +70,7 @@
 >     - Support for DirectX 12 and Vulkan
 >     - Support for iL2CPP
 >     - Added an annual looping event controller 3000
->     - Added a total of 57 new Igloo Music tracks. Now you have more different types of music to play in your igloo! 
+>     - Added a total of 58 new Igloo Music tracks. Now you have more different types of music to play in your igloo! 
 >     - Added the April Fools Theme and Box Dimension to level 0 (before the tutorial level up). Added The Town (2014) to level 1. 
 >     - Added Puffle Party, Come Out To Play, Shoot For The Sun, Coconut, The Best Beach Party, Backbeat Jammin, Forever Summer, Rockhopper Theme, Sunshine Holiday, and Summer Song to level 2. 
 >     - Added Lucky One and Gotta Have A Wingman to level 3. 
@@ -83,12 +83,10 @@
 >     - Added Surf Monster, Haunted Disco, Discoween, Ghost just want to dance, Monster masquerade, Nightmare before Christmas's This is Halloween, Puffle Dance Rock Mix, Spooky Jazz, and What lurks in the night to level 14.
 >     - Added Crossing Over to Level 16. 
 >     - Added Steer The Funk and Dub Style Step to Level 17. 
->     - Added Holiday Lights, Tis the season, Snowy Holiday, Command Room, and Catching snowflakes to level 20. 
->     - Added Jazzy Pizza, Coffee Shop, and Pizza Parlor to level 24. 
->     - Added the Ski Lodge to level 25. 
+>     - Added Holiday Lights, Tis the season, Snowy Holiday, Command Room, We Are The Penguins, and Catching snowflakes to level 20. 
 >     - Added Sunny Side to Level 23. 
->     - Added Cumulonimbus to Level 25.
->     - Added I've Been Delayed to level 25.
+>     - Added Jazzy Pizza, Coffee Shop, and Pizza Parlor to level 24. 
+>     - Added I've Been Delayed, Cumulonimbus, and the Ski Lodge to level 25.
 >     - Support for .NET Standard 2.1
 >     - Support for Unity's New Input System
 >     - Support for Unity WebGL
