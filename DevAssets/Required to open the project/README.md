@@ -1,0 +1,1 @@
+Extract part 1 of the .7z with 7zip and 7zip will do the rest of extracting. After the extracting is complete, you MUST place the ZFBrowser folder and ZFBrowser.meta into the Assets folder before importing to project in the Unity Hub. If you do not follow this step, errors will appear.
