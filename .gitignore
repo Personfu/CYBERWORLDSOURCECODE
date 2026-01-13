@@ -158,3 +158,8 @@ Assets/Game/World/Collectibles/Definitions/CollectibleDefinition/Collectible_Cat
 *.slnx
 *.glb
 /DevAssets/FBX Models
+/DevAssets/FBXRestorerTool/FBX Models
+Assets/SearchResults.txt
+Assets/SearchResults.txt.meta
+Assets/TextMesh Pro/Glyph Report.txt
+Assets/TextMesh Pro/Glyph Report.txt.meta
