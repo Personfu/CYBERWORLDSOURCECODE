@@ -1,0 +1,22 @@
+{
+    "name": "NativeWebViewer",
+    "rootNamespace": "",
+    "references": [
+        "Core",
+        "Foundation",
+        "LitJson",
+        "UI",
+        "UnityShared",
+        "ZFBrowser",
+        "Unity.TextMeshPro"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
