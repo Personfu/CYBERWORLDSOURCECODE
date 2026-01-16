@@ -4,10 +4,6 @@
 > ### Unity Version
 > - **Unity 6000.3.4f1 LTS**
 
-> [!CAUTION]
-> ## **This MUST be extracted and you MUST copy and paste the zip contents into the Assets folder before importing the project into the Unity Hub. If you don't do this step, errors will appear. This zip will be included when you clone the repo or unless you use the split .7z parts in the Discord which already has this step completed.**
-> - [The zip file can be found here](Required%20to%20open%20the%20project)
-
 > [!IMPORTANT]
 > ## **Builds can be found here:**
 > - [Builds](https://opencpisland.github.io/)
