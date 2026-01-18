@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9ddb1e6d8740872cd98132801fb0deb4, type: 3}
-  m_Name: MarketingEvent101
+  m_Name: MarketingEvent16
   m_EditorClassIdentifier: 
-  Id: 101
+  Id: 16
   ScreenPrefabContentKeys:
-  - Key: MarketingLoadingScreenPrefabs/MarketingLoadScreen_Igloos
+  - Key: MarketingLoadingScreenPrefabs/MarketingLoadScreen_CFC
     type: UnityEngine.GameObject, UnityEngine
-  - Key: MarketingLoadingScreenPrefabs/MarketingLoadScreen_Desktop
+  - Key: MarketingLoadingScreenPrefabs/MarketingLoadScreen_Olaf
     type: UnityEngine.GameObject, UnityEngine
   DateDefinitionKey:
     Id: 2017

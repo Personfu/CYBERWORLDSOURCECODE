@@ -51,7 +51,7 @@ GameObject:
   - component: {fileID: 801256903777763640}
   m_Layer: 30
   m_Name: BoxCollider
-  m_TagString: Untagged
+  m_TagString: Snow
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -195,6 +195,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!65 &120985751258294842
 BoxCollider:
@@ -243,7 +244,7 @@ GameObject:
   - component: {fileID: 3595534577967169266}
   m_Layer: 30
   m_Name: SphereCollider
-  m_TagString: Untagged
+  m_TagString: Snow
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -309,7 +310,7 @@ GameObject:
   - component: {fileID: 3505604310724287437}
   m_Layer: 30
   m_Name: CapsuleCollider
-  m_TagString: Untagged
+  m_TagString: Wood
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -365,7 +366,7 @@ GameObject:
   - component: {fileID: 9059605117539044221}
   m_Layer: 30
   m_Name: SphereCollider
-  m_TagString: Untagged
+  m_TagString: Snow
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -507,6 +508,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!1 &4203279587653018538
 GameObject:
@@ -520,7 +522,7 @@ GameObject:
   - component: {fileID: 7509707964835250436}
   m_Layer: 30
   m_Name: CapsuleCollider
-  m_TagString: Untagged
+  m_TagString: Snow
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -575,7 +577,7 @@ GameObject:
   - component: {fileID: 2319084725300652151}
   m_Layer: 30
   m_Name: CapsuleCollider
-  m_TagString: Untagged
+  m_TagString: Wood
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -706,6 +708,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!1 &5734841652772952131
 GameObject:
@@ -785,9 +788,10 @@ GameObject:
   - component: {fileID: 1946663980629918290}
   - component: {fileID: 5557333379460580621}
   - component: {fileID: 4154778824114361382}
+  - component: {fileID: 3259073940712571374}
   m_Layer: 30
   m_Name: TownGatewaySnow
-  m_TagString: Untagged
+  m_TagString: Snow
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -862,7 +866,30 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &3259073940712571374
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6071414602035090936}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: 51bc9c88b92b5d44e88ab81c72971c93, type: 2}
 --- !u!1 &6505271880833514754
 GameObject:
   m_ObjectHideFlags: 0
@@ -1086,6 +1113,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!65 &4936668105596378402
 BoxCollider:
@@ -1265,6 +1293,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!65 &1995699806965468796
 BoxCollider:
@@ -1345,7 +1374,7 @@ GameObject:
   - component: {fileID: 8080319529175366193}
   m_Layer: 30
   m_Name: BoxCollider
-  m_TagString: Untagged
+  m_TagString: Snow
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1412,7 +1441,7 @@ GameObject:
   - component: {fileID: 3434590253949961653}
   m_Layer: 30
   m_Name: BoxCollider
-  m_TagString: Untagged
+  m_TagString: Snow
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1478,7 +1507,7 @@ GameObject:
   - component: {fileID: 7483591422778825439}
   m_Layer: 30
   m_Name: CapsuleCollider
-  m_TagString: Untagged
+  m_TagString: Snow
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1600,7 +1629,7 @@ GameObject:
   - component: {fileID: 5161164870095644513}
   m_Layer: 30
   m_Name: CapsuleCollider
-  m_TagString: Untagged
+  m_TagString: Wood
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

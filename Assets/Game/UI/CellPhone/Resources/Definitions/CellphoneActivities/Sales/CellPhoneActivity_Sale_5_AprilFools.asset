@@ -3,14 +3,15 @@
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fa06cb0ecf26dc819e245f7652fe35c7, type: 3}
   m_Name: CellPhoneActivity_Sale_5_AprilFools
-  m_EditorClassIdentifier:
+  m_EditorClassIdentifier: 
   WidgetGlobalPriorityOverride: -100
   WidgetPriority: 10
   WidgetPrefabKey:
@@ -19,12 +20,12 @@ MonoBehaviour:
   IsMemberOnly: 1
   NotificationMessageToken: GoGuide.ShopSale.AprilFools.Title
   Id: 5
-  AvailableDates: {fileID: 11400000, guid: 40c0dd8823313e548a356831bd2bdf8a, type: 2}
+  AvailableDates: {fileID: 11400000, guid: 247438dd8e582094d9203703192a7e60, type: 2}
   DiscountPercentage: 0
   MarketPlaceData:
   - MarketPlace: {fileID: 11400000, guid: 71504f86e1231734ab2896546cb580d1, type: 2}
     Scene: {fileID: 11400000, guid: 2656cd000ffac2647be0d5f334908b80, type: 2}
-    PositionInZone: {x: -3.33, y: -0.236, z: -1.249}
+    PositionInZone: {x: -3.33, y: -0.219, z: -1.249}
   - MarketPlace: {fileID: 11400000, guid: dbf98f851535c0240b3fe09a04b8df56, type: 2}
     Scene: {fileID: 11400000, guid: 2656cd000ffac2647be0d5f334908b80, type: 2}
     PositionInZone: {x: 13.4, y: -0.236, z: 2.76}

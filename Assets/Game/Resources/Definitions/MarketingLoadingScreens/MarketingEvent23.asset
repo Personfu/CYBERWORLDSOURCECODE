@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9ddb1e6d8740872cd98132801fb0deb4, type: 3}
-  m_Name: MarketingEvent400
+  m_Name: MarketingEvent23
   m_EditorClassIdentifier: 
-  Id: 400
+  Id: 23
   ScreenPrefabContentKeys:
   - Key: MarketingLoadingScreenPrefabs/MarketingLoadScreen_SummerSplash
     type: UnityEngine.GameObject, UnityEngine

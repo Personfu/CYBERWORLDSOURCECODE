@@ -7420,6 +7420,9 @@
   "GoGuide.ShopSale.Games.Title": "Party games sale",
   "GoGuide.ShopSale.All.Title": "Shop items sale",
   "GoGuide.ShopSale.Food.Title": "Food sale",
+  "GoGuide.ShopSale.IceCream.Title": "Ice Cream sale",
+  "GoGuide.ShopSale.PizzaParty.Title": "Pizza Party sale",
+  "GoGuide.ShopSale.HalloweenBaskets.Title": "Halloween Baskets sale",
   "Loadingscreen.Tip203": "Well-placed dance floors encourage dance parties!",
   "Loadingscreen.Tip204": "Springboards and cannons can launch you onto an igloo.",
   "Loadingscreen.Tip205": "Stacked furniture floats if you remove the item below it.",
@@ -9110,6 +9113,7 @@
   "Furniture.DJPillar.Title": "DJ Pillar",
   "Furniture.DJPillar.Description": "A decorative DJ pillar.",
   "Igloos.MusicTrack.TheRoyalCourt": "The Royal Court",
-  "Igloos.MusicTrack.WeAreThePenguins": "We Are The Penguins"
+  "Igloos.MusicTrack.WeAreThePenguins": "We Are The Penguins",
+  "CellPhone.Events.Slideshow.Upcoming": "Upcoming Events"
 }
   

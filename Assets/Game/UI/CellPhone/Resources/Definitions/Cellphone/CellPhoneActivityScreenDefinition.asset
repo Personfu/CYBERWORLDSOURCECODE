@@ -119,16 +119,21 @@ MonoBehaviour:
     RewardItems: {fileID: 11400000, guid: 939cf782f53e03a4db7223f5a947b6c9, type: 2}
   ScheduledEvents:
   - {fileID: 11400000, guid: 7be574b4be8bbf842a33996827555033, type: 2}
+  - {fileID: 11400000, guid: 5ba305d093e35264198262c6208018b9, type: 2}
+  - {fileID: 11400000, guid: 1a4812836d9aebc4baac848084b63985, type: 2}
   - {fileID: 11400000, guid: d130a7b77747ccb46bd7cb0d394b3f83, type: 2}
   - {fileID: 11400000, guid: 210e2acd1ad2a8d4492a875bba696140, type: 2}
   - {fileID: 11400000, guid: 80285f9a19a334548976128725e9afe6, type: 2}
   - {fileID: 11400000, guid: de1cab8f5ceb8e744b7c3b58d54b153d, type: 2}
   - {fileID: 11400000, guid: bc1f672729fa820468c9c130e81a2d03, type: 2}
+  - {fileID: 11400000, guid: 8d36df0e149dd32459a370b5f850b54b, type: 2}
   - {fileID: 11400000, guid: e415666fb44704241bfdd0ca7aff9303, type: 2}
   - {fileID: 11400000, guid: 310cf252c6cfe3a429b672db7db14f1d, type: 2}
   - {fileID: 11400000, guid: d5c9b85386d89aa4bac0aeba9bae6ac2, type: 2}
   - {fileID: 11400000, guid: 0417f16420f7b3645a4473039a5bd0d1, type: 2}
+  - {fileID: 11400000, guid: 8ca43177dee28ad439b1e375dd1a61cd, type: 2}
   - {fileID: 11400000, guid: c056b73caef1dc846811d4b7d6e59dfd, type: 2}
+  - {fileID: 11400000, guid: c783481b43dbb0a4c8ea22705aa10499, type: 2}
   ScheduledFeatures:
   - {fileID: 11400000, guid: 8b620e82f21df4548a0b4d06e28cba9b, type: 2}
   - {fileID: 11400000, guid: ddce237d8e6136542824e65d03c92b91, type: 2}
@@ -151,3 +156,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 0214844aedb9bfe4ba573c4077bca52c, type: 2}
   - {fileID: 11400000, guid: 438daacfc11139a41a5662208dea40f9, type: 2}
   - {fileID: 11400000, guid: ba7fff40dc51dc64a9882f01e84b6055, type: 2}
+  - {fileID: 11400000, guid: f27dab1fea31b0949b3fcdf63d670430, type: 2}
+  - {fileID: 11400000, guid: ee506ecb69adb5a44b3772519bff0431, type: 2}
+  - {fileID: 11400000, guid: b566610d641b95e49befcf7c05c15dcb, type: 2}

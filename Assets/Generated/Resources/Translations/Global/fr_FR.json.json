@@ -7420,6 +7420,9 @@
     "GoGuide.ShopSale.Games.Title": "Vente de jeux de fête",
     "GoGuide.ShopSale.All.Title": "Magasiner articles vente",
     "GoGuide.ShopSale.Food.Title": "Vente de produits alimentaires",
+    "GoGuide.ShopSale.IceCream.Title": "Vente de crème glacée",
+    "GoGuide.ShopSale.PizzaParty.Title": "Vente de pizza party",
+    "GoGuide.ShopSale.HalloweenBaskets.Title": "Vente de paniers Halloween",
     "Loadingscreen.Tip203": "Des pistes de danse bien placées encouragent les fêtes de danse !",
     "Loadingscreen.Tip204": "Les tremplins et les canons peuvent vous lancer sur un igloo.",
     "Loadingscreen.Tip205": "Les meubles empilés flottent si vous retirez l'élément ci-dessous.",
@@ -9110,5 +9113,6 @@
     "Furniture.DJPillar.Title": "Pilier DJ",
     "Furniture.DJPillar.Description": "Un pilier DJ décoratif.",
     "Igloos.MusicTrack.TheRoyalCourt": "La Cour royale",
-    "Igloos.MusicTrack.WeAreThePenguins": "Nous sommes les pingouins"
+    "Igloos.MusicTrack.WeAreThePenguins": "Nous sommes les pingouins",
+    "CellPhone.Events.Slideshow.Upcoming": "Événements à venir"
 }

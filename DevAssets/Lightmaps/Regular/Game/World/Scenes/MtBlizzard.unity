@@ -1281,9 +1281,10 @@ GameObject:
   - component: {fileID: 5423}
   - component: {fileID: 12855}
   - component: {fileID: 10493}
+  - component: {fileID: 12856}
   m_Layer: 30
   m_Name: ChairliftSnow
-  m_TagString: Untagged
+  m_TagString: Snow
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -1549,7 +1550,8 @@ GameObject:
   - component: {fileID: 5440}
   - component: {fileID: 12865}
   - component: {fileID: 10503}
-  m_Layer: 0
+  - component: {fileID: 12866}
+  m_Layer: 30
   m_Name: Tent
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2640,7 +2642,7 @@ GameObject:
   - component: {fileID: 15455}
   m_Layer: 30
   m_Name: HayRampCollider
-  m_TagString: Untagged
+  m_TagString: Snow
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3221,7 +3223,7 @@ GameObject:
   - component: {fileID: 17820}
   m_Layer: 30
   m_Name: BoxCollider
-  m_TagString: Untagged
+  m_TagString: Snow
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10413,9 +10415,10 @@ GameObject:
   - component: {fileID: 6285}
   - component: {fileID: 13253}
   - component: {fileID: 10885}
+  - component: {fileID: 13254}
   m_Layer: 30
   m_Name: TownGatewaySnow
-  m_TagString: Untagged
+  m_TagString: Snow
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -10718,7 +10721,7 @@ GameObject:
   - component: {fileID: 16887}
   m_Layer: 30
   m_Name: CapsuleCollider
-  m_TagString: Untagged
+  m_TagString: Snow
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11524,7 +11527,7 @@ GameObject:
   - component: {fileID: 18452}
   m_Layer: 30
   m_Name: BoxCollider
-  m_TagString: Untagged
+  m_TagString: Snow
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -13209,7 +13212,7 @@ GameObject:
   - component: {fileID: 18613}
   m_Layer: 30
   m_Name: SphereCollider
-  m_TagString: Untagged
+  m_TagString: Snow
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -19202,7 +19205,7 @@ GameObject:
   - component: {fileID: 16907}
   m_Layer: 30
   m_Name: CapsuleCollider
-  m_TagString: Untagged
+  m_TagString: Wood
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -23047,9 +23050,10 @@ GameObject:
   - component: {fileID: 7529}
   - component: {fileID: 13843}
   - component: {fileID: 11475}
+  - component: {fileID: 13844}
   m_Layer: 30
   m_Name: ChairliftSnow
-  m_TagString: Untagged
+  m_TagString: Snow
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -23729,7 +23733,7 @@ GameObject:
   - component: {fileID: 16916}
   m_Layer: 30
   m_Name: CapsuleCollider
-  m_TagString: Untagged
+  m_TagString: Snow
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -26694,7 +26698,7 @@ GameObject:
   - component: {fileID: 19692}
   m_Layer: 30
   m_Name: BoxCollider (2)
-  m_TagString: Untagged
+  m_TagString: Snow
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -27740,7 +27744,7 @@ GameObject:
   - component: {fileID: 19764}
   m_Layer: 30
   m_Name: BoxCollider
-  m_TagString: Untagged
+  m_TagString: Snow
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -29058,7 +29062,7 @@ GameObject:
   - component: {fileID: 19841}
   m_Layer: 30
   m_Name: SphereCollider
-  m_TagString: Untagged
+  m_TagString: Snow
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -30572,7 +30576,7 @@ GameObject:
   - component: {fileID: 16927}
   m_Layer: 30
   m_Name: CapsuleCollider
-  m_TagString: Untagged
+  m_TagString: Wood
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -30745,7 +30749,7 @@ GameObject:
   - component: {fileID: 16929}
   m_Layer: 30
   m_Name: CapsuleCollider
-  m_TagString: Untagged
+  m_TagString: Wood
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -38774,7 +38778,7 @@ GameObject:
   - component: {fileID: 20560}
   m_Layer: 29
   m_Name: BoxCollider (1)
-  m_TagString: Untagged
+  m_TagString: Snow
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -49639,9 +49643,10 @@ GameObject:
   - component: {fileID: 10056}
   - component: {fileID: 14997}
   - component: {fileID: 12622}
-  m_Layer: 0
+  - component: {fileID: 14998}
+  m_Layer: 30
   m_Name: CheerBoothSnow
-  m_TagString: Untagged
+  m_TagString: Snow
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -66699,7 +66704,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1165941263}
   m_Father: {fileID: 5371}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &6797
@@ -160879,6 +160885,28 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 142}
   m_Mesh: {fileID: 4300000, guid: 25740d5ef10a7824eb5c58752dae3b88, type: 2}
+--- !u!64 &12856
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 142}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: 25740d5ef10a7824eb5c58752dae3b88, type: 2}
 --- !u!33 &12857
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -160934,6 +160962,28 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 164}
+  m_Mesh: {fileID: 4300000, guid: 3822664b2e1965e4fa5b4efd65607d4c, type: 2}
+--- !u!64 &12866
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 164}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 3822664b2e1965e4fa5b4efd65607d4c, type: 2}
 --- !u!33 &12867
 MeshFilter:
@@ -162510,6 +162560,28 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1044}
+  m_Mesh: {fileID: 4300000, guid: 51bc9c88b92b5d44e88ab81c72971c93, type: 2}
+--- !u!64 &13254
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1044}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 51bc9c88b92b5d44e88ab81c72971c93, type: 2}
 --- !u!33 &13256
 MeshFilter:
@@ -165011,6 +165083,28 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2329}
+  m_Mesh: {fileID: 4300000, guid: 25740d5ef10a7824eb5c58752dae3b88, type: 2}
+--- !u!64 &13844
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2329}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 25740d5ef10a7824eb5c58752dae3b88, type: 2}
 --- !u!33 &13845
 MeshFilter:
@@ -169931,6 +170025,28 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4918}
+  m_Mesh: {fileID: 4300000, guid: 3fb0f0b4aed52374b87ea6ec97d72c64, type: 2}
+--- !u!64 &14998
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4918}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 3fb0f0b4aed52374b87ea6ec97d72c64, type: 2}
 --- !u!33 &15000
 MeshFilter:
@@ -555939,6 +556055,107 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 163916da260e32744ac3134d2e70c2c7, type: 3}
+--- !u!1001 &1165941262
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 6796}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: f44afc2d81ee10548a13d76274c444c3,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.03
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: f44afc2d81ee10548a13d76274c444c3,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.03
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: f44afc2d81ee10548a13d76274c444c3,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.03
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: f44afc2d81ee10548a13d76274c444c3,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: f44afc2d81ee10548a13d76274c444c3,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: f44afc2d81ee10548a13d76274c444c3,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: f44afc2d81ee10548a13d76274c444c3,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: f44afc2d81ee10548a13d76274c444c3,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: f44afc2d81ee10548a13d76274c444c3,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: f44afc2d81ee10548a13d76274c444c3,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: f44afc2d81ee10548a13d76274c444c3,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: f44afc2d81ee10548a13d76274c444c3,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: f44afc2d81ee10548a13d76274c444c3,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: f44afc2d81ee10548a13d76274c444c3,
+        type: 3}
+      propertyPath: m_Name
+      value: CaveTopSnowCollider
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: f44afc2d81ee10548a13d76274c444c3,
+        type: 3}
+      propertyPath: m_Layer
+      value: 29
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: f44afc2d81ee10548a13d76274c444c3,
+        type: 3}
+      propertyPath: m_TagString
+      value: Snow
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: -7511558181221131132, guid: f44afc2d81ee10548a13d76274c444c3, type: 3}
+    - {fileID: -5754084199372789682, guid: f44afc2d81ee10548a13d76274c444c3, type: 3}
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: f44afc2d81ee10548a13d76274c444c3, type: 3}
+--- !u!4 &1165941263 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: f44afc2d81ee10548a13d76274c444c3,
+    type: 3}
+  m_PrefabInstance: {fileID: 1165941262}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1168481223
 PrefabInstance:
   m_ObjectHideFlags: 0

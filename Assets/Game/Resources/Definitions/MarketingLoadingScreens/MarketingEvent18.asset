@@ -10,12 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9ddb1e6d8740872cd98132801fb0deb4, type: 3}
-  m_Name: MarketingEvent301
+  m_Name: MarketingEvent18
   m_EditorClassIdentifier: 
-  Id: 301
+  Id: 18
   ScreenPrefabContentKeys:
-  - Key: MarketingLoadingScreenPrefabs/MarketingLoadScreen_BoxDimensionComingSoon
+  - Key: MarketingLoadingScreenPrefabs/MarketingLoadScreen_RainbowEvent
+    type: UnityEngine.GameObject, UnityEngine
+  - Key: MarketingLoadingScreenPrefabs/MarketingLoadScreen_IglooList
+    type: UnityEngine.GameObject, UnityEngine
+  - Key: MarketingLoadingScreenPrefabs/MarketingLoadScreen_DescendantsCotillion
     type: UnityEngine.GameObject, UnityEngine
   DateDefinitionKey:
-    Id: 12
+    Id: 1
     type: ClubPenguin.Core.ScheduledEventDateDefinition, Core

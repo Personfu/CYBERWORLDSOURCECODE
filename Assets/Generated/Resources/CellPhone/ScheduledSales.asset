@@ -3,14 +3,15 @@
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 00bc5ec66f9c4b1a36f618fc531e778d, type: 3}
   m_Name: ScheduledSales
-  m_EditorClassIdentifier:
+  m_EditorClassIdentifier: 
   Assets:
   - {fileID: 11400000, guid: b84929ecd343816428600a644f5dc5ec, type: 2}
   - {fileID: 11400000, guid: fa24f6c3b94d29b4f9f369437c6ad129, type: 2}
@@ -20,3 +21,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 0214844aedb9bfe4ba573c4077bca52c, type: 2}
   - {fileID: 11400000, guid: 438daacfc11139a41a5662208dea40f9, type: 2}
   - {fileID: 11400000, guid: ba7fff40dc51dc64a9882f01e84b6055, type: 2}
+  - {fileID: 11400000, guid: f27dab1fea31b0949b3fcdf63d670430, type: 2}
+  - {fileID: 11400000, guid: ee506ecb69adb5a44b3772519bff0431, type: 2}
+  - {fileID: 11400000, guid: b566610d641b95e49befcf7c05c15dcb, type: 2}

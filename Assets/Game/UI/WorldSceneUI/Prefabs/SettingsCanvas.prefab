@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 223620002224421363}
   - component: {fileID: 114250998058197457}
   - component: {fileID: 114068344464793420}
-  - component: {fileID: 114062859856927598}
   - component: {fileID: 114114518101356757}
   - component: {fileID: 114473959299037584}
   - component: {fileID: 1701287601107460587}
@@ -97,20 +96,6 @@ MonoBehaviour:
   m_FirstSelected: {fileID: 0}
   m_sendNavigationEvents: 1
   m_DragThreshold: 15
---- !u!114 &114062859856927598
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1325831213226134}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2d49b7c1bcd2e07499844da127be038d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_SendPointerHoverToParent: 1
-  m_ForceModuleActive: 0
 --- !u!114 &114114518101356757
 MonoBehaviour:
   m_ObjectHideFlags: 0
