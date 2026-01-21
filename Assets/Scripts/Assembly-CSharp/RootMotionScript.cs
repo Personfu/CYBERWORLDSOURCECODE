@@ -1,19 +1,21 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-[RequireComponent(typeof(Animator))]
-    
+[RequireComponent(typeof(Animator))]   
 public class RootMotionScript : MonoBehaviour {
             
+    private Animator animator;
+
+    void Awake()
+    {
+        animator = GetComponent<Animator>();
+    }
+
     void OnAnimatorMove()
     {
-            Animator animator = GetComponent<Animator>(); 
-                              
-            if (animator)
-            {
-     Vector3 newPosition = transform.position;
-               newPosition.z += animator.GetFloat("Runspeed") * Time.deltaTime; 
-     transform.position = newPosition;
-            }
+        Vector3 newPosition = transform.position;
+        newPosition.z += animator.GetFloat("Runspeed") * Time.deltaTime;
+        transform.position = newPosition;
     }
+
 }
