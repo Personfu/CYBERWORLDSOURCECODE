@@ -2,7 +2,7 @@
 
 > [!IMPORTANT]
 > ### Unity Version
-> - **Unity 6000.3.4f1 LTS**
+> - **Unity 6000.3.5f1 LTS**
 
 > [!IMPORTANT]
 > ## **Builds can be found here:**
@@ -51,21 +51,21 @@
 >     - Added 5 custom party hat recolors (Halloween Party Hat, Holiday Party Hat, Anniversary 19 Party Hat, Anniversary 20 Party Hat, and Anniversary 21 Party Hat)
 >     - Added 4 custom duck tube recolors (Blue, Green, Pink, and Purple)
 >     - Added 1 custom recolor of the ```CakeCruiser``` Tube, the colors matches the 20th Anniversary cake and party hat.
->     - Refined the lightmap baking process
+>     - Refined the lightmap baking process.
 >     - The Classic Arcade machine has been moved from near Franky's Pizza in Island Central to the sewer in Island Central
 >     - Added and optimized support for native macOS Arm Silicon (Apple M1, M2, M3, M4, and newer chips)
 >     - Changed the Waddle On login coins award from ```1000000``` to ```0```
 >     - Added 2 new lighting options to the igloos. Those are ```Holiday``` and ```Rainbow Migration```. The ```Holiday``` lighting can be unlocked at Penguin level 20 and the ```Rainbow Migration``` lighting can be unlocked at Penguin level 8.
 >     - Added an optional skybox in the project to allow a day/night cycle that will cycle every 15 minutes (unfinished)
->     - Added 40 new Penguin colors
->     - Unlock the ```Valentine's Day chair``` at level 8. The ID for the chair is 278 and it will sell at the Igloo furniture shop for 40 coins
->     - And most importantly, the game is no longer in the original 32-bit state! This recreation is in a 64-bit state
+>     - Added 40 new Penguin colors.
+>     - Unlock the ```Valentine's Day chair``` at level 8. The ID for the chair is 278 and it will sell at the Igloo furniture shop for 40 coins.
+>     - And most importantly, the game is no longer in the original 32-bit state! This recreation is in a 64-bit state.
 >     - Version 1.13.1
->     - Changed the default 3 igloo save slots to 10 (10 is the max, higher than 10 causes data corruption and errors)
->     - Changed the default 130 max igloo furniture limit to 750
->     - Support for DirectX 12 and Vulkan
->     - Support for iL2CPP
->     - Added an annual looping event controller 3000
+>     - Changed the default 3 igloo save slots to 10 (10 is the max, higher than 10 causes data corruption and errors).
+>     - Changed the default 130 max igloo furniture limit to 750.
+>     - Support for DirectX 12 and Vulkan.
+>     - Support for iL2CPP.
+>     - Added an annual looping event controller 3000.
 >     - Added a total of 58 new Igloo Music tracks. Now you have more different types of music to play in your igloo! 
 >     - Added the April Fools Theme and Box Dimension to level 0 (before the tutorial level up). Added The Town (2014) to level 1. 
 >     - Added Puffle Party, Come Out To Play, Shoot For The Sun, Coconut, The Best Beach Party, Backbeat Jammin, Forever Summer, Rockhopper Theme, Sunshine Holiday, and Summer Song to level 2. 
@@ -84,17 +84,17 @@
 >     - Added Jazzy Pizza, Coffee Shop, and Pizza Parlor to level 24. 
 >     - Added I've Been Delayed, Cumulonimbus, and the Ski Lodge to level 25.
 >     - Support for .NET Standard 2.1
->     - Support for Unity's New Input System
->     - Support for Unity WebGL
+>     - Support for Unity's New Input System.
+>     - Support for Unity WebGL.
 >     - Added 2 new props, the 20th anniversary cake single and the 20th anniversary cake group. These can only be obtained from October 24, 2025 until October 31, 2025. November 1st and onward will not be claimable. 
->     - Support for the unreleased Penguin sprinting and skidding locomotion
+>     - Support for the unreleased Penguin sprinting and skidding locomotion.
 >     - Added 1 new igloo furniture to level 14. It is a recolor of the level 13 ```Waterfall```, named the ```Slime Waterfall```.
 >     - Added the Dubstep, Pop, and Rock genres for igloo music.
 >     - Added Rainbow Migration and Holiday Party items to the Disney Shop.
 >     - Added the ```RDMA 2017 Award``` to the Igloos. That unlocks at level 3.
 >     - Added the ```Globe Bean Bag Chair``` from ```WorldPenguinDay2017``` to the Igloos. That unlocks at level 3.
 >     - Added the ```Blizzard Beach Palm Tree``` and the ```Blizzard Beach Beach Chair``` from ```BlizzardBeach2017``` to the igloos. That unlocks at level 3.
->     - Added the ```Rainbow Migration``` ```Blender```, ```fruits```, ```Rainbow Smoothie```, and ```Color Post``` to the Igloos. Those unlocks at level 0, except for the ```Color Post``` which unlocks at level 0.
+>     - Added the ```Rainbow Migration``` ```Blender```, ```fruits```, ```Rainbow Smoothie```, and ```Color Post``` to the Igloos. Those unlocks at level 0, except for the ```Color Post``` which unlocks at level 8.
 >	  - Added the unused PartySupplies ```Mint GlowStick Single``` to the igloo shop and the diving market which unlocks at Penguin Level 10.
 > 	  - Brought back the older version of the effects particles for the ```Science Beaker``` Prop.
 >     - Added a new igloo furniture item to the Igloos that is called the ```Chemistry Set``` that can be unlocked at Penguin Level 25 and can be bought at the ```Igloo Interiors``` shop for 75 coins.
@@ -106,6 +106,7 @@
 >     - Added a green variant of the Chemistry Beaker to level 25.
 >     - Added a DJ Booth, DJ Pillar, and Purple Stage Curtain to the igloos. These furnitures will be unlocked at level 20.
 >     - Added a new collectible named the ```Sea Crystals``` to the Sea Caves.
+>     - Added a upcoming events cellphone widget. Which is says the upcoming annual parties/events.
 
 > [!IMPORTANT]
 > - What has been fixed:
