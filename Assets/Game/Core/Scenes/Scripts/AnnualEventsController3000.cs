@@ -8,17 +8,6 @@ public class AnnualEventsController : MonoBehaviour
 {
     public static AnnualEventsController Instance { get; private set; }
 
-    [Header("CDN Control")]
-    [Tooltip("When enabled, event dates are fetched from the CDN and override embedded data. This allows the party switcher to control events remotely.")]
-    public bool useCDNDates = true;
-    
-    [Tooltip("Reference to the CDN Event Date Service. If null, will try to find it automatically.")]
-    public CDNEventDateService cdnService;
-
-    [Header("Legacy Server Control (Deprecated)")]
-    [Tooltip("Legacy mode: reads timestamps from embedded assets. Use CDN Dates instead for remote control.")]
-    public bool useServerDates = false;
-
     [Serializable]
     public class EventInfo
     {
@@ -61,17 +50,10 @@ public class AnnualEventsController : MonoBehaviour
     [Header("Annual events (loops every year).")]
     public EventInfo[] events;
 
-    [Header("Timing")]
-    [Tooltip("Delay before first event check (seconds). Allows CDN data to load first.")]
-    public float initialDelay = 10f;
-    
-    [Tooltip("How often to refresh event status (seconds).")]
-    public float refreshInterval = 300f;
-
     private Dictionary<string, string> activeSceneKeys = new Dictionary<string, string>();
     private HashSet<string> seenScenes = new HashSet<string>();
+    private float refreshInterval = 300f; // 5 minutes
     private float nextRefreshTime;
-    private bool hasAppliedInitial = false;
 
     private void Awake()
     {
@@ -89,64 +71,17 @@ public class AnnualEventsController : MonoBehaviour
             return;
         }
 
-        // Try to find CDN service if not assigned
-        if (cdnService == null)
-        {
-            cdnService = FindObjectOfType<CDNEventDateService>();
-        }
-
-        // Subscribe to CDN data loaded event
-        if (cdnService != null)
-        {
-            cdnService.OnCDNDataLoaded += OnCDNDataLoaded;
-        }
-
-        // Delay initial application to allow CDN data to load
-        if (useCDNDates || useServerDates)
-        {
-            Debug.Log($"[AnnualEventsController] CDN dates mode enabled. Waiting {initialDelay}s for CDN data...");
-            nextRefreshTime = Time.time + initialDelay;
-        }
-        else
-        {
-            ApplyEvents();
-            hasAppliedInitial = true;
-            nextRefreshTime = Time.time + refreshInterval;
-        }
-    }
-
-    private void OnDestroy()
-    {
-        if (cdnService != null)
-        {
-            cdnService.OnCDNDataLoaded -= OnCDNDataLoaded;
-        }
-    }
-
-    private void OnCDNDataLoaded()
-    {
-        Debug.Log("[AnnualEventsController] CDN data loaded, applying events...");
         ApplyEvents();
+        nextRefreshTime = Time.time + refreshInterval;
     }
 
     private void Update()
     {
         if (Time.time >= nextRefreshTime)
         {
-            if (!hasAppliedInitial)
-            {
-                Debug.Log("[AnnualEventsController] Initial delay complete. Applying events with CDN data...");
-                hasAppliedInitial = true;
-            }
             ApplyEvents();
             nextRefreshTime = Time.time + refreshInterval;
         }
-    }
-
-    public void ForceRefresh()
-    {
-        Debug.Log("[AnnualEventsController] Force refresh requested.");
-        ApplyEvents();
     }
 
     private void ApplyEvents()
@@ -156,186 +91,90 @@ public class AnnualEventsController : MonoBehaviour
 
         int currentYear = DateTime.UtcNow.Year;
         DateTimeOffset currentDateUtc = DateTimeOffset.UtcNow;
-        long currentTimestamp = currentDateUtc.ToUnixTimeMilliseconds();
-
-        // Check if CDN service is ready
-        bool cdnReady = useCDNDates && cdnService != null && cdnService.IsLoaded;
-        if (useCDNDates && !cdnReady)
-        {
-            Debug.Log("[AnnualEventsController] CDN mode enabled but data not yet loaded, will retry...");
-        }
 
         foreach (var eventInfo in events)
         {
-            // Parse event ID
-            int eventId;
-            if (!int.TryParse(eventInfo.eventID, out eventId))
+            string path = $"definitions/scheduledeventdates/date_{eventInfo.eventID}_{eventInfo.eventName}";
+            var eventAsset = Resources.Load<ScriptableObject>(path);
+
+            if (eventAsset != null)
             {
-                Debug.LogWarning($"[AnnualEventsController] Could not parse event ID: {eventInfo.eventID}");
-                continue;
-            }
+                var type = eventAsset.GetType();
+                var datesField = type.GetField("Dates", BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance);
 
-            bool isActive = false;
-            long startTimestamp = 0;
-            long endTimestamp = 0;
-            string dateSource = "unknown";
-
-            // Priority 1: CDN dates (if enabled and loaded)
-            if (useCDNDates && cdnReady)
-            {
-                if (cdnService.GetEventTimestamps(eventId, out startTimestamp, out endTimestamp))
+                var datesValue = datesField.GetValue(eventAsset);
+                if (datesValue != null)
                 {
-                    isActive = currentTimestamp >= startTimestamp && currentTimestamp < endTimestamp;
-                    dateSource = "CDN";
-                }
-                else
-                {
-                    // Event not in CDN data, fall back to embedded
-                    dateSource = "CDN-missing";
-                }
-            }
+                    var startDateField = datesValue.GetType().GetField("StartDate", BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance);
+                    var endDateField = datesValue.GetType().GetField("EndDate", BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance);
 
-            // Priority 2: Embedded asset timestamps (useServerDates legacy mode or CDN fallback)
-            if (dateSource == "unknown" || dateSource == "CDN-missing")
-            {
-                string path = $"definitions/scheduledeventdates/date_{eventInfo.eventID}_{eventInfo.eventName}";
-                var eventAsset = Resources.Load<ScriptableObject>(path);
-
-                if (eventAsset != null)
-                {
-                    var type = eventAsset.GetType();
-                    var datesField = type.GetField("Dates", BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance);
-                    var datesValue = datesField?.GetValue(eventAsset);
-
-                    if (datesValue != null)
+                    if (startDateField != null && endDateField != null)
                     {
-                        var startDateField = datesValue.GetType().GetField("StartDate", BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance);
-                        var endDateField = datesValue.GetType().GetField("EndDate", BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance);
+                        var startDate = startDateField.GetValue(datesValue);
+                        var endDate = endDateField.GetValue(datesValue);
 
-                        if (startDateField != null && endDateField != null)
+                        if (startDate != null && endDate != null)
                         {
-                            var startDateObj = startDateField.GetValue(datesValue);
-                            var endDateObj = endDateField.GetValue(datesValue);
+                            int startYear = currentYear;
+                            int endYear = (eventInfo.endMonth < eventInfo.startMonth) ? currentYear + 1 : currentYear;
 
-                            if (startDateObj != null && endDateObj != null)
+                            // Update StartDate / EndDate fields
+                            SetFieldOrPropertyValue(startDate, "day", eventInfo.startDay);
+                            SetFieldOrPropertyValue(startDate, "month", eventInfo.startMonth);
+                            SetFieldOrPropertyValue(startDate, "year", startYear);
+
+                            SetFieldOrPropertyValue(endDate, "day", eventInfo.endDay);
+                            SetFieldOrPropertyValue(endDate, "month", eventInfo.endMonth);
+                            SetFieldOrPropertyValue(endDate, "year", endYear);
+
+                            // Use UTC for safety
+                            DateTimeOffset startDateTime = new DateTimeOffset(startYear, eventInfo.startMonth, eventInfo.startDay, 0, 0, 0, TimeSpan.Zero);
+                            DateTimeOffset endDateTime = new DateTimeOffset(endYear, eventInfo.endMonth, eventInfo.endDay, 0, 0, 0, TimeSpan.Zero);
+
+                            long startTimestamp = startDateTime.ToUnixTimeMilliseconds();
+                            long endTimestamp = endDateTime.ToUnixTimeMilliseconds();
+
+                            SetFieldOrPropertyValue(startDate, "TimeStampInMilliseconds", startTimestamp);
+                            SetFieldOrPropertyValue(endDate, "TimeStampInMilliseconds", endTimestamp);
+
+                            // Check if active in UTC range
+                            bool isActive = currentDateUtc >= startDateTime && currentDateUtc < endDateTime;
+
+                            // Apply audio keys
+                            foreach (var mapping in eventInfo.SceneAudioMappings)
                             {
-                                if (useServerDates || dateSource == "CDN-missing")
+                                if (isActive)
                                 {
-                                    // Use embedded timestamps
-                                    startTimestamp = GetFieldOrPropertyValue<long>(startDateObj, "TimeStampInMilliseconds");
-                                    endTimestamp = GetFieldOrPropertyValue<long>(endDateObj, "TimeStampInMilliseconds");
-                                    isActive = currentTimestamp >= startTimestamp && currentTimestamp < endTimestamp;
-                                    dateSource = dateSource == "CDN-missing" ? "embedded(CDN-fallback)" : "embedded";
+                                    activeSceneKeys[mapping.SceneName] = mapping.EventAudioKey;
                                 }
                                 else
                                 {
-                                    int startYear = currentYear;
-                                    int endYear = (eventInfo.endMonth < eventInfo.startMonth) ? currentYear + 1 : currentYear;
-
-                                    SetFieldOrPropertyValue(startDateObj, "day", eventInfo.startDay);
-                                    SetFieldOrPropertyValue(startDateObj, "month", eventInfo.startMonth);
-                                    SetFieldOrPropertyValue(startDateObj, "year", startYear);
-                                    SetFieldOrPropertyValue(endDateObj, "day", eventInfo.endDay);
-                                    SetFieldOrPropertyValue(endDateObj, "month", eventInfo.endMonth);
-                                    SetFieldOrPropertyValue(endDateObj, "year", endYear);
-
-                                    DateTimeOffset startDateTime = new DateTimeOffset(startYear, eventInfo.startMonth, eventInfo.startDay, 0, 0, 0, TimeSpan.Zero);
-                                    DateTimeOffset endDateTime = new DateTimeOffset(endYear, eventInfo.endMonth, eventInfo.endDay, 0, 0, 0, TimeSpan.Zero);
-
-                                    startTimestamp = startDateTime.ToUnixTimeMilliseconds();
-                                    endTimestamp = endDateTime.ToUnixTimeMilliseconds();
-
-                                    SetFieldOrPropertyValue(startDateObj, "TimeStampInMilliseconds", startTimestamp);
-                                    SetFieldOrPropertyValue(endDateObj, "TimeStampInMilliseconds", endTimestamp);
-
-                                    isActive = currentDateUtc >= startDateTime && currentDateUtc < endDateTime;
-                                    dateSource = "hardcoded";
+                                    if (!activeSceneKeys.ContainsKey(mapping.SceneName))
+                                    {
+                                        activeSceneKeys[mapping.SceneName] = mapping.DefaultAudioKey;
+                                    }
                                 }
+                                seenScenes.Add(mapping.SceneName);
+                            }
 
-                                // If CDN mode is enabled, update the embedded asset with CDN timestamps
-                                // This ensures other game systems that read the embedded assets also see CDN values
-                                if (useCDNDates && cdnReady && dateSource == "CDN")
+                            if (eventInfo.SnowballPrefab != null)
+                            {
+                                var tr = eventInfo.SnowballPrefab.GetComponent<TrailRenderer>();
+                                if (tr != null)
                                 {
-                                    SetFieldOrPropertyValue(startDateObj, "TimeStampInMilliseconds", startTimestamp);
-                                    SetFieldOrPropertyValue(endDateObj, "TimeStampInMilliseconds", endTimestamp);
+                                    tr.material = isActive ? eventInfo.EventMaterial : eventInfo.OriginalMaterial;
+                                    Debug.Log($"Material set on prefab '{eventInfo.SnowballPrefab.name}' for eventID '{eventInfo.eventID}' ({eventInfo.eventName}) Active: {isActive}");
                                 }
                             }
+
+                            Debug.Log($"Updated event {eventInfo.eventID} ({eventInfo.eventName}) dates. Active: {isActive}");
                         }
                     }
                 }
             }
-
-            // Also update the embedded asset if we got CDN data (for other systems to read)
-            if (useCDNDates && cdnReady && dateSource == "CDN")
-            {
-                UpdateEmbeddedAsset(eventInfo, startTimestamp, endTimestamp);
-            }
-
-            Debug.Log($"[{dateSource}] Event {eventInfo.eventID} ({eventInfo.eventName}): Start={startTimestamp}, End={endTimestamp}, Current={currentTimestamp}, Active={isActive}");
-
-            // Apply audio keys
-            foreach (var mapping in eventInfo.SceneAudioMappings)
-            {
-                if (isActive)
-                {
-                    activeSceneKeys[mapping.SceneName] = mapping.EventAudioKey;
-                }
-                else
-                {
-                    if (!activeSceneKeys.ContainsKey(mapping.SceneName))
-                    {
-                        activeSceneKeys[mapping.SceneName] = mapping.DefaultAudioKey;
-                    }
-                }
-                seenScenes.Add(mapping.SceneName);
-            }
-
-            if (eventInfo.SnowballPrefab != null)
-            {
-                var tr = eventInfo.SnowballPrefab.GetComponent<TrailRenderer>();
-                if (tr != null)
-                {
-                    tr.material = isActive ? eventInfo.EventMaterial : eventInfo.OriginalMaterial;
-                    Debug.Log($"Material set on prefab '{eventInfo.SnowballPrefab.name}' for eventID '{eventInfo.eventID}' ({eventInfo.eventName}) Active: {isActive}");
-                }
-            }
-
-            Debug.Log($"Updated event {eventInfo.eventID} ({eventInfo.eventName}) dates. Active: {isActive}");
         }
 
         ApplySceneAudioKeys();
-    }
-
-    private void UpdateEmbeddedAsset(EventInfo eventInfo, long startTimestamp, long endTimestamp)
-    {
-        string path = $"definitions/scheduledeventdates/date_{eventInfo.eventID}_{eventInfo.eventName}";
-        var eventAsset = Resources.Load<ScriptableObject>(path);
-
-        if (eventAsset != null)
-        {
-            var type = eventAsset.GetType();
-            var datesField = type.GetField("Dates", BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance);
-            var datesValue = datesField?.GetValue(eventAsset);
-
-            if (datesValue != null)
-            {
-                var startDateField = datesValue.GetType().GetField("StartDate", BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance);
-                var endDateField = datesValue.GetType().GetField("EndDate", BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance);
-
-                if (startDateField != null && endDateField != null)
-                {
-                    var startDateObj = startDateField.GetValue(datesValue);
-                    var endDateObj = endDateField.GetValue(datesValue);
-
-                    if (startDateObj != null && endDateObj != null)
-                    {
-                        SetFieldOrPropertyValue(startDateObj, "TimeStampInMilliseconds", startTimestamp);
-                        SetFieldOrPropertyValue(endDateObj, "TimeStampInMilliseconds", endTimestamp);
-                        Debug.Log($"[CDN] Updated embedded asset for event {eventInfo.eventID} with CDN timestamps");
-                    }
-                }
-            }
-        }
     }
 
     private void ApplySceneAudioKeys()
@@ -390,26 +229,6 @@ public class AnnualEventsController : MonoBehaviour
         }
 
         Debug.LogError($"Field or property {name} not found in {type.Name}!");
-    }
-
-    private T GetFieldOrPropertyValue<T>(object target, string name)
-    {
-        var type = target.GetType();
-
-        var field = type.GetField(name, BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance);
-        if (field != null)
-        {
-            return (T)field.GetValue(target);
-        }
-
-        var property = type.GetProperty(name, BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance);
-        if (property != null && property.CanRead)
-        {
-            return (T)property.GetValue(target);
-        }
-
-        Debug.LogError($"Field or property {name} not found in {type.Name}!");
-        return default(T);
     }
 }
 

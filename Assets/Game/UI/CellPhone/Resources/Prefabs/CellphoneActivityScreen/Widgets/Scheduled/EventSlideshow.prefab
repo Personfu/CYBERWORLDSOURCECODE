@@ -270,7 +270,7 @@ MonoBehaviour:
     SpriteB: {fileID: 0}
   - EventName: Anniversary Party 2018
     DateDefinitionKey:
-      Id: 12
+      Id: 13
       type: ClubPenguin.Core.ScheduledEventDateDefinition, Core
     DateType: 2
     SpriteA: {fileID: 21300000, guid: bb4854bcb4c036b4788be200287e8281, type: 3}
@@ -315,7 +315,7 @@ MonoBehaviour:
       Id: 40
       type: ClubPenguin.Core.ScheduledEventDateDefinition, Core
     DateType: 2
-    SpriteA: {fileID: 21300000, guid: bb4854bcb4c036b4788be200287e8281, type: 3}
+    SpriteA: {fileID: 21300000, guid: b547fd16bd505014982d78698e348478, type: 3}
     SpriteB: {fileID: 0}
   - EventName: Summer Splash Construction
     DateDefinitionKey:

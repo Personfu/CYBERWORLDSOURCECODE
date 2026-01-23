@@ -2,7 +2,7 @@
 
 > [!IMPORTANT]
 > ### Unity Version
-> - **Unity 6000.3.5f1 LTS**
+> - **Unity 6000.3.4f1 LTS**
 
 > [!IMPORTANT]
 > ## **Builds can be found here:**
