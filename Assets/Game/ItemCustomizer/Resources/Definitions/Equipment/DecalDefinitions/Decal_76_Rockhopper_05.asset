@@ -9,8 +9,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2607abde2b961a554ecdbea27261f1c9, type: 3}
-  m_Name: Decal_76_rockhopper_05
-  m_EditorClassIdentifier:
+  m_Name: Decal_76_RockHopper_05
+  m_EditorClassIdentifier: 
   Id: 76
   AssetName: decal_pirate_string
   Tags:

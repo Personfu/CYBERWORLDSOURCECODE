@@ -16,4 +16,6 @@ MonoBehaviour:
   AssetName: decal_uwu
   Tags:
   - {fileID: 11400000, guid: 0d5b7353ac17eed47b1bbeaa3d00ca9a, type: 2}
+  - {fileID: 11400000, guid: 09941cfa108eff64898fd4794ab574bd, type: 2}
+  - {fileID: 11400000, guid: 5c3d6a1f6420c4f4f9d2e6604a0a9c48, type: 2}
   isMemberOnly: 1

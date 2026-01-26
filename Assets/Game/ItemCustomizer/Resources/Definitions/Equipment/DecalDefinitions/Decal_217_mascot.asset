@@ -16,4 +16,5 @@ MonoBehaviour:
   AssetName: decal_mascot_cadencejeans
   Tags:
   - {fileID: 11400000, guid: 0d5b7353ac17eed47b1bbeaa3d00ca9a, type: 2}
+  - {fileID: 11400000, guid: bc07f21a77db06a43a41b012358b11b9, type: 2}
   isMemberOnly: 1

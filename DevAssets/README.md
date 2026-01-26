@@ -2,7 +2,7 @@
 
 > [!IMPORTANT]
 > ### Unity Version
-> - **Unity 6000.3.4f1 LTS**
+> - **Unity 6000.3.5f2 LTS**
 
 > [!IMPORTANT]
 > ## **Builds can be found here:**
@@ -49,7 +49,7 @@
 > - What's new/changed:
 >     - Added the unreleased igloo furniture ```grand father clock``` from version 1.6.1
 >     - Added 5 custom party hat recolors (Halloween Party Hat, Holiday Party Hat, Anniversary 19 Party Hat, Anniversary 20 Party Hat, and Anniversary 21 Party Hat)
->     - Added 4 custom duck tube recolors (Blue, Green, Pink, and Purple)
+>     - Added 3 custom duck tube recolors (Blue, Green, and Purple)
 >     - Added 1 custom recolor of the ```CakeCruiser``` Tube, the colors matches the 20th Anniversary cake and party hat.
 >     - Refined the lightmap baking process.
 >     - The Classic Arcade machine has been moved from near Franky's Pizza in Island Central to the sewer in Island Central

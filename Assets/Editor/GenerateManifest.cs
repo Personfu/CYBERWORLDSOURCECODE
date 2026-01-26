@@ -16,7 +16,7 @@ public class GenerateManifest
         public List<string> assets { get; set; }
     }
 
-    // Bundle dependencies
+    // Bundle dependencies, quests uses these for loading stuff like images and such.
     private static readonly Dictionary<string, string> bundleDependencies = new Dictionary<string, string>
     {
         { "assetbundles/generated/standalonewindows64/quest.sa.unity3d", "assetbundles/generated/standalonewindows64/mascot.sa.unity3d" },

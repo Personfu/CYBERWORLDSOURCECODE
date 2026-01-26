@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SkinnedMesh:
     Name: head
-    Mesh: {fileID: -7070831255929112694, guid: 17b9101346cd1e448bf908c454d04558, type: 3}
+    Mesh: {fileID: 4300000, guid: a5b5a8b54076e1644a23377617931395, type: 2}
     RootBoneName: chest_jnt
     BoneNames:
     - chest_jnt

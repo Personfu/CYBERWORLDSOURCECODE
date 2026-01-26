@@ -16,4 +16,6 @@ MonoBehaviour:
   AssetName: decal_halloween_evilface
   Tags:
   - {fileID: 11400000, guid: 0d5b7353ac17eed47b1bbeaa3d00ca9a, type: 2}
+  - {fileID: 11400000, guid: 106ff5192093dfc4daaba666959b1fdd, type: 2}
+  - {fileID: 11400000, guid: 8a893398b47404e46aa4bbd7ddbf1af5, type: 2}
   isMemberOnly: 1

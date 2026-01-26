@@ -22,6 +22,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 54fa222703668df42a79e214976addf7, type: 2}
   - {fileID: 11400000, guid: 98441469ed89e33408e8657166409c23, type: 2}
   - {fileID: 11400000, guid: 3e01ae3cd30bc0f48840dcce9c542ba5, type: 2}
+  - {fileID: 11400000, guid: e30c48d0199aa8d48abcdcc6fc2f3542, type: 2}
+  - {fileID: 11400000, guid: aed63a47e527ee74db8549baf8c0a50d, type: 2}
   fabrics:
   - {fileID: 11400000, guid: a7e7ce624947a5f4b8ff2b8ad642c5d2, type: 2}
   - {fileID: 11400000, guid: 052014ad2f7bfe949bba5fe3470ba044, type: 2}

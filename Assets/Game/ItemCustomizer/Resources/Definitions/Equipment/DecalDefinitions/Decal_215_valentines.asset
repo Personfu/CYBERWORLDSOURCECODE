@@ -16,4 +16,7 @@ MonoBehaviour:
   AssetName: decal_valentines_cutehearteyes
   Tags:
   - {fileID: 11400000, guid: 0d5b7353ac17eed47b1bbeaa3d00ca9a, type: 2}
+  - {fileID: 11400000, guid: 5c3d6a1f6420c4f4f9d2e6604a0a9c48, type: 2}
+  - {fileID: 11400000, guid: 706898e544b9d554fa1762aeb2e25e58, type: 2}
+  - {fileID: 11400000, guid: 1efd7d360e747dc489290021a3e7ed08, type: 2}
   isMemberOnly: 1

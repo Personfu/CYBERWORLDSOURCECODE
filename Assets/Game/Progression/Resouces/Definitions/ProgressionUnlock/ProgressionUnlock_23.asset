@@ -19,6 +19,11 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 807ca0f63615f8d4e8bade70a31b3668, type: 2}
   - {fileID: 11400000, guid: 3f22bd6a1a3c9244babcf6d1dbec7269, type: 2}
   - {fileID: 11400000, guid: 692a7cce58f213946b12d414f1dd427a, type: 2}
+  - {fileID: 11400000, guid: c762c5d5bf40c6d499659961762acc3b, type: 2}
+  - {fileID: 11400000, guid: d88006e5b35ba3441a6916118b8901e2, type: 2}
+  - {fileID: 11400000, guid: 0cfe9b23f1edbb54395c08969ddefb5a, type: 2}
+  - {fileID: 11400000, guid: c3705aa3ad675a74cb4c1460abf7721f, type: 2}
+  - {fileID: 11400000, guid: 1aab579369fada34abe9f72c8eb99ad9, type: 2}
   fabrics:
   - {fileID: 11400000, guid: 0b87254a61c2a37439ced5594e465cfd, type: 2}
   - {fileID: 11400000, guid: 28bf636e450d6dd4aa9b37da3b2598f7, type: 2}
