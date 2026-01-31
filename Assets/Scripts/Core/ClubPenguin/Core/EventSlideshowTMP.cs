@@ -29,6 +29,9 @@ namespace ClubPenguin.Core
 
             public Sprite SpriteA;
             public Sprite SpriteB;
+
+            public bool OverrideGradientColor;
+            public Color GradientColor;
         }
 
         [Header("TMP Targets")]
@@ -37,6 +40,9 @@ namespace ClubPenguin.Core
 
         [Header("Image Target")]
         [SerializeField] private Image globalImage;
+
+        [Header("Gradient Target")]
+        [SerializeField] private Graphic globalGradientGraphic;
 
         [Header("Events")]
         [SerializeField] private List<EventEntry> events = new List<EventEntry>();
@@ -112,6 +118,7 @@ namespace ClubPenguin.Core
                 eventDateText.text = GetEventDate(entry);
 
             ApplyEventSprite(index, entry);
+            ApplyEventGradientColor(entry);
         }
 
         private void ApplyEventSprite(int index, EventEntry entry)
@@ -142,6 +149,15 @@ namespace ClubPenguin.Core
             {
                 globalImage.sprite = entry.SpriteB;
             }
+        }
+
+        private void ApplyEventGradientColor(EventEntry entry)
+        {
+            if (globalGradientGraphic == null)
+                return;
+
+            if (entry.OverrideGradientColor)
+                globalGradientGraphic.color = entry.GradientColor;
         }
 
         private string GetEventDate(EventEntry entry)

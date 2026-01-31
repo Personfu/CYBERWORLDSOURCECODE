@@ -18974,7 +18974,8 @@ GameObject:
   - component: {fileID: 7108}
   - component: {fileID: 13642}
   - component: {fileID: 11275}
-  m_Layer: 0
+  - component: {fileID: 13644}
+  m_Layer: 30
   m_Name: BlueColumn (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19983,7 +19984,8 @@ GameObject:
   - component: {fileID: 7217}
   - component: {fileID: 13688}
   - component: {fileID: 11320}
-  m_Layer: 0
+  - component: {fileID: 663936499}
+  m_Layer: 30
   m_Name: RedColumn (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -32060,7 +32062,8 @@ GameObject:
   - component: {fileID: 8388}
   - component: {fileID: 14237}
   - component: {fileID: 11868}
-  m_Layer: 0
+  - component: {fileID: 14241}
+  m_Layer: 30
   m_Name: RedColumn (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -33778,7 +33781,8 @@ GameObject:
   - component: {fileID: 8558}
   - component: {fileID: 14322}
   - component: {fileID: 11951}
-  m_Layer: 0
+  - component: {fileID: 14323}
+  m_Layer: 30
   m_Name: BlueColumn (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -164239,6 +164243,27 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1909}
   m_Mesh: {fileID: 4300000, guid: 82dd919fa530eac49a4d82ab6fb0ed5b, type: 2}
+--- !u!65 &13644
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1906}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.59960085, y: 1.4906443, z: 0.59984785}
+  m_Center: {x: -0.002290249, y: 0.74645615, z: -0.0000014304433}
 --- !u!33 &13647
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -166885,6 +166910,27 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3216}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!65 &14241
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3209}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.5901843, y: 2.6838458, z: 0.5965519}
+  m_Center: {x: -0.00010748249, y: 1.3432353, z: -0.0000009518842}
 --- !u!33 &14242
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -167141,6 +167187,27 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3393}
   m_Mesh: {fileID: 4300000, guid: 14dcf251c435cbd42811103b8c8048d6, type: 2}
+--- !u!65 &14323
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3393}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.59960085, y: 1.4906443, z: 0.59984785}
+  m_Center: {x: -0.002290249, y: 0.74645615, z: -0.0000011920247}
 --- !u!33 &14324
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -553186,6 +553253,27 @@ CapsuleCollider:
   m_Height: 0.3190125
   m_Direction: 1
   m_Center: {x: 0.11080533, y: -0.039630406, z: -0.13032727}
+--- !u!65 &663936499
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2013}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.5901843, y: 1.4867681, z: 0.5965519}
+  m_Center: {x: -0.00010729254, y: 0.74470764, z: 0.0000000013839285}
 --- !u!1001 &672316174
 PrefabInstance:
   m_ObjectHideFlags: 0

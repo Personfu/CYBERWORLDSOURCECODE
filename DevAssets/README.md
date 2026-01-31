@@ -2,7 +2,7 @@
 
 > [!IMPORTANT]
 > ### Unity Version
-> - **Unity 6000.3.5f2 LTS**
+> - **Unity 6000.3.6f1 LTS**
 
 > [!IMPORTANT]
 > ## **Builds can be found here:**
@@ -63,7 +63,7 @@
 >     - Version 1.13.1
 >     - Changed the default 3 igloo save slots to 10 (10 is the max, higher than 10 causes data corruption and errors).
 >     - Changed the default 130 max igloo furniture limit to 750.
->     - Support for DirectX 12 and Vulkan.
+>     - Support for DirectX 12 and Vulkan. Note: DirectX 12 causes the game to crash while using windowed mode if you click out of the app.
 >     - Support for iL2CPP.
 >     - Added an annual looping event controller 3000.
 >     - Added a total of 58 new Igloo Music tracks. Now you have more different types of music to play in your igloo! 
@@ -107,6 +107,7 @@
 >     - Added a DJ Booth, DJ Pillar, and Purple Stage Curtain to the igloos. These furnitures will be unlocked at level 20.
 >     - Added a new collectible named the ```Sea Crystals``` to the Sea Caves.
 >     - Added a upcoming events cellphone widget. Which is says the upcoming annual parties/events.
+>	  - Added support for Discord's Social SDK for Discord RPC. Note: This feature will only work on the Mono scripting backend and not iL2CPP.
 
 > [!IMPORTANT]
 > - What has been fixed:

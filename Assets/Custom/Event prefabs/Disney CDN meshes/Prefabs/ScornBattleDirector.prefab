@@ -1,14 +1,14 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &1334658523450372
+--- !u!1 &1645670669271599
 GameObject:
   serializedVersion: 5
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_Component:
-  - component: {fileID: 4994617603482477}
-  - component: {fileID: 114037533971282958}
+  - component: {fileID: 4754011470072801}
+  - component: {fileID: 114759523857287248}
   m_Layer: 0
   m_Name: ScornBattleDirector
   m_TagString: Untagged
@@ -16,12 +16,12 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4994617603482477
+--- !u!4 &4754011470072801
 Transform:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1334658523450372}
+  m_GameObject: {fileID: 1645670669271599}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -351.63, y: 16.33, z: -11.278}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -29,12 +29,12 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &114037533971282958
+--- !u!114 &114759523857287248
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1334658523450372}
+  m_GameObject: {fileID: 1645670669271599}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 1384774831, guid: e743331561ef77147ae48cda9bcb8209, type: 3}
@@ -62,8 +62,8 @@ MonoBehaviour:
       actionData:
         actionNames: []
         customNames: []
-        actionEnabled: []
-        actionIsOpen: []
+        actionEnabled:
+        actionIsOpen:
         actionStartIndex: []
         actionHashCodes: []
         unityObjectParams: []
@@ -89,7 +89,7 @@ MonoBehaviour:
         fsmRectParams: []
         fsmQuaternionParams: []
         stringParams: []
-        byteData: []
+        byteData:
         arrayParamSizes: []
         arrayParamTypes: []
         customTypeSizes: []
@@ -334,7 +334,7 @@ MonoBehaviour:
     handleApplicationEvents: 0
     handleAnimatorMove: 0
     handleAnimatorIK: 0
-  fsmTemplate: {fileID: 11400000, guid: 47978d60d15c4c944a8dd2cd9a7cae20, type: 2}
+  fsmTemplate: {fileID: 11400000, guid: 0f7d227c6893bb742a890b607df31cb2, type: 2}
   eventHandlerComponentsAdded: 1
 --- !u!1001 &100100000
 Prefab:
@@ -345,5 +345,5 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 1334658523450372}
+  m_RootGameObject: {fileID: 1645670669271599}
   m_IsPrefabParent: 1

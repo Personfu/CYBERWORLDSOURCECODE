@@ -2548,7 +2548,7 @@ GameObject:
   - component: {fileID: 5469576526235149705}
   - component: {fileID: 6996186662215710720}
   m_Layer: 0
-  m_Name: PurpleShadowCage
+  m_Name: ShadowCage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2579,8 +2579,8 @@ Light:
   m_Enabled: 1
   serializedVersion: 12
   m_Type: 3
-  m_Color: {r: 0.30980393, g: 0.20784315, b: 0.59607846, a: 1}
-  m_Intensity: 1.5
+  m_Color: {r: 0.46666667, g: 0.9647059, b: 0.050980393, a: 1}
+  m_Intensity: 1
   m_Range: 15.711546
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -15406,12 +15406,32 @@ PrefabInstance:
     - target: {fileID: 3797608975880479121, guid: 030466123e40d9747a70008c482d0494,
         type: 3}
       propertyPath: m_Name
-      value: PurpleShadowEntrance
+      value: ShadowEntrance
+      objectReference: {fileID: 0}
+    - target: {fileID: 3797608975880479121, guid: 030466123e40d9747a70008c482d0494,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3866665982518983540, guid: 030466123e40d9747a70008c482d0494,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 0.050980393
+      objectReference: {fileID: 0}
+    - target: {fileID: 3866665982518983540, guid: 030466123e40d9747a70008c482d0494,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 0.9647059
+      objectReference: {fileID: 0}
+    - target: {fileID: 3866665982518983540, guid: 030466123e40d9747a70008c482d0494,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 0.46666667
       objectReference: {fileID: 0}
     - target: {fileID: 3866665982518983540, guid: 030466123e40d9747a70008c482d0494,
         type: 3}
       propertyPath: m_Intensity
-      value: 1.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3866665982518983540, guid: 030466123e40d9747a70008c482d0494,
         type: 3}
@@ -15421,7 +15441,7 @@ PrefabInstance:
     - target: {fileID: 3866665982518983540, guid: 030466123e40d9747a70008c482d0494,
         type: 3}
       propertyPath: m_AreaSize.y
-      value: 2.4041827
+      value: 3.8927746
       objectReference: {fileID: 0}
     - target: {fileID: 3921622370203803841, guid: 030466123e40d9747a70008c482d0494,
         type: 3}

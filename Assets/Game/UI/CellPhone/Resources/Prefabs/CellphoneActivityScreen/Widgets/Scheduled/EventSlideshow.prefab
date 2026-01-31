@@ -253,6 +253,7 @@ MonoBehaviour:
   eventNameText: {fileID: 9193567126231367385}
   eventDateText: {fileID: 5029163349122227841}
   globalImage: {fileID: 114852758275237725}
+  globalGradientGraphic: {fileID: 114134635112402263}
   events:
   - EventName: Rainbow Migration
     DateDefinitionKey:
@@ -261,6 +262,8 @@ MonoBehaviour:
     DateType: 2
     SpriteA: {fileID: 21300000, guid: 67d3864b656f98f4e9c8c2cb7be72b4b, type: 3}
     SpriteB: {fileID: 0}
+    OverrideGradientColor: 1
+    GradientColor: {r: 0.40784314, g: 0.07058824, b: 0.45490196, a: 1}
   - EventName: Blizzard Beach
     DateDefinitionKey:
       Id: 30
@@ -268,6 +271,8 @@ MonoBehaviour:
     DateType: 2
     SpriteA: {fileID: 21300000, guid: b547fd16bd505014982d78698e348478, type: 3}
     SpriteB: {fileID: 0}
+    OverrideGradientColor: 1
+    GradientColor: {r: 0.5019608, g: 0.38039216, b: 0.99607843, a: 1}
   - EventName: Anniversary Party 2018
     DateDefinitionKey:
       Id: 13
@@ -275,6 +280,8 @@ MonoBehaviour:
     DateType: 2
     SpriteA: {fileID: 21300000, guid: bb4854bcb4c036b4788be200287e8281, type: 3}
     SpriteB: {fileID: 0}
+    OverrideGradientColor: 1
+    GradientColor: {r: 0.5568628, g: 0.039215688, b: 0.5411765, a: 1}
   - EventName: April Fools
     DateDefinitionKey:
       Id: 12
@@ -282,6 +289,8 @@ MonoBehaviour:
     DateType: 2
     SpriteA: {fileID: 21300000, guid: cb95ab08b1549da4180c1dd1f3aec0e8, type: 3}
     SpriteB: {fileID: 0}
+    OverrideGradientColor: 1
+    GradientColor: {r: 0.22352941, g: 0, b: 0.42745098, a: 1}
   - EventName: World Penguin Day 2017
     DateDefinitionKey:
       Id: 29
@@ -289,6 +298,8 @@ MonoBehaviour:
     DateType: 2
     SpriteA: {fileID: 21300000, guid: 56b5e7a38350ca9489b4b09ac159ae55, type: 3}
     SpriteB: {fileID: 0}
+    OverrideGradientColor: 1
+    GradientColor: {r: 0.101960786, g: 0.09803922, b: 0.3764706, a: 1}
   - EventName: RDMA
     DateDefinitionKey:
       Id: 27
@@ -296,6 +307,8 @@ MonoBehaviour:
     DateType: 2
     SpriteA: {fileID: 21300000, guid: 56b5e7a38350ca9489b4b09ac159ae55, type: 3}
     SpriteB: {fileID: 0}
+    OverrideGradientColor: 1
+    GradientColor: {r: 0.101960786, g: 0.09803922, b: 0.3764706, a: 1}
   - EventName: World Penguin Day 2018
     DateDefinitionKey:
       Id: 17
@@ -303,6 +316,8 @@ MonoBehaviour:
     DateType: 2
     SpriteA: {fileID: 21300000, guid: 56b5e7a38350ca9489b4b09ac159ae55, type: 3}
     SpriteB: {fileID: 0}
+    OverrideGradientColor: 1
+    GradientColor: {r: 0.101960786, g: 0.09803922, b: 0.3764706, a: 1}
   - EventName: WPD 2017 Week 2
     DateDefinitionKey:
       Id: 48
@@ -310,6 +325,8 @@ MonoBehaviour:
     DateType: 2
     SpriteA: {fileID: 21300000, guid: 56b5e7a38350ca9489b4b09ac159ae55, type: 3}
     SpriteB: {fileID: 0}
+    OverrideGradientColor: 1
+    GradientColor: {r: 0.101960786, g: 0.09803922, b: 0.3764706, a: 1}
   - EventName: OpenCPI Anniversary
     DateDefinitionKey:
       Id: 40
@@ -317,6 +334,8 @@ MonoBehaviour:
     DateType: 2
     SpriteA: {fileID: 21300000, guid: b547fd16bd505014982d78698e348478, type: 3}
     SpriteB: {fileID: 0}
+    OverrideGradientColor: 1
+    GradientColor: {r: 0.5019608, g: 0.38039216, b: 0.99607843, a: 1}
   - EventName: Summer Splash Construction
     DateDefinitionKey:
       Id: 46
@@ -324,6 +343,8 @@ MonoBehaviour:
     DateType: 2
     SpriteA: {fileID: 21300000, guid: 18db69defbb837e4f85a59a76a5dea63, type: 3}
     SpriteB: {fileID: 0}
+    OverrideGradientColor: 1
+    GradientColor: {r: 0, g: 0.6, b: 0.7921569, a: 1}
   - EventName: Summer Splashdown
     DateDefinitionKey:
       Id: 20
@@ -331,6 +352,8 @@ MonoBehaviour:
     DateType: 2
     SpriteA: {fileID: 21300000, guid: 18db69defbb837e4f85a59a76a5dea63, type: 3}
     SpriteB: {fileID: 0}
+    OverrideGradientColor: 1
+    GradientColor: {r: 0, g: 0.6, b: 0.7921569, a: 1}
   - EventName: Medieval Party
     DateDefinitionKey:
       Id: 49
@@ -338,6 +361,8 @@ MonoBehaviour:
     DateType: 2
     SpriteA: {fileID: 21300000, guid: 165a0c0876145ed4bb5f5505e8f12230, type: 3}
     SpriteB: {fileID: 0}
+    OverrideGradientColor: 1
+    GradientColor: {r: 0.11764706, g: 0.11764706, b: 0.11764706, a: 1}
   - EventName: Halloween Construction
     DateDefinitionKey:
       Id: 44
@@ -345,6 +370,8 @@ MonoBehaviour:
     DateType: 2
     SpriteA: {fileID: 21300000, guid: 0ccdd6aa9a55135438c995d2265bc313, type: 3}
     SpriteB: {fileID: 0}
+    OverrideGradientColor: 1
+    GradientColor: {r: 0.11764706, g: 0.11764706, b: 0.11764706, a: 1}
   - EventName: Halloween 2018
     DateDefinitionKey:
       Id: 22
@@ -352,6 +379,8 @@ MonoBehaviour:
     DateType: 2
     SpriteA: {fileID: 21300000, guid: 0ccdd6aa9a55135438c995d2265bc313, type: 3}
     SpriteB: {fileID: 0}
+    OverrideGradientColor: 1
+    GradientColor: {r: 0.11764706, g: 0.11764706, b: 0.11764706, a: 1}
   - EventName: 21st Anniversary
     DateDefinitionKey:
       Id: 47
@@ -359,6 +388,8 @@ MonoBehaviour:
     DateType: 2
     SpriteA: {fileID: 21300000, guid: 0ccdd6aa9a55135438c995d2265bc313, type: 3}
     SpriteB: {fileID: 0}
+    OverrideGradientColor: 1
+    GradientColor: {r: 0.11764706, g: 0.11764706, b: 0.11764706, a: 1}
   - EventName: 20th Anniversary
     DateDefinitionKey:
       Id: 41
@@ -366,13 +397,26 @@ MonoBehaviour:
     DateType: 2
     SpriteA: {fileID: 21300000, guid: 0ccdd6aa9a55135438c995d2265bc313, type: 3}
     SpriteB: {fileID: 0}
+    OverrideGradientColor: 1
+    GradientColor: {r: 0.11764706, g: 0.11764706, b: 0.11764706, a: 1}
   - EventName: Holiday Party
     DateDefinitionKey:
       Id: 45
       type: ClubPenguin.Core.ScheduledEventDateDefinition, Core
     DateType: 2
     SpriteA: {fileID: 21300000, guid: 3caa4a31418a758478d802fee0e380c3, type: 3}
-    SpriteB: {fileID: 21300000, guid: 402ace2b9e608324f9c4525af34cacde, type: 3}
+    SpriteB: {fileID: 0}
+    OverrideGradientColor: 1
+    GradientColor: {r: 0.63529414, g: 0.08627451, b: 0.34901962, a: 1}
+  - EventName: Olaf's Frozen Adventure
+    DateDefinitionKey:
+      Id: 45
+      type: ClubPenguin.Core.ScheduledEventDateDefinition, Core
+    DateType: 2
+    SpriteA: {fileID: 21300000, guid: 402ace2b9e608324f9c4525af34cacde, type: 3}
+    SpriteB: {fileID: 0}
+    OverrideGradientColor: 1
+    GradientColor: {r: 0.0627451, g: 0.13333334, b: 0.23529412, a: 1}
   startDateOptions:
     UseYear: 0
     UseMonth: 1
