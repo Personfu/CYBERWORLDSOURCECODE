@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Id: 11
   ScreenPrefabContentKeys:
-  - Key: MarketingLoadingScreenPrefabs/MarketingLoadScreen_Descendants
-    type: UnityEngine.GameObject, UnityEngine.CoreModule
+  - Key: MarketingLoadingScreenPrefabs/MarketingLoadScreen_Halloween
+    type: UnityEngine.GameObject, UnityEngine
   DateDefinitionKey:
-    Id: 30
+    Id: 47
     type: ClubPenguin.Core.ScheduledEventDateDefinition, Core
