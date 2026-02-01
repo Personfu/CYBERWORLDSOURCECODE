@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Id: 10
   ScreenPrefabContentKeys:
-  - Key: MarketingLoadingScreenPrefabs/MarketingLoadScreen_BlizzardBeach
+  - Key: MarketingLoadingScreenPrefabs/MarketingLoadScreen_Event_BlizzardBeach
     type: UnityEngine.GameObject, UnityEngine.CoreModule
   DateDefinitionKey:
     Id: 30

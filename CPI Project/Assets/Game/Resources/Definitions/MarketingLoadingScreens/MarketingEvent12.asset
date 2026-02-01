@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Id: 12
   ScreenPrefabContentKeys:
-  - Key: MarketingLoadingScreenPrefabs/MarketingLoadScreen_FishBucket
+  - Key: MarketingLoadingScreenPrefabs/MarketingLoadScreen_Event_FishBucket
     type: UnityEngine.GameObject, UnityEngine.CoreModule
   DateDefinitionKey:
     Id: 30
