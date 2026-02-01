@@ -59,77 +59,16 @@ ExportedObj/
 *.pidb.meta
 *.pdb.meta
 *.mdb.meta
-
-# Unity3D generated file on crash reports
 sysinfo.txt
-
-# Mono auto generated files
 mono_crash.*
-
-# Builds
 *.apk
 *.aab
 *.unitypackage
 *.unitypackage.meta
 *.app
-
-# Crashlytics generated file
 crashlytics-build.properties
-
-# TestRunner generated files
-InitTestScene*.unity*
-
-# Addressables default ignores, before user customizations
-/ServerData
-/[Aa]ssets/StreamingAssets/aa*
-/[Aa]ssets/AddressableAssetsData/link.xml*
-/[Aa]ssets/Addressables_Temp*
-# By default, Addressables content builds will generate addressables_content_state.bin
-# files in platform-specific subfolders, for example:
-# /Assets/AddressableAssetsData/OSX/addressables_content_state.bin
-/[Aa]ssets/AddressableAssetsData/*/*.bin*
-
-# Visual Scripting auto-generated files
-/[Aa]ssets/Unity.VisualScripting.Generated/VisualScripting.Flow/UnitOptions.db
-/[Aa]ssets/Unity.VisualScripting.Generated/VisualScripting.Flow/UnitOptions.db.meta
-/[Aa]ssets/Unity.VisualScripting.Generated/VisualScripting.Core/Property Providers
-/[Aa]ssets/Unity.VisualScripting.Generated/VisualScripting.Core/Property Providers.meta
-
-# Auto-generated scenes by play mode tests
-/[Aa]ssets/[Ii]nit[Tt]est[Ss]cene*.unity*
-
-# Temporary auto-generated Android Assets
-/[Aa]ssets/[Ss]treamingAssets/aa.meta
-/[Aa]ssets/[Ss]treamingAssets/aa/*
 .DS_Store
 .vsconfig
-.erp
-/Assets/ZFBrowser
-Assets/ZFBrowser.meta
-/Assets/Editor/ClaimableRewards
-Assets/Editor/ClaimableRewards.meta
-
-Assets/Game/World/Scenes/GlobalAssets/Collectibles/CatBells.meta
-/Assets/Game/World/Scenes/GlobalAssets/Collectibles/CatBells
-Assets/Game/Audio/SFX/UI/Collectable/SFX_UI_Collectable_CollectCatBells.ogg
-Assets/Game/Audio/SFX/UI/Collectable/SFX_UI_Collectable_CollectCatBells.ogg.meta
-Assets/Game/UI/Exchange/AssetBundles/Images/Exchange_Collectible_CatBellA.png
-Assets/Game/UI/Exchange/AssetBundles/Images/Exchange_Collectible_CatBellA.png.meta
-Assets/Game/UI/Exchange/AssetBundles/Images/Exchange_Collectible_CatBellB.png
-Assets/Game/UI/Exchange/AssetBundles/Images/Exchange_Collectible_CatBellB.png.meta
-Assets/Game/UI/Exchange/AssetBundles/Images/Exchange_Collectible_CatBellC.png
-Assets/Game/UI/Exchange/AssetBundles/Images/Exchange_Collectible_CatBellC.png.meta
-Assets/Game/UI/Exchange/AssetBundles/Images/Exchange_Collectible_CatBellGold.png
-Assets/Game/UI/Exchange/AssetBundles/Images/Exchange_Collectible_CatBellGold.png.meta
-Assets/Game/World/Collectibles/Definitions/CollectibleDefinition/Collectible_CatBellA.asset
-Assets/Game/World/Collectibles/Definitions/CollectibleDefinition/Collectible_CatBellA.asset.meta
-Assets/Game/World/Collectibles/Definitions/CollectibleDefinition/Collectible_CatBellB.asset
-Assets/Game/World/Collectibles/Definitions/CollectibleDefinition/Collectible_CatBellB.asset.meta
-Assets/Game/World/Collectibles/Definitions/CollectibleDefinition/Collectible_CatBellC.asset
-Assets/Game/World/Collectibles/Definitions/CollectibleDefinition/Collectible_CatBellC.asset.meta
-Assets/Game/World/Collectibles/Definitions/CollectibleDefinition/Collectible_CatBellGold.asset
-Assets/Game/World/Collectibles/Definitions/CollectibleDefinition/Collectible_CatBellGold.asset.meta
-
 /Test
 /Builds
 /Build
@@ -155,11 +94,5 @@ Assets/Game/World/Collectibles/Definitions/CollectibleDefinition/Collectible_Cat
 /BackUp
 /DevAssets/LanuageTranslation/venv
 /DevAssets/LanuageTranslation/models
-*.slnx
-*.glb
 /DevAssets/FBX Models
 /DevAssets/FBXRestorerTool/FBX Models
-Assets/SearchResults.txt
-Assets/SearchResults.txt.meta
-Assets/TextMesh Pro/Glyph Report.txt
-Assets/TextMesh Pro/Glyph Report.txt.meta
