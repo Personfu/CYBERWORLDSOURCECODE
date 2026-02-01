@@ -7192,6 +7192,7 @@ asset:definitions/marketingloadingscreens/marketingevent22?dl=res&x=asset
 asset:definitions/marketingloadingscreens/marketingevent23?dl=res&x=asset
 asset:definitions/marketingloadingscreens/marketingevent24?dl=res&x=asset
 asset:definitions/marketingloadingscreens/marketingevent25?dl=res&x=asset
+asset:definitions/marketingloadingscreens/marketingevent26?dl=res&x=asset
 asset:definitions/musicgenres/adventuregenre?dl=res&x=asset
 asset:definitions/musicgenres/cozygenre?dl=res&x=asset
 asset:definitions/musicgenres/dancegenre?dl=res&x=asset
@@ -15667,5 +15668,5 @@ bundle:assetbundles/generated/standalonewindows64/screentoyboxtubes.sa.unity3d?d
 bundle:assetbundles/generated/standalonewindows64/tasks.sa.unity3d?d=assetbundles/generated/standalonewindows64/mascot.sa.unity3d&p=0
 bundle:assetbundles/generated/standalonewindows64/ui/dailychallenges.sa.unity3d?d=&p=0
 baseuri:
-contentversion:3720c242e665127611dbd4e709c3752522d41b13
+contentversion:7d9d3f9b753adf01deffe488b7e11b91c171830f
 contentmanifesthash:

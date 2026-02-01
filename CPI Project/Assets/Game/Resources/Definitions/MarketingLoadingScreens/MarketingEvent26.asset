@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9ddb1e6d8740872cd98132801fb0deb4, type: 3}
-  m_Name: MarketingEvent11
+  m_Name: MarketingEvent26
   m_EditorClassIdentifier: 
-  Id: 11
+  Id: 26
   ScreenPrefabContentKeys:
-  - Key: MarketingLoadingScreenPrefabs/MarketingLoadScreen_Descendants
-    type: UnityEngine.GameObject, UnityEngine.CoreModule
+  - Key: MarketingLoadingScreenPrefabs/MarketingLoadScreen_Halloween
+    type: UnityEngine.GameObject, UnityEngine
   DateDefinitionKey:
-    Id: 30
+    Id: 47
     type: ClubPenguin.Core.ScheduledEventDateDefinition, Core
