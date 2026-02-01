@@ -14,8 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Id: 12
   ScreenPrefabContentKeys:
-  - Key: MarketingLoadingScreenPrefabs/MarketingLoadScreen_FishBucket
-    type: UnityEngine.GameObject, UnityEngine.CoreModule
+  - Key: MarketingLoadingScreenPrefabs/MarketingLoadScreen_CFC
+    type: UnityEngine.GameObject, UnityEngine
+  - Key: MarketingLoadingScreenPrefabs/MarketingLoadScreen_Olaf
+    type: UnityEngine.GameObject, UnityEngine
   DateDefinitionKey:
-    Id: 30
+    Id: 45
     type: ClubPenguin.Core.ScheduledEventDateDefinition, Core
