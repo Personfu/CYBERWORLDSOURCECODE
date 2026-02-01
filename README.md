@@ -170,7 +170,7 @@
 >    ```
 
 > [!IMPORTANT]
-> For further documentation, refer to the [OpenCPI Docs](Offline-Project-Instructions). If something is missing, feel free to create a fork and send a pull request.
+> For further documentation, refer to the [OpenCPI Docs](DevAssets/Offline-Project-Instructions). If something is missing, feel free to create a fork and send a pull request.
 
 > [!IMPORTANT]
 > ## Special thanks to the following people who have made this restoration possible:
