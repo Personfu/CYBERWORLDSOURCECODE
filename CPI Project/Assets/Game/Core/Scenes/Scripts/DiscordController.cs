@@ -1,13 +1,19 @@
+using ClubPenguin;
+using ClubPenguin.Adventure;
+using ClubPenguin.Core;
+using ClubPenguin.Game.PartyGames;
+using ClubPenguin.PartyGames;
+using ClubPenguin.Progression;
+using Discord.Sdk;
+using Disney.Kelowna.Common;
+using Disney.Kelowna.Common.DataModel;
+using Disney.LaunchPadFramework;
+using Disney.MobileNetwork;
 using System;
 using System.Linq;
 using System.Reflection;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using Discord.Sdk;
-using Disney.MobileNetwork;
-using Disney.LaunchPadFramework;
-using Disney.Kelowna.Common;
-using ClubPenguin.Adventure;
 
 public class DiscordController : MonoBehaviour
 {
@@ -21,11 +27,25 @@ public class DiscordController : MonoBehaviour
 
     private EventChannel eventChannel;
     private bool questHooked;
+    private bool tubeHooked;
 
     private static string currentBaseRoomName = "";
     private static string currentAdditiveRoomName = "";
     private static string questOnlyDetailsOverride = "";
     private static string areaNameOverride = "";
+
+    private static bool tubeLobbyActive = false;
+    private static bool tubeRaceActive = false;
+    private static PartyGameDefinition.GameTypes tubeRaceType = PartyGameDefinition.GameTypes.TUBE_RACE_RED;
+
+    private static bool tubeScoreValid = false;
+    private static float tubeScoreValue = 0f;
+    private static float tubeScoreUntilUnscaled = 0f;
+
+    [SerializeField] private float statsSwapSeconds = 30f;
+
+    private bool statsMode;
+    private float nextStatsSwapUnscaled;
 
     public static DiscordController Instance { get; private set; }
     public static string CurrentRoomName { get; private set; }
@@ -116,13 +136,24 @@ public class DiscordController : MonoBehaviour
             questOnlyDetailsOverride = "";
             areaNameOverride = "";
 
+            tubeLobbyActive = false;
+            tubeRaceActive = false;
+            tubeScoreValid = false;
+            tubeScoreValue = 0f;
+            tubeScoreUntilUnscaled = 0f;
+
+            statsMode = false;
+            nextStatsSwapUnscaled = Time.unscaledTime + Mathf.Max(5f, statsSwapSeconds);
+
             UpdatePresence(BuildStateText(), "default_icon", BuildDetailsText(), gameStartTimeMs);
 
             SceneManager.sceneLoaded += OnSceneLoaded;
+            SceneManager.sceneUnloaded += OnSceneUnloaded;
 
             initialized = true;
 
             TryHookQuestEvents();
+            TryHookTubeRaceEvents();
             RefreshPresenceOnly();
         }
         catch (Exception e)
@@ -142,11 +173,29 @@ public class DiscordController : MonoBehaviour
 
         if (!questHooked)
             TryHookQuestEvents();
+
+        if (!tubeHooked)
+            TryHookTubeRaceEvents();
+
+        if (ShouldSwapStatsModeNow())
+        {
+            statsMode = !statsMode;
+            nextStatsSwapUnscaled = Time.unscaledTime + Mathf.Max(5f, statsSwapSeconds);
+            RefreshPresenceOnly();
+        }
+
+        if (tubeScoreValid && Time.unscaledTime > tubeScoreUntilUnscaled)
+        {
+            tubeScoreValid = false;
+            tubeScoreValue = 0f;
+            RefreshPresenceOnly();
+        }
     }
 
     private void OnDestroy()
     {
         SceneManager.sceneLoaded -= OnSceneLoaded;
+        SceneManager.sceneUnloaded -= OnSceneUnloaded;
 
         if (eventChannel != null)
         {
@@ -163,6 +212,7 @@ public class DiscordController : MonoBehaviour
     private void OnApplicationQuit()
     {
         SceneManager.sceneLoaded -= OnSceneLoaded;
+        SceneManager.sceneUnloaded -= OnSceneUnloaded;
 
         if (eventChannel != null)
         {
@@ -213,6 +263,23 @@ public class DiscordController : MonoBehaviour
         currentAdditiveRoomName = "";
         questOnlyDetailsOverride = "";
         RefreshPresenceOnly();
+    }
+
+    private void OnSceneUnloaded(Scene scene)
+    {
+        if (!string.IsNullOrEmpty(LastLoadedAdditiveSceneName) && scene.name == LastLoadedAdditiveSceneName)
+        {
+            LastLoadedAdditiveSceneName = "";
+            currentAdditiveRoomName = "";
+        }
+
+        if (tubeLobbyActive || tubeRaceActive)
+        {
+            tubeLobbyActive = false;
+            tubeRaceActive = false;
+        }
+
+        RefreshFromSceneState();
     }
 
     private string GetCustomSceneName(string sceneName)
@@ -282,6 +349,32 @@ public class DiscordController : MonoBehaviour
         }
     }
 
+    private void TryHookTubeRaceEvents()
+    {
+        try
+        {
+            EventDispatcher dispatcher = Service.Get<EventDispatcher>();
+            if (dispatcher == null)
+                return;
+
+            if (eventChannel == null)
+                eventChannel = new EventChannel(dispatcher);
+
+            eventChannel.AddListener<TubeRaceEvents.LocalPlayerJoinedLobby>(OnTubeLobbyJoin);
+            eventChannel.AddListener<TubeRaceEvents.LocalPlayerLeftLobby>(OnTubeLobbyLeave);
+            eventChannel.AddListener<TubeRaceEvents.CloseLobby>(OnTubeLobbyClose);
+            eventChannel.AddListener<TubeRaceEvents.RaceStart>(OnTubeRaceStart);
+            eventChannel.AddListener<TubeRaceEvents.RaceEnd>(OnTubeRaceEnd);
+            eventChannel.AddListener<TubeRaceEvents.EndGameResultsReceived>(OnTubeEndGameResults);
+
+            tubeHooked = true;
+        }
+        catch
+        {
+            tubeHooked = false;
+        }
+    }
+
     private bool OnQuestStarted(QuestEvents.QuestStarted evt)
     {
         RefreshPresenceOnly();
@@ -300,6 +393,83 @@ public class DiscordController : MonoBehaviour
         if (!IsQuestActiveNow())
             questOnlyDetailsOverride = "";
         RefreshPresenceOnly();
+        return false;
+    }
+
+    private void ClearTubeRaceState()
+    {
+        tubeLobbyActive = false;
+        tubeRaceActive = false;
+    }
+
+    private bool OnTubeLobbyJoin(TubeRaceEvents.LocalPlayerJoinedLobby evt)
+    {
+        tubeLobbyActive = true;
+        tubeRaceActive = false;
+        RefreshPresenceOnly();
+        return false;
+    }
+
+    private bool OnTubeLobbyLeave(TubeRaceEvents.LocalPlayerLeftLobby evt)
+    {
+        ClearTubeRaceState();
+        RefreshFromSceneState();
+        return false;
+    }
+
+    private bool OnTubeLobbyClose(TubeRaceEvents.CloseLobby evt)
+    {
+        ClearTubeRaceState();
+        RefreshFromSceneState();
+        return false;
+    }
+
+    private bool OnTubeRaceStart(TubeRaceEvents.RaceStart evt)
+    {
+        tubeLobbyActive = false;
+        tubeRaceActive = true;
+        tubeRaceType = evt.RaceType;
+        tubeScoreValid = false;
+        tubeScoreValue = 0f;
+        RefreshPresenceOnly();
+        return false;
+    }
+
+    private bool OnTubeRaceEnd(TubeRaceEvents.RaceEnd evt)
+    {
+        ClearTubeRaceState();
+        RefreshFromSceneState();
+        return false;
+    }
+
+    private bool OnTubeEndGameResults(TubeRaceEvents.EndGameResultsReceived evt)
+    {
+        try
+        {
+            long localId = 0L;
+            try
+            {
+                CPDataEntityCollection c = Service.Get<CPDataEntityCollection>();
+                if (c != null)
+                    localId = c.LocalPlayerSessionId;
+            }
+            catch { }
+
+            if (evt.PlayerResults != null && evt.PlayerResults.Count > 0 && localId > 0L)
+            {
+                var r = evt.PlayerResults.FirstOrDefault(x => x != null && x.PlayerId == localId);
+                if (r != null)
+                {
+                    tubeScoreValue = r.OverallScore;
+                    tubeScoreValid = true;
+                    tubeScoreUntilUnscaled = Time.unscaledTime + 12f;
+                }
+            }
+        }
+        catch { }
+
+        ClearTubeRaceState();
+        RefreshFromSceneState();
         return false;
     }
 
@@ -338,6 +508,16 @@ public class DiscordController : MonoBehaviour
                 roomImage = "jackhammer";
                 iconFound = true;
             }
+            else if (iconMatchName.Contains("Beacon Boardwalk | The Migrator", StringComparison.OrdinalIgnoreCase))
+            {
+                roomImage = "rh";
+                iconFound = true;
+            }
+            else if (iconMatchName.Contains("Island Central | DJ Cadence's Studio", StringComparison.OrdinalIgnoreCase))
+            {
+                roomImage = "dj";
+                iconFound = true;
+            }
             else if (iconMatchName.Contains("Island Central | Halloween", StringComparison.OrdinalIgnoreCase))
             {
                 roomImage = "town_halloween";
@@ -346,6 +526,11 @@ public class DiscordController : MonoBehaviour
             else if (iconMatchName.Contains("Island Central | Rainbow", StringComparison.OrdinalIgnoreCase))
             {
                 roomImage = "rainbow_town";
+                iconFound = true;
+            }
+            else if (iconMatchName.Contains("Mt. Blizzard | Blizzard Beach", StringComparison.OrdinalIgnoreCase))
+            {
+                roomImage = "blizzardbeach";
                 iconFound = true;
             }
             else if (iconMatchName.Contains("Halloween", StringComparison.OrdinalIgnoreCase))
@@ -405,6 +590,11 @@ public class DiscordController : MonoBehaviour
             else if (iconMatchName.Contains("Splash", StringComparison.OrdinalIgnoreCase))
             {
                 roomImage = "summersplash";
+                iconFound = true;
+            }
+            else if (iconMatchName.Contains("wpd", StringComparison.OrdinalIgnoreCase))
+            {
+                roomImage = "wpd";
                 iconFound = true;
             }
             else if (iconMatchName.Contains("World", StringComparison.OrdinalIgnoreCase))
@@ -506,16 +696,105 @@ public class DiscordController : MonoBehaviour
         idx = name.IndexOf("| On a Quest:", StringComparison.OrdinalIgnoreCase);
         if (idx >= 0) name = name.Substring(0, idx);
 
-        idx = name.IndexOf("| On Quest:", StringComparison.OrdinalIgnoreCase);
+        idx = name.IndexOf("| On a Quest:", StringComparison.OrdinalIgnoreCase);
         if (idx >= 0) name = name.Substring(0, idx);
 
-        idx = name.IndexOf("| On Quest", StringComparison.OrdinalIgnoreCase);
+        idx = name.IndexOf("| On a Quest", StringComparison.OrdinalIgnoreCase);
         if (idx >= 0) name = name.Substring(0, idx);
 
         idx = name.IndexOf("| On a Quest", StringComparison.OrdinalIgnoreCase);
         if (idx >= 0) name = name.Substring(0, idx);
 
         return name.Trim().TrimEnd('|').Trim();
+    }
+
+    private string BuildTubeStateText()
+    {
+        if (tubeLobbyActive)
+            return "Tube Race | Lobby";
+
+        if (tubeRaceActive)
+        {
+            if (tubeRaceType == PartyGameDefinition.GameTypes.TUBE_RACE_RED)
+                return "Tube Race | Red";
+            if (tubeRaceType == PartyGameDefinition.GameTypes.TUBE_RACE_BLUE)
+                return "Tube Race | Blue";
+            return "Tube Race";
+        }
+
+        if (tubeScoreValid)
+        {
+            int s = Mathf.RoundToInt(tubeScoreValue);
+            return "Tube Race | Score " + s;
+        }
+
+        return "";
+    }
+
+    private bool TryGetPlayerStats(out int ageDays, out int level, out int coins)
+    {
+        ageDays = 0;
+        level = 0;
+        coins = 0;
+
+        try
+        {
+            CPDataEntityCollection collection = Service.Get<CPDataEntityCollection>();
+            if (collection == null)
+                return false;
+
+            DataEntityHandle h = collection.LocalPlayerHandle;
+            if (h.IsNull)
+                return false;
+
+            ProfileData pd;
+            if (collection.TryGetComponent<ProfileData>(h, out pd))
+                ageDays = pd.PenguinAgeInDays;
+
+            try
+            {
+                ProgressionService ps = Service.Get<ProgressionService>();
+                if (ps != null)
+                    level = ps.Level;
+            }
+            catch { }
+
+            CoinsData cd;
+            if (collection.TryGetComponent<CoinsData>(h, out cd))
+                coins = cd.Coins;
+
+            return true;
+        }
+        catch
+        {
+            return false;
+        }
+    }
+
+    private string BuildRotatingNonQuestNonTubeStateText()
+    {
+        if (!statsMode)
+            return $"Unity {Application.unityVersion} | Version {Application.version}";
+
+        int age, lvl, c;
+        if (TryGetPlayerStats(out age, out lvl, out c))
+            return "Age " + age + "d | Level " + lvl + " | Coins " + c;
+
+        return $"Unity {Application.unityVersion} | Version {Application.version}";
+    }
+
+    private bool ShouldSwapStatsModeNow()
+    {
+        if (Time.unscaledTime < nextStatsSwapUnscaled)
+            return false;
+
+        if (IsQuestActiveNow())
+            return false;
+
+        if (tubeLobbyActive || tubeRaceActive || tubeScoreValid)
+            return false;
+
+        return true;
     }
 
     private string BuildStateText()
@@ -534,7 +813,11 @@ public class DiscordController : MonoBehaviour
             return "On a Quest";
         }
 
-        return $"Unity {Application.unityVersion} | Version {Application.version}";
+        string tube = BuildTubeStateText();
+        if (!string.IsNullOrEmpty(tube))
+            return tube;
+
+        return BuildRotatingNonQuestNonTubeStateText();
     }
 
     private string BuildDetailsText()
@@ -581,6 +864,8 @@ public class DiscordController : MonoBehaviour
 
         if (!string.IsNullOrEmpty(LastLoadedAdditiveSceneName))
             currentAdditiveRoomName = NormalizeName(GetCustomSceneName(LastLoadedAdditiveSceneName));
+        else
+            currentAdditiveRoomName = "";
 
         RefreshPresenceOnly();
     }
