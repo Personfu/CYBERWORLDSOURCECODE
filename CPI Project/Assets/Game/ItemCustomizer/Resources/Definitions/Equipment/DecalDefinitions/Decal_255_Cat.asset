@@ -10,12 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2607abde2b961a554ecdbea27261f1c9, type: 3}
-  m_Name: Decal_253_GoldChain
+  m_Name: Decal_255_Cat
   m_EditorClassIdentifier: 
-  Id: 253
-  AssetName: decal_celebrity_goldChain
+  Id: 255
+  AssetName: decal_emotes_cat
   Tags:
   - {fileID: 11400000, guid: 0d5b7353ac17eed47b1bbeaa3d00ca9a, type: 2}
-  - {fileID: 11400000, guid: 8e16d198451e28f4cb0156541fde856f, type: 2}
-  - {fileID: 11400000, guid: 72f7370e0d23c0744ae1ae6c785ca25e, type: 2}
+  - {fileID: 11400000, guid: 98e2b0d76982bb74084322cbf9a22b22, type: 2}
+  - {fileID: 11400000, guid: c10df5782db918a46951dc33540c18b6, type: 2}
+  - {fileID: 11400000, guid: 7f2320dd839e4064bb80ae40915a8c8f, type: 2}
   isMemberOnly: 1

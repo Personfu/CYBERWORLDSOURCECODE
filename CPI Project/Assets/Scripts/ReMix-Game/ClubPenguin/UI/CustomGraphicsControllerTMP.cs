@@ -6,6 +6,7 @@ using Disney.MobileNetwork;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Reflection;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
@@ -59,6 +60,16 @@ namespace ClubPenguin.UI
         [SerializeField]
         private TMP_Text cameraPostOnText;
 
+        [Header("Discord RPC")]
+        [SerializeField]
+        private Toggle discordRpcToggle;
+
+        [SerializeField]
+        private TMP_Text discordRpcOnText;
+
+        [SerializeField]
+        private string discordRpcPlayerPrefsKey = "discord_rpc_enabled";
+
         private CustomGraphicsService customGraphicsService;
 
         private readonly string windowedToken = "Settings.Graphics.WindowMode.Windowed";
@@ -84,25 +95,32 @@ namespace ClubPenguin.UI
             displayedResolutionsMap = new Dictionary<int, Resolution>();
             initialWidth = Screen.width;
             initialHeight = Screen.height;
+
             QualityLevel qualityLevel = customGraphicsService.LodPenguinQualityLevel;
             QualityLevel qualityLevel2 = customGraphicsService.GraphicsLevel;
             int num = customGraphicsService.AntiAliasLevel;
             bool isOn = customGraphicsService.CameraPostEnabled;
+
             graphicsQualityToggleHigh.isOn = (qualityLevel2 == QualityLevel.High);
             graphicsQualityToggleMedium.isOn = (qualityLevel2 == QualityLevel.Medium);
             graphicsQualityToggleLow.isOn = (qualityLevel2 == QualityLevel.Low);
+
             lodPenguinQualityToggleHigh.isOn = (qualityLevel == QualityLevel.High);
             lodPenguinQualityToggleMedium.isOn = (qualityLevel == QualityLevel.Medium);
             lodPenguinQualityToggleLow.isOn = (qualityLevel == QualityLevel.Low);
+
             antiAliasingToggle.isOn = (num > 0);
             cameraPostToggle.isOn = isOn;
+
             SetTogglesInteractable(!graphicsQualityToggleLow.isOn, antiAliasingToggle);
             SetTogglesInteractable(graphicsQualityToggleHigh.isOn, cameraPostToggle);
+
             localizer = Service.Get<Localizer>();
             Localizer obj = localizer;
             obj.TokensUpdated = (Localizer.TokensUpdatedDelegate)Delegate.Combine(obj.TokensUpdated, new Localizer.TokensUpdatedDelegate(LocalizeDisplayModeMenu));
             LocalizeDisplayModeMenu();
             SetDisplayModeValueFromSettings();
+
             aspectRatioMenu.ClearOptions();
             List<string> list = new List<string>();
             foreach (KeyValuePair<string, float> supportedAspectRatio in customGraphicsService.SupportedAspectRatios)
@@ -129,7 +147,9 @@ namespace ClubPenguin.UI
                 }
             }
             aspectRatioMenu.onValueChanged.AddListener(onAspectRatioChanged);
+
             filterResolutionOptions(Screen.fullScreen);
+
             string b = nearestFormattedResolution(Screen.width, Screen.height);
             for (int i = 0; i < resolutionsMenu.options.Count; i++)
             {
@@ -140,7 +160,101 @@ namespace ClubPenguin.UI
                 }
             }
             resolutionsMenu.onValueChanged.AddListener(onResolutionChanged);
+
+            InitDiscordRpcToggleFromPrefs();
+            RefreshDiscordRpcOnText();
+
             isInitialized = true;
+        }
+
+        private void InitDiscordRpcToggleFromPrefs()
+        {
+            if (discordRpcToggle == null)
+                return;
+
+            bool enabled = PlayerPrefs.GetInt(discordRpcPlayerPrefsKey, 1) == 1;
+            discordRpcToggle.isOn = enabled;
+        }
+
+        private void RefreshDiscordRpcOnText()
+        {
+            if (discordRpcOnText == null)
+                return;
+
+            bool enabled = PlayerPrefs.GetInt(discordRpcPlayerPrefsKey, 1) == 1;
+
+            if (discordRpcToggle != null)
+                enabled = discordRpcToggle.isOn;
+
+            discordRpcOnText.enabled = enabled;
+        }
+
+        public void ToggleDiscordRpc()
+        {
+            bool enabled = true;
+
+            if (discordRpcToggle != null)
+                enabled = discordRpcToggle.isOn;
+            else
+                enabled = PlayerPrefs.GetInt(discordRpcPlayerPrefsKey, 1) == 1;
+
+            PlayerPrefs.SetInt(discordRpcPlayerPrefsKey, enabled ? 1 : 0);
+            PlayerPrefs.Save();
+
+            RefreshDiscordRpcOnText();
+            CallDiscordControllerSetEnabledGlobal(enabled);
+        }
+
+        private void CallDiscordControllerSetEnabledGlobal(bool enabled)
+        {
+            try
+            {
+                Type t = FindTypeAnywhere("DiscordController");
+                if (t == null)
+                    return;
+
+                MethodInfo mi = t.GetMethod("SetEnabledGlobal", BindingFlags.Public | BindingFlags.Static);
+                if (mi == null)
+                    return;
+
+                mi.Invoke(null, new object[] { enabled });
+            }
+            catch { }
+        }
+
+        private Type FindTypeAnywhere(string typeName)
+        {
+            try
+            {
+                foreach (Assembly a in AppDomain.CurrentDomain.GetAssemblies())
+                {
+                    try
+                    {
+                        Type t = a.GetType(typeName, false);
+                        if (t != null)
+                            return t;
+                    }
+                    catch { }
+                }
+
+                foreach (Assembly a in AppDomain.CurrentDomain.GetAssemblies())
+                {
+                    try
+                    {
+                        Type[] types = a.GetTypes();
+                        for (int i = 0; i < types.Length; i++)
+                        {
+                            Type t = types[i];
+                            if (t != null && t.Name == typeName)
+                                return t;
+                        }
+                    }
+                    catch { }
+                }
+            }
+            catch { }
+
+            return null;
         }
 
         public void SetGraphicsQuality()

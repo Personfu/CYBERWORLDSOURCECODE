@@ -17,33 +17,32 @@ public class GenerateManifest
     }
 
     // Bundle dependencies, quests uses these for loading stuff like images and such.
-    private static readonly Dictionary<string, string> bundleDependencies = new Dictionary<string, string>
+    private static readonly Dictionary<string, string> bundleDependenciesTemplate = new Dictionary<string, string>
     {
-        { "assetbundles/generated/standalonewindows64/quest.sa.unity3d", "assetbundles/generated/standalonewindows64/mascot.sa.unity3d" },
-        { "assetbundles/generated/standalonewindows64/questmascotitem_rookie.sa.unity3d", "assetbundles/generated/standalonewindows64/questmascotitem_rockhopper.sa.unity3d" },
-        { "assetbundles/generated/standalonewindows64/tasks.sa.unity3d", "assetbundles/generated/standalonewindows64/mascot.sa.unity3d" },
-        { "assetbundles/generated/standalonewindows64/quest/auntarctic.sa.unity3d", "assetbundles/generated/standalonewindows64/quest/auntarctic/c02q04.sa.unity3d" },
-        { "assetbundles/generated/standalonewindows64/quest/auntarctic/c01q01.sa.unity3d", "assetbundles/generated/standalonewindows64/mascot.sa.unity3d" },
-        { "assetbundles/generated/standalonewindows64/quest/auntarctic/c01q02.sa.unity3d", "assetbundles/generated/standalonewindows64/mascot.sa.unity3d" },
-        { "assetbundles/generated/standalonewindows64/quest/auntarctic/c01q04.sa.unity3d", "assetbundles/generated/standalonewindows64/mascot.sa.unity3d,assetbundles/generated/standalonewindows64/quest/rockhopper/c01q01.sa.unity3d" },
-        { "assetbundles/generated/standalonewindows64/quest/auntarctic/c02q03.sa.unity3d", "assetbundles/generated/standalonewindows64/quest/rockhopper/c01q01.sa.unity3d" },
-        { "assetbundles/generated/standalonewindows64/quest/auntarctic/c02q04.sa.unity3d", "assetbundles/generated/standalonewindows64/mascot.sa.unity3d,assetbundles/generated/standalonewindows64/quest.sa.unity3d,assetbundles/generated/standalonewindows64/quest/auntarctic.sa.unity3d,assetbundles/generated/standalonewindows64/quest/auntarctic/c02q02.sa.unity3d" },
-        { "assetbundles/generated/standalonewindows64/quest/auntarctic/c02q06.sa.unity3d", "assetbundles/generated/standalonewindows64/mascot.sa.unity3d,assetbundles/generated/standalonewindows64/quest/auntarctic/c02q02.sa.unity3d" },
-        { "assetbundles/generated/standalonewindows64/quest/auntarctic/c02q07.sa.unity3d", "assetbundles/generated/standalonewindows64/quest.sa.unity3d" },
-        { "assetbundles/generated/standalonewindows64/quest/auntarctic/c02q08.sa.unity3d", "assetbundles/generated/standalonewindows64/quest/auntarctic/c02q01.sa.unity3d" },
-        { "assetbundles/generated/standalonewindows64/quest/auntarctic/c02q10.sa.unity3d", "assetbundles/generated/standalonewindows64/quest/auntarctic/c02q02.sa.unity3d,assetbundles/generated/standalonewindows64/quest/auntarctic/c02q04.sa.unity3d,assetbundles/generated/standalonewindows64/quest/auntarctic/c02q05.sa.unity3d,assetbundles/generated/standalonewindows64/quest/auntarctic/c02q06.sa.unity3d,assetbundles/generated/standalonewindows64/quest/auntarctic/c02q07.sa.unity3d,assetbundles/generated/standalonewindows64/quest/rockhopper/c01q01.sa.unity3d" },
-        { "assetbundles/generated/standalonewindows64/quest/djcadence/c01q01.sa.unity3d", "assetbundles/generated/standalonewindows64/quest/djcadence/c01q05.sa.unity3d" },
-        { "assetbundles/generated/standalonewindows64/quest/djcadence/c01q02.sa.unity3d", "assetbundles/generated/standalonewindows64/mascot.sa.unity3d,assetbundles/generated/standalonewindows64/quest/djcadence/c01q03.sa.unity3d" },
-        { "assetbundles/generated/standalonewindows64/quest/djcadence/c01q05.sa.unity3d", "assetbundles/generated/standalonewindows64/igloo.sa.unity3d,assetbundles/generated/standalonewindows64/mascot.sa.unity3d,assetbundles/generated/standalonewindows64/quest/rockhopper/c01q01.sa.unity3d" },
-        { "assetbundles/generated/standalonewindows64/quest/rockhopper/c01q03.sa.unity3d", "assetbundles/generated/standalonewindows64/mascot.sa.unity3d" },
-        { "assetbundles/generated/standalonewindows64/quest/rockhopper/c01q06.sa.unity3d", "assetbundles/generated/standalonewindows64/quest/rockhopper/c01q04.sa.unity3d" },
-        { "assetbundles/generated/standalonewindows64/quest/rockhopper/c01q08.sa.unity3d", "assetbundles/generated/standalonewindows64/quest/rockhopper/c01q07.sa.unity3d" },
-        { "assetbundles/generated/standalonewindows64/quest/rookie/c01q01.sa.unity3d", "assetbundles/generated/standalonewindows64/quest/rockhopper/c01q01.sa.unity3d,assetbundles/generated/standalonewindows64/quest/rookie/c01q05.sa.unity3d" },
-        { "assetbundles/generated/standalonewindows64/quest/rookie/c01q05.sa.unity3d", "assetbundles/generated/standalonewindows64/quest/auntarctic/c02q02.sa.unity3d" },
-        { "assetbundles/generated/standalonewindows64/quest/rookie/c02q03.sa.unity3d", "assetbundles/generated/standalonewindows64/quest/rockhopper/c01q01.sa.unity3d" },
-        { "assetbundles/generated/standalonewindows64/quest/rookie/c02q05.sa.unity3d", "assetbundles/generated/standalonewindows64/quest/rockhopper/c01q01.sa.unity3d,assetbundles/generated/standalonewindows64/quest/rookie/c02q03.sa.unity3d" }
+        { "assetbundles/generated/PLATFORM/quest.sa.unity3d", "assetbundles/generated/PLATFORM/mascot.sa.unity3d" },
+        { "assetbundles/generated/PLATFORM/questmascotitem_rookie.sa.unity3d", "assetbundles/generated/PLATFORM/questmascotitem_rockhopper.sa.unity3d" },
+        { "assetbundles/generated/PLATFORM/tasks.sa.unity3d", "assetbundles/generated/PLATFORM/mascot.sa.unity3d" },
+        { "assetbundles/generated/PLATFORM/quest/auntarctic.sa.unity3d", "assetbundles/generated/PLATFORM/quest/auntarctic/c02q04.sa.unity3d" },
+        { "assetbundles/generated/PLATFORM/quest/auntarctic/c01q01.sa.unity3d", "assetbundles/generated/PLATFORM/mascot.sa.unity3d" },
+        { "assetbundles/generated/PLATFORM/quest/auntarctic/c01q02.sa.unity3d", "assetbundles/generated/PLATFORM/mascot.sa.unity3d" },
+        { "assetbundles/generated/PLATFORM/quest/auntarctic/c01q04.sa.unity3d", "assetbundles/generated/PLATFORM/mascot.sa.unity3d,assetbundles/generated/PLATFORM/quest/rockhopper/c01q01.sa.unity3d" },
+        { "assetbundles/generated/PLATFORM/quest/auntarctic/c02q03.sa.unity3d", "assetbundles/generated/PLATFORM/quest/rockhopper/c01q01.sa.unity3d" },
+        { "assetbundles/generated/PLATFORM/quest/auntarctic/c02q04.sa.unity3d", "assetbundles/generated/PLATFORM/mascot.sa.unity3d,assetbundles/generated/PLATFORM/quest.sa.unity3d,assetbundles/generated/PLATFORM/quest/auntarctic.sa.unity3d,assetbundles/generated/PLATFORM/quest/auntarctic/c02q02.sa.unity3d" },
+        { "assetbundles/generated/PLATFORM/quest/auntarctic/c02q06.sa.unity3d", "assetbundles/generated/PLATFORM/mascot.sa.unity3d,assetbundles/generated/PLATFORM/quest/auntarctic/c02q02.sa.unity3d" },
+        { "assetbundles/generated/PLATFORM/quest/auntarctic/c02q07.sa.unity3d", "assetbundles/generated/PLATFORM/quest.sa.unity3d" },
+        { "assetbundles/generated/PLATFORM/quest/auntarctic/c02q08.sa.unity3d", "assetbundles/generated/PLATFORM/quest/auntarctic/c02q01.sa.unity3d" },
+        { "assetbundles/generated/PLATFORM/quest/auntarctic/c02q10.sa.unity3d", "assetbundles/generated/PLATFORM/quest/auntarctic/c02q02.sa.unity3d,assetbundles/generated/PLATFORM/quest/auntarctic/c02q04.sa.unity3d,assetbundles/generated/PLATFORM/quest/auntarctic/c02q05.sa.unity3d,assetbundles/generated/PLATFORM/quest/auntarctic/c02q06.sa.unity3d,assetbundles/generated/PLATFORM/quest/auntarctic/c02q07.sa.unity3d,assetbundles/generated/PLATFORM/quest/rockhopper/c01q01.sa.unity3d" },
+        { "assetbundles/generated/PLATFORM/quest/djcadence/c01q01.sa.unity3d", "assetbundles/generated/PLATFORM/quest/djcadence/c01q05.sa.unity3d" },
+        { "assetbundles/generated/PLATFORM/quest/djcadence/c01q02.sa.unity3d", "assetbundles/generated/PLATFORM/mascot.sa.unity3d,assetbundles/generated/PLATFORM/quest/djcadence/c01q03.sa.unity3d" },
+        { "assetbundles/generated/PLATFORM/quest/djcadence/c01q05.sa.unity3d", "assetbundles/generated/PLATFORM/igloo.sa.unity3d,assetbundles/generated/PLATFORM/mascot.sa.unity3d,assetbundles/generated/PLATFORM/quest/rockhopper/c01q01.sa.unity3d" },
+        { "assetbundles/generated/PLATFORM/quest/rockhopper/c01q03.sa.unity3d", "assetbundles/generated/PLATFORM/mascot.sa.unity3d" },
+        { "assetbundles/generated/PLATFORM/quest/rockhopper/c01q06.sa.unity3d", "assetbundles/generated/PLATFORM/quest/rockhopper/c01q04.sa.unity3d" },
+        { "assetbundles/generated/PLATFORM/quest/rockhopper/c01q08.sa.unity3d", "assetbundles/generated/PLATFORM/quest/rockhopper/c01q07.sa.unity3d" },
+        { "assetbundles/generated/PLATFORM/quest/rookie/c01q01.sa.unity3d", "assetbundles/generated/PLATFORM/quest/rockhopper/c01q01.sa.unity3d,assetbundles/generated/PLATFORM/quest/rookie/c01q05.sa.unity3d" },
+        { "assetbundles/generated/PLATFORM/quest/rookie/c01q05.sa.unity3d", "assetbundles/generated/PLATFORM/quest/auntarctic/c02q02.sa.unity3d" },
+        { "assetbundles/generated/PLATFORM/quest/rookie/c02q03.sa.unity3d", "assetbundles/generated/PLATFORM/quest/rockhopper/c01q01.sa.unity3d" },
+        { "assetbundles/generated/PLATFORM/quest/rookie/c02q05.sa.unity3d", "assetbundles/generated/PLATFORM/quest/rockhopper/c01q01.sa.unity3d,assetbundles/generated/PLATFORM/quest/rookie/c02q03.sa.unity3d" }
     };
-
 
     [MenuItem("Project/Generate Client Content Manifest")]
     public static void GenerateManifestFile()
@@ -53,10 +52,36 @@ public class GenerateManifest
         string manifestFileJsonPath = Path.Combine(EmbeddedManifest, "embedded_content_manifest.json.json");
         string ContentVersionPath = Application.dataPath + "/Game/Resources/Configuration/ContentVersion.txt";
 
+        string platformFolder = GetPlatformFolderFromActiveBuildTarget();
+        if (platformFolder == "unknown")
+        {
+            Debug.LogError("Unknown platform, aborting manifest generation.");
+            return;
+        }
+
+        Dictionary<string, string> bundleDependencies = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase);
+        foreach (var kv in bundleDependenciesTemplate)
+        {
+            string k = (kv.Key ?? "").Replace("PLATFORM", platformFolder).Replace("\\", "/").ToLower();
+
+            string v = kv.Value ?? "";
+            if (!string.IsNullOrEmpty(v))
+            {
+                var parts = v.Split(new[] { ',' }, StringSplitOptions.RemoveEmptyEntries)
+                             .Select(s => s.Trim())
+                             .Select(s => (s ?? "").Replace("PLATFORM", platformFolder).Replace("\\", "/").ToLower());
+                v = string.Join(",", parts);
+            }
+            v = (v ?? "").Replace("\\", "/").ToLower();
+
+            if (!string.IsNullOrEmpty(k))
+                bundleDependencies[k] = v;
+        }
+
         string timestamp = DateTimeOffset.UtcNow.ToUnixTimeSeconds().ToString();
         using var sha1 = SHA1.Create();
         byte[] hashBytes = sha1.ComputeHash(Encoding.UTF8.GetBytes(timestamp));
-        string hash = BitConverter.ToString(hashBytes).Replace("-","").ToLower();
+        string hash = BitConverter.ToString(hashBytes).Replace("-", "").ToLower();
 
         try
         {
@@ -109,7 +134,6 @@ public class GenerateManifest
                         assetLine = $"asset:{assetPartNoExt}?dl=res&x={ext}".ToLower();
                     }
 
-
                     if (!writtenLines.Contains(assetLine))
                     {
                         writtenLines.Add(assetLine);
@@ -151,7 +175,7 @@ public class GenerateManifest
                     string bundleFileName = string.IsNullOrEmpty(bundleVariant) ? bundleLabel : $"{bundleLabel}.{bundleVariant}";
 
                     // Look for generated bundle files in StreamingAssets
-                    string bundlesRoot = Path.Combine(Application.dataPath, "StreamingAssets/assetbundles/generated").Replace("\\", "/");
+                    string bundlesRoot = Path.Combine(Application.dataPath, "StreamingAssets/assetbundles/generated", platformFolder).Replace("\\", "/");
                     string foundBundlePath = null;
                     if (Directory.Exists(bundlesRoot))
                     {
@@ -182,7 +206,7 @@ public class GenerateManifest
                         }
                     }
 
-                    string fallbackBundlePath = $"assetbundles/{bundleFileName}".ToLower();
+                    string fallbackBundlePath = $"assetbundles/generated/{platformFolder}/{bundleFileName}".ToLower();
                     if (fallbackBundlePath.EndsWith(".txt"))
                         fallbackBundlePath = fallbackBundlePath.Substring(0, fallbackBundlePath.Length - 4);
 
@@ -190,8 +214,8 @@ public class GenerateManifest
 
                     // Correct assetPart: relative path after AssetBundles folder
                     string relAsset = assetPath.Replace("\\", "/");
-					
-					
+
+
                     string[] folders = relAsset.Split('/');
                     int idxAssetBundles = Array.FindIndex(folders, f => string.Equals(f, "AssetBundles", StringComparison.OrdinalIgnoreCase));
                     string assetPart = idxAssetBundles >= 0
@@ -209,12 +233,13 @@ public class GenerateManifest
                     //relAsset Assets/Game/UI/Exchange/AssetBundles/
                     //assetPart Images/Exchange_Collectible_WindChimes.
                     //extForX png
-                    string pFolder = relAsset.ToLower().Remove(0,7).Replace("/" + assetPart + "." + extForX, "");
+                    string pFolder = relAsset.ToLower().Remove(0, 7).Replace("/" + assetPart + "." + extForX, "");
 
                     // Generate manifest line for bundles with proper x= and d=
                     string dValue = "";
-                    if (bundleDependencies.ContainsKey(bundlePathForManifest))
-                        dValue = bundleDependencies[bundlePathForManifest];
+                    string lookupKey = (bundlePathForManifest ?? "").Replace("\\", "/").ToLower();
+                    if (bundleDependencies.ContainsKey(lookupKey))
+                        dValue = bundleDependencies[lookupKey];
 
                     string assetLine = $"asset:{assetPart}?dl=bundle:sa-bundle&x={extForX}&b={bundlePathForManifest}&p={pFolder}";
 
@@ -228,7 +253,7 @@ public class GenerateManifest
                 EditorUtility.ClearProgressBar();
 
                 // Write all bundle files for reference
-                string bundlesRootDir = Path.Combine(Application.dataPath, "StreamingAssets/assetbundles/generated").Replace("\\", "/");
+                string bundlesRootDir = Path.Combine(Application.dataPath, "StreamingAssets/assetbundles/generated", platformFolder).Replace("\\", "/");
                 if (Directory.Exists(bundlesRootDir))
                 {
                     var bundleFiles = Directory.GetFiles(bundlesRootDir, "*.*", SearchOption.AllDirectories)
@@ -251,8 +276,9 @@ public class GenerateManifest
                         string clean = cleanPath.Substring(idx);
 
                         string dValue = "";
-                        if (bundleDependencies.ContainsKey(clean))
-                            dValue = bundleDependencies[clean];
+                        string lookupKey = (clean ?? "").Replace("\\", "/").ToLower();
+                        if (bundleDependencies.ContainsKey(lookupKey))
+                            dValue = bundleDependencies[lookupKey];
 
                         string line = $"bundle:{clean}?d={dValue}&p=0";
                         if (!writtenLines.Contains(line))
@@ -297,5 +323,23 @@ public class GenerateManifest
         int idx = assetPath.ToLower().IndexOf("/resources/");
         if (idx == -1) return null;
         return assetPath.Substring(idx + "/resources/".Length).Replace("\\", "/");
+    }
+
+    private static string GetPlatformFolderFromActiveBuildTarget()
+    {
+        BuildTarget t = EditorUserBuildSettings.activeBuildTarget;
+
+        if (t == BuildTarget.StandaloneWindows || t == BuildTarget.StandaloneWindows64)
+            return "standalonewindows64";
+        if (t == BuildTarget.StandaloneOSX)
+            return "standaloneosx";
+        if (t == BuildTarget.StandaloneLinux64)
+            return "standalonelinux64";
+        if (t == BuildTarget.Android)
+            return "android";
+        if (t == BuildTarget.WebGL)
+            return "webgl";
+
+        return "unknown";
     }
 }

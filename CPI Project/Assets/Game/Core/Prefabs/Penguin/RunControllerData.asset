@@ -49,7 +49,7 @@ MonoBehaviour:
     TurnSmoothing: 10
     MaxTurnDegreesPerSec: 1200
     Acceleration: 2
-    Speed: 3.5
+    Speed: 4.5
     speedMult: 0
     MinTimeToStartSprinting: 9999
     LeanCurve:

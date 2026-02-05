@@ -59,6 +59,8 @@ namespace ClubPenguin.Core
 
         private Dictionary<int, bool> eventSpriteToggle = new Dictionary<int, bool>();
 
+        private List<EventEntry> runtimeEvents = new List<EventEntry>();
+
         private void Awake()
         {
             if (eventDateText == null)
@@ -81,8 +83,163 @@ namespace ClubPenguin.Core
             while (Service.Get<IGameData>() == null)
                 yield return null;
 
-            if (events.Count > 0)
+            Dictionary<int, ScheduledEventDateDefinition> dict = null;
+
+            while (dict == null)
+            {
+                var gameData = Service.Get<IGameData>();
+                if (gameData != null)
+                    dict = gameData.Get<Dictionary<int, ScheduledEventDateDefinition>>();
+
+                if (dict == null)
+                    yield return null;
+            }
+
+            BuildRuntimeOrderedEvents(dict);
+
+            if (runtimeEvents.Count > 0)
                 StartCoroutine(RunSlideshow());
+        }
+
+        private void BuildRuntimeOrderedEvents(Dictionary<int, ScheduledEventDateDefinition> dict)
+        {
+            runtimeEvents.Clear();
+
+            if (events == null || events.Count == 0)
+                return;
+
+            List<DatedEvent> dated = new List<DatedEvent>();
+            List<EventEntryWithIndex> undated = new List<EventEntryWithIndex>();
+
+            for (int i = 0; i < events.Count; i++)
+            {
+                var entry = events[i];
+
+                if (TryGetSortDate(entry, dict, out System.DateTime date))
+                {
+                    dated.Add(new DatedEvent
+                    {
+                        Entry = entry,
+                        Date = date.Date,
+                        OriginalIndex = i
+                    });
+                }
+                else
+                {
+                    undated.Add(new EventEntryWithIndex
+                    {
+                        Entry = entry,
+                        OriginalIndex = i
+                    });
+                }
+            }
+
+            dated.Sort((a, b) =>
+            {
+                int cmp = a.Date.CompareTo(b.Date);
+                if (cmp != 0) return cmp;
+                return a.OriginalIndex.CompareTo(b.OriginalIndex);
+            });
+
+            int rotateIndex = 0;
+
+            if (dated.Count > 0)
+            {
+                System.DateTime today = System.DateTime.Now.Date;
+
+                double bestAbsDays = double.MaxValue;
+                System.DateTime bestDate = System.DateTime.MaxValue;
+                int bestOriginalIndex = int.MaxValue;
+
+                for (int i = 0; i < dated.Count; i++)
+                {
+                    var d = dated[i];
+                    double absDays = System.Math.Abs((d.Date - today).TotalDays);
+
+                    if (absDays < bestAbsDays)
+                    {
+                        bestAbsDays = absDays;
+                        bestDate = d.Date;
+                        bestOriginalIndex = d.OriginalIndex;
+                        rotateIndex = i;
+                    }
+                    else if (absDays == bestAbsDays)
+                    {
+                        if (d.Date < bestDate)
+                        {
+                            bestDate = d.Date;
+                            bestOriginalIndex = d.OriginalIndex;
+                            rotateIndex = i;
+                        }
+                        else if (d.Date == bestDate && d.OriginalIndex < bestOriginalIndex)
+                        {
+                            bestOriginalIndex = d.OriginalIndex;
+                            rotateIndex = i;
+                        }
+                    }
+                }
+            }
+
+            for (int i = rotateIndex; i < dated.Count; i++)
+                runtimeEvents.Add(dated[i].Entry);
+
+            for (int i = 0; i < rotateIndex; i++)
+                runtimeEvents.Add(dated[i].Entry);
+
+            undated.Sort((a, b) => a.OriginalIndex.CompareTo(b.OriginalIndex));
+
+            for (int i = 0; i < undated.Count; i++)
+                runtimeEvents.Add(undated[i].Entry);
+        }
+
+        private struct DatedEvent
+        {
+            public EventEntry Entry;
+            public System.DateTime Date;
+            public int OriginalIndex;
+        }
+
+        private struct EventEntryWithIndex
+        {
+            public EventEntry Entry;
+            public int OriginalIndex;
+        }
+
+        private bool TryGetSortDate(EventEntry entry, Dictionary<int, ScheduledEventDateDefinition> dict, out System.DateTime date)
+        {
+            date = default;
+
+            if (dict == null)
+                return false;
+
+            if (!dict.TryGetValue(entry.DateDefinitionKey.Id, out var definition))
+                return false;
+
+            if (entry.DateType == DateType.StartDate)
+            {
+                date = definition.Dates.StartDate.Date;
+                if (startDateOptions.SubtractDay)
+                    date = date.AddDays(-1);
+                return true;
+            }
+
+            if (entry.DateType == DateType.EndDate)
+            {
+                date = definition.Dates.EndDate.Date;
+                if (endDateOptions.SubtractDay)
+                    date = date.AddDays(-1);
+                return true;
+            }
+
+            if (entry.DateType == DateType.Both)
+            {
+                date = definition.Dates.StartDate.Date;
+                if (startDateOptions.SubtractDay)
+                    date = date.AddDays(-1);
+                return true;
+            }
+
+            return false;
         }
 
         private IEnumerator RunSlideshow()
@@ -99,7 +256,7 @@ namespace ClubPenguin.Core
                 yield return Fade(1f, 0f);
 
                 currentIndex++;
-                if (currentIndex >= events.Count)
+                if (currentIndex >= runtimeEvents.Count)
                     currentIndex = 0;
 
                 UpdateEventContent(currentIndex);
@@ -109,7 +266,7 @@ namespace ClubPenguin.Core
 
         private void UpdateEventContent(int index)
         {
-            var entry = events[index];
+            var entry = runtimeEvents[index];
 
             if (eventNameText != null)
                 eventNameText.text = entry.EventName;
@@ -117,11 +274,11 @@ namespace ClubPenguin.Core
             if (eventDateText != null)
                 eventDateText.text = GetEventDate(entry);
 
-            ApplyEventSprite(index, entry);
+            ApplyEventSprite(entry);
             ApplyEventGradientColor(entry);
         }
 
-        private void ApplyEventSprite(int index, EventEntry entry)
+        private void ApplyEventSprite(EventEntry entry)
         {
             if (globalImage == null)
                 return;
@@ -129,16 +286,18 @@ namespace ClubPenguin.Core
             bool hasA = entry.SpriteA != null;
             bool hasB = entry.SpriteB != null;
 
+            int key = entry.DateDefinitionKey.Id;
+
             if (hasA && hasB)
             {
                 bool useA;
 
-                if (!eventSpriteToggle.TryGetValue(index, out useA))
+                if (!eventSpriteToggle.TryGetValue(key, out useA))
                     useA = true;
                 else
                     useA = !useA;
 
-                eventSpriteToggle[index] = useA;
+                eventSpriteToggle[key] = useA;
                 globalImage.sprite = useA ? entry.SpriteA : entry.SpriteB;
             }
             else if (hasA)

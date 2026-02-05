@@ -17,7 +17,10 @@ namespace ClubPenguin.Input
 			public readonly ButtonInputResult Cancel = new ButtonInputResult();
 
 			public readonly ButtonInputResult WalkModifier = new ButtonInputResult();
+
+			public readonly ButtonInputResult SprintModifier = new ButtonInputResult();
 		}
+
 
 		protected override bool processInput(ControlScheme controlScheme)
 		{
@@ -28,6 +31,14 @@ namespace ClubPenguin.Input
 			controlScheme.Action3.ProcessInput(mapResult.Action3);
 			controlScheme.Cancel.ProcessInput(mapResult.Cancel);
 			controlScheme.WalkModifier.ProcessInput(mapResult.WalkModifier);
+			if (controlScheme.SprintModifier != null)
+			{
+				controlScheme.SprintModifier.ProcessInput(mapResult.SprintModifier);
+			}
+			else
+			{
+				mapResult.SprintModifier.Reset();
+			}
 			return true;
 		}
 	}

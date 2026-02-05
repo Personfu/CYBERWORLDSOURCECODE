@@ -8,6 +8,7 @@ using hg.ApiWebKit.core.attributes;
 using hg.ApiWebKit.mappers;
 using System;
 using System.Collections.Generic;
+using UnityEngine;
 
 namespace ClubPenguin.Net.Client.Operations
 {
@@ -40,7 +41,26 @@ namespace ClubPenguin.Net.Client.Operations
 			};
 			ResponseBody.outfit = offlineDatabase.Read<ClubPenguin.Net.Offline.PlayerOutfitDetails>().Parts;
 			ResponseBody.mascotXP = offlineDatabase.Read<ClubPenguin.Net.Offline.PlayerAssets>().Assets.mascotXP;
-			ResponseBody.minigameProgress = new List<MinigameProgress>();
+
+			long num = DateTime.UtcNow.Date.GetTimeInMilliseconds();
+			long storedDay = 0L;
+			string storedDayStr = PlayerPrefs.GetString("OfflineMinigameProgress_Day", "0");
+			long.TryParse(storedDayStr, out storedDay);
+			if (storedDay != num)
+			{
+				PlayerPrefs.SetString("OfflineMinigameProgress_Day", num.ToString());
+				PlayerPrefs.DeleteKey("OfflineMinigameProgress_fishing");
+				PlayerPrefs.Save();
+			}
+			int fishingCount = PlayerPrefs.GetInt("OfflineMinigameProgress_fishing", 0);
+			ResponseBody.minigameProgress = new List<MinigameProgress>(1);
+			ResponseBody.minigameProgress.Add(new MinigameProgress
+			{
+				gameId = "fishing",
+				playCount = fishingCount,
+				day = num
+			});
+
 			ResponseBody.quests = SetProgressOperation.GetQuestStateCollection(offlineDatabase.Read<QuestStates>(), offlineDefinitions, true);
 			ResponseBody.tutorialData = new List<sbyte>(offlineDatabase.Read<TutorialData>().Bytes);
 			List<Breadcrumb> list = new List<Breadcrumb>();

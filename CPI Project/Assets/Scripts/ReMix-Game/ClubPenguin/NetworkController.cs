@@ -225,7 +225,7 @@ namespace ClubPenguin
 			result.ClientVersion = null;
 
 #if UNITY_ANDROID
-    result.ClientApiVersion = "1.13.1";
+    result.ClientApiVersion = "1.13.2";
 #else
 			result.ClientApiVersion = EnvironmentManager.ClientVersion.ToString();
 #endif

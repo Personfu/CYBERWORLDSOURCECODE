@@ -25,7 +25,14 @@ MonoBehaviour:
   IsMemberOnlyCreatable: 1
   ZoomOffset: 0
   RotationYOffset: 0
-  Tags: []
+  Tags:
+  - {fileID: 11400000, guid: 361826cd242469e46af2751ba6c500bf, type: 2}
+  - {fileID: 11400000, guid: ec783d2aa96269c41a70ce003d024d54, type: 2}
+  - {fileID: 11400000, guid: 07de12f78e304584eaa92a9ba2859585, type: 2}
+  - {fileID: 11400000, guid: 2ea846d3b0614624bbde5544e1a4b2a4, type: 2}
+  - {fileID: 11400000, guid: edb9e460bf19dd74798e85ac9506101c, type: 2}
+  - {fileID: 11400000, guid: 453f34fe3a1b26841b05766f7e3bbbe3, type: 2}
+  - {fileID: 11400000, guid: c10df5782db918a46951dc33540c18b6, type: 2}
   isMemberOnly: 1
   RenderDataKey:
     Key: Definitions/Equipment/TemplateRenderDefinitions/defaultFeet_RenderData

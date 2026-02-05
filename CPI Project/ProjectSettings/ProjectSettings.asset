@@ -141,9 +141,9 @@ PlayerSettings:
   vulkanEnableLateAcquireNextImage: 0
   vulkanEnableCommandBufferRecycling: 1
   loadStoreDebugModeEnabled: 0
-  visionOSBundleVersion: 1.13.1
-  tvOSBundleVersion: 1.13.1
-  bundleVersion: 1.13.1
+  visionOSBundleVersion: 1.13.2
+  tvOSBundleVersion: 1.13.2
+  bundleVersion: 1.13.2
   preloadedAssets: []
   metroInputSource: 0
   wsaTransparentSwapchain: 0
@@ -173,11 +173,11 @@ PlayerSettings:
     tvOS: com.OpenCPI.CPIsland
   buildNumber:
     Standalone: 1.13.1
-    VisionOS: 1.13.1
-    iPhone: 1.13.1
-    tvOS: 1.13.1
+    VisionOS: 1.13.2
+    iPhone: 1.13.2
+    tvOS: 1.13.2
   overrideDefaultApplicationIdentifier: 1
-  AndroidBundleVersionCode: 1131
+  AndroidBundleVersionCode: 1132
   AndroidMinSdkVersion: 25
   AndroidTargetSdkVersion: 36
   AndroidPreferredInstallLocation: 0
@@ -269,7 +269,7 @@ PlayerSettings:
   useCustomGradlePropertiesTemplate: 0
   useCustomGradleSettingsTemplate: 0
   useCustomProguardFile: 0
-  AndroidTargetArchitectures: 15
+  AndroidTargetArchitectures: 3
   AndroidAllowedArchitectures: -1
   AndroidSplashScreenScale: 0
   androidSplashScreen: {fileID: 0}
@@ -1024,7 +1024,7 @@ PlayerSettings:
   platformArchitecture: {}
   scriptingBackend:
     Android: 1
-    Server: 1
+    Server: 0
     Standalone: 0
   il2cppCompilerConfiguration: {}
   il2cppCodeGeneration: {}

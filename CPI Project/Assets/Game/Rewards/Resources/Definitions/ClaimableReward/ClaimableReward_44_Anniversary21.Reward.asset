@@ -22,6 +22,7 @@ MonoBehaviour:
   Fabrics:
   - Definition: {fileID: 11400000, guid: e0214ebf77b5b7544bf88d9134d37e8e, type: 2}
   - Definition: {fileID: 11400000, guid: bd64c14df89e8314795304bff5222dd8, type: 2}
+  - Definition: {fileID: 11400000, guid: 584dc006e3436f14e9d892daa228483a, type: 2}
   EquipmentTemplates: []
   EquipmentInstances:
   - Definition: {fileID: 11400000, guid: 52a0eace8dc8e894ab0f52360cac0dec, type: 2}

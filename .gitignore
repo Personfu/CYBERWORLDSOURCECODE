@@ -96,3 +96,4 @@ crashlytics-build.properties
 /DevAssets/LanuageTranslation/models
 /DevAssets/FBX Models
 /DevAssets/FBXRestorerTool/FBX Models
+*.ods#

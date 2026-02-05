@@ -21,6 +21,8 @@ namespace ClubPenguin.Input
 
 		public KeyCodeInput WalkModifier;
 
+		public KeyCodeInput SprintModifier;
+
 		[Header("Nav Bar")]
 		public KeyCodeInput Profile;
 
@@ -79,6 +81,7 @@ namespace ClubPenguin.Input
 				Action3,
 				Cancel,
 				WalkModifier,
+				SprintModifier,
 				Profile,
 				Consumables,
 				Quest,
@@ -105,6 +108,11 @@ namespace ClubPenguin.Input
 		{
 			createMergedBackMap();
 			createMergedBackCellphone();
+			if (SprintModifier == null)
+			{
+				SprintModifier = ScriptableObject.CreateInstance<KeyCodeInput>();
+				SprintModifier.Keys = new KeyCode[0];
+			}
 			populateInputList();
 			foreach (InputLib input in inputList)
 			{

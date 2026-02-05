@@ -7,7 +7,7 @@ using Disney.Kelowna.Common;
 
 public class CreateAssetBundles : MonoBehaviour
 {
-    [MenuItem("Project/AssetBundles/Generated/Generate client-side AssetBundles")]
+    [MenuItem("Project/AssetBundles/Generated/Generate client side AssetBundles")]
     static void BuildAllAssetBundles()
     {
         // Detect platform and switch it

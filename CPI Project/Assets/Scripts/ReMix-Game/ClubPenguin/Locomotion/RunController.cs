@@ -102,6 +102,8 @@ namespace ClubPenguin.Locomotion
 
 		private bool isWalking = false;
 
+		private bool sprintModifier;
+
 		private bool isLanding = false;
 
 		private bool isJogging = false;
@@ -226,7 +228,12 @@ namespace ClubPenguin.Locomotion
 			mutableData.JogParams.ElapsedJogTime = 0f;
 		}
 
-		public override void Steer(Vector2 steerInput)
+				public void SetSprintModifier(bool isHeld)
+		{
+			sprintModifier = isHeld;
+		}
+
+public override void Steer(Vector2 steerInput)
 		{
 			if (!Behaviour.IgnoreStickInput)
 			{
@@ -340,7 +347,7 @@ namespace ClubPenguin.Locomotion
 				{
 					curLocoMode = LocoMode.Walk;
 				}
-				else if (mutableData.JogParams.ElapsedJogTime >= mutableData.SprintParams.MinTimeToStartSprinting)
+				else if (sprintModifier)
 				{
 					curLocoMode = LocoMode.Sprint;
 				}

@@ -26,6 +26,8 @@ namespace ClubPenguin.Input
 
 		private bool walkModifier;
 
+		private bool sprintModifier;
+
 		private RunController runController;
 
 		private LocomotionEventBroadcaster locomotionEventBroadcaster;
@@ -58,6 +60,11 @@ namespace ClubPenguin.Input
 			handleButtonInput(btnAction3, inputResult.Action3);
 			handleButtonInput(btnCancel, inputResult.Cancel);
 			walkModifier = inputResult.WalkModifier.IsHeld;
+			sprintModifier = inputResult.SprintModifier.IsHeld;
+			if (runController != null && runController.enabled)
+			{
+				runController.SetSprintModifier(sprintModifier);
+			}
 			if ((inputResult.WalkModifier.WasJustPressed || inputResult.WalkModifier.WasJustReleased) && runController != null && runController.enabled)
 			{
 				runController.Behaviour.SetStyle(walkModifier ? PlayerLocoStyle.Style.Walk : PlayerLocoStyle.Style.Run);
@@ -73,9 +80,11 @@ namespace ClubPenguin.Input
 			handleButtonInput(btnAction3);
 			handleButtonInput(btnCancel);
 			walkModifier = false;
+			sprintModifier = false;
 			if (runController != null && runController.enabled)
 			{
 				runController.Behaviour.SetStyle(PlayerLocoStyle.Style.Run);
+				runController.SetSprintModifier(false);
 			}
 		}
 
@@ -101,6 +110,7 @@ namespace ClubPenguin.Input
 			if (runController != null && runController.enabled)
 			{
 				runController.Behaviour.SetStyle(walkModifier ? PlayerLocoStyle.Style.Walk : PlayerLocoStyle.Style.Run);
+				runController.SetSprintModifier(sprintModifier);
 			}
 		}
 	}

@@ -5,6 +5,7 @@ using ClubPenguin.Locomotion;
 using ClubPenguin.MiniGames;
 using ClubPenguin.MiniGames.Fishing;
 using ClubPenguin.Net;
+using ClubPenguin.Net.Offline;
 using ClubPenguin.Props;
 using ClubPenguin.Tutorial;
 using ClubPenguin.UI;
@@ -12,6 +13,7 @@ using Disney.Kelowna.Common;
 using Disney.LaunchPadFramework;
 using Disney.MobileNetwork;
 using Disney.Native.iOS;
+using Disney.Manimal.Common.Util;
 using Fabric;
 using System;
 using System.Collections;
@@ -534,13 +536,43 @@ namespace ClubPenguin.Adventure
 			{
 				if (!component.MinigamePlayCounts.ContainsKey("fishing"))
 				{
-					component.SetMinigamePlayCount("fishing", 0);
+					component.MinigamePlayCounts["fishing"] = 0;
+					if (Service.Get<ICommonGameSettings>().OfflineMode)
+					{
+						long num = DateTime.UtcNow.Date.GetTimeInMilliseconds();
+						long storedDay = 0L;
+						string storedDayStr = PlayerPrefs.GetString("OfflineMinigameProgress_Day", "0");
+						long.TryParse(storedDayStr, out storedDay);
+						if (storedDay != num)
+						{
+							PlayerPrefs.SetString("OfflineMinigameProgress_Day", num.ToString());
+							PlayerPrefs.DeleteKey("OfflineMinigameProgress_fishing");
+						}
+						PlayerPrefs.SetInt("OfflineMinigameProgress_fishing", 0);
+						PlayerPrefs.Save();
+					}
 					return;
 				}
 				int value = component.MinigamePlayCounts["fishing"] + 1;
 				component.MinigamePlayCounts["fishing"] = value;
+				if (Service.Get<ICommonGameSettings>().OfflineMode)
+				{
+					long num2 = DateTime.UtcNow.Date.GetTimeInMilliseconds();
+					long storedDay2 = 0L;
+					string storedDayStr2 = PlayerPrefs.GetString("OfflineMinigameProgress_Day", "0");
+					long.TryParse(storedDayStr2, out storedDay2);
+					if (storedDay2 != num2)
+					{
+						PlayerPrefs.SetString("OfflineMinigameProgress_Day", num2.ToString());
+						PlayerPrefs.DeleteKey("OfflineMinigameProgress_fishing");
+					}
+					PlayerPrefs.SetInt("OfflineMinigameProgress_fishing", value);
+					PlayerPrefs.Save();
+				}
 			}
 		}
+
+
 
 		private bool onFishingResultReceived(MinigameServiceEvents.FishingResultRecieved evt)
 		{

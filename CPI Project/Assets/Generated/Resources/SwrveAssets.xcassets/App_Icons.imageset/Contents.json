@@ -85,6 +85,21 @@
       "filename" : "PC.png",
       "scale" : "1x"
     }    ,
+	{
+      "idiom" : "universal",
+      "filename" : "PC_Blue.png",
+      "scale" : "1x"
+    }    ,
+	{
+      "idiom" : "universal",
+      "filename" : "PC_Blueberry.png",
+      "scale" : "1x"
+    }    ,
+	{
+      "idiom" : "universal",
+      "filename" : "PC_Purple.png",
+      "scale" : "1x"
+    }    ,
     {
       "idiom" : "universal",
       "filename" : "Round_Android.png",

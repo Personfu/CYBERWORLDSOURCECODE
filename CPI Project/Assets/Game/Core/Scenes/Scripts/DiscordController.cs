@@ -19,6 +19,8 @@ public class DiscordController : MonoBehaviour
 {
     private const ulong applicationId = 1235329861980127343UL;
 
+    public const string DiscordRpcPlayerPrefsKey = "discord_rpc_enabled";
+
     private Discord.Sdk.Client client;
     private bool initialized;
 
@@ -51,6 +53,59 @@ public class DiscordController : MonoBehaviour
     public static string CurrentRoomName { get; private set; }
     public static string LastLoadedSceneName { get; private set; }
     public static string LastLoadedAdditiveSceneName { get; private set; }
+
+    public static bool IsRpcEnabledInPrefs()
+    {
+        return PlayerPrefs.GetInt(DiscordRpcPlayerPrefsKey, 1) == 1;
+    }
+
+    public static void SetRpcEnabledInPrefs(bool enabled)
+    {
+        PlayerPrefs.SetInt(DiscordRpcPlayerPrefsKey, enabled ? 1 : 0);
+        PlayerPrefs.Save();
+    }
+
+    public static void SetEnabledGlobal(bool enabled)
+    {
+        SetRpcEnabledInPrefs(enabled);
+
+        DiscordController target = null;
+
+        if (Instance != null)
+        {
+            target = Instance;
+        }
+        else
+        {
+            try
+            {
+                var all = Resources.FindObjectsOfTypeAll<DiscordController>();
+                if (all != null && all.Length > 0)
+                    target = all[0];
+            }
+            catch { }
+        }
+
+        if (target == null)
+            return;
+
+        if (enabled)
+        {
+            if (!target.gameObject.activeSelf)
+                target.gameObject.SetActive(true);
+
+            if (!target.enabled)
+                target.enabled = true;
+
+            target.InitializeIfAllowed();
+            target.SyncSceneStateFromUnity();
+            target.RefreshPresenceOnly();
+        }
+        else
+        {
+            target.DisableRpcNow();
+        }
+    }
 
     public static void SetRoomGlobal(string roomNameOrQuestOverride)
     {
@@ -103,8 +158,27 @@ public class DiscordController : MonoBehaviour
         DontDestroyOnLoad(gameObject);
     }
 
+    private void OnEnable()
+    {
+        InitializeIfAllowed();
+    }
+
     private void Start()
     {
+        InitializeIfAllowed();
+    }
+
+    private void InitializeIfAllowed()
+    {
+        if (initialized || client != null)
+            return;
+
+        if (!IsRpcEnabledInPrefs())
+        {
+            DisableRpcNow();
+            return;
+        }
+
         if (!IsDiscordRunning())
         {
             UnityEngine.Debug.LogWarning("Discord is not running or installed. Skipping Discord integration.");
@@ -130,9 +204,6 @@ public class DiscordController : MonoBehaviour
 
             CacheOptionalRunCallbacks();
 
-            CurrentRoomName = "Loading...";
-            currentBaseRoomName = CurrentRoomName;
-            currentAdditiveRoomName = "";
             questOnlyDetailsOverride = "";
             areaNameOverride = "";
 
@@ -145,8 +216,8 @@ public class DiscordController : MonoBehaviour
             statsMode = false;
             nextStatsSwapUnscaled = Time.unscaledTime + Mathf.Max(5f, statsSwapSeconds);
 
-            UpdatePresence(BuildStateText(), "default_icon", BuildDetailsText(), gameStartTimeMs);
-
+            SceneManager.sceneLoaded -= OnSceneLoaded;
+            SceneManager.sceneUnloaded -= OnSceneUnloaded;
             SceneManager.sceneLoaded += OnSceneLoaded;
             SceneManager.sceneUnloaded += OnSceneUnloaded;
 
@@ -154,6 +225,11 @@ public class DiscordController : MonoBehaviour
 
             TryHookQuestEvents();
             TryHookTubeRaceEvents();
+
+            SyncSceneStateFromUnity();
+
+            UpdatePresence(BuildStateText(), "default_icon", BuildDetailsText(), gameStartTimeMs);
+
             RefreshPresenceOnly();
         }
         catch (Exception e)
@@ -164,8 +240,62 @@ public class DiscordController : MonoBehaviour
         }
     }
 
+    private void SyncSceneStateFromUnity()
+    {
+        try
+        {
+            Scene active = SceneManager.GetActiveScene();
+            string activeName = active.name ?? "";
+
+            if (!string.IsNullOrEmpty(activeName))
+            {
+                LastLoadedSceneName = activeName;
+                currentBaseRoomName = NormalizeName(GetCustomSceneName(activeName));
+            }
+            else
+            {
+                if (string.IsNullOrEmpty(currentBaseRoomName))
+                {
+                    CurrentRoomName = "Loading...";
+                    currentBaseRoomName = CurrentRoomName;
+                }
+            }
+
+            string additiveName = "";
+            for (int i = 0; i < SceneManager.sceneCount; i++)
+            {
+                Scene s = SceneManager.GetSceneAt(i);
+                if (!s.isLoaded) continue;
+                if (s == active) continue;
+
+                string n = s.name ?? "";
+                if (!string.IsNullOrEmpty(n))
+                    additiveName = n;
+            }
+
+            if (!string.IsNullOrEmpty(additiveName))
+            {
+                LastLoadedAdditiveSceneName = additiveName;
+                currentAdditiveRoomName = NormalizeName(GetCustomSceneName(additiveName));
+            }
+            else
+            {
+                LastLoadedAdditiveSceneName = "";
+                currentAdditiveRoomName = "";
+            }
+        }
+        catch { }
+    }
+
     private void Update()
     {
+        if (!IsRpcEnabledInPrefs())
+        {
+            if (initialized || client != null)
+                DisableRpcNow();
+            return;
+        }
+
         if (!initialized || client == null)
             return;
 
@@ -221,6 +351,37 @@ public class DiscordController : MonoBehaviour
         }
 
         SafeShutdown();
+    }
+
+    private void DisableRpcNow()
+    {
+        try
+        {
+            if (eventChannel != null)
+            {
+                eventChannel.RemoveAllListeners();
+                eventChannel = null;
+            }
+        }
+        catch { }
+
+        questHooked = false;
+        tubeHooked = false;
+
+        try
+        {
+            SceneManager.sceneLoaded -= OnSceneLoaded;
+            SceneManager.sceneUnloaded -= OnSceneUnloaded;
+        }
+        catch { }
+
+        SafeShutdown();
+
+        try
+        {
+            enabled = false;
+        }
+        catch { }
     }
 
     private void SafeShutdown()
@@ -475,6 +636,9 @@ public class DiscordController : MonoBehaviour
 
     private void RefreshPresenceOnly()
     {
+        if (!IsRpcEnabledInPrefs())
+            return;
+
         if (string.IsNullOrEmpty(currentBaseRoomName))
             return;
 
@@ -506,6 +670,11 @@ public class DiscordController : MonoBehaviour
                 iconMatchName.IndexOf("Summer Splash Construction", StringComparison.OrdinalIgnoreCase) >= 0)
             {
                 roomImage = "jackhammer";
+                iconFound = true;
+            }
+            else if (iconMatchName.Contains("Home", StringComparison.OrdinalIgnoreCase))
+            {
+                roomImage = "default_icon";
                 iconFound = true;
             }
             else if (iconMatchName.Contains("Beacon Boardwalk | The Migrator", StringComparison.OrdinalIgnoreCase))
@@ -861,6 +1030,8 @@ public class DiscordController : MonoBehaviour
     {
         if (!string.IsNullOrEmpty(LastLoadedSceneName))
             currentBaseRoomName = NormalizeName(GetCustomSceneName(LastLoadedSceneName));
+        else
+            SyncSceneStateFromUnity();
 
         if (!string.IsNullOrEmpty(LastLoadedAdditiveSceneName))
             currentAdditiveRoomName = NormalizeName(GetCustomSceneName(LastLoadedAdditiveSceneName));
