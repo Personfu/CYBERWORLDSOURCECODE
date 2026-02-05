@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8aab18faed6bdd753e5e635e4f02ac5, type: 3}
   m_Name: ClaimableReward_39_CPIFThrowback
   m_EditorClassIdentifier: 
-  Id: 39
+  Id: 7
   TitleToken: GoGuide.CPIFThrowback.Title
   IsMemberOnly: 1
   ClaimOnLogin: 1
