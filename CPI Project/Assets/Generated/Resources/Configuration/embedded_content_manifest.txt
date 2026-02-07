@@ -1383,6 +1383,7 @@ asset:audio/igloo/music/audio.igloo.mus.intothejungle?dl=res&x=prefab
 asset:audio/igloo/music/audio.igloo.mus.jazzypizza?dl=res&x=prefab
 asset:audio/igloo/music/audio.igloo.mus.luckyone?dl=res&x=prefab
 asset:audio/igloo/music/audio.igloo.mus.maybebaby?dl=res&x=prefab
+asset:audio/igloo/music/audio.igloo.mus.meandmypuffle?dl=res&x=prefab
 asset:audio/igloo/music/audio.igloo.mus.medievaltheme?dl=res&x=prefab
 asset:audio/igloo/music/audio.igloo.mus.monstermasquerade?dl=res&x=prefab
 asset:audio/igloo/music/audio.igloo.mus.nightmarebeforechristmas?dl=res&x=prefab
@@ -1394,6 +1395,7 @@ asset:audio/igloo/music/audio.igloo.mus.pizzaparlor?dl=res&x=prefab
 asset:audio/igloo/music/audio.igloo.mus.puffledancejazzmix?dl=res&x=prefab
 asset:audio/igloo/music/audio.igloo.mus.puffledancerockmix?dl=res&x=prefab
 asset:audio/igloo/music/audio.igloo.mus.puffleparty?dl=res&x=prefab
+asset:audio/igloo/music/audio.igloo.mus.puffleragtime?dl=res&x=prefab
 asset:audio/igloo/music/audio.igloo.mus.racetrackrock?dl=res&x=prefab
 asset:audio/igloo/music/audio.igloo.mus.rainbows?dl=res&x=prefab
 asset:audio/igloo/music/audio.igloo.mus.ravecave?dl=res&x=prefab
@@ -4444,7 +4446,6 @@ asset:definitions/equipment/decaldefinitions/decal_249_dog?dl=res&x=asset
 asset:definitions/equipment/decaldefinitions/decal_250_angryfacered?dl=res&x=asset
 asset:definitions/equipment/decaldefinitions/decal_251_angryfaceblue?dl=res&x=asset
 asset:definitions/equipment/decaldefinitions/decal_252_microphone?dl=res&x=asset
-asset:definitions/equipment/decaldefinitions/decal_253_goldchain?dl=res&x=asset
 asset:definitions/equipment/decaldefinitions/decal_254_treasurechest?dl=res&x=asset
 asset:definitions/equipment/decaldefinitions/decal_255_cat?dl=res&x=asset
 asset:definitions/equipment/denimdancer_rep_hips_0lod?dl=res&x=asset
@@ -7269,6 +7270,8 @@ asset:definitions/musictracks/musictrack_75_sunshineholiday?dl=res&x=asset
 asset:definitions/musictracks/musictrack_76_spookyjazz?dl=res&x=asset
 asset:definitions/musictracks/musictrack_77_theroyalcourt?dl=res&x=asset
 asset:definitions/musictracks/musictrack_78_wearethepenguins?dl=res&x=asset
+asset:definitions/musictracks/musictrack_79_puffleragtime?dl=res&x=asset
+asset:definitions/musictracks/musictrack_80_meandmypuffle?dl=res&x=asset
 asset:definitions/musictracks/musictrack_allaboardforthehollidays?dl=res&x=asset
 asset:definitions/musictracks/musictrack_alohamalihini?dl=res&x=asset
 asset:definitions/musictracks/musictrack_bewarethedragon?dl=res&x=asset
@@ -7333,8 +7336,8 @@ asset:definitions/scheduledeventdates/date_43_waddleon2026?dl=res&x=asset
 asset:definitions/scheduledeventdates/date_44_halloween2025leadup?dl=res&x=asset
 asset:definitions/scheduledeventdates/date_45_holiday2025?dl=res&x=asset
 asset:definitions/scheduledeventdates/date_46_summersplashleadup?dl=res&x=asset
-asset:definitions/scheduledeventdates/date_47_anniversary2026?dl=res&x=asset
-asset:definitions/scheduledeventdates/date_48_wpd2017?dl=res&x=asset
+asset:definitions/scheduledeventdates/date_47_halloween2026?dl=res&x=asset
+asset:definitions/scheduledeventdates/date_48_wpd2017week2?dl=res&x=asset
 asset:definitions/scheduledeventdates/date_49_medievalparty2026?dl=res&x=asset
 asset:definitions/scheduledeventdates/date_998_purchasefunnelperiod?dl=res&x=asset
 asset:definitions/scheduledeventdates/date_999_supportperiod?dl=res&x=asset
@@ -15676,5 +15679,5 @@ bundle:assetbundles/generated/standalonewindows64/screentoyboxtubes.sa.unity3d?d
 bundle:assetbundles/generated/standalonewindows64/tasks.sa.unity3d?d=assetbundles/generated/standalonewindows64/mascot.sa.unity3d&p=0
 bundle:assetbundles/generated/standalonewindows64/ui/dailychallenges.sa.unity3d?d=&p=0
 baseuri:
-contentversion:4e36405f22fc094fa4d80442f1d25dcfffa7e3d2
+contentversion:88a71935fcdc072c19681f264dca7fdd6368ac3c
 contentmanifesthash:

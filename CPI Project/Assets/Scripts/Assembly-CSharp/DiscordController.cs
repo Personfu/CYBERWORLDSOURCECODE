@@ -687,7 +687,17 @@ public class DiscordController : MonoBehaviour
                 roomImage = "dj";
                 iconFound = true;
             }
-            else if (iconMatchName.Contains("Island Central | Halloween", StringComparison.OrdinalIgnoreCase))
+            else if (iconMatchName.Contains("Island Central | Halloween 2018", StringComparison.OrdinalIgnoreCase))
+            {
+                roomImage = "town_halloween";
+                iconFound = true;
+            }
+            else if (iconMatchName.Contains("Island Central | Halloween 2025", StringComparison.OrdinalIgnoreCase))
+            {
+                roomImage = "town_halloween";
+                iconFound = true;
+            }
+            else if (iconMatchName.Contains("Island Central | Halloween 2026", StringComparison.OrdinalIgnoreCase))
             {
                 roomImage = "town_halloween";
                 iconFound = true;

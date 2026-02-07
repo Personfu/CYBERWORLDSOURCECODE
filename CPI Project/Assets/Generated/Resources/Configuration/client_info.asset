@@ -32,11 +32,13 @@ MonoBehaviour:
   - DailyChallenge
   - DecorationCompositionEngine
   - DecorationInventory
+  - Discord.Sdk
   - FeatureToggle
   - Foundation
   - FoundationUnity
   - Igloo
   - Input
+  - iTween
   - Mix
   - MixSDK
   - NativeWebViewer
@@ -56,9 +58,11 @@ MonoBehaviour:
   - TutorialUI
   - UI
   - UnityShared
+  - Unity.InputSystem
   - Video
   - EditorWindows
   - Assembly-CSharp
+  - Assembly-CSharp-firstpass
   Platform: standalonewindows64
   BuildTargetGroup: standalone
   BuildPhase: rc

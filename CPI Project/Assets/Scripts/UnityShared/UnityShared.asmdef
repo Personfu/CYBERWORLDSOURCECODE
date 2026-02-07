@@ -9,7 +9,7 @@
         "MixSDK",
         "Unity.TextMeshPro",
         "Unity.InputSystem",
-        "ZFBrowser"
+        "iTween"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

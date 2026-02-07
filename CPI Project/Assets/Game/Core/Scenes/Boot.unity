@@ -23954,7 +23954,7 @@ MonoBehaviour:
     _eventNames: []
     _eventList: []
   profiler:
-    totalMS: 678.13873
+    totalMS: 666.667
     recordedMS: 0
     percent: 0
     msPerFrame: 0
@@ -29135,6 +29135,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66824bbdc69e0c647bdf5f13e582641a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DiscordController
+  statsSwapSeconds: 30
   customSceneNames:
   - sceneName: Town
     displayName: Island Central
@@ -29287,13 +29288,13 @@ MonoBehaviour:
   - sceneName: Beach_FrozenTakeover_Decorations
     displayName: Coconut Cove | Frozen Takeover Party
   - sceneName: Town_Halloween2026_Decorations
-    displayName: Islannd Central | Halloween 2026
+    displayName: Island Central | Halloween 2026
   - sceneName: Town_Halloween2025_LeadUp_Decorations
-    displayName: Islannd Central | Halloween Construction
+    displayName: Island Central | Halloween Construction
   - sceneName: Town_Halloween2025_Decorations
-    displayName: Islannd Central | Halloween 2025
+    displayName: Island Central | Halloween 2025
   - sceneName: Town_Halloween2018_Decorations
-    displayName: Islannd Central | Halloween 2018
+    displayName: Island Central | Halloween 2018
   - sceneName: MtBlizzard_Halloween2025_Decorations
     displayName: Mt. Blizzard | Halloween 2025
   - sceneName: MtBlizzard_Halloween2018_Decorations
@@ -29418,6 +29419,7 @@ MonoBehaviour:
   events:
   - eventID: 1
     eventName: colorevent2018
+    excludeFromDateSystem: 0
     startMonth: 1
     startDay: 10
     endMonth: 2
@@ -29429,6 +29431,7 @@ MonoBehaviour:
     EventMaterial: {fileID: 2100000, guid: 2760ef39cefb9d246b81f8ce5e39bac6, type: 2}
   - eventID: 12
     eventName: aprilfools
+    excludeFromDateSystem: 0
     startMonth: 4
     startDay: 1
     endMonth: 4
@@ -29439,6 +29442,7 @@ MonoBehaviour:
     EventMaterial: {fileID: 0}
   - eventID: 13
     eventName: 1stanniversary
+    excludeFromDateSystem: 0
     startMonth: 3
     startDay: 8
     endMonth: 4
@@ -29449,6 +29453,7 @@ MonoBehaviour:
     EventMaterial: {fileID: 0}
   - eventID: 17
     eventName: worldpenguinday
+    excludeFromDateSystem: 0
     startMonth: 4
     startDay: 8
     endMonth: 5
@@ -29457,8 +29462,20 @@ MonoBehaviour:
     SnowballPrefab: {fileID: 0}
     OriginalMaterial: {fileID: 0}
     EventMaterial: {fileID: 0}
+  - eventID: 18
+    eventName: pirateparty2018
+    excludeFromDateSystem: 1
+    startMonth: 2
+    startDay: 7
+    endMonth: 3
+    endDay: 7
+    SceneAudioMappings: []
+    SnowballPrefab: {fileID: 0}
+    OriginalMaterial: {fileID: 0}
+    EventMaterial: {fileID: 0}
   - eventID: 20
     eventName: summerparty2018
+    excludeFromDateSystem: 0
     startMonth: 7
     startDay: 4
     endMonth: 8
@@ -29469,6 +29486,7 @@ MonoBehaviour:
     EventMaterial: {fileID: 0}
   - eventID: 21
     eventName: medievalparty2018
+    excludeFromDateSystem: 0
     startMonth: 8
     startDay: 15
     endMonth: 9
@@ -29479,6 +29497,7 @@ MonoBehaviour:
     EventMaterial: {fileID: 0}
   - eventID: 22
     eventName: halloween2018
+    excludeFromDateSystem: 0
     startMonth: 10
     startDay: 1
     endMonth: 10
@@ -29501,6 +29520,7 @@ MonoBehaviour:
     EventMaterial: {fileID: 0}
   - eventID: 27
     eventName: rdma
+    excludeFromDateSystem: 0
     startMonth: 4
     startDay: 8
     endMonth: 5
@@ -29511,6 +29531,7 @@ MonoBehaviour:
     EventMaterial: {fileID: 0}
   - eventID: 29
     eventName: worldpenguinday2017
+    excludeFromDateSystem: 0
     startMonth: 4
     startDay: 8
     endMonth: 4
@@ -29521,6 +29542,7 @@ MonoBehaviour:
     EventMaterial: {fileID: 0}
   - eventID: 30
     eventName: blizzardbeach
+    excludeFromDateSystem: 0
     startMonth: 2
     startDay: 1
     endMonth: 3
@@ -29531,6 +29553,7 @@ MonoBehaviour:
     EventMaterial: {fileID: 0}
   - eventID: 40
     eventName: opencpi1stanniversary
+    excludeFromDateSystem: 0
     startMonth: 5
     startDay: 1
     endMonth: 5
@@ -29541,6 +29564,7 @@ MonoBehaviour:
     EventMaterial: {fileID: 0}
   - eventID: 41
     eventName: 20thanniversary
+    excludeFromDateSystem: 0
     startMonth: 11
     startDay: 2
     endMonth: 11
@@ -29563,6 +29587,7 @@ MonoBehaviour:
     EventMaterial: {fileID: 0}
   - eventID: 44
     eventName: halloween2025leadup
+    excludeFromDateSystem: 0
     startMonth: 9
     startDay: 24
     endMonth: 10
@@ -29573,6 +29598,7 @@ MonoBehaviour:
     EventMaterial: {fileID: 0}
   - eventID: 45
     eventName: holiday2025
+    excludeFromDateSystem: 0
     startMonth: 12
     startDay: 1
     endMonth: 1
@@ -29589,6 +29615,7 @@ MonoBehaviour:
     EventMaterial: {fileID: 0}
   - eventID: 46
     eventName: summersplashleadup
+    excludeFromDateSystem: 0
     startMonth: 6
     startDay: 27
     endMonth: 7
@@ -29598,7 +29625,8 @@ MonoBehaviour:
     OriginalMaterial: {fileID: 0}
     EventMaterial: {fileID: 0}
   - eventID: 47
-    eventName: anniversary2026
+    eventName: halloween2026
+    excludeFromDateSystem: 0
     startMonth: 10
     startDay: 24
     endMonth: 11
@@ -29620,7 +29648,8 @@ MonoBehaviour:
     OriginalMaterial: {fileID: 0}
     EventMaterial: {fileID: 0}
   - eventID: 48
-    eventName: wpd2017
+    eventName: wpd2017week2
+    excludeFromDateSystem: 0
     startMonth: 4
     startDay: 19
     endMonth: 5
@@ -29631,6 +29660,7 @@ MonoBehaviour:
     EventMaterial: {fileID: 0}
   - eventID: 49
     eventName: medievalparty2026
+    excludeFromDateSystem: 0
     startMonth: 8
     startDay: 15
     endMonth: 9

@@ -420,6 +420,132 @@ namespace ClubPenguin
 			SavedLanguage.SetValue(language);
 		}
 
+		public class AnnualEventKeyGenerator : NamedToggleValueAttribute.NamedToggleValueGenerator
+		{
+			public IEnumerable<NamedToggleValueAttribute.NamedToggleValue> GetNameToggleValues()
+			{
+				List<NamedToggleValueAttribute.NamedToggleValue> list = new List<NamedToggleValueAttribute.NamedToggleValue>();
+				var controllerType = Type.GetType("AnnualEventsController");
+				if (controllerType != null)
+				{
+					var instanceProperty = controllerType.GetProperty("Instance", BindingFlags.Public | BindingFlags.Static);
+					if (instanceProperty != null)
+					{
+						object instance = instanceProperty.GetValue(null);
+						if (instance != null)
+						{
+							var eventsField = controllerType.GetField("events", BindingFlags.Public | BindingFlags.Instance);
+							if (eventsField != null)
+							{
+								var events = eventsField.GetValue(instance) as Array;
+								if (events != null)
+								{
+									foreach (var @event in events)
+									{
+										if (@event == null)
+										{
+											continue;
+										}
+										var eventType = @event.GetType();
+										var eventIDField = eventType.GetField("eventID");
+										var eventNameField = eventType.GetField("eventName");
+										string id = (eventIDField?.GetValue(@event) as string) ?? "";
+										string name = (eventNameField?.GetValue(@event) as string) ?? "";
+										if (string.IsNullOrEmpty(id) && string.IsNullOrEmpty(name))
+										{
+											continue;
+										}
+										string value = id + "|" + name;
+										string display = string.IsNullOrEmpty(name) ? id : name;
+										if (!string.IsNullOrEmpty(id) && !string.IsNullOrEmpty(name))
+										{
+											display = id + "_" + name;
+										}
+										list.Add(new NamedToggleValueAttribute.NamedToggleValue(display, value));
+									}
+								}
+							}
+						}
+					}
+				}
+				return list;
+			}
+		}
+
+		[Invokable("PartySwitcher.Regular", Description = "Force regular (no annual party).")]
+		[PublicTweak]
+		public void AnnualParties_End()
+		{
+			var controllerType = Type.GetType("AnnualEventsController");
+			if (controllerType != null)
+			{
+				var instanceProperty = controllerType.GetProperty("Instance", BindingFlags.Public | BindingFlags.Static);
+				object instance = instanceProperty?.GetValue(null);
+				if (instance != null)
+				{
+					var method = controllerType.GetMethod("ForceEndParty", BindingFlags.Public | BindingFlags.Instance);
+					method?.Invoke(instance, null);
+					
+					PlayerPrefs.Save();
+				}
+				else
+				{
+					Debug.LogError("AnnualEventsController.Instance is null");
+				}
+			}
+		}
+
+		[Invokable("PartySwitcher.AnnualParties", Description = "Return to annual parties.")]
+		[PublicTweak]
+		public void AnnualParties_Default()
+		{
+			var controllerType = Type.GetType("AnnualEventsController");
+			if (controllerType != null)
+			{
+				var instanceProperty = controllerType.GetProperty("Instance", BindingFlags.Public | BindingFlags.Static);
+				object instance = instanceProperty?.GetValue(null);
+				if (instance != null)
+				{
+					var method = controllerType.GetMethod("SetDefaultMode", BindingFlags.Public | BindingFlags.Instance);
+					method?.Invoke(instance, null);
+					
+					PlayerPrefs.Save();
+				}
+				else
+				{
+					Debug.LogError("AnnualEventsController.Instance is null");
+				}
+			}
+		}
+
+		[Invokable("PartySwitcher.Parties", Description = "Force a specific party on.")]
+		[PublicTweak]
+		public void AnnualParties_Switch([NamedToggleValue(typeof(AnnualEventKeyGenerator), 0u)] string partyKey)
+		{
+			var controllerType = Type.GetType("AnnualEventsController");
+			if (controllerType != null)
+			{
+				var instanceProperty = controllerType.GetProperty("Instance", BindingFlags.Public | BindingFlags.Static);
+				object instance = instanceProperty?.GetValue(null);
+				if (instance != null)
+				{
+					// First, turn off any existing party
+					var endMethod = controllerType.GetMethod("ForceEndParty", BindingFlags.Public | BindingFlags.Instance);
+					endMethod?.Invoke(instance, null);
+					
+					// Then switch to the new party
+					var method = controllerType.GetMethod("ForcePartyKey", BindingFlags.Public | BindingFlags.Instance);
+					method?.Invoke(instance, new object[] { partyKey });
+					
+					PlayerPrefs.Save();
+				}
+				else
+				{
+					Debug.LogError("AnnualEventsController.Instance is null");
+				}
+			}
+		}
+
 		private string formatUrl(string url)
 		{
 			if (url != null)
@@ -438,3 +564,4 @@ namespace ClubPenguin
 		}
 	}
 }
+

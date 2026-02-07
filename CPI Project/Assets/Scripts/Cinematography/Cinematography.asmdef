@@ -4,9 +4,9 @@
     "references": [
         "Core",
         "Foundation",
-        "PlayMaker",
         "UnityShared",
-        "Unity.InputSystem"
+        "Unity.InputSystem",
+        "iTween"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],
