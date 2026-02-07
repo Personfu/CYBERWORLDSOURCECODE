@@ -68,7 +68,7 @@
 >     - Added an annual looping event controller 3000.
 >     - Added a total of 58 new Igloo Music tracks. Now you have more different types of music to play in your igloo! 
 >     - Added the April Fools Theme and Box Dimension to level 0 (before the tutorial level up). Added The Town (2014) to level 1. 
->     - Added Puffle Party, Come Out To Play, Shoot For The Sun, Coconut, The Best Beach Party, Backbeat Jammin, Forever Summer, Rockhopper Theme, Sunshine Holiday, and Summer Song to level 2. 
+>     - Added Puffle Party, Puffle Ragtime, Me and My Puffle, Come Out To Play, Shoot For The Sun, Coconut, The Best Beach Party, Backbeat Jammin, Forever Summer, Rockhopper Theme, Sunshine Holiday, and Summer Song to level 2. 
 >     - Added Lucky One and Gotta Have A Wingman to level 3. 
 >     - Added the Medieval Theme and The Royal Court to level 7. 
 >     - Added Glam Jam and Rock The Boat Quartet Remix to level 8. 
