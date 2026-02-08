@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8aab18faed6bdd753e5e635e4f02ac5, type: 3}
   m_Name: ClaimableReward_39_CPIFThrowback
   m_EditorClassIdentifier: 
-  Id: 7
+  Id: 32
   TitleToken: GoGuide.CPIFThrowback.Title
   IsMemberOnly: 1
   ClaimOnLogin: 1
   Reward: {fileID: 11400000, guid: 174443b4c7325db449c831f6243bdba6, type: 2}
   DateDefinitionKey:
-    Id: 32
+    Id: 7
     type: ClubPenguin.Core.ScheduledEventDateDefinition, Core
