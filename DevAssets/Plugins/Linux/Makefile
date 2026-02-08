@@ -19,7 +19,7 @@ $(BUILD_DIR)/libMemoryMonitorLinux.so: $(SRC_DIR)/MemoryMonitorLinux.c | $(BUILD
 	$(CC) $(CFLAGS) $(LDFLAGS) -o $@ $<
 
 $(BUILD_DIR)/libKeyChainLinux.so: $(SRC_DIR)/KeyChainLinux.c | $(BUILD_DIR)
-	$(CC) $(CFLAGS) $(LDFLAGS) -o $@ $<
+	$(CC) $(CFLAGS) $(LDFLAGS) -o $@ $< -lcrypto -lssl
 
 clean:
 	rm -rf $(BUILD_DIR)
