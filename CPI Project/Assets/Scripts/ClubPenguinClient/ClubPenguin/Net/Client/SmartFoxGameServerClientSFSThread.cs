@@ -610,8 +610,11 @@ namespace ClubPenguin.Net.Client
 
         private void onConnection(BaseEvent evt)
         {
-            bool flag = (bool)evt.Params["success"];
-            string text = (string)evt.Params["errorMessage"];
+            bool flag = false;
+            if (evt.Params != null && evt.Params.ContainsKey("success"))
+            {
+                flag = (bool)evt.Params["success"];
+            }
             if (flag)
             {
                 if (mt.UseEncryption)
@@ -624,6 +627,33 @@ namespace ClubPenguin.Net.Client
                 }
                 return;
             }
+
+            string text = null;
+            if (evt.Params != null)
+            {
+                object value;
+                if (evt.Params.TryGetValue("errorMessage", out value) && value != null)
+                {
+                    text = value.ToString();
+                }
+                else if (evt.Params.TryGetValue("message", out value) && value != null)
+                {
+                    text = value.ToString();
+                }
+                else if (evt.Params.TryGetValue("reason", out value) && value != null)
+                {
+                    text = value.ToString();
+                }
+                else if (evt.Params.TryGetValue("errorCode", out value) && value != null)
+                {
+                    text = "Error code: " + value.ToString();
+                }
+            }
+            if (string.IsNullOrEmpty(text))
+            {
+                text = "Unknown connection error";
+            }
+
             if (mt.ConnectionAttempts < 3)
             {
                 mt.reconnect();
@@ -639,13 +669,44 @@ namespace ClubPenguin.Net.Client
 
         private void onCryptoInit(BaseEvent evt)
         {
-            bool flag = (bool)evt.Params["success"];
-            string text = (string)evt.Params["errorMessage"];
+            bool flag = false;
+            if (evt.Params != null && evt.Params.ContainsKey("success"))
+            {
+                flag = (bool)evt.Params["success"];
+            }
+
             if (flag)
             {
                 mt.login();
                 return;
             }
+
+            string text = null;
+            if (evt.Params != null)
+            {
+                object value;
+                if (evt.Params.TryGetValue("errorMessage", out value) && value != null)
+                {
+                    text = value.ToString();
+                }
+                else if (evt.Params.TryGetValue("message", out value) && value != null)
+                {
+                    text = value.ToString();
+                }
+                else if (evt.Params.TryGetValue("reason", out value) && value != null)
+                {
+                    text = value.ToString();
+                }
+                else if (evt.Params.TryGetValue("errorCode", out value) && value != null)
+                {
+                    text = "Error code: " + value.ToString();
+                }
+            }
+            if (string.IsNullOrEmpty(text))
+            {
+                text = "Unknown crypto init error";
+            }
+
             Log.LogNetworkErrorFormatted(this, "Failed to initialize encryption libraries. Error: {0}", text);
             RoomJoinError roomJoinError = default(RoomJoinError);
             roomJoinError.roomName = mt.JoinRoomDataRoom;

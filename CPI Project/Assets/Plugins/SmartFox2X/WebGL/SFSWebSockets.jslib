@@ -3,7 +3,7 @@ var LibraryWebSockets = {
 
 	SocketCreate: function(url)
 	{
-		var urlString = Pointer_stringify(url);
+		var urlString = (typeof UTF8ToString === 'function' ? UTF8ToString(url) : Pointer_stringify(url));
 		var socket = {
 			socket: new WebSocket(urlString),
 			buffer: new Uint8Array(0),

@@ -256,11 +256,14 @@ namespace ClubPenguin.Net.Client
 			return result;
 		}
 
-		internal IEnumerator InitCrypto()
+		internal void InitCrypto()
 		{
 			lock (smartFoxLock)
 			{
-				return smartFox.InitCrypto();
+				if (smartFox != null)
+				{
+					smartFox.InitCrypto();
+				}
 			}
 		}
 
@@ -386,7 +389,6 @@ namespace ClubPenguin.Net.Client
 				{
 					smartFox = new SmartFox(sfsDebugLogging);
 					smartFox.ThreadSafeMode = false;
-					smartFox.UseBlueBox = false;
 					sfsThread.AddListeners(smartFox);
 				}
 			}
@@ -504,7 +506,10 @@ namespace ClubPenguin.Net.Client
 				configData.HttpsPort = serverHttpsPort;
 				configData.Zone = zone;
 				configData.Debug = sfsDebugLogging;
-				configData.UseBlueBox = false;
+				if (configData.BlueBox != null)
+				{
+					configData.BlueBox.IsActive = false;
+				}
 				configData.UdpHost = serverIP;
 				configData.UdpPort = serverTcpPort;
 				smartFox.Connect(configData);
@@ -533,7 +538,10 @@ namespace ClubPenguin.Net.Client
 				configData.HttpsPort = httpsPort;
 				configData.Zone = zone;
 				configData.Debug = sfsDebugLogging;
-				configData.UseBlueBox = false;
+				if (configData.BlueBox != null)
+				{
+					configData.BlueBox.IsActive = false;
+				}
 				configData.UdpHost = host;
 				configData.UdpPort = tcpPort;
 				smartFox.Connect(configData);

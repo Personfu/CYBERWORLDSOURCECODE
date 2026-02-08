@@ -100,7 +100,7 @@ namespace ClubPenguin.Net.Client
 				}
 				if (mt.TriggerInitCrypto)
 				{
-					CoroutineRunner.Start(mt.InitCrypto(), this, "InitCrypto");
+					mt.InitCrypto();
 					mt.TriggerInitCrypto = false;
 				}
 				long serverTime;
