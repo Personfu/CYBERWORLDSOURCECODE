@@ -14,7 +14,7 @@ extern "C" {
 #endif
 
 // Exported function: protect data
-KEYCHAINWINDOWS_API int _cryptProtectData(const char* dataIn, size_t* sizeOut, char** dataOut)
+KEYCHAINWINDOWS_API int _cryptProtectData(const char* dataIn, int* sizeOut, char** dataOut)
 {
     if (!dataIn || !sizeOut || !dataOut) return 0;
 
@@ -42,12 +42,12 @@ KEYCHAINWINDOWS_API int _cryptProtectData(const char* dataIn, size_t* sizeOut, c
     LocalFree(pDataOut.pbData);
 
     *dataOut = buf;
-    *sizeOut = pDataOut.cbData;
+    *sizeOut = (int)pDataOut.cbData;
     return 1;
 }
 
 // Exported function: unprotect data
-KEYCHAINWINDOWS_API int _cryptUnprotectData(const char* dataIn, size_t size, char** dataOut)
+KEYCHAINWINDOWS_API int _cryptUnprotectData(const unsigned char* dataIn, int size, char** dataOut)
 {
     if (!dataIn || !dataOut || size == 0) return 0;
 
