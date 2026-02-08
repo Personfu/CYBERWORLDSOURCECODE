@@ -1098,7 +1098,7 @@ GameObject:
   - component: {fileID: 2222562134493853287}
   m_Layer: 17
   m_Name: IglooSnowmanDestroyed
-  m_TagString: Untagged
+  m_TagString: Snow
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
