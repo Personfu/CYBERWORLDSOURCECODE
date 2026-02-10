@@ -162869,6 +162869,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5087022455002139018, guid: 53cac3761c813a64c899c1c5afc02583,
         type: 3}
+      propertyPath: areaNameOnEnter
+      value: Penglantian Vault | Secret Dance Cave
+      objectReference: {fileID: 0}
+    - target: {fileID: 5087022455002139018, guid: 53cac3761c813a64c899c1c5afc02583,
+        type: 3}
       propertyPath: roomNameOnEnter
       value: Penglantian Vault | Secret Dance Cave
       objectReference: {fileID: 0}
