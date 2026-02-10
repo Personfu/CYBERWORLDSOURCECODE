@@ -23955,12 +23955,12 @@ MonoBehaviour:
     _eventNames: []
     _eventList: []
   profiler:
-    totalMS: 508.60977
-    recordedMS: 0.019073486
-    percent: 0.003750122
-    msPerFrame: 0.0014671913
+    totalMS: 666.666
+    recordedMS: 0
+    percent: 0
+    msPerFrame: 0
     maxMsPerFrame: 1.5487671
-    msPerCall: 0.0014671913
+    msPerCall: 0
     timesPerFrame: 1
   _eventMenuListFoldout: 1
   _eventListFoldout: 1
@@ -29519,6 +29519,17 @@ MonoBehaviour:
     SnowballPrefab: {fileID: 0}
     OriginalMaterial: {fileID: 0}
     EventMaterial: {fileID: 0}
+  - eventID: 23
+    eventName: waddleon
+    excludeFromDateSystem: 1
+    startMonth: 8
+    startDay: 15
+    endMonth: 9
+    endDay: 6
+    SceneAudioMappings: []
+    SnowballPrefab: {fileID: 0}
+    OriginalMaterial: {fileID: 0}
+    EventMaterial: {fileID: 0}
   - eventID: 27
     eventName: rdma
     excludeFromDateSystem: 0
@@ -29583,6 +29594,17 @@ MonoBehaviour:
     - SceneName: Diving
       DefaultAudioKey: Audio/Diving/Audio.Diving
       EventAudioKey: Audio/TemporaryContent/HalloweenParty_2018/Diving/Audio.Diving
+    SnowballPrefab: {fileID: 0}
+    OriginalMaterial: {fileID: 0}
+    EventMaterial: {fileID: 0}
+  - eventID: 43
+    eventName: waddleon2026
+    excludeFromDateSystem: 1
+    startMonth: 8
+    startDay: 15
+    endMonth: 9
+    endDay: 6
+    SceneAudioMappings: []
     SnowballPrefab: {fileID: 0}
     OriginalMaterial: {fileID: 0}
     EventMaterial: {fileID: 0}
