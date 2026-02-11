@@ -143,6 +143,14 @@ public class GenerateManifest
                     }
                 }
 
+                string forcedMissingResource = "asset:rewards/rewardpopup/itemrewardpopupbg_default?dl=res&x=prefab".ToLower();
+                if (!writtenLines.Contains(forcedMissingResource))
+                {
+                    writtenLines.Add(forcedMissingResource);
+                    writer.WriteLine(forcedMissingResource);
+                    assetLines.Add(forcedMissingResource);
+                }
+
                 // Process Bundle assets
                 string[] allPaths = AssetDatabase.GetAllAssetPaths();
                 var bundleAssets = allPaths
