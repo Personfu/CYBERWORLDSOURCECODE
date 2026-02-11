@@ -10491,6 +10491,7 @@
     "asset:worldtraynodeprefabs/contentprefab?dl=res&x=prefab",
     "asset:worldtraynodeprefabs/safeareabottomcontainer?dl=res&x=prefab",
     "asset:worldtraynodeprefabs/scrollbarprefab?dl=res&x=prefab",
-    "asset:worldtraynodeprefabs/titlebarprefab?dl=res&x=prefab"
+    "asset:worldtraynodeprefabs/titlebarprefab?dl=res&x=prefab",
+    "asset:rewards/rewardpopup/itemrewardpopupbg_default?dl=res&x=prefab"
   ]
 }
