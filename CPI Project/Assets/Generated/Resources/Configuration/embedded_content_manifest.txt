@@ -10490,6 +10490,7 @@ asset:worldtraynodeprefabs/contentprefab?dl=res&x=prefab
 asset:worldtraynodeprefabs/safeareabottomcontainer?dl=res&x=prefab
 asset:worldtraynodeprefabs/scrollbarprefab?dl=res&x=prefab
 asset:worldtraynodeprefabs/titlebarprefab?dl=res&x=prefab
+asset:rewards/rewardpopup/itemrewardpopupbg_default?dl=res&x=prefab
 asset:quests/aac002q002view/fsm/questfsm.aac002q002view.obj1?dl=bundle:sa-bundle&x=asset&b=assetbundles/generated/standalonewindows64/quest/auntarctic/c02q02.sa.unity3d&p=game/adventure/assetbundles
 asset:tasks/boardwalkcoins/watchers.manifest?dl=bundle:sa-bundle&x=asset&b=assetbundles/generated/standalonewindows64/tasks.sa.unity3d&p=game/adventure/assetbundles
 asset:furniture/level0/covessandcastle/covessandcastle_furniturerender?dl=bundle:sa-bundle&x=png&b=assetbundles/generated/standalonewindows64/igloo/level00.sa.unity3d&p=modules/igloo/assetbundles
@@ -15679,5 +15680,5 @@ bundle:assetbundles/generated/standalonewindows64/screentoyboxtubes.sa.unity3d?d
 bundle:assetbundles/generated/standalonewindows64/tasks.sa.unity3d?d=assetbundles/generated/standalonewindows64/mascot.sa.unity3d&p=0
 bundle:assetbundles/generated/standalonewindows64/ui/dailychallenges.sa.unity3d?d=&p=0
 baseuri:
-contentversion:88a71935fcdc072c19681f264dca7fdd6368ac3c
+contentversion:f289351367f0e9da60d2a73fcceba23dafd73914
 contentmanifesthash:
