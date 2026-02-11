@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ColorId: 25
   ViewOrder: 25
-  ColorName: Dark Black
-  Color: 000000
+  ColorName: Aqua
+  Color: 00FFFF
