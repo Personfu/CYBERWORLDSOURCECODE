@@ -320,7 +320,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: fdc227e5b4190754591906de8fd391d4, type: 2}
+  m_Sprite: {fileID: 21300000, guid: 630f49c31b18a614faf72114793cc5d2, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -362,7 +362,8 @@ MonoBehaviour:
     m_HighlightedSprite: {fileID: 0}
     m_PressedSprite: {fileID: 0}
     m_SelectedSprite: {fileID: 0}
-    m_DisabledSprite: {fileID: 21300000, guid: d99c539a17a4a244cbcd8b32be8bf623, type: 2}
+    m_DisabledSprite: {fileID: 4446365399962461984, guid: 36c3134ecddb48841822717da4dab666,
+      type: 3}
   m_AnimationTriggers:
     m_NormalTrigger: Normal
     m_HighlightedTrigger: Highlighted
@@ -443,14 +444,14 @@ Animation:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1056597828917326}
   m_Enabled: 1
-  serializedVersion: 3
+  serializedVersion: 4
   m_Animation: {fileID: 7400000, guid: 9af3573946eb7d641a05cb2f102fc1ae, type: 2}
   m_Animations:
-  - {fileID: 7400000, guid: 963b78df8483430429e2c5e00f39ecb7, type: 2}
   - {fileID: 7400000, guid: 9af3573946eb7d641a05cb2f102fc1ae, type: 2}
   m_WrapMode: 0
   m_PlayAutomatically: 1
   m_AnimatePhysics: 0
+  m_UpdateMode: 0
   m_CullingType: 0
 --- !u!114 &114861157406777762
 MonoBehaviour:
@@ -860,7 +861,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 5159799a95cd311428b33072dbb71394, type: 2}
+  m_Sprite: {fileID: 21300000, guid: 17b58d24c8f2e3c49af4d131247a7a37, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -872,7 +873,7 @@ MonoBehaviour:
   m_PixelsPerUnitMultiplier: 1
 --- !u!95 &95593502297615878
 Animator:
-  serializedVersion: 5
+  serializedVersion: 7
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -886,6 +887,7 @@ Animator:
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
@@ -991,7 +993,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 7f53e8dadca538041a659c4350ab4cac, type: 2}
+  m_Sprite: {fileID: 21300000, guid: 24257b94dea25fb4999f180b26b80a27, type: 3}
   m_Type: 3
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1087,7 +1089,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 7f53e8dadca538041a659c4350ab4cac, type: 2}
+  m_Sprite: {fileID: 21300000, guid: 24257b94dea25fb4999f180b26b80a27, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1602,7 +1604,7 @@ MonoBehaviour:
   TargetParent: {fileID: 224898117004466211}
 --- !u!95 &95684991471425796
 Animator:
-  serializedVersion: 5
+  serializedVersion: 7
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -1616,6 +1618,7 @@ Animator:
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
@@ -1683,7 +1686,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: -0, z: -10.400001}
   m_AnchorMin: {x: 0, y: 0.16428572}
   m_AnchorMax: {x: 0.2178562, y: 1}
-  m_AnchoredPosition: {x: 1.300003, y: 6.299999}
+  m_AnchoredPosition: {x: 1.2999878, y: 6.299999}
   m_SizeDelta: {x: -4, y: 25.55}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &222417497746301403
@@ -1714,7 +1717,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: bc56a976776660145915d5c052e60dc8, type: 2}
+  m_Sprite: {fileID: 2724881324078760308, guid: 36c3134ecddb48841822717da4dab666,
+    type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -1817,7 +1821,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DisplaySeconds: 3
-  Snippets: {fileID: 11400000, guid: 83b8ff2d4ad5d3e4dbe274f15c1fe347, type: 2}
+  Snippets: {fileID: 11400000, guid: c4f385c7d5349654891d87ca8e1bfe94, type: 2}
 --- !u!1 &1468931158046575
 GameObject:
   m_ObjectHideFlags: 0
@@ -1885,7 +1889,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 1fb4aac569bc12341aec4f895d24db6b, type: 2}
+  m_Sprite: {fileID: 21300000, guid: 17b58d24c8f2e3c49af4d131247a7a37, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -1897,7 +1901,7 @@ MonoBehaviour:
   m_PixelsPerUnitMultiplier: 1
 --- !u!95 &95935792085792894
 Animator:
-  serializedVersion: 5
+  serializedVersion: 7
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -1911,6 +1915,7 @@ Animator:
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
@@ -2125,7 +2130,7 @@ MonoBehaviour:
   DynamicText: 
 --- !u!95 &95735620388711891
 Animator:
-  serializedVersion: 5
+  serializedVersion: 7
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -2139,6 +2144,7 @@ Animator:
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
@@ -2291,7 +2297,8 @@ MonoBehaviour:
     m_HighlightedSprite: {fileID: 0}
     m_PressedSprite: {fileID: 0}
     m_SelectedSprite: {fileID: 0}
-    m_DisabledSprite: {fileID: 21300000, guid: d99c539a17a4a244cbcd8b32be8bf623, type: 2}
+    m_DisabledSprite: {fileID: 4446365399962461984, guid: 36c3134ecddb48841822717da4dab666,
+      type: 3}
   m_AnimationTriggers:
     m_NormalTrigger: Normal
     m_HighlightedTrigger: Highlighted
@@ -2372,14 +2379,14 @@ Animation:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1626445072130388}
   m_Enabled: 1
-  serializedVersion: 3
+  serializedVersion: 4
   m_Animation: {fileID: 7400000, guid: 9af3573946eb7d641a05cb2f102fc1ae, type: 2}
   m_Animations:
-  - {fileID: 7400000, guid: 963b78df8483430429e2c5e00f39ecb7, type: 2}
   - {fileID: 7400000, guid: 9af3573946eb7d641a05cb2f102fc1ae, type: 2}
   m_WrapMode: 0
   m_PlayAutomatically: 1
   m_AnimatePhysics: 0
+  m_UpdateMode: 0
   m_CullingType: 0
 --- !u!114 &114988823677200184
 MonoBehaviour:
@@ -2559,7 +2566,7 @@ MonoBehaviour:
       m_Calls: []
 --- !u!95 &95916716705179227
 Animator:
-  serializedVersion: 5
+  serializedVersion: 7
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -2573,6 +2580,7 @@ Animator:
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
@@ -2785,7 +2793,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 4b493b9f5fee8e74695a3768ead45f74, type: 2}
+  m_Sprite: {fileID: -8826526825997585458, guid: 36c3134ecddb48841822717da4dab666,
+    type: 3}
   m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2857,7 +2866,7 @@ MonoBehaviour:
   OverrideSoundSource: {fileID: 0}
 --- !u!95 &95001615738703887
 Animator:
-  serializedVersion: 5
+  serializedVersion: 7
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -2871,6 +2880,7 @@ Animator:
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
@@ -3093,7 +3103,7 @@ MonoBehaviour:
       m_Calls: []
 --- !u!95 &95889983563026882
 Animator:
-  serializedVersion: 5
+  serializedVersion: 7
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -3107,6 +3117,7 @@ Animator:
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
@@ -3287,7 +3298,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 5159799a95cd311428b33072dbb71394, type: 2}
+  m_Sprite: {fileID: 21300000, guid: 17b58d24c8f2e3c49af4d131247a7a37, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -3299,7 +3310,7 @@ MonoBehaviour:
   m_PixelsPerUnitMultiplier: 1
 --- !u!95 &95054357765601174
 Animator:
-  serializedVersion: 5
+  serializedVersion: 7
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -3313,6 +3324,7 @@ Animator:
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
@@ -3756,7 +3768,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 08162de36481f30418d780977226f061, type: 2}
+  m_Sprite: {fileID: 21300000, guid: f3ee78a385e5e074881fc429e23a4930, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
