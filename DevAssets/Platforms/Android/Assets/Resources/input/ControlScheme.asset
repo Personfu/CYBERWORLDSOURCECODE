@@ -19,6 +19,7 @@ MonoBehaviour:
   Action3: {fileID: 11400000, guid: 26f9340b0ba3ba247b96ee5c16cfa2fb, type: 2}
   Cancel: {fileID: 11400000, guid: 02a7ea51ab561314eae94169683f716d, type: 2}
   WalkModifier: {fileID: 11400000, guid: 5d5c7e8018e782a4bb0f6e9cfbf5d913, type: 2}
+  SprintModifier: {fileID: 11400000, guid: 1ee948dad3855f54594557b5269b429c, type: 2}
   Profile: {fileID: 11400000, guid: f66b0ff01c7923e4f846a1f1c406d92c, type: 2}
   Consumables: {fileID: 11400000, guid: a38d44160520bab43a7141f8feb20a54, type: 2}
   Quest: {fileID: 11400000, guid: 0ef3ff1f3f42a2841b0684f6d8504d15, type: 2}
