@@ -32,9 +32,6 @@ RectTransform:
   - {fileID: 224417541205212044}
   - {fileID: 5106431676385086263}
   - {fileID: 6549847209067557289}
-  - {fileID: 4360934325011399}
-  - {fileID: 4048807428985170}
-  - {fileID: 4734543258933967}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -92,11 +89,11 @@ Transform:
   m_GameObject: {fileID: 1621876338513707}
   serializedVersion: 2
   m_LocalRotation: {x: 1, y: -0.00000016292068, z: -0.00000016292068, w: 2.654315e-14}
-  m_LocalPosition: {x: 399, y: 823, z: -25}
+  m_LocalPosition: {x: -118, y: 397, z: -125}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 224980180473274607}
+  m_Father: {fileID: 224417541205212044}
   m_LocalEulerAnglesHint: {x: 180, y: -0.000018669336, z: 0.000018669336}
 --- !u!198 &198101864918311486
 ParticleSystem:
@@ -3127,11 +3124,11 @@ Transform:
   m_GameObject: {fileID: 1753083659108510}
   serializedVersion: 2
   m_LocalRotation: {x: 1, y: -0.00000016292068, z: -0.00000016292068, w: 2.654315e-14}
-  m_LocalPosition: {x: -29, y: 813, z: -25}
+  m_LocalPosition: {x: 205, y: 174, z: -125}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 224980180473274607}
+  m_Father: {fileID: 224417541205212044}
   m_LocalEulerAnglesHint: {x: 180, y: -0.000018669336, z: 0.000018669336}
 --- !u!198 &198332354031496535
 ParticleSystem:
@@ -6162,11 +6159,11 @@ Transform:
   m_GameObject: {fileID: 1881529773271540}
   serializedVersion: 2
   m_LocalRotation: {x: 1, y: -0.00000016292068, z: -0.00000016292068, w: 2.654315e-14}
-  m_LocalPosition: {x: -384, y: 736, z: -25}
+  m_LocalPosition: {x: -237, y: 51, z: -125}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 224980180473274607}
+  m_Father: {fileID: 224417541205212044}
   m_LocalEulerAnglesHint: {x: 180, y: -0.000018669336, z: 0.000018669336}
 --- !u!198 &198728967723269349
 ParticleSystem:
@@ -9180,8 +9177,9 @@ GameObject:
   - component: {fileID: 224417541205212044}
   - component: {fileID: 222226289219801153}
   - component: {fileID: 114192649930730714}
+  - component: {fileID: 7897017360456103884}
   m_Layer: 5
-  m_Name: Image
+  m_Name: BG
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9198,13 +9196,16 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 4360934325011399}
+  - {fileID: 4048807428985170}
+  - {fileID: 4734543258933967}
   m_Father: {fileID: 224980180473274607}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0.025024414}
-  m_SizeDelta: {x: 30, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &222226289219801153
 CanvasRenderer:
@@ -9244,6 +9245,20 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &7897017360456103884
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1920785429638472}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86710e43de46f6f4bac7c8e50813a599, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.AspectRatioFitter
+  m_AspectMode: 2
+  m_AspectRatio: 0.7504394
 --- !u!1 &4677435547768968751
 GameObject:
   m_ObjectHideFlags: 0
@@ -9280,8 +9295,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.29850283, y: 0.60038316}
   m_AnchorMax: {x: 0.6920431, y: 0.9282223}
-  m_AnchoredPosition: {x: 0, y: 0.000061035156}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchoredPosition: {x: -2, y: -1}
+  m_SizeDelta: {x: 324, y: -2}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8101787881225439659
 CanvasRenderer:
