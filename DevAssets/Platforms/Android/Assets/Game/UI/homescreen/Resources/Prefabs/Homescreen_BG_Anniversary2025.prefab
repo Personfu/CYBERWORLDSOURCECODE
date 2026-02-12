@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 224980180473274607}
   - component: {fileID: 95431042979753741}
   m_Layer: 5
-  m_Name: Homescreen_BG_Anniversary2018
+  m_Name: Homescreen_BG_Anniversary2025
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -31,7 +31,7 @@ RectTransform:
   m_Children:
   - {fileID: 224417541205212044}
   - {fileID: 5106431676385086263}
-  - {fileID: 6549847209067557289}
+  - {fileID: 2627576734324158209}
   - {fileID: 4360934325011399}
   - {fileID: 4048807428985170}
   - {fileID: 4734543258933967}
@@ -216,7 +216,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 0
       minColor: {r: 1, g: 1, b: 1, a: 1}
-      maxColor: {r: 0.7137255, g: 1, b: 0.9994591, a: 1}
+      maxColor: {r: 0.42626378, g: 0.5240434, b: 0.9716981, a: 1}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
@@ -3080,7 +3080,8 @@ ParticleSystemRenderer:
   m_TrailVertexStreams: 00010304
   m_Mesh: {fileID: 7508718677218583070, guid: 4805784029c3efd4d86bc051eb255ca3, type: 3}
   m_Mesh1: {fileID: 1497726702587719396, guid: a5b8a4d6fdfc28b4ab200b5e5b9e8b65, type: 3}
-  m_Mesh2: {fileID: 0}
+  m_Mesh2: {fileID: -8896392770589787426, guid: 4805784029c3efd4d86bc051eb255ca3,
+    type: 3}
   m_Mesh3: {fileID: 0}
   m_MeshWeighting: 1
   m_MeshWeighting1: 1
@@ -3251,7 +3252,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 0
       minColor: {r: 1, g: 1, b: 1, a: 1}
-      maxColor: {r: 1, g: 0.9210278, b: 0.7137255, a: 1}
+      maxColor: {r: 0.24056602, g: 0.51672375, b: 1, a: 1}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
@@ -6115,7 +6116,8 @@ ParticleSystemRenderer:
   m_TrailVertexStreams: 00010304
   m_Mesh: {fileID: 7508718677218583070, guid: 4805784029c3efd4d86bc051eb255ca3, type: 3}
   m_Mesh1: {fileID: 1497726702587719396, guid: a5b8a4d6fdfc28b4ab200b5e5b9e8b65, type: 3}
-  m_Mesh2: {fileID: 0}
+  m_Mesh2: {fileID: -8896392770589787426, guid: 4805784029c3efd4d86bc051eb255ca3,
+    type: 3}
   m_Mesh3: {fileID: 0}
   m_MeshWeighting: 1
   m_MeshWeighting1: 1
@@ -6286,7 +6288,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 0
       minColor: {r: 1, g: 1, b: 1, a: 1}
-      maxColor: {r: 1, g: 0.7137255, b: 0.92156863, a: 1}
+      maxColor: {r: 0.5235849, g: 0.6982221, b: 1, a: 1}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
@@ -9150,7 +9152,8 @@ ParticleSystemRenderer:
   m_TrailVertexStreams: 00010304
   m_Mesh: {fileID: 7508718677218583070, guid: 4805784029c3efd4d86bc051eb255ca3, type: 3}
   m_Mesh1: {fileID: 1497726702587719396, guid: a5b8a4d6fdfc28b4ab200b5e5b9e8b65, type: 3}
-  m_Mesh2: {fileID: 0}
+  m_Mesh2: {fileID: -8896392770589787426, guid: 4805784029c3efd4d86bc051eb255ca3,
+    type: 3}
   m_Mesh3: {fileID: 0}
   m_MeshWeighting: 1
   m_MeshWeighting1: 1
@@ -9361,7 +9364,7 @@ MonoBehaviour:
   GenericContentKey:
     Key: Images/Homescreen_CPILogo
     type: UnityEngine.Sprite, UnityEngine
---- !u!1 &8801116058251925673
+--- !u!1 &7946658273806995036
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -9369,12 +9372,12 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 6549847209067557289}
-  - component: {fileID: 3359051262373194281}
-  - component: {fileID: 9032441945617226897}
-  - component: {fileID: 7884801212530755916}
-  - component: {fileID: 6992535292466128788}
-  - component: {fileID: 7573243157449587906}
+  - component: {fileID: 2627576734324158209}
+  - component: {fileID: 7098730493040770663}
+  - component: {fileID: 5565917747951760114}
+  - component: {fileID: 4270976124213199265}
+  - component: {fileID: 4215754539225188522}
+  - component: {fileID: 5575994087694402320}
   m_Layer: 5
   m_Name: LegalText
   m_TagString: Untagged
@@ -9382,13 +9385,13 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!224 &6549847209067557289
+--- !u!224 &2627576734324158209
 RectTransform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8801116058251925673}
+  m_GameObject: {fileID: 7946658273806995036}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -9401,13 +9404,13 @@ RectTransform:
   m_AnchoredPosition: {x: -0.5, y: -0.2000122}
   m_SizeDelta: {x: -1, y: -0.5}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &3359051262373194281
+--- !u!114 &7098730493040770663
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8801116058251925673}
+  m_GameObject: {fileID: 7946658273806995036}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
@@ -9494,13 +9497,13 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!114 &9032441945617226897
+--- !u!114 &5565917747951760114
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8801116058251925673}
+  m_GameObject: {fileID: 7946658273806995036}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c42f2e004b5572f94927fbf9f53bd54c, type: 3}
@@ -9512,13 +9515,13 @@ MonoBehaviour:
   platform: 0
   tokenType: 
   tokenSubType: 
---- !u!114 &7884801212530755916
+--- !u!114 &4270976124213199265
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8801116058251925673}
+  m_GameObject: {fileID: 7946658273806995036}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5fd456e41b8fe69e8067267817b1d200, type: 3}
@@ -9529,7 +9532,7 @@ MonoBehaviour:
   IgnoreText: 0
   VoiceOnly: 1
   CustomToken: 
-  ReferenceToken: {fileID: 8801116058251925673}
+  ReferenceToken: {fileID: 7946658273806995036}
   ReferenceRect: {fileID: 0}
   DontRender: 0
   AdditionalReferenceTokens: []
@@ -9537,21 +9540,21 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   DynamicText: 
---- !u!222 &6992535292466128788
+--- !u!222 &4215754539225188522
 CanvasRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8801116058251925673}
+  m_GameObject: {fileID: 7946658273806995036}
   m_CullTransparentMesh: 0
---- !u!114 &7573243157449587906
+--- !u!114 &5575994087694402320
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8801116058251925673}
+  m_GameObject: {fileID: 7946658273806995036}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 306cc8c2b49d7114eaa3623786fc2126, type: 3}
