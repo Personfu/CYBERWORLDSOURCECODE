@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d6bd6c41ee8d556e1216b16aec5af16, type: 3}
   m_Name: RookieEvent
   m_EditorClassIdentifier: 
-  i18nDisplayTitle: Mascot.Name.AuntArctic
-  i18nAdventureLogTitleText: Mascot.Log.AuntArctic
-  AbbreviatedName: AA
+  i18nDisplayTitle: Mascot.Name.Rookie
+  i18nAdventureLogTitleText: Adventures.SplashScreen.Rookie.Title
+  AbbreviatedName: RK
   IsQuestGiver: 0
   ShowComingSoonInLog: 0
   ChapterData: []
@@ -43,19 +43,19 @@ MonoBehaviour:
   SpeechBubbleFontSize: 33
   MessageBubbleFontSize: 29
   BubbleContentKey:
-    Key: Sprites/CinematicSpeechBubbles/Quest_MascotBubble_GY_QuestCommunicator
+    Key: Sprites/CinematicSpeechBubbles/Quest_MascotBubble_RK_QuestCommunicator
     type: UnityEngine.Sprite, UnityEngine
   HudAvatarContentKey:
-    Key: Sprites/MascotCommunicatorIcons/Quest_QuestCommunicator_Mascot_GY
+    Key: Sprites/MascotCommunicatorIcons/Quest_QuestCommunicator_Mascot_RK
     type: UnityEngine.Sprite, UnityEngine
   CommunicatorIconContentKey:
-    Key: Sprites/MascotCommunicatorBG/Quest_QuestCommunicator_CompassBG_GY
+    Key: Sprites/MascotCommunicatorBG/Quest_QuestCommunicator_CompassBG_RK
     type: UnityEngine.Sprite, UnityEngine
   RewardPopupXPContentKey:
-    Key: Rewards/RewardPopupScreens/ImagePanel_AA
+    Key: Rewards/RewardPopupScreens/ImagePanel_RK
     type: UnityEngine.GameObject, UnityEngine
   RewardPopupChestContentKey:
-    Key: Rewards/RewardPopup/RewardsAuntArcticChest
+    Key: Rewards/RewardPopup/RewardsRookieChest
     type: UnityEngine.GameObject, UnityEngine
   QuestStatusIconContentKey:
     Key: 
