@@ -31,5 +31,13 @@ namespace ClubPenguin.ClothingDesigner
 			: base(value)
 		{
 		}
+
+		public EquipmentInstanceReward(int definitionId)
+		{
+			CustomEquipment value = default(CustomEquipment);
+			value.definitionId = definitionId;
+			value.parts = new CustomEquipmentPart[0];
+			data.Add(value);
+		}
 	}
 }

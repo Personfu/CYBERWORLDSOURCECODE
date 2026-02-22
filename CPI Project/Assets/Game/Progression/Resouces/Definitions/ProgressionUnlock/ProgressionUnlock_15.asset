@@ -53,6 +53,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: afba0e4f0f9ae924ea78babdfe4b853b, type: 2}
   - {fileID: 11400000, guid: 7502354efc8590941affb24d9a64008e, type: 2}
   - {fileID: 11400000, guid: 0efd6c1795a2b8a4caadb2e1e6dc5ac2, type: 2}
+  equipmentInstances:
+  - {fileID: 11400000, guid: a32af00f7d24ddf4f8cd2fdedadd1d76, type: 2}
   lots: []
   decorationPurchaseRights:
   - {fileID: 11400000, guid: 0e77a1a203206c640a6e62517d4cef6c, type: 2}

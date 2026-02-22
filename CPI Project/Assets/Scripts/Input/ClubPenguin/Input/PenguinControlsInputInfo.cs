@@ -14,6 +14,16 @@ namespace ClubPenguin.Input
 
 		public override void Populate(ControlScheme controlScheme)
 		{
+			if (ActiveInputDevice.CurrentKind == ActiveInputDevice.Kind.Gamepad)
+			{
+				Jump = ActiveInputDevice.GetLabel(ActiveInputDevice.GamepadControl.ButtonSouth);
+				Action1 = ActiveInputDevice.GetLabel(ActiveInputDevice.GamepadControl.ButtonWest);
+				Action2 = ActiveInputDevice.GetLabel(ActiveInputDevice.GamepadControl.ButtonNorth);
+				Action3 = ActiveInputDevice.GetLabel(ActiveInputDevice.GamepadControl.ButtonEast);
+				Cancel = ActiveInputDevice.GetLabel(ActiveInputDevice.GamepadControl.Select);
+				return;
+			}
+
 			Jump = getKeyCodeTranslation(controlScheme.Jump.PrimaryKey);
 			Action1 = getKeyCodeTranslation(controlScheme.Action1.PrimaryKey);
 			Action2 = getKeyCodeTranslation(controlScheme.Action2.PrimaryKey);

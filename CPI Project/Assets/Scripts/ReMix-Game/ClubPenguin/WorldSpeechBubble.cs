@@ -12,355 +12,470 @@ using UnityEngine.UI;
 
 namespace ClubPenguin
 {
-	[RequireComponent(typeof(Animator))]
-	public class WorldSpeechBubble : MonoBehaviour
-	{
-		private enum SpeechBubbleState
-		{
-			Inactive,
-			Message,
-			ChatPhraseMessage,
-			AwaitingModeration,
-			Blocked,
-			Typing,
-			TypingPending
-		}
+    [RequireComponent(typeof(Animator))]
+    public class WorldSpeechBubble : MonoBehaviour
+    {
+        public const char SystemMessagePrefix = '\u200B';
+        public const char SystemErrorPrefix = '\u200C';
 
-		public Text MessageText;
+        private enum SpeechBubbleState
+        {
+            Inactive,
+            Message,
+            ChatPhraseMessage,
+            AwaitingModeration,
+            Blocked,
+            Typing,
+            TypingPending
+        }
 
-		public GameObject ActiveTypingPanel;
+        public Text MessageText;
+        public GameObject ActiveTypingPanel;
+        public GameObject BlockedTextPanel;
+        public RectTransform BubbleRect;
+        public LayoutGroup PaddingLayoutGroup;
+        public float DisplayTime;
 
-		public GameObject BlockedTextPanel;
+        private bool isActive = true;
+        public Material FontMaterialDefault;
+        public Material FontMaterialWaiting;
 
-		public RectTransform BubbleRect;
+        private Animator animator;
+        private long sessionId;
+        private string message;
+        private bool isMessageShowing;
+        private SpeechBubbleState currentState;
+        private bool isVisible;
+        private string previousEmoteMessage = "";
+        private int emoteReduction = 6;
 
-		public LayoutGroup PaddingLayoutGroup;
+        [SerializeField]
+        private int maxEmoteString = 5;
 
-		public float DisplayTime;
+        [SerializeField]
+        private int FontSizeDefault = 23;
 
-		private bool isActive = true;
+        [SerializeField]
+        private int FontSizeSingleEmote = 68;
 
-		public Material FontMaterialDefault;
+        [SerializeField]
+        private RectOffset PaddingDefault;
 
-		public Material FontMaterialWaiting;
+        [SerializeField]
+        private RectOffset PaddingSingleEmote;
 
-		private Animator animator;
+        private Text[] blockedTextComponents;
+        private string[] blockedTextOriginals;
 
-		private long sessionId;
+        public long SessionId
+        {
+            get
+            {
+                return sessionId;
+            }
+        }
 
-		private string message;
+        public bool IsActive
+        {
+            get
+            {
+                return isActive;
+            }
+        }
 
-		private bool isMessageShowing;
+        public event Action<WorldSpeechBubble> OnCompleteEvent;
 
-		private SpeechBubbleState currentState;
+        private void Awake()
+        {
+            animator = GetComponent<Animator>();
+            removeRaycastsFromText();
+            cacheBlockedTextDefaults();
+        }
 
-		private bool isVisible;
+        public void OnDestroy()
+        {
+            this.OnCompleteEvent = null;
+            CoroutineRunner.StopAllForOwner(this);
+        }
 
-		private string previousEmoteMessage = "";
+        public void ShowChatMessage(long sessionId, string message)
+        {
+            this.sessionId = sessionId;
+            this.message = message;
+            enterState(SpeechBubbleState.Message);
+        }
 
-		private int emoteReduction = 6;
+        public void ShowChatPhraseMessage(long sessionId, string message)
+        {
+            this.sessionId = sessionId;
+            this.message = message;
+            enterState(SpeechBubbleState.ChatPhraseMessage);
+        }
 
-		[SerializeField]
-		private int maxEmoteString = 5;
+        public void ShowAwaitingModerationMessage(long sessionId, string message)
+        {
+            this.sessionId = sessionId;
+            this.message = message;
+            enterState(SpeechBubbleState.AwaitingModeration);
+        }
 
-		[SerializeField]
-		private int FontSizeDefault = 23;
+        public void SetChatBlocked(long sessionId)
+        {
+            this.sessionId = sessionId;
+            enterState(SpeechBubbleState.Blocked);
+        }
 
-		[SerializeField]
-		private int FontSizeSingleEmote = 68;
+        public void SetChatActive(long sessionId)
+        {
+            this.sessionId = sessionId;
+            enterState(SpeechBubbleState.Typing);
+        }
 
-		[SerializeField]
-		private RectOffset PaddingDefault;
+        public void SetChatInactive()
+        {
+            enterState(SpeechBubbleState.Inactive);
+        }
 
-		[SerializeField]
-		private RectOffset PaddingSingleEmote;
+        public void RebuildLayout()
+        {
+            LayoutRebuilder.MarkLayoutForRebuild(MessageText.transform as RectTransform);
+        }
 
-		public long SessionId
-		{
-			get
-			{
-				return sessionId;
-			}
-		}
+        private void enterState(SpeechBubbleState state)
+        {
+            switch (state)
+            {
+                case SpeechBubbleState.Message:
+                    if (currentState == SpeechBubbleState.AwaitingModeration)
+                    {
+                        setMessageToApproved();
+                    }
+                    else if (!isLocalPlayerChat())
+                    {
+                        showChatMessage(false);
+                    }
+                    currentState = state;
+                    break;
+                case SpeechBubbleState.ChatPhraseMessage:
+                    showChatMessage(false);
+                    currentState = state;
+                    break;
+                case SpeechBubbleState.AwaitingModeration:
+                    currentState = state;
+                    showChatMessage(true);
+                    break;
+                case SpeechBubbleState.Blocked:
+                    currentState = state;
+                    showBlockedChat();
+                    break;
+                case SpeechBubbleState.Typing:
+                    if (currentState == SpeechBubbleState.Inactive)
+                    {
+                        showActiveChat();
+                        currentState = state;
+                    }
+                    else if (currentState == SpeechBubbleState.Message)
+                    {
+                        currentState = SpeechBubbleState.TypingPending;
+                    }
+                    break;
+                case SpeechBubbleState.Inactive:
+                    if (!isMessageShowing)
+                    {
+                        if (currentState == SpeechBubbleState.TypingPending)
+                        {
+                            currentState = state;
+                            enterState(SpeechBubbleState.Typing);
+                        }
+                        else
+                        {
+                            currentState = state;
+                            hideMessage();
+                        }
+                    }
+                    break;
+            }
+        }
 
-		public bool IsActive
-		{
-			get
-			{
-				return isActive;
-			}
-		}
+        private void setMessageToApproved()
+        {
+            MessageText.material = FontMaterialDefault;
+        }
 
-		public event Action<WorldSpeechBubble> OnCompleteEvent;
+        private static bool isSystemMessage(string msg)
+        {
+            return !string.IsNullOrEmpty(msg) && msg.Length >= 1 && msg[0] == SystemMessagePrefix;
+        }
 
-		private void Awake()
-		{
-			animator = GetComponent<Animator>();
-			removeRaycastsFromText();
-		}
+        private static bool isSystemErrorMessage(string msg)
+        {
+            return !string.IsNullOrEmpty(msg) && msg.Length >= 2 && msg[0] == SystemMessagePrefix && msg[1] == SystemErrorPrefix;
+        }
 
-		public void OnDestroy()
-		{
-			this.OnCompleteEvent = null;
-			CoroutineRunner.StopAllForOwner(this);
-		}
+        private static string stripSystemPrefixes(string msg)
+        {
+            if (string.IsNullOrEmpty(msg))
+            {
+                return msg;
+            }
 
-		public void ShowChatMessage(long sessionId, string message)
-		{
-			this.sessionId = sessionId;
-			this.message = message;
-			enterState(SpeechBubbleState.Message);
-		}
+            if (msg.Length >= 2 && msg[0] == SystemMessagePrefix && msg[1] == SystemErrorPrefix)
+            {
+                return msg.Substring(2);
+            }
 
-		public void ShowChatPhraseMessage(long sessionId, string message)
-		{
-			this.sessionId = sessionId;
-			this.message = message;
-			enterState(SpeechBubbleState.ChatPhraseMessage);
-		}
+            if (msg.Length >= 1 && msg[0] == SystemMessagePrefix)
+            {
+                return msg.Substring(1);
+            }
 
-		public void ShowAwaitingModerationMessage(long sessionId, string message)
-		{
-			this.sessionId = sessionId;
-			this.message = message;
-			enterState(SpeechBubbleState.AwaitingModeration);
-		}
+            return msg;
+        }
 
-		public void SetChatBlocked(long sessionId)
-		{
-			this.sessionId = sessionId;
-			enterState(SpeechBubbleState.Blocked);
-		}
+        private void showChatMessage(bool isAwaitingModeration)
+        {
+            bool system = isSystemMessage(message);
+            bool systemError = isSystemErrorMessage(message);
+            string renderMessage = stripSystemPrefixes(message);
 
-		public void SetChatActive(long sessionId)
-		{
-			this.sessionId = sessionId;
-			enterState(SpeechBubbleState.Typing);
-		}
+            if (systemError)
+            {
+                showCustomBlockedChat(renderMessage);
+                return;
+            }
 
-		public void SetChatInactive()
-		{
-			enterState(SpeechBubbleState.Inactive);
-		}
+            MessageText.gameObject.SetActive(true);
+            ActiveTypingPanel.SetActive(false);
+            BlockedTextPanel.SetActive(false);
+            isMessageShowing = true;
+            CoroutineRunner.StopAllForOwner(this);
 
-		public void RebuildLayout()
-		{
-			LayoutRebuilder.MarkLayoutForRebuild(MessageText.transform as RectTransform);
-		}
+            bool flag = renderMessage.Length <= maxEmoteString;
+            int num = renderMessage.Length + previousEmoteMessage.Length;
+            bool flag2 = true;
+            string text = "";
 
-		private void enterState(SpeechBubbleState state)
-		{
-			switch (state)
-			{
-			case SpeechBubbleState.Message:
-				if (currentState == SpeechBubbleState.AwaitingModeration)
-				{
-					setMessageToApproved();
-				}
-				else if (!isLocalPlayerChat())
-				{
-					showChatMessage(false);
-				}
-				currentState = state;
-				break;
-			case SpeechBubbleState.ChatPhraseMessage:
-				showChatMessage(false);
-				currentState = state;
-				break;
-			case SpeechBubbleState.AwaitingModeration:
-				currentState = state;
-				showChatMessage(true);
-				break;
-			case SpeechBubbleState.Blocked:
-				currentState = state;
-				showBlockedChat();
-				break;
-			case SpeechBubbleState.Typing:
-				if (currentState == SpeechBubbleState.Inactive)
-				{
-					showActiveChat();
-					currentState = state;
-				}
-				else if (currentState == SpeechBubbleState.Message)
-				{
-					currentState = SpeechBubbleState.TypingPending;
-				}
-				break;
-			case SpeechBubbleState.Inactive:
-				if (!isMessageShowing)
-				{
-					if (currentState == SpeechBubbleState.TypingPending)
-					{
-						currentState = state;
-						enterState(SpeechBubbleState.Typing);
-					}
-					else
-					{
-						currentState = state;
-						hideMessage();
-					}
-				}
-				break;
-			}
-		}
+            MessageText.material = FontMaterialDefault;
 
-		private void setMessageToApproved()
-		{
-			MessageText.material = FontMaterialDefault;
-		}
+            if (isAwaitingModeration && !system)
+            {
+                MessageText.material = FontMaterialWaiting;
+            }
 
-		private void showChatMessage(bool isAwaitingModeration)
-		{
-			MessageText.gameObject.SetActive(true);
-			ActiveTypingPanel.SetActive(false);
-			BlockedTextPanel.SetActive(false);
-			isMessageShowing = true;
-			CoroutineRunner.StopAllForOwner(this);
-			bool flag = message.Length <= maxEmoteString;
-			int num = message.Length + previousEmoteMessage.Length;
-			bool flag2 = true;
-			string text = "";
-			MessageText.material = FontMaterialDefault;
-			if (flag)
-			{
-				string text2 = message;
-				foreach (char c in text2)
-				{
-					if (!EmoteManager.IsEmoteCharacter(c))
-					{
-						flag2 = false;
-						break;
-					}
-					playSoundForEmote(EmoteManager.GetEmoteFromCharacter(c));
-				}
-			}
-			if (flag2 && flag)
-			{
-				text = ((num > maxEmoteString) ? message : (previousEmoteMessage + message));
-				PaddingLayoutGroup.padding = PaddingSingleEmote;
-				MessageText.fontSize = FontSizeSingleEmote - (text.Length - 1) * emoteReduction;
-				MessageText.text = text;
-				previousEmoteMessage = text;
-				Service.Get<EventDispatcher>().DispatchEvent(new ChatEvents.ChatEmoteMessageShown(text, SessionId));
-			}
-			else
-			{
-				PaddingLayoutGroup.padding = PaddingDefault;
-				MessageText.fontSize = FontSizeDefault;
-				previousEmoteMessage = "";
-				if (isAwaitingModeration)
-				{
-					MessageText.material = FontMaterialWaiting;
-				}
-				MessageText.text = message;
-			}
-			AccessibilitySettings component = MessageText.GetComponent<AccessibilitySettings>();
-			if (component != null)
-			{
-				component.DynamicText = EmoteManager.GetMessageWithLocalizedEmotes(MessageText.text);
-			}
-			adjustBubbleSize();
-			openBubble();
-			CoroutineRunner.Start(waitForDisplayTime(), this, "waitForDisplayTime");
-		}
+            if (flag)
+            {
+                string text2 = renderMessage;
+                foreach (char c in text2)
+                {
+                    if (!EmoteManager.IsEmoteCharacter(c))
+                    {
+                        flag2 = false;
+                        break;
+                    }
+                    playSoundForEmote(EmoteManager.GetEmoteFromCharacter(c));
+                }
+            }
 
-		private void showActiveChat()
-		{
-			MessageText.gameObject.SetActive(false);
-			ActiveTypingPanel.SetActive(true);
-			BlockedTextPanel.SetActive(false);
-			previousEmoteMessage = "";
-			openBubble();
-		}
+            if (flag2 && flag)
+            {
+                text = ((num > maxEmoteString) ? renderMessage : (previousEmoteMessage + renderMessage));
+                PaddingLayoutGroup.padding = PaddingSingleEmote;
+                MessageText.fontSize = FontSizeSingleEmote - (text.Length - 1) * emoteReduction;
+                MessageText.text = text;
+                previousEmoteMessage = text;
+                Service.Get<EventDispatcher>().DispatchEvent(new ChatEvents.ChatEmoteMessageShown(text, SessionId));
+            }
+            else
+            {
+                PaddingLayoutGroup.padding = PaddingDefault;
+                MessageText.fontSize = FontSizeDefault;
+                previousEmoteMessage = "";
+                MessageText.text = renderMessage;
+            }
 
-		private void showBlockedChat()
-		{
-			MessageText.gameObject.SetActive(false);
-			ActiveTypingPanel.SetActive(false);
-			BlockedTextPanel.SetActive(true);
-			isMessageShowing = true;
-			adjustBubbleSize();
-			openBubble();
-			CoroutineRunner.Start(waitForDisplayTime(), this, "waitForDisplayTime");
-		}
+            AccessibilitySettings component = MessageText.GetComponent<AccessibilitySettings>();
+            if (component != null)
+            {
+                component.DynamicText = EmoteManager.GetMessageWithLocalizedEmotes(MessageText.text);
+            }
 
-		private void openBubble()
-		{
-			if (isVisible)
-			{
-				animator.Play("ChatInWorldBubblePulse", -1, 0f);
-			}
-			else
-			{
-				animator.Play("ChatInWorldBubbleIntro", -1, 0f);
-			}
-			isVisible = true;
-		}
+            adjustBubbleSize();
+            openBubble();
+            CoroutineRunner.Start(waitForDisplayTime(), this, "waitForDisplayTime");
+        }
 
-		private IEnumerator waitForDisplayTime()
-		{
-			yield return new WaitForSeconds(DisplayTime);
-			if (!base.gameObject.IsDestroyed())
-			{
-				isMessageShowing = false;
-				enterState(SpeechBubbleState.Inactive);
-			}
-		}
+        private void showActiveChat()
+        {
+            MessageText.gameObject.SetActive(false);
+            ActiveTypingPanel.SetActive(true);
+            BlockedTextPanel.SetActive(false);
+            previousEmoteMessage = "";
+            openBubble();
+        }
 
-		private void adjustBubbleSize()
-		{
-			BubbleRect.anchorMin = new Vector2(0.5f, 0f);
-			BubbleRect.anchorMax = new Vector2(0.5f, 0f);
-		}
+        private void showBlockedChat()
+        {
+            restoreBlockedTextDefaults();
+            MessageText.gameObject.SetActive(false);
+            ActiveTypingPanel.SetActive(false);
+            BlockedTextPanel.SetActive(true);
+            isMessageShowing = true;
+            adjustBubbleSize();
+            openBubble();
+            CoroutineRunner.Start(waitForDisplayTime(), this, "waitForDisplayTime");
+        }
 
-		private void hideMessage()
-		{
-			animator.Play("ChatInWorldBubbleIntro_hidden", -1, 0f);
-			isVisible = false;
-		}
+        private void showCustomBlockedChat(string blockedText)
+        {
+            setBlockedText(blockedText);
+            MessageText.gameObject.SetActive(false);
+            ActiveTypingPanel.SetActive(false);
+            BlockedTextPanel.SetActive(true);
+            isMessageShowing = true;
+            adjustBubbleSize();
+            openBubble();
+            CoroutineRunner.Start(waitForDisplayTime(), this, "waitForDisplayTime");
+        }
 
-		public void MessageComplete()
-		{
-			previousEmoteMessage = "";
-			if (this.OnCompleteEvent != null)
-			{
-				this.OnCompleteEvent(this);
-			}
-		}
+        private void openBubble()
+        {
+            if (isVisible)
+            {
+                animator.Play("ChatInWorldBubblePulse", -1, 0f);
+            }
+            else
+            {
+                animator.Play("ChatInWorldBubbleIntro", -1, 0f);
+            }
+            isVisible = true;
+        }
 
-		public void SetActive(bool isActive)
-		{
-			this.isActive = isActive;
-			base.transform.GetChild(0).gameObject.SetActive(isActive);
-		}
+        private IEnumerator waitForDisplayTime()
+        {
+            yield return new WaitForSeconds(DisplayTime);
+            if (!base.gameObject.IsDestroyed())
+            {
+                isMessageShowing = false;
+                enterState(SpeechBubbleState.Inactive);
+            }
+        }
 
-		private void removeRaycastsFromText()
-		{
-			CanvasGroup canvasGroup = MessageText.gameObject.AddComponent<CanvasGroup>();
-			canvasGroup.blocksRaycasts = false;
-		}
+        private void adjustBubbleSize()
+        {
+            BubbleRect.anchorMin = new Vector2(0.5f, 0f);
+            BubbleRect.anchorMax = new Vector2(0.5f, 0f);
+        }
 
-		private bool isLocalPlayerChat()
-		{
-			return sessionId == Service.Get<CPDataEntityCollection>().LocalPlayerSessionId;
-		}
+        private void hideMessage()
+        {
+            animator.Play("ChatInWorldBubbleIntro_hidden", -1, 0f);
+            isVisible = false;
+        }
 
-		private void OnDisable()
-		{
-			currentState = SpeechBubbleState.Inactive;
-		}
+        public void MessageComplete()
+        {
+            previousEmoteMessage = "";
+            if (this.OnCompleteEvent != null)
+            {
+                this.OnCompleteEvent(this);
+            }
+        }
 
-		private void playSoundForEmote(EmoteDefinition definition)
-		{
-			if (!string.IsNullOrEmpty(definition.Sound))
-			{
-				DataEntityHandle handle = Service.Get<CPDataEntityCollection>().FindEntity<SessionIdData, long>(sessionId);
-				GameObjectReferenceData component;
-				if (Service.Get<CPDataEntityCollection>().TryGetComponent(handle, out component))
-				{
-					SoundUtils.PlayAudioEvent(definition.Sound, component.GameObject);
-				}
-			}
-		}
-	}
+        public void SetActive(bool isActive)
+        {
+            this.isActive = isActive;
+            base.transform.GetChild(0).gameObject.SetActive(isActive);
+        }
+
+        private void removeRaycastsFromText()
+        {
+            CanvasGroup canvasGroup = MessageText.gameObject.AddComponent<CanvasGroup>();
+            canvasGroup.blocksRaycasts = false;
+        }
+
+        private bool isLocalPlayerChat()
+        {
+            return sessionId == Service.Get<CPDataEntityCollection>().LocalPlayerSessionId;
+        }
+
+        private void OnDisable()
+        {
+            currentState = SpeechBubbleState.Inactive;
+        }
+
+        private void playSoundForEmote(EmoteDefinition definition)
+        {
+            if (!string.IsNullOrEmpty(definition.Sound))
+            {
+                DataEntityHandle handle = Service.Get<CPDataEntityCollection>().FindEntity<SessionIdData, long>(sessionId);
+                GameObjectReferenceData component;
+                if (Service.Get<CPDataEntityCollection>().TryGetComponent(handle, out component))
+                {
+                    SoundUtils.PlayAudioEvent(definition.Sound, component.GameObject);
+                }
+            }
+        }
+
+        private void cacheBlockedTextDefaults()
+        {
+            if (BlockedTextPanel == null)
+            {
+                return;
+            }
+
+            blockedTextComponents = BlockedTextPanel.GetComponentsInChildren<Text>(true);
+            if (blockedTextComponents == null || blockedTextComponents.Length == 0)
+            {
+                return;
+            }
+
+            blockedTextOriginals = new string[blockedTextComponents.Length];
+            for (int i = 0; i < blockedTextComponents.Length; i++)
+            {
+                blockedTextOriginals[i] = blockedTextComponents[i] != null ? blockedTextComponents[i].text : null;
+            }
+        }
+
+        private void restoreBlockedTextDefaults()
+        {
+            if (blockedTextComponents == null || blockedTextOriginals == null)
+            {
+                return;
+            }
+
+            for (int i = 0; i < blockedTextComponents.Length && i < blockedTextOriginals.Length; i++)
+            {
+                if (blockedTextComponents[i] != null && blockedTextOriginals[i] != null)
+                {
+                    blockedTextComponents[i].text = blockedTextOriginals[i];
+                }
+            }
+        }
+
+        private void setBlockedText(string text)
+        {
+            if (BlockedTextPanel == null)
+            {
+                return;
+            }
+
+            if (blockedTextComponents == null || blockedTextComponents.Length == 0)
+            {
+                cacheBlockedTextDefaults();
+            }
+
+            if (blockedTextComponents == null)
+            {
+                return;
+            }
+
+            for (int i = 0; i < blockedTextComponents.Length; i++)
+            {
+                if (blockedTextComponents[i] != null)
+                {
+                    blockedTextComponents[i].text = text;
+                }
+            }
+        }
+    }
 }

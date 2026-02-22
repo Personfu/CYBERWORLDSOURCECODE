@@ -219,6 +219,7 @@ namespace ClubPenguin.Net
 
 		private void questDataReturned(QuestChangeResponse data, RewardSource rewardSource)
 		{
+
 			questDataReturned(data.questStateCollection);
 			if (data.reward != null)
 			{

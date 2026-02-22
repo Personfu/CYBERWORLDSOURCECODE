@@ -30,7 +30,7 @@ AnimationClip:
         tangentMode: 1
       m_PreInfinity: 2
       m_PostInfinity: 2
-      m_RotationOrder: 4
+      m_RotationOrder: 14
     path: TubePosition
   - curve:
       serializedVersion: 2
@@ -49,7 +49,7 @@ AnimationClip:
         tangentMode: 1
       m_PreInfinity: 2
       m_PostInfinity: 2
-      m_RotationOrder: 4
+      m_RotationOrder: 14
     path: HousingPosition
   m_PositionCurves:
   - curve:
@@ -147,7 +147,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    attribute: material.1090582214
+    attribute: material.path_0x4100F6C6_MKmSShH
     path: HousingPosition/switchOn
     classID: 23
     script: {fileID: 0}
@@ -201,7 +201,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    attribute: material.1090582214
+    attribute: material.path_0x4100F6C6_MKmSShH
     path: HousingPosition/switchOff
     classID: 23
     script: {fileID: 0}
@@ -223,7 +223,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    attribute: material.1359017670
+    attribute: material.path_0x5100F6C6_QWUIpPN
     path: HousingPosition/switchOff
     classID: 23
     script: {fileID: 0}
@@ -245,7 +245,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    attribute: material.1627453126
+    attribute: material.path_0x6100F6C6_wOUTqhL
     path: HousingPosition/switchOff
     classID: 23
     script: {fileID: 0}
@@ -267,7 +267,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    attribute: material.1895888582
+    attribute: material.path_0x7100F6C6_kSmNRPJ
     path: HousingPosition/switchOff
     classID: 23
     script: {fileID: 0}
@@ -289,7 +289,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    attribute: material.1359017670
+    attribute: material.path_0x5100F6C6_QWUIpPN
     path: HousingPosition/switchOn
     classID: 23
     script: {fileID: 0}
@@ -311,7 +311,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    attribute: material.1627453126
+    attribute: material.path_0x6100F6C6_wOUTqhL
     path: HousingPosition/switchOn
     classID: 23
     script: {fileID: 0}
@@ -333,7 +333,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    attribute: material.1895888582
+    attribute: material.path_0x7100F6C6_kSmNRPJ
     path: HousingPosition/switchOn
     classID: 23
     script: {fileID: 0}
@@ -355,7 +355,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    attribute: material.1090582214
+    attribute: material.path_0x4100F6C6_MKmSShH
     path: TubePosition/PartySuppliesSign
     classID: 23
     script: {fileID: 0}
@@ -377,7 +377,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    attribute: material.1359017670
+    attribute: material.path_0x5100F6C6_QWUIpPN
     path: TubePosition/PartySuppliesSign
     classID: 23
     script: {fileID: 0}
@@ -399,7 +399,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    attribute: material.1627453126
+    attribute: material.path_0x6100F6C6_wOUTqhL
     path: TubePosition/PartySuppliesSign
     classID: 23
     script: {fileID: 0}
@@ -421,7 +421,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    attribute: material.1895888582
+    attribute: material.path_0x7100F6C6_kSmNRPJ
     path: TubePosition/PartySuppliesSign
     classID: 23
     script: {fileID: 0}

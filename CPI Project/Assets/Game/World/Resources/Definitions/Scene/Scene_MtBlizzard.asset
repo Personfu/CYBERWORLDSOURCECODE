@@ -86,3 +86,21 @@ MonoBehaviour:
     PlayerPrefsKey: SunsetPartyToggle
     AdditiveScenes:
     - BlizzardBeach_MtBlizzard_Decorations
+  - DateDefinitionKey:
+      Id: 51
+      type: ClubPenguin.Core.ScheduledEventDateDefinition, Core
+    PlayerPrefsKey: SunsetPartyToggle
+    AdditiveScenes:
+    - MtBlizzard_Halloween2017_Decorations
+  - DateDefinitionKey:
+      Id: 52
+      type: ClubPenguin.Core.ScheduledEventDateDefinition, Core
+    PlayerPrefsKey: SunsetPartyToggle
+    AdditiveScenes:
+    - MtBlizzard_Halloween2017_Decorations
+  - DateDefinitionKey:
+      Id: 53
+      type: ClubPenguin.Core.ScheduledEventDateDefinition, Core
+    PlayerPrefsKey: SunsetPartyToggle
+    AdditiveScenes:
+    - MtBlizzard_Halloween2017_Decorations

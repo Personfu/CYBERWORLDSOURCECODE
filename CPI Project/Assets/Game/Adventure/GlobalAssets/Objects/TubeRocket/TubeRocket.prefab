@@ -75,7 +75,8 @@ GameObject:
   - component: {fileID: 4841792336197060}
   - component: {fileID: 33384041222356800}
   - component: {fileID: 23950432666182833}
-  m_Layer: 0
+  - component: {fileID: 4464676785250426357}
+  m_Layer: 30
   m_Name: tubeRocketB
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -152,7 +153,29 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &4464676785250426357
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1125847826881803}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.9117555, y: 0.41142362, z: 0.41180483}
+  m_Center: {x: -9.313226e-10, y: -0.000000007450581, z: 0}
 --- !u!1 &1158754185945960
 GameObject:
   m_ObjectHideFlags: 0
@@ -3124,7 +3147,7 @@ ParticleSystem:
     vectorLabel1_3: W
 --- !u!199 &199696199808392968
 ParticleSystemRenderer:
-  serializedVersion: 6
+  serializedVersion: 7
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -3170,6 +3193,7 @@ ParticleSystemRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_RenderMode: 0
   m_MeshDistribution: 0
   m_SortMode: 0
@@ -3201,7 +3225,6 @@ ParticleSystemRenderer:
   m_MeshWeighting1: 1
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
-  m_MaskInteraction: 0
 --- !u!114 &114537987674318570
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3324,7 +3347,8 @@ GameObject:
   - component: {fileID: 4793597355745319}
   - component: {fileID: 33100911004099037}
   - component: {fileID: 23988500862913415}
-  m_Layer: 0
+  - component: {fileID: 560113889310497028}
+  m_Layer: 30
   m_Name: rookiesTube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3402,7 +3426,29 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &560113889310497028
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1240720659973637}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1.0232458, y: 0.3893314, z: 1.0986235}
+  m_Center: {x: -0.00009289386, y: -0.000681825, z: -0.0014029149}
 --- !u!1 &1298217584745076
 GameObject:
   m_ObjectHideFlags: 0
@@ -3562,6 +3608,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!114 &114386421956809027
 MonoBehaviour:
@@ -3671,6 +3718,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!114 &114316295933595656
 MonoBehaviour:
@@ -6662,7 +6710,7 @@ ParticleSystem:
     vectorLabel1_3: W
 --- !u!199 &199381913190363142
 ParticleSystemRenderer:
-  serializedVersion: 6
+  serializedVersion: 7
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -6709,6 +6757,7 @@ ParticleSystemRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_RenderMode: 0
   m_MeshDistribution: 0
   m_SortMode: 0
@@ -6740,7 +6789,6 @@ ParticleSystemRenderer:
   m_MeshWeighting1: 1
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
-  m_MaskInteraction: 0
 --- !u!114 &114255363666590584
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6799,7 +6847,8 @@ GameObject:
   - component: {fileID: 4321117120701552}
   - component: {fileID: 33257676623690037}
   - component: {fileID: 23236725158813208}
-  m_Layer: 0
+  - component: {fileID: 6536998931973770437}
+  m_Layer: 30
   m_Name: tubeRocketA
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6876,7 +6925,29 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &6536998931973770437
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1777672117716142}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.9117555, y: 0.41142374, z: 0.41180474}
+  m_Center: {x: 0, y: -0.000000007450581, z: 0.000000059604645}
 --- !u!1 &1872293493663500
 GameObject:
   m_ObjectHideFlags: 0

@@ -66,6 +66,50 @@ public class AnnualEventsController : MonoBehaviour
     [Header("Annual events (loops every year).")]
     public EventInfo[] events;
 
+
+    public bool IsPartySwitchForced
+    {
+        get
+        {
+            if (overrideMode != OverrideMode.ForceEvent)
+            {
+                return false;
+            }
+
+            if (string.IsNullOrEmpty(forcedEventKey))
+            {
+                return false;
+            }
+
+            if (events == null)
+            {
+                return false;
+            }
+
+            for (int i = 0; i < events.Length; i++)
+            {
+                var e = events[i];
+                if (e == null)
+                {
+                    continue;
+                }
+
+                if (!e.excludeFromDateSystem)
+                {
+                    continue;
+                }
+
+                string key = BuildEventKey(e);
+                if (forcedEventKey == key || forcedEventKey == e.eventName || forcedEventKey == e.eventID)
+                {
+                    return true;
+                }
+            }
+
+            return false;
+        }
+    }
+
     private Dictionary<string, string> activeSceneKeys = new Dictionary<string, string>();
     private HashSet<string> seenScenes = new HashSet<string>();
     private float refreshInterval = 300f;
@@ -505,7 +549,9 @@ public class AnnualEventsController : MonoBehaviour
                     string keyToUse = activeSceneKeys.ContainsKey(sceneName) ? activeSceneKeys[sceneName] : null;
                     if (!string.IsNullOrEmpty(keyToUse))
                     {
-                        audioKeyField.SetValue(sceneAsset, new PrefabContentKey(keyToUse));
+                        var contentKey = new PrefabContentKey(keyToUse);
+                        contentKey.Key = keyToUse;
+                        audioKeyField.SetValue(sceneAsset, contentKey);
                         Debug.Log($"Scene '{sceneName}' audio key set to '{keyToUse}'");
                     }
                 }

@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 namespace ClubPenguin.Input
 {
@@ -51,15 +52,39 @@ namespace ClubPenguin.Input
 			{
 				return false;
 			}
-			right.ProcessInput(buttonResult);
-			float num = buttonResult.IsHeld ? 1f : 0f;
-			left.ProcessInput(buttonResult);
-			num -= (buttonResult.IsHeld ? 1f : 0f);
-			up.ProcessInput(buttonResult);
-			float num2 = buttonResult.IsHeld ? 1f : 0f;
-			down.ProcessInput(buttonResult);
-			num2 -= (buttonResult.IsHeld ? 1f : 0f);
-			inputEvent.Direction = new Vector2(num, num2);
+
+			Vector2 vector = Vector2.zero;
+			if (ActiveInputDevice.CurrentKind == ActiveInputDevice.Kind.KeyboardMouse)
+			{
+				right.ProcessInput(buttonResult);
+				float x = buttonResult.IsHeld ? 1f : 0f;
+
+				left.ProcessInput(buttonResult);
+				x -= (buttonResult.IsHeld ? 1f : 0f);
+
+				up.ProcessInput(buttonResult);
+				float y = buttonResult.IsHeld ? 1f : 0f;
+
+				down.ProcessInput(buttonResult);
+				y -= (buttonResult.IsHeld ? 1f : 0f);
+
+				vector = new Vector2(x, y);
+			}
+
+			Gamepad gp = Gamepad.current;
+			if (gp != null && ActiveInputDevice.CurrentKind == ActiveInputDevice.Kind.Gamepad)
+			{
+				Vector2 stick = gp.leftStick.ReadValue();
+				if (stick.sqrMagnitude >= 0.04f)
+				{
+					if (stick.sqrMagnitude > vector.sqrMagnitude)
+					{
+						vector = stick;
+					}
+				}
+			}
+
+			inputEvent.Direction = vector;
 			return inputEvent.Direction.sqrMagnitude > float.Epsilon;
 		}
 	}

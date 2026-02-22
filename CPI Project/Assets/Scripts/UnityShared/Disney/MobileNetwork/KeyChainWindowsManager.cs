@@ -12,9 +12,13 @@ namespace Disney.MobileNetwork
 {
     public class KeyChainWindowsManager : KeyChainManager
     {
-#if UNITY_STANDALONE_WIN || UNITY_EDITOR_WIN || UNITY_STANDALONE_LINUX || UNITY_EDITOR_LINUX || UNITY_STANDALONE_OSX || UNITY_EDITOR_OSX || UNITY_STANDALONE_OSX_ARM || UNITY_EDITOR_OSX_ARM || UNITY_ANDROID || UNITY_EDITOR_ANDROID || UNITY_IOS || UNITY_EDITOR_IOS
+#if UNITY_STANDALONE_WIN || UNITY_EDITOR_WIN || UNITY_STANDALONE_LINUX || UNITY_EDITOR_LINUX || UNITY_STANDALONE_OSX || UNITY_EDITOR_OSX || UNITY_STANDALONE_OSX_ARM || UNITY_EDITOR_OSX_ARM || UNITY_ANDROID || UNITY_EDITOR_ANDROID || UNITY_IOS || UNITY_EDITOR_IOS || UNITY_WEBGL //Ported from Patch
 
         private const string APP_DATA_KEY = "cp.AppData";
+
+        // Store a copy of the encrypted blob on disk as well so it remains stable across
+        // Unity Editor vs Player (PlayerPrefs are isolated between them).
+        private const string APP_DATA_FILE_NAME = "cp.AppData.dat";
 
         private readonly IKeychain keychain;
 
@@ -34,7 +38,7 @@ namespace Disney.MobileNetwork
         private static byte[] localStorageKey = new byte[32];
 
         // store loaded appData
-        private Dictionary<string, string> appData;
+        private new Dictionary<string, string> appData; //Ported from Patch
 
         public KeyChainWindowsManager()
         {
@@ -58,6 +62,24 @@ namespace Disney.MobileNetwork
         [DllImport(DLL_NAME, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl)]
         private static extern int _cryptUnprotectData(byte[] dataIn, int dataInLength, out IntPtr dataOut);
 
+#if UNITY_STANDALONE_LINUX || UNITY_EDITOR_LINUX
+        [DllImport(DLL_NAME, CallingConvention = CallingConvention.Cdecl)]
+        private static extern void _keyChainFree(IntPtr ptr);
+#endif
+
+        private static void FreeNativePtr(IntPtr ptr)
+        {
+            if (ptr == IntPtr.Zero)
+            {
+                return;
+            }
+#if UNITY_STANDALONE_LINUX || UNITY_EDITOR_LINUX
+            _keyChainFree(ptr);
+#else
+            Marshal.FreeCoTaskMem(ptr);
+#endif
+        }
+
         // Helper wrapper for unprotecting bytes -> string (handles ptr marshalling & free)
         private static string CryptUnprotect(byte[] data)
         {
@@ -68,10 +90,123 @@ namespace Disney.MobileNetwork
 
             // Marshal ANSI string
             string s = Marshal.PtrToStringAnsi(ptr);
-            Marshal.FreeCoTaskMem(ptr);
+            FreeNativePtr(ptr);
             return s;
         }
 #endif
+
+
+#if UNITY_WEBGL && !UNITY_EDITOR //Ported from Patch
+        [DllImport("__Internal")] //Ported from Patch
+        private static extern void KeyChainWebGL_SetString(string key, string value); //Ported from Patch
+
+        [DllImport("__Internal")] //Ported from Patch
+        private static extern IntPtr KeyChainWebGL_GetStringPtr(string key); //Ported from Patch
+
+        [DllImport("__Internal")] //Ported from Patch
+        private static extern void KeyChainWebGL_RemoveString(string key); //Ported from Patch
+
+        [DllImport("__Internal")] //Ported from Patch
+        private static extern int KeyChainWebGL_HasKey(string key); //Ported from Patch
+
+        [DllImport("__Internal")] //Ported from Patch
+        private static extern void KeyChainWebGL_Free(IntPtr ptr); //Ported from Patch
+
+        private static bool WebGLKeyChainEnabled = true; //Ported from Patch
+
+        private static string WebGL_GetString(string key) //Ported from Patch
+        { //Ported from Patch
+            if (!WebGLKeyChainEnabled) //Ported from Patch
+            { //Ported from Patch
+                return null; //Ported from Patch
+            } //Ported from Patch
+
+            try //Ported from Patch
+            { //Ported from Patch
+                if (KeyChainWebGL_HasKey(key) == 0) //Ported from Patch
+                { //Ported from Patch
+                    return null; //Ported from Patch
+                } //Ported from Patch
+
+                IntPtr ptr = KeyChainWebGL_GetStringPtr(key); //Ported from Patch
+                if (ptr == IntPtr.Zero) //Ported from Patch
+                { //Ported from Patch
+                    return null; //Ported from Patch
+                } //Ported from Patch
+
+                try //Ported from Patch
+                { //Ported from Patch
+                    return PtrToStringUtf8(ptr); //Ported from Patch
+                } //Ported from Patch
+                finally //Ported from Patch
+                { //Ported from Patch
+                    KeyChainWebGL_Free(ptr); //Ported from Patch
+                } //Ported from Patch
+            } //Ported from Patch
+            catch //Ported from Patch
+            { //Ported from Patch
+                WebGLKeyChainEnabled = false; //Ported from Patch
+                return null; //Ported from Patch
+            } //Ported from Patch
+        } //Ported from Patch
+
+        private static void WebGL_SetString(string key, string value) //Ported from Patch
+        { //Ported from Patch
+            if (!WebGLKeyChainEnabled) //Ported from Patch
+            { //Ported from Patch
+                return; //Ported from Patch
+            } //Ported from Patch
+
+            try //Ported from Patch
+            { //Ported from Patch
+                KeyChainWebGL_SetString(key, value ?? ""); //Ported from Patch
+            } //Ported from Patch
+            catch //Ported from Patch
+            { //Ported from Patch
+                WebGLKeyChainEnabled = false; //Ported from Patch
+            } //Ported from Patch
+        } //Ported from Patch
+
+        private static void WebGL_RemoveString(string key) //Ported from Patch
+        { //Ported from Patch
+            if (!WebGLKeyChainEnabled) //Ported from Patch
+            { //Ported from Patch
+                return; //Ported from Patch
+            } //Ported from Patch
+
+            try //Ported from Patch
+            { //Ported from Patch
+                KeyChainWebGL_RemoveString(key); //Ported from Patch
+            } //Ported from Patch
+            catch //Ported from Patch
+            { //Ported from Patch
+                WebGLKeyChainEnabled = false; //Ported from Patch
+            } //Ported from Patch
+        } //Ported from Patch
+
+        private static string PtrToStringUtf8(IntPtr ptr) //Ported from Patch
+        { //Ported from Patch
+            if (ptr == IntPtr.Zero) //Ported from Patch
+            { //Ported from Patch
+                return null; //Ported from Patch
+            } //Ported from Patch
+
+            int len = 0; //Ported from Patch
+            while (Marshal.ReadByte(ptr, len) != 0) //Ported from Patch
+            { //Ported from Patch
+                len++; //Ported from Patch
+            } //Ported from Patch
+
+            if (len <= 0) //Ported from Patch
+            { //Ported from Patch
+                return ""; //Ported from Patch
+            } //Ported from Patch
+
+            byte[] buffer = new byte[len]; //Ported from Patch
+            Marshal.Copy(ptr, buffer, 0, len); //Ported from Patch
+            return Encoding.UTF8.GetString(buffer, 0, len); //Ported from Patch
+        } //Ported from Patch
+#endif //Ported from Patch
 
         public byte[] Decrypt2(byte[] bytes)
         {
@@ -221,17 +356,48 @@ namespace Disney.MobileNetwork
             Dictionary<string, string> strs;
 
 #if UNITY_STANDALONE_WIN || UNITY_EDITOR_WIN || UNITY_STANDALONE_LINUX || UNITY_EDITOR_LINUX
-            string str = PlayerPrefs.GetString(APP_DATA_KEY, null);
+            string str = null;
+            try
+            {
+                string appDataFilePath = Path.Combine(Application.persistentDataPath, APP_DATA_FILE_NAME);
+                if (File.Exists(appDataFilePath))
+                {
+                    str = File.ReadAllText(appDataFilePath);
+                }
+            }
+            catch
+            {
+                str = null;
+            }
+
+            if (string.IsNullOrEmpty(str))
+            {
+                str = PlayerPrefs.GetString(APP_DATA_KEY, null);
+            }
+            else if (!PlayerPrefs.HasKey(APP_DATA_KEY))
+            {
+                // Keep a copy in PlayerPrefs so existing code paths still work.
+                PlayerPrefs.SetString(APP_DATA_KEY, str);
+                PlayerPrefs.Save();
+            }
             if (string.IsNullOrEmpty(str))
             {
                 strs = new Dictionary<string, string>();
             }
             else
             {
-                byte[] numArray = Convert.FromBase64String(str);
+                byte[] numArray = null;
+                try
+                {
+                    numArray = Convert.FromBase64String(str);
+                }
+                catch
+                {
+                    numArray = null;
+                }
 
                 // use CryptUnprotect wrapper which calls native _cryptUnprotectData
-                string str1 = CryptUnprotect(numArray);
+                string str1 = (numArray != null) ? CryptUnprotect(numArray) : null;
                 if (string.IsNullOrEmpty(str1))
                 {
                     try
@@ -246,13 +412,87 @@ namespace Disney.MobileNetwork
 
                 if (string.IsNullOrEmpty(str1))
                 {
+                    // Last-chance: treat the stored value as plaintext JSON.
+                    str1 = str;
+                }
+
+                if (string.IsNullOrEmpty(str1))
+                {
                     strs = new Dictionary<string, string>();
                 }
                 else
                 {
-                    strs = JsonMapper.ToObject<Dictionary<string, string>>(str1);
+                    try
+                    {
+                        strs = JsonMapper.ToObject<Dictionary<string, string>>(str1);
+                    }
+                    catch
+                    {
+                        strs = new Dictionary<string, string>();
+                    }
                 }
             }
+#elif UNITY_WEBGL //Ported from Patch
+            string str = null; //Ported from Patch
+            if (WebGLKeyChainEnabled) //Ported from Patch
+            { //Ported from Patch
+                str = WebGL_GetString(APP_DATA_KEY); //Ported from Patch
+            } //Ported from Patch
+
+            if (string.IsNullOrEmpty(str)) //Ported from Patch
+            { //Ported from Patch
+                str = PlayerPrefs.GetString(APP_DATA_KEY, null); //Ported from Patch
+            } //Ported from Patch
+
+            if (string.IsNullOrEmpty(str)) //Ported from Patch
+            { //Ported from Patch
+                strs = new Dictionary<string, string>(); //Ported from Patch
+            } //Ported from Patch
+            else //Ported from Patch
+            { //Ported from Patch
+                Dictionary<string, string> parsed = null; //Ported from Patch
+
+                try //Ported from Patch
+                { //Ported from Patch
+                    string decrypted = Decrypt(str, "4C906C6AAF5C2CB4B581411A91091A8D"); //Ported from Patch
+                    if (!string.IsNullOrEmpty(decrypted)) //Ported from Patch
+                    { //Ported from Patch
+                        parsed = JsonMapper.ToObject<Dictionary<string, string>>(decrypted); //Ported from Patch
+                    } //Ported from Patch
+                } //Ported from Patch
+                catch //Ported from Patch
+                { //Ported from Patch
+                    parsed = null; //Ported from Patch
+                } //Ported from Patch
+
+                if (parsed == null) //Ported from Patch
+                { //Ported from Patch
+                    try //Ported from Patch
+                    { //Ported from Patch
+                        parsed = JsonMapper.ToObject<Dictionary<string, string>>(str); //Ported from Patch
+                    } //Ported from Patch
+                    catch //Ported from Patch
+                    { //Ported from Patch
+                        parsed = null; //Ported from Patch
+                    } //Ported from Patch
+                } //Ported from Patch
+
+                if (parsed == null) //Ported from Patch
+                { //Ported from Patch
+                    try //Ported from Patch
+                    { //Ported from Patch
+                        byte[] bytes = Convert.FromBase64String(str); //Ported from Patch
+                        string json = Encoding.UTF8.GetString(bytes); //Ported from Patch
+                        parsed = JsonMapper.ToObject<Dictionary<string, string>>(json); //Ported from Patch
+                    } //Ported from Patch
+                    catch //Ported from Patch
+                    { //Ported from Patch
+                        parsed = null; //Ported from Patch
+                    } //Ported from Patch
+                } //Ported from Patch
+
+                strs = parsed ?? new Dictionary<string, string>(); //Ported from Patch
+            } //Ported from Patch
 #else
             string str = PlayerPrefs.GetString(APP_DATA_KEY, null);
             if (string.IsNullOrEmpty(str))
@@ -310,10 +550,31 @@ namespace Disney.MobileNetwork
             if (data == null)
             {
                 PlayerPrefs.DeleteKey(APP_DATA_KEY);
+                PlayerPrefs.Save();
+                try
+                {
+                    string appDataFilePath = Path.Combine(Application.persistentDataPath, APP_DATA_FILE_NAME);
+                    if (File.Exists(appDataFilePath))
+                    {
+                        File.Delete(appDataFilePath);
+                    }
+                }
+                catch
+                {
+                }
+
                 return;
             }
 
             string json = JsonMapper.ToJson(data);
+            string appDataFilePath2 = null;
+            try
+            {
+                appDataFilePath2 = Path.Combine(Application.persistentDataPath, APP_DATA_FILE_NAME);
+            }
+            catch
+            {
+            }
 
             // Native protect: get bytes & store base64
             IntPtr ptr = IntPtr.Zero;
@@ -322,7 +583,20 @@ namespace Disney.MobileNetwork
             if (res == 0 || ptr == IntPtr.Zero || size <= 0)
             {
                 // fallback: use Encrypt() to store playable data (so nothing is lost)
-                PlayerPrefs.SetString(APP_DATA_KEY, Encrypt(json, "4C906C6AAF5C2CB4B581411A91091A8D"));
+                string fallback = Encrypt(json, "4C906C6AAF5C2CB4B581411A91091A8D");
+                PlayerPrefs.SetString(APP_DATA_KEY, fallback);
+                PlayerPrefs.Save();
+                if (!string.IsNullOrEmpty(appDataFilePath2))
+                {
+                    try
+                    {
+                        Directory.CreateDirectory(Path.GetDirectoryName(appDataFilePath2));
+                        File.WriteAllText(appDataFilePath2, fallback);
+                    }
+                    catch
+                    {
+                    }
+                }
                 return;
             }
 
@@ -330,13 +604,70 @@ namespace Disney.MobileNetwork
             {
                 byte[] numArray = new byte[size];
                 Marshal.Copy(ptr, numArray, 0, size);
-                PlayerPrefs.SetString(APP_DATA_KEY, Convert.ToBase64String(numArray));
+                string stored = Convert.ToBase64String(numArray);
+                PlayerPrefs.SetString(APP_DATA_KEY, stored);
+                PlayerPrefs.Save();
+                if (!string.IsNullOrEmpty(appDataFilePath2))
+                {
+                    try
+                    {
+                        Directory.CreateDirectory(Path.GetDirectoryName(appDataFilePath2));
+                        File.WriteAllText(appDataFilePath2, stored);
+                    }
+                    catch
+                    {
+                    }
+                }
             }
             finally
             {
-                Marshal.FreeCoTaskMem(ptr);
+                FreeNativePtr(ptr);
             }
 
+#elif UNITY_WEBGL //Ported from Patch
+            if (data == null) //Ported from Patch
+            { //Ported from Patch
+                if (WebGLKeyChainEnabled) //Ported from Patch
+                { //Ported from Patch
+                    try //Ported from Patch
+                    { //Ported from Patch
+                        WebGL_RemoveString(APP_DATA_KEY); //Ported from Patch
+                    } //Ported from Patch
+                    catch //Ported from Patch
+                    { //Ported from Patch
+                        WebGLKeyChainEnabled = false; //Ported from Patch
+                    } //Ported from Patch
+                } //Ported from Patch
+
+                PlayerPrefs.DeleteKey(APP_DATA_KEY); //Ported from Patch
+                return; //Ported from Patch
+            } //Ported from Patch
+
+            string json = JsonMapper.ToJson(data); //Ported from Patch
+            string stored; //Ported from Patch
+
+            try //Ported from Patch
+            { //Ported from Patch
+                stored = Encrypt(json, "4C906C6AAF5C2CB4B581411A91091A8D"); //Ported from Patch
+            } //Ported from Patch
+            catch //Ported from Patch
+            { //Ported from Patch
+                stored = json; //Ported from Patch
+            } //Ported from Patch
+
+            if (WebGLKeyChainEnabled) //Ported from Patch
+            { //Ported from Patch
+                try //Ported from Patch
+                { //Ported from Patch
+                    WebGL_SetString(APP_DATA_KEY, stored); //Ported from Patch
+                } //Ported from Patch
+                catch //Ported from Patch
+                { //Ported from Patch
+                    WebGLKeyChainEnabled = false; //Ported from Patch
+                } //Ported from Patch
+            } //Ported from Patch
+
+            PlayerPrefs.SetString(APP_DATA_KEY, stored); //Ported from Patch
 #else
             if (data == null)
             {

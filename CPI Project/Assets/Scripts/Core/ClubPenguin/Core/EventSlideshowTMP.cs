@@ -6,6 +6,8 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using System;
+using System.Reflection;
 
 namespace ClubPenguin.Core
 {
@@ -61,6 +63,11 @@ namespace ClubPenguin.Core
 
         private List<EventEntry> runtimeEvents = new List<EventEntry>();
 
+        private static MonoBehaviour annualController;
+        private static FieldInfo annualOverrideModeField;
+        private static PropertyInfo annualOverrideModeProperty;
+        private static float nextAnnualFindTime;
+
         private void Awake()
         {
             if (eventDateText == null)
@@ -75,7 +82,111 @@ namespace ClubPenguin.Core
 
         private void Start()
         {
+            if (ShouldHideBecauseNotAnnual())
+            {
+                GameObject root = ResolveCellPhoneWidgetRoot();
+                if (root == null)
+                    root = gameObject;
+
+                root.SetActive(false);
+                return;
+            }
+
             StartCoroutine(StartSlideshowWhenDataReady());
+        }
+
+        private static bool ShouldHideBecauseNotAnnual()
+        {
+            TryResolveAnnualController();
+
+            if (annualController == null || (annualOverrideModeField == null && annualOverrideModeProperty == null))
+                return false;
+
+            object modeObj = null;
+            try
+            {
+                modeObj = (annualOverrideModeField != null) ? annualOverrideModeField.GetValue(annualController) : annualOverrideModeProperty.GetValue(annualController, null);
+            }
+            catch
+            {
+                return false;
+            }
+
+            if (modeObj == null)
+                return false;
+
+            string modeStr = modeObj.ToString();
+            return modeStr != "Automatic" && modeStr != "Annual" && modeStr != "Auto";
+        }
+
+        private static void TryResolveAnnualController()
+        {
+            if (annualController != null && (annualOverrideModeField != null || annualOverrideModeProperty != null))
+                return;
+
+            if (Time.unscaledTime < nextAnnualFindTime)
+                return;
+
+            nextAnnualFindTime = Time.unscaledTime + 1f;
+
+            MonoBehaviour[] all = UnityEngine.Object.FindObjectsOfType<MonoBehaviour>(true);
+            for (int i = 0; i < all.Length; i++)
+            {
+                MonoBehaviour mb = all[i];
+                if (mb == null)
+                    continue;
+
+                Type t = mb.GetType();
+                if (t == null || t.Name != "AnnualEventsController")
+                    continue;
+
+                FieldInfo f = t.GetField("overrideMode", BindingFlags.Instance | BindingFlags.NonPublic);
+                PropertyInfo p = null;
+
+                if (f == null)
+                {
+                    p = t.GetProperty("overrideMode", BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic);
+                    if (p == null)
+                        p = t.GetProperty("OverrideMode", BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic);
+                }
+
+                if (f == null && p == null)
+                    continue;
+
+                annualController = mb;
+                annualOverrideModeField = f;
+                annualOverrideModeProperty = p;
+                return;
+            }
+        }
+
+        private GameObject ResolveCellPhoneWidgetRoot()
+        {
+            Transform t = transform;
+            while (t != null)
+            {
+                MonoBehaviour[] mbs = t.GetComponents<MonoBehaviour>();
+                for (int i = 0; i < mbs.Length; i++)
+                {
+                    MonoBehaviour mb = mbs[i];
+                    if (mb == null)
+                        continue;
+
+                    MethodInfo mi = mb.GetType().GetMethod("SetWidgetData", BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic);
+                    if (mi == null)
+                        continue;
+
+                    ParameterInfo[] ps = mi.GetParameters();
+                    if (ps != null && ps.Length == 1 && ps[0] != null && ps[0].ParameterType != null && ps[0].ParameterType.Name == "CellPhoneActivityDefinition")
+                    {
+                        return t.gameObject;
+                    }
+                }
+
+                t = t.parent;
+            }
+
+            return null;
         }
 
         private IEnumerator StartSlideshowWhenDataReady()

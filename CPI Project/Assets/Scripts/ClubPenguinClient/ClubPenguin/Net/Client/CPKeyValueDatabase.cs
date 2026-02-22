@@ -77,29 +77,44 @@ namespace ClubPenguin.Net.Client
 			{
 				Directory.CreateDirectory(localStorageDirPath);
 			}
-			try
+
+			for (int attempt = 0; attempt < 2; attempt++)
 			{
-				using (IDocumentCollection<KeyValueDocument> obj = documentCollectionFactory.CreateHighSecurityFileSystemCollection<KeyValueDocument>(localStorageDirPath, databaseEncryptionKey))
+				try
 				{
-					operation(obj);
+					using (IDocumentCollection<KeyValueDocument> obj = documentCollectionFactory.CreateHighSecurityFileSystemCollection<KeyValueDocument>(localStorageDirPath, databaseEncryptionKey))
+					{
+						operation(obj);
+					}
+					return;
 				}
-			}
-			catch
-			{
-				bool recovered = true;
-				if (Directory.Exists(localStorageDirPath))
+				catch (Exception e)
 				{
-					try
+					bool lastAttempt = (attempt == 1);
+					bool recovered = true;
+
+					if (Directory.Exists(localStorageDirPath))
 					{
-						Directory.Delete(localStorageDirPath, true);
+						try
+						{
+							Directory.Delete(localStorageDirPath, true);
+						}
+						catch (Exception ex)
+						{
+							Log.LogErrorFormatted(this, "Unable to delete storage directory: {0}, {1}", localStorageDirPath, ex);
+							recovered = false;
+						}
 					}
-					catch (Exception ex)
+
+					if (!lastAttempt && recovered)
 					{
-						Log.LogErrorFormatted(this, "Unable to delete storage directory: {0}, {1}", localStorageDirPath, ex);
-						recovered = false;
+						continue;
 					}
+
+					Log.LogErrorFormatted(this, "Unable to access storage directory: {0}, {1}", localStorageDirPath, e);
+					Service.Get<EventDispatcher>().DispatchEvent(new CPKeyValueDatabaseErrorEvents.CorruptionErrorEvent(recovered));
+					return;
 				}
-				Service.Get<EventDispatcher>().DispatchEvent(new CPKeyValueDatabaseErrorEvents.CorruptionErrorEvent(recovered));
 			}
 		}
 

@@ -1,5 +1,6 @@
 using ClubPenguin.Adventure;
 using ClubPenguin.Analytics;
+using ClubPenguin.Audio;
 using ClubPenguin.Core;
 using ClubPenguin.Igloo;
 using ClubPenguin.Net;
@@ -175,10 +176,30 @@ namespace ClubPenguin
 			return gameStateMachine.CurrentState.Name;
 		}
 
+		private bool isPlayingIntroVideo = false;
+
 		public void PlayIntroVideo()
 		{
+			if (isPlayingIntroVideo)
+			{
+				return;
+			}
+			Debug.Log("PlayIntroVideo called");
+			StartCoroutine(playIntroVideo());
+		}
+
+		private IEnumerator playIntroVideo()
+		{
+			isPlayingIntroVideo = true;
 			Service.Get<ICPSwrveService>().Action("intro_video_replay", "start");
-			ClubPenguin.Video.Video.PlayFullScreenVideo("IntroVideo.mp4");
+			if (Service.IsSet<AudioController>())
+			{
+				Service.Get<AudioController>().StopFabric();
+			}
+			GameSettings gameSettings = Service.Get<GameSettings>();
+			gameSettings.FirstSession = false;
+			yield return ClubPenguin.Video.Video.PlayFullScreenVideo("Trailer/IntroVideo.mp4");
+			isPlayingIntroVideo = false;
 			Service.Get<SceneTransitionService>().LoadScene("Home", "Loading");
 		}
 

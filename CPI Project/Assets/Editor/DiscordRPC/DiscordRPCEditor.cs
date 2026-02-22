@@ -26,6 +26,7 @@ public static class DiscordRPCEditor
     private const string ShowPlatformKey = "DiscordRPC_ShowPlatform";
     private const string ShowGraphicsAPIKey = "DiscordRPC_ShowGraphicsAPI";
     private const string ShowStartTimeKey = "DiscordRPC_ShowStartTime";
+    private const string LoggingEnabledKey = "DiscordRPC_LoggingEnabled";
 
     static DiscordRPCEditor()
     {
@@ -36,6 +37,7 @@ public static class DiscordRPCEditor
         if (!EditorPrefs.HasKey(ShowPlatformKey)) EditorPrefs.SetBool(ShowPlatformKey, true);
         if (!EditorPrefs.HasKey(ShowGraphicsAPIKey)) EditorPrefs.SetBool(ShowGraphicsAPIKey, true);
         if (!EditorPrefs.HasKey(ShowStartTimeKey)) EditorPrefs.SetBool(ShowStartTimeKey, true);
+        if (!EditorPrefs.HasKey(LoggingEnabledKey)) EditorPrefs.SetBool(LoggingEnabledKey, false);
 
         EditorApplication.update -= Update;
         EditorApplication.update += Update;
@@ -196,6 +198,7 @@ public static class DiscordRPCEditor
 
     private static void OnDiscordLog(string message, LoggingSeverity severity)
     {
+        if (!EditorPrefs.GetBool(LoggingEnabledKey)) return;
         UnityEngine.Debug.Log($"[DiscordRPCEditor] {severity}: {message}");
     }
 
@@ -238,6 +241,7 @@ public static class DiscordRPCEditor
             EditorPrefs.SetBool(ShowPlatformKey, EditorGUILayout.Toggle("Show Platform", EditorPrefs.GetBool(ShowPlatformKey)));
             EditorPrefs.SetBool(ShowGraphicsAPIKey, EditorGUILayout.Toggle("Show Graphics API", EditorPrefs.GetBool(ShowGraphicsAPIKey)));
             EditorPrefs.SetBool(ShowStartTimeKey, EditorGUILayout.Toggle("Show Start Time", EditorPrefs.GetBool(ShowStartTimeKey)));
+            EditorPrefs.SetBool(LoggingEnabledKey, EditorGUILayout.Toggle("Enable Logging", EditorPrefs.GetBool(LoggingEnabledKey)));
 
             GUILayout.Space(10);
             GUILayout.Label("Application ID Override", EditorStyles.boldLabel);

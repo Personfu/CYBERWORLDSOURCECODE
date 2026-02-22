@@ -203,6 +203,7 @@ SkinnedMeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   serializedVersion: 2
   m_Quality: 0
   m_UpdateWhenOffscreen: 0
@@ -509,6 +510,10 @@ GameObject:
   - component: {fileID: 2442237959222196728}
   - component: {fileID: 625448767415737616}
   - component: {fileID: 7208149532325986667}
+  - component: {fileID: 2880239448896354059}
+  - component: {fileID: 701203593918247378}
+  - component: {fileID: 3314705934988243000}
+  - component: {fileID: 4196412405676057176}
   m_Layer: 11
   m_Name: AuntArctic
   m_TagString: NPC
@@ -738,6 +743,126 @@ MonoBehaviour:
     SwapMaterialKey:
       Key: Costumes/AuntArctic/AuntArctic_Holiday_Costume
       type: UnityEngine.Material, UnityEngine.CoreModule
+    DestroyTexture: 0
+--- !u!114 &2880239448896354059
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1192207417954897}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2553fbdb2efe07533355fd9c02f87b62, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EventName: Halloween
+  DateDefinitionKey:
+    Id: 47
+    type: ClubPenguin.Core.ScheduledEventDateDefinition, Core
+  SpawnData:
+  - SpawnPrefabKey:
+      Key: Costumes/AuntArctic/AuntArctic_Halloween_Witch_Hat_NECK_int
+      type: UnityEngine.GameObject, UnityEngine
+    SpawnParentTransform: {fileID: 4763380589136263}
+    SpawnOffset: {x: 0, y: 0, z: 0}
+    SpawnRotation: {x: 0, y: 0, z: 0}
+    SpawnScale: {x: 0, y: 0, z: 0}
+  SwapMaterialData:
+  - SwapTarget: {fileID: 1112282541439201}
+    SwapMaterialKey:
+      Key: Costumes/AuntArctic/AuntArctic_Halloween_Witch
+      type: UnityEngine.Material, UnityEngine
+    DestroyTexture: 0
+--- !u!114 &701203593918247378
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1192207417954897}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2553fbdb2efe07533355fd9c02f87b62, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EventName: Halloween
+  DateDefinitionKey:
+    Id: 51
+    type: ClubPenguin.Core.ScheduledEventDateDefinition, Core
+  SpawnData:
+  - SpawnPrefabKey:
+      Key: Costumes/AuntArctic/AuntArctic_Halloween_Witch_Hat_NECK_int
+      type: UnityEngine.GameObject, UnityEngine
+    SpawnParentTransform: {fileID: 4763380589136263}
+    SpawnOffset: {x: 0, y: 0, z: 0}
+    SpawnRotation: {x: 0, y: 0, z: 0}
+    SpawnScale: {x: 0, y: 0, z: 0}
+  SwapMaterialData:
+  - SwapTarget: {fileID: 1112282541439201}
+    SwapMaterialKey:
+      Key: Costumes/AuntArctic/AuntArctic_Halloween_Witch
+      type: UnityEngine.Material, UnityEngine
+    DestroyTexture: 0
+--- !u!114 &3314705934988243000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1192207417954897}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2553fbdb2efe07533355fd9c02f87b62, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EventName: Halloween
+  DateDefinitionKey:
+    Id: 52
+    type: ClubPenguin.Core.ScheduledEventDateDefinition, Core
+  SpawnData:
+  - SpawnPrefabKey:
+      Key: Costumes/AuntArctic/AuntArctic_Halloween_Witch_Hat_NECK_int
+      type: UnityEngine.GameObject, UnityEngine
+    SpawnParentTransform: {fileID: 4763380589136263}
+    SpawnOffset: {x: 0, y: 0, z: 0}
+    SpawnRotation: {x: 0, y: 0, z: 0}
+    SpawnScale: {x: 0, y: 0, z: 0}
+  SwapMaterialData:
+  - SwapTarget: {fileID: 1112282541439201}
+    SwapMaterialKey:
+      Key: Costumes/AuntArctic/AuntArctic_Halloween_Witch
+      type: UnityEngine.Material, UnityEngine
+    DestroyTexture: 0
+--- !u!114 &4196412405676057176
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1192207417954897}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2553fbdb2efe07533355fd9c02f87b62, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EventName: Halloween
+  DateDefinitionKey:
+    Id: 53
+    type: ClubPenguin.Core.ScheduledEventDateDefinition, Core
+  SpawnData:
+  - SpawnPrefabKey:
+      Key: Costumes/AuntArctic/AuntArctic_Halloween_Witch_Hat_NECK_int
+      type: UnityEngine.GameObject, UnityEngine
+    SpawnParentTransform: {fileID: 4763380589136263}
+    SpawnOffset: {x: 0, y: 0, z: 0}
+    SpawnRotation: {x: 0, y: 0, z: 0}
+    SpawnScale: {x: 0, y: 0, z: 0}
+  SwapMaterialData:
+  - SwapTarget: {fileID: 1112282541439201}
+    SwapMaterialKey:
+      Key: Costumes/AuntArctic/AuntArctic_Halloween_Witch
+      type: UnityEngine.Material, UnityEngine
     DestroyTexture: 0
 --- !u!1 &1220715704677298
 GameObject:

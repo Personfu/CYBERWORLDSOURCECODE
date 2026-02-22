@@ -116,7 +116,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_LightingSettings: {fileID: 4890085278179872738, guid: 180d3b48f8546cf438073e3ce3398da8,
+  m_LightingSettings: {fileID: 4890085278179872738, guid: 3fc3df57e3cb1904eb6f86cf5cfe684d,
     type: 2}
 --- !u!114 &5924
 MonoBehaviour:

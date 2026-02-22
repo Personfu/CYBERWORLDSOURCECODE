@@ -188,7 +188,7 @@ public class DiscordController : MonoBehaviour
         try
         {
             client = new Discord.Sdk.Client();
-            client.AddLogCallback(OnDiscordLog, LoggingSeverity.Info);
+            client.AddLogCallback(OnDiscordLog, LoggingSeverity.Error);
             client.SetStatusChangedCallback(OnStatusChanged);
             client.SetApplicationId(applicationId);
 
@@ -399,12 +399,10 @@ public class DiscordController : MonoBehaviour
 
     private void OnDiscordLog(string message, LoggingSeverity severity)
     {
-        UnityEngine.Debug.Log($"[Discord Social SDK] {severity}: {message}");
     }
 
     private void OnStatusChanged(Discord.Sdk.Client.Status status, Discord.Sdk.Client.Error error, int errorCode)
     {
-        UnityEngine.Debug.Log($"[Discord Social SDK] Status changed: {status}");
         if (error != Discord.Sdk.Client.Error.None)
             UnityEngine.Debug.LogError($"[Discord Social SDK] Error: {error} (code {errorCode})");
     }
@@ -1110,9 +1108,7 @@ public class DiscordController : MonoBehaviour
 
     private void OnUpdateRichPresence(ClientResult result)
     {
-        if (result.Successful())
-            UnityEngine.Debug.Log("[Discord Social SDK] Rich presence updated.");
-        else
+        if (!result.Successful())
             UnityEngine.Debug.LogError($"[Discord Social SDK] Failed to update rich presence: {result.Error()}");
     }
 

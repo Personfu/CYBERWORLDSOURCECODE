@@ -207,6 +207,7 @@ SkinnedMeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   serializedVersion: 2
   m_Quality: 0
   m_UpdateWhenOffscreen: 0
@@ -1675,6 +1676,10 @@ GameObject:
   - component: {fileID: 114946199190535527}
   - component: {fileID: 6890422726690496923}
   - component: {fileID: 2926579268730297931}
+  - component: {fileID: 7485319815944780645}
+  - component: {fileID: 6865773152531773265}
+  - component: {fileID: 5943178828368929640}
+  - component: {fileID: 7771356737167470226}
   m_Layer: 11
   m_Name: JetpackGuy
   m_TagString: NPC
@@ -1814,6 +1819,126 @@ MonoBehaviour:
   EventName: Halloween
   DateDefinitionKey:
     Id: 41
+    type: ClubPenguin.Core.ScheduledEventDateDefinition, Core
+  SpawnData:
+  - SpawnPrefabKey:
+      Key: Costumes/JetPackGuy/JetPackGuy_Halloween_HeadDecor_NECK_int
+      type: UnityEngine.GameObject, UnityEngine
+    SpawnParentTransform: {fileID: 4728495368378160}
+    SpawnOffset: {x: 0, y: 0, z: 0}
+    SpawnRotation: {x: 0, y: 0, z: 0}
+    SpawnScale: {x: 0, y: 0, z: 0}
+  SwapMaterialData:
+  - SwapTarget: {fileID: 1035466497259256}
+    SwapMaterialKey:
+      Key: Costumes/JetPackGuy/SourceAssets/JetPackGuy_Halloween_Outfit
+      type: UnityEngine.Material, UnityEngine
+    DestroyTexture: 0
+--- !u!114 &7485319815944780645
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1595528801241148}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2553fbdb2efe07533355fd9c02f87b62, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EventName: Halloween
+  DateDefinitionKey:
+    Id: 47
+    type: ClubPenguin.Core.ScheduledEventDateDefinition, Core
+  SpawnData:
+  - SpawnPrefabKey:
+      Key: Costumes/JetPackGuy/JetPackGuy_Halloween_HeadDecor_NECK_int
+      type: UnityEngine.GameObject, UnityEngine
+    SpawnParentTransform: {fileID: 4728495368378160}
+    SpawnOffset: {x: 0, y: 0, z: 0}
+    SpawnRotation: {x: 0, y: 0, z: 0}
+    SpawnScale: {x: 0, y: 0, z: 0}
+  SwapMaterialData:
+  - SwapTarget: {fileID: 1035466497259256}
+    SwapMaterialKey:
+      Key: Costumes/JetPackGuy/SourceAssets/JetPackGuy_Halloween_Outfit
+      type: UnityEngine.Material, UnityEngine
+    DestroyTexture: 0
+--- !u!114 &6865773152531773265
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1595528801241148}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2553fbdb2efe07533355fd9c02f87b62, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EventName: Halloween
+  DateDefinitionKey:
+    Id: 51
+    type: ClubPenguin.Core.ScheduledEventDateDefinition, Core
+  SpawnData:
+  - SpawnPrefabKey:
+      Key: Costumes/JetPackGuy/JetPackGuy_Halloween_HeadDecor_NECK_int
+      type: UnityEngine.GameObject, UnityEngine
+    SpawnParentTransform: {fileID: 4728495368378160}
+    SpawnOffset: {x: 0, y: 0, z: 0}
+    SpawnRotation: {x: 0, y: 0, z: 0}
+    SpawnScale: {x: 0, y: 0, z: 0}
+  SwapMaterialData:
+  - SwapTarget: {fileID: 1035466497259256}
+    SwapMaterialKey:
+      Key: Costumes/JetPackGuy/SourceAssets/JetPackGuy_Halloween_Outfit
+      type: UnityEngine.Material, UnityEngine
+    DestroyTexture: 0
+--- !u!114 &5943178828368929640
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1595528801241148}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2553fbdb2efe07533355fd9c02f87b62, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EventName: Halloween
+  DateDefinitionKey:
+    Id: 52
+    type: ClubPenguin.Core.ScheduledEventDateDefinition, Core
+  SpawnData:
+  - SpawnPrefabKey:
+      Key: Costumes/JetPackGuy/JetPackGuy_Halloween_HeadDecor_NECK_int
+      type: UnityEngine.GameObject, UnityEngine
+    SpawnParentTransform: {fileID: 4728495368378160}
+    SpawnOffset: {x: 0, y: 0, z: 0}
+    SpawnRotation: {x: 0, y: 0, z: 0}
+    SpawnScale: {x: 0, y: 0, z: 0}
+  SwapMaterialData:
+  - SwapTarget: {fileID: 1035466497259256}
+    SwapMaterialKey:
+      Key: Costumes/JetPackGuy/SourceAssets/JetPackGuy_Halloween_Outfit
+      type: UnityEngine.Material, UnityEngine
+    DestroyTexture: 0
+--- !u!114 &7771356737167470226
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1595528801241148}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2553fbdb2efe07533355fd9c02f87b62, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EventName: Halloween
+  DateDefinitionKey:
+    Id: 53
     type: ClubPenguin.Core.ScheduledEventDateDefinition, Core
   SpawnData:
   - SpawnPrefabKey:
@@ -5048,7 +5173,7 @@ ParticleSystem:
     vectorLabel1_3: W
 --- !u!199 &199485605598511867
 ParticleSystemRenderer:
-  serializedVersion: 6
+  serializedVersion: 7
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -5095,6 +5220,7 @@ ParticleSystemRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_RenderMode: 0
   m_MeshDistribution: 0
   m_SortMode: 0
@@ -5126,7 +5252,6 @@ ParticleSystemRenderer:
   m_MeshWeighting1: 1
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
-  m_MaskInteraction: 0
 --- !u!114 &114789435933048880
 MonoBehaviour:
   m_ObjectHideFlags: 0

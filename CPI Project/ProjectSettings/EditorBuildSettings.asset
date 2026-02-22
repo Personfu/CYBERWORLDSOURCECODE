@@ -350,6 +350,33 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Game/World/Scenes/Events/MedievalParty2026/AdditiveScenes/MedievalParty2026_Town_Decorations.unity
     guid: c659d78498dc452419b482c503239777
+  - enabled: 1
+    path: Assets/Game/World/Scenes/Events/PetShopConstruction/AdditiveScenes/PetShop_Town_Construction.unity
+    guid: d858b540d69b7ef4ba82e3cee89e3aac
+  - enabled: 1
+    path: Assets/Game/World/Scenes/Events/Halloween/AdditiveScenes/Beach_Halloween2017_Decorations.unity
+    guid: 70982e4cdf1fcaf4a833df25dcda8310
+  - enabled: 1
+    path: Assets/Game/World/Scenes/Events/Halloween/AdditiveScenes/Boardwalk_Halloween2017_Decorations.unity
+    guid: 74961f70c9350c34e81849c29d60ca0d
+  - enabled: 1
+    path: Assets/Game/World/Scenes/Events/Halloween/AdditiveScenes/Diving_Halloween2017_Decorations.unity
+    guid: 929e70210a744ad44a11949a1f9bc4dc
+  - enabled: 1
+    path: Assets/Game/World/Scenes/Events/Halloween/AdditiveScenes/MtBlizzard_Halloween2017_Decorations.unity
+    guid: 0baa829a2e56c574bbcef25b47af3040
+  - enabled: 1
+    path: Assets/Game/World/Scenes/Events/Halloween/AdditiveScenes/Town_Halloween2017_Cutscene01.unity
+    guid: 61ae826982dedfd4aaee20695ae3ebc3
+  - enabled: 1
+    path: Assets/Game/World/Scenes/Events/Halloween/AdditiveScenes/Town_Halloween2017_Cutscene02.unity
+    guid: 1541b905f828de84b93651162a6568fc
+  - enabled: 1
+    path: Assets/Game/World/Scenes/Events/Halloween/AdditiveScenes/Town_Halloween2017_Cutscene03.unity
+    guid: 3751513f2fa63d243864f8e8a6877e1b
+  - enabled: 1
+    path: Assets/Game/World/Scenes/Events/Halloween/AdditiveScenes/Town_Halloween2017_Decorations.unity
+    guid: a297a90b95e9a744680291f7202d4b36
   m_configObjects:
     com.unity.adaptiveperformance.google.android.provider_settings: {fileID: 11400000,
       guid: c9b3af1d04a8cb448924e2b2f6925152, type: 2}

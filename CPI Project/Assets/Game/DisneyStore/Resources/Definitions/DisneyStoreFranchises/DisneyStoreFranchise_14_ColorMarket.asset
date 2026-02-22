@@ -34,5 +34,5 @@ MonoBehaviour:
   FranchiseHeaderPath:
     Key: DisneyShop/Images/DisneyShop_RainbowMigration_BG
     type: UnityEngine.Sprite, UnityEngine
-  FranchiseBackgroundColor: {r: 0.5449982, g: 0.42388743, b: 0.7132075, a: 1}
+  FranchiseBackgroundColor: {r: 0.6117647, g: 0.48235294, b: 0.827451, a: 1}
   SortingIdDesc: 14

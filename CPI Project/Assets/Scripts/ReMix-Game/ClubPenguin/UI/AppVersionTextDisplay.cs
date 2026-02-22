@@ -1,17 +1,25 @@
 using DevonLocalization.Core;
 using Disney.MobileNetwork;
+using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
 
 namespace ClubPenguin.UI
 {
-	[RequireComponent(typeof(Text))]
+	[RequireComponent(typeof(TextMeshProUGUI))]
 	public class AppVersionTextDisplay : MonoBehaviour
 	{
 		private void Start()
 		{
-			string arg = EnvironmentManager.BundleVersion.ToString();
-			GetComponent<Text>().text = string.Format(Service.Get<Localizer>().GetTokenTranslation("GlobalUI.Settings.Settings.AppVersionText"), arg);
+			string version = Application.version;
+			string translation = Service.Get<Localizer>().GetTokenTranslation("GlobalUI.Settings.Settings.AppVersionText");
+			if (!string.IsNullOrEmpty(translation) && translation != "GlobalUI.Settings.Settings.AppVersionText")
+			{
+				GetComponent<TextMeshProUGUI>().text = string.Format(translation, version);
+			}
+			else
+			{
+				GetComponent<TextMeshProUGUI>().text = "v1.13.2";
+			}
 		}
 	}
 }

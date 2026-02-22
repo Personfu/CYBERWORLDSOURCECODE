@@ -18,16 +18,16 @@
 extern "C" {
 #endif
 
-// These functions replace the previous _cryptProtectData / _cryptUnprotectData
-// using unique names to avoid C-linkage overload errors
-
-// KC_ProtectData: input string -> output buffer + size
+// _cryptProtectData: input string -> output buffer + size
 // Returns 1 on success, 0 on failure
-KEYCHAINWINDOWS_API int KC_ProtectData(const char* dataIn, size_t* dataOutSize, char** dataOut);
+KEYCHAINWINDOWS_API int _cryptProtectData(const char* dataIn, int* sizeOut, char** dataOut);
 
-// KC_UnprotectData: input buffer + size -> output string
+// _cryptUnprotectData: input buffer + size -> output string
 // Returns 1 on success, 0 on failure
-KEYCHAINWINDOWS_API int KC_UnprotectData(const char* dataIn, size_t dataInLength, char** dataOut);
+KEYCHAINWINDOWS_API int _cryptUnprotectData(const unsigned char* dataIn, int size, char** dataOut);
+
+// _keyChainFree: free memory allocated by _cryptProtectData / _cryptUnprotectData
+KEYCHAINWINDOWS_API void _keyChainFree(void* ptr);
 
 #ifdef __cplusplus
 }

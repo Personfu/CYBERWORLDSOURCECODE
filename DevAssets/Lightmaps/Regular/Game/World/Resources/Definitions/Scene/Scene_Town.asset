@@ -123,3 +123,9 @@ MonoBehaviour:
     PlayerPrefsKey: SunsetPartyToggle
     AdditiveScenes:
     - MedievalParty2026_Town_Decorations
+  - DateDefinitionKey:
+      Id: 50
+      type: ClubPenguin.Core.ScheduledEventDateDefinition, Core
+    PlayerPrefsKey: SunsetPartyToggle
+    AdditiveScenes:
+    - PetShop_Town_Construction

@@ -2,7 +2,7 @@
 
 > [!IMPORTANT]
 > ### Unity Version
-> - **Unity 6000.3.8f1 LTS**
+> - **Unity 6000.3.9f1 LTS**
 
 > [!IMPORTANT]
 > ## **Builds can be found here:**
@@ -25,7 +25,7 @@
 
 > Q: Why is everything pink or not loading when I load the game?
 
-> A: You need to run the Unity Editor menu item:```Project -> AssetBundles -> Generated -> Generate client-side AssetBundles```
+> A: You need to run the Unity Editor menu item:```Project -> AssetBundles -> Generated -> Generate client side AssetBundles```
 
 > - For other commonly asked questions, you can find those in the ```#faq``` channel of our [Discord server](https://discord.gg/2V6tYJPbpc).
 
@@ -39,7 +39,7 @@
 > - To launch the game in the Unity editor:
 >   - Open `Assets/Game/Core/Scenes/Boot.unity`
 >  - Hit the Play button.
-> - **Android/Mobile support:** Please make sure to read everything carefully in the **Platforms** folder before proceeding. **Please note: The mobile assets are untested and unmaintained.**
+> - **Android/Mobile support:** Please make sure to read everything carefully in the **Platforms** folder before proceeding.
 > - **Join our Discord for support, chatting, or for future updates:** [join here](https://discord.gg/2V6tYJPbpc)
 
 > [!IMPORTANT]
@@ -86,7 +86,7 @@
 >     - Support for .NET Standard 2.1
 >     - Support for Unity's New Input System.
 >     - Support for Unity WebGL.
->     - Added 2 new props, the 20th anniversary cake single and the 20th anniversary cake group. These can only be obtained from October 24, 2025 until October 31, 2025. November 1st and onward will not be claimable. 
+>     - Added 2 new props, the 20th anniversary cake single and the 20th anniversary cake group. 
 >     - Support for the unreleased Penguin sprinting and skidding locomotion.
 >     - Added 1 new igloo furniture to level 14. It is a recolor of the level 13 ```Waterfall```, named the ```Slime Waterfall```.
 >     - Added the Dubstep, Pop, and Rock genres for igloo music.
@@ -108,6 +108,18 @@
 >     - Added a new collectible named the ```Sea Crystals``` to the Sea Caves.
 >     - Added a upcoming events cellphone widget. Which is says the upcoming annual parties/events.
 >	  - Added support for Discord's Social SDK for Discord RPC. Note: This feature will only work on the Mono scripting backend and not iL2CPP.
+>     - Added a new button to the Debug Menu which allows you to switch to the annual parties, regular mode, or any party for the annual parties controller.
+>     - Added a new button to the Debug Menu -> Interactive Zones which allows you to adjust how many penguins that are jumping on the Trampoline 3000 in the Mt. Blizzard.
+>     - Added controller support. Very basic at the moment. Left Trigger = Walk, Right Trigger = Sprinting, A = Jump and Select, B = Tube, X = Interaction, Y = Snowball.
+>     - Added 3 new sizzle clips, Sleepy, Celebrate, and Tada.
+>     - Added support to the Progression Unlock Service to allow unlocking of equipment instances.
+>     - Added support to type in commands via the ingame chat. Currently, there are only 3 commands: !ae {Template.ID}, !at {Tube.ID}, and !ac {coins.amount}.
+>     - Added the video trailer button to standalone from mobile. This will appear on the homescreen.
+>     - Added the Dot's Clothing Catalog Daily Challenges to Offline Mode. Note: This does enable the Daily Challenges UI in the Cellphone but it does not work as it is not currently coded in the Offline Server and API.
+>     - Added the daily fishing bait limit check to Offline Mode.
+>     - Added the ability to exit the Tube Race Lobby in the Offline Room Runner.
+>     - Added the ability to gain the 5 coins from the Puffle Treasure Chest in Offline Mode.
+>     - Added a whole bunch of custom decals and fabrics.
 
 > [!IMPORTANT]
 > - What has been fixed:
@@ -141,6 +153,7 @@
 >     - Fixed the ClassicMiniGame ```Smoothie Smash``` order of fruit animation not containing the fruit which makes the fruit not appear (original issue).
 >     - Fixed the ```Snowy Pine Tree``` igloo furniture using the decoration category rather than Landscaping.
 >     - Fixed the original bug where the first trampoline on the Platforming wall in the Mt. Blizzard would give the wrong bounce direction.
+>     - Fixed the original bug that would spam errors about static infs.
 
 > [!IMPORTANT]  
 > ## System Requirements

@@ -1914,7 +1914,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    attribute: material.1090582214
+    attribute: material.path_0x4100F6C6_MKmSShH
     path: GreenLight5PanelEffect1/Panel1
     classID: 23
     script: {fileID: 0}
@@ -1960,7 +1960,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    attribute: material.1359017670
+    attribute: material.path_0x5100F6C6_QWUIpPN
     path: GreenLight5PanelEffect1/Panel1
     classID: 23
     script: {fileID: 0}
@@ -2006,7 +2006,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    attribute: material.1627453126
+    attribute: material.path_0x6100F6C6_wOUTqhL
     path: GreenLight5PanelEffect1/Panel1
     classID: 23
     script: {fileID: 0}
@@ -2052,7 +2052,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    attribute: material.1090582214
+    attribute: material.path_0x4100F6C6_MKmSShH
     path: GreenLight5PanelEffect1/Panel2
     classID: 23
     script: {fileID: 0}
@@ -2098,7 +2098,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    attribute: material.1359017670
+    attribute: material.path_0x5100F6C6_QWUIpPN
     path: GreenLight5PanelEffect1/Panel2
     classID: 23
     script: {fileID: 0}
@@ -2144,7 +2144,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    attribute: material.1627453126
+    attribute: material.path_0x6100F6C6_wOUTqhL
     path: GreenLight5PanelEffect1/Panel2
     classID: 23
     script: {fileID: 0}
@@ -2190,7 +2190,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    attribute: material.1090582214
+    attribute: material.path_0x4100F6C6_MKmSShH
     path: GreenLight5PanelEffect1/Panel3
     classID: 23
     script: {fileID: 0}
@@ -2236,7 +2236,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    attribute: material.1359017670
+    attribute: material.path_0x5100F6C6_QWUIpPN
     path: GreenLight5PanelEffect1/Panel3
     classID: 23
     script: {fileID: 0}
@@ -2282,7 +2282,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    attribute: material.1627453126
+    attribute: material.path_0x6100F6C6_wOUTqhL
     path: GreenLight5PanelEffect1/Panel3
     classID: 23
     script: {fileID: 0}
@@ -2328,7 +2328,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    attribute: material.1090582214
+    attribute: material.path_0x4100F6C6_MKmSShH
     path: GreenLight5PanelEffect1/Panel4
     classID: 23
     script: {fileID: 0}
@@ -2374,7 +2374,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    attribute: material.1359017670
+    attribute: material.path_0x5100F6C6_QWUIpPN
     path: GreenLight5PanelEffect1/Panel4
     classID: 23
     script: {fileID: 0}
@@ -2420,7 +2420,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    attribute: material.1627453126
+    attribute: material.path_0x6100F6C6_wOUTqhL
     path: GreenLight5PanelEffect1/Panel4
     classID: 23
     script: {fileID: 0}
@@ -2466,7 +2466,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    attribute: material.1090582214
+    attribute: material.path_0x4100F6C6_MKmSShH
     path: GreenLight5PanelEffect1/Panel5
     classID: 23
     script: {fileID: 0}
@@ -2512,7 +2512,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    attribute: material.1359017670
+    attribute: material.path_0x5100F6C6_QWUIpPN
     path: GreenLight5PanelEffect1/Panel5
     classID: 23
     script: {fileID: 0}
@@ -2558,7 +2558,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    attribute: material.1627453126
+    attribute: material.path_0x6100F6C6_wOUTqhL
     path: GreenLight5PanelEffect1/Panel5
     classID: 23
     script: {fileID: 0}
@@ -3460,7 +3460,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    attribute: material.1895888582
+    attribute: material.path_0x7100F6C6_kSmNRPJ
     path: GreenLight5PanelEffect1/Panel1
     classID: 23
     script: {fileID: 0}
@@ -3482,7 +3482,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    attribute: material.1895888582
+    attribute: material.path_0x7100F6C6_kSmNRPJ
     path: GreenLight5PanelEffect1/Panel2
     classID: 23
     script: {fileID: 0}
@@ -3504,7 +3504,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    attribute: material.1895888582
+    attribute: material.path_0x7100F6C6_kSmNRPJ
     path: GreenLight5PanelEffect1/Panel3
     classID: 23
     script: {fileID: 0}
@@ -3526,7 +3526,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    attribute: material.1895888582
+    attribute: material.path_0x7100F6C6_kSmNRPJ
     path: GreenLight5PanelEffect1/Panel4
     classID: 23
     script: {fileID: 0}
@@ -3548,7 +3548,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    attribute: material.1895888582
+    attribute: material.path_0x7100F6C6_kSmNRPJ
     path: GreenLight5PanelEffect1/Panel5
     classID: 23
     script: {fileID: 0}

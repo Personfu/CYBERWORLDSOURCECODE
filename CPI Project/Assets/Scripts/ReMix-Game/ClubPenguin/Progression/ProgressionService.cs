@@ -302,7 +302,11 @@ namespace ClubPenguin.Progression
 			{
 				if (unlockDefinitions.Length > i && unlockDefinitions[i].ContainsKey(category))
 				{
-					list.AddRange(unlockDefinitions[i][category].Definitions as T[]);
+					T[] array = unlockDefinitions[i][category].Definitions as T[];
+					if (array != null)
+					{
+						list.AddRange(array);
+					}
 				}
 			}
 			if (rewardDefinitions.ContainsKey(category))
@@ -660,7 +664,34 @@ namespace ClubPenguin.Progression
 		{
 			for (int i = previousLevel + 1; i <= MascotLevel(mascotName); i++)
 			{
-				Service.Get<EventDispatcher>().DispatchEvent(new ProgressionEvents.LevelUp(mascotName, i, Level - (MascotLevel(mascotName) - i)));
+				int totalLevel = Level - (MascotLevel(mascotName) - i);
+				Service.Get<EventDispatcher>().DispatchEvent(new ProgressionEvents.LevelUp(mascotName, i, totalLevel));
+				grantEquipmentInstancesForLevel(totalLevel);
+			}
+		}
+
+		private void grantEquipmentInstancesForLevel(int level)
+		{
+			if (level < 0 || level >= unlockDefinitions.Length || unlockDefinitions[level] == null)
+			{
+				return;
+			}
+			UnlockDefinition unlockDef;
+			if (!unlockDefinitions[level].TryGetValue(ProgressionUnlockCategory.equipmentInstances, out unlockDef))
+			{
+				return;
+			}
+			IInventoryService inventoryService = Service.Get<INetworkServicesManager>().InventoryService;
+			for (int i = 0; i < unlockDef.Definitions.Length; i++)
+			{
+				TemplateDefinition templateDef = unlockDef.Definitions[i] as TemplateDefinition;
+				if (templateDef != null)
+				{
+					CustomEquipment request = default(CustomEquipment);
+					request.definitionId = templateDef.Id;
+					request.parts = new CustomEquipmentPart[0];
+					inventoryService.CreateCustomEquipment(request);
+				}
 			}
 		}
 

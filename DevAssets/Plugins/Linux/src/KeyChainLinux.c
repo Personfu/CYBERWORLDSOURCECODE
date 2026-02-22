@@ -4,6 +4,7 @@
 #include <stdint.h>
 #include <unistd.h>
 #include <sys/stat.h>
+#include <errno.h>
 #include <openssl/evp.h>
 #include <openssl/rand.h>
 
@@ -12,6 +13,31 @@ extern "C" {
 #endif
 
 #define KEY_FILE "/.local/share/KeyChainLinux/keychain.key"
+
+// Recursively create a directory path (mkdir -p behavior).
+static void ensure_directory_exists_recursive(const char* dir_path) {
+    if (!dir_path || dir_path[0] == '\0') return;
+
+    char tmp[512];
+    size_t len = strlen(dir_path);
+    if (len >= sizeof(tmp)) return;
+
+    strcpy(tmp, dir_path);
+    if (tmp[len - 1] == '/') tmp[len - 1] = 0;
+
+    for (char* p = tmp + 1; *p; p++) {
+        if (*p == '/') {
+            *p = 0;
+            if (mkdir(tmp, 0700) != 0 && errno != EEXIST) {
+                *p = '/';
+                return;
+            }
+            *p = '/';
+        }
+    }
+
+    mkdir(tmp, 0700);
+}
 
 // Helper to get user key path
 static void get_key_path(char* buf, size_t buf_size) {
@@ -31,7 +57,7 @@ static int load_or_generate_key(unsigned char* key) {
     char* last_slash = strrchr(dir, '/');
     if (last_slash) {
         *last_slash = 0;
-        mkdir(dir, 0700);
+        ensure_directory_exists_recursive(dir);
     }
 
     FILE* f = fopen(path, "rb");
@@ -171,6 +197,14 @@ int _cryptUnprotectData(const unsigned char* dataIn, int dataInLength, char** da
 
     EVP_CIPHER_CTX_free(ctx);
     return 1;
+}
+
+// Free memory allocated by this plugin (must be used instead of Marshal.FreeCoTaskMem on Linux).
+__attribute__((visibility("default")))
+void _keyChainFree(void* ptr) {
+    if (ptr) {
+        free(ptr);
+    }
 }
 
 #ifdef __cplusplus

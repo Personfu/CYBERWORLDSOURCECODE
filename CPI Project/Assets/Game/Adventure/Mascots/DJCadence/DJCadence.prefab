@@ -896,6 +896,11 @@ SkinnedMeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 3
   m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -917,9 +922,11 @@ SkinnedMeshRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   serializedVersion: 2
   m_Quality: 0
   m_UpdateWhenOffscreen: 0
@@ -1747,6 +1754,10 @@ GameObject:
   - component: {fileID: 114452955196521009}
   - component: {fileID: 5725535882950409608}
   - component: {fileID: 1856061117491116786}
+  - component: {fileID: 3403856264124415840}
+  - component: {fileID: 4471745854576663611}
+  - component: {fileID: 6612223724592273110}
+  - component: {fileID: 1140735159495577232}
   m_Layer: 0
   m_Name: DJCadence
   m_TagString: Untagged
@@ -1776,7 +1787,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 20.163176, z: 0}
 --- !u!95 &95998640100588834
 Animator:
-  serializedVersion: 5
+  serializedVersion: 7
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -1790,6 +1801,7 @@ Animator:
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
@@ -1894,7 +1906,107 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EventName: Halloween
   DateDefinitionKey:
+    Id: 47
+    type: ClubPenguin.Core.ScheduledEventDateDefinition, Core
+  SpawnData:
+  - SpawnPrefabKey:
+      Key: Costumes/DjCadence/DjCadence_Halloween_FaeryWings_m_chest_int
+      type: UnityEngine.GameObject, UnityEngine.CoreModule
+    SpawnParentTransform: {fileID: 4415705952827289}
+    SpawnOffset: {x: 0, y: 0, z: 0}
+    SpawnRotation: {x: 0, y: 0, z: 0}
+    SpawnScale: {x: 0, y: 0, z: 0}
+  SwapMaterialData: []
+--- !u!114 &3403856264124415840
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1704514906806653}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2553fbdb2efe07533355fd9c02f87b62, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EventName: Halloween
+  DateDefinitionKey:
     Id: 41
+    type: ClubPenguin.Core.ScheduledEventDateDefinition, Core
+  SpawnData:
+  - SpawnPrefabKey:
+      Key: Costumes/DjCadence/DjCadence_Halloween_FaeryWings_m_chest_int
+      type: UnityEngine.GameObject, UnityEngine.CoreModule
+    SpawnParentTransform: {fileID: 4415705952827289}
+    SpawnOffset: {x: 0, y: 0, z: 0}
+    SpawnRotation: {x: 0, y: 0, z: 0}
+    SpawnScale: {x: 0, y: 0, z: 0}
+  SwapMaterialData: []
+--- !u!114 &4471745854576663611
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1704514906806653}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2553fbdb2efe07533355fd9c02f87b62, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EventName: Halloween
+  DateDefinitionKey:
+    Id: 51
+    type: ClubPenguin.Core.ScheduledEventDateDefinition, Core
+  SpawnData:
+  - SpawnPrefabKey:
+      Key: Costumes/DjCadence/DjCadence_Halloween_FaeryWings_m_chest_int
+      type: UnityEngine.GameObject, UnityEngine.CoreModule
+    SpawnParentTransform: {fileID: 4415705952827289}
+    SpawnOffset: {x: 0, y: 0, z: 0}
+    SpawnRotation: {x: 0, y: 0, z: 0}
+    SpawnScale: {x: 0, y: 0, z: 0}
+  SwapMaterialData: []
+--- !u!114 &6612223724592273110
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1704514906806653}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2553fbdb2efe07533355fd9c02f87b62, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EventName: Halloween
+  DateDefinitionKey:
+    Id: 52
+    type: ClubPenguin.Core.ScheduledEventDateDefinition, Core
+  SpawnData:
+  - SpawnPrefabKey:
+      Key: Costumes/DjCadence/DjCadence_Halloween_FaeryWings_m_chest_int
+      type: UnityEngine.GameObject, UnityEngine.CoreModule
+    SpawnParentTransform: {fileID: 4415705952827289}
+    SpawnOffset: {x: 0, y: 0, z: 0}
+    SpawnRotation: {x: 0, y: 0, z: 0}
+    SpawnScale: {x: 0, y: 0, z: 0}
+  SwapMaterialData: []
+--- !u!114 &1140735159495577232
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1704514906806653}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2553fbdb2efe07533355fd9c02f87b62, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EventName: Halloween
+  DateDefinitionKey:
+    Id: 53
     type: ClubPenguin.Core.ScheduledEventDateDefinition, Core
   SpawnData:
   - SpawnPrefabKey:

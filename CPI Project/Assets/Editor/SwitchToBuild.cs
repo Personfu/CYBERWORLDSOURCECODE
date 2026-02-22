@@ -20,6 +20,8 @@ public class SwitchToBuild : MonoBehaviour
         platform = "standalonelinux64";
 #elif UNITY_ANDROID
         platform = "android";
+#elif UNITY_IOS
+        platform = "ios";
 #elif UNITY_WEBGL
         platform = "webgl";
 #else
@@ -32,13 +34,8 @@ public class SwitchToBuild : MonoBehaviour
             return;
         }
 
-        // Modify the client_info.asset file
         ModifyClientInfoAsset(platform);
-
-        // Modify the embedded_content_manifest.txt file
         ModifyTextFile(platform);
-
-        // Save assets
         AssetDatabase.SaveAssets();
 
         Debug.Log("SwitchToBuild: Platform switch completed for " + platform);
@@ -53,8 +50,6 @@ public class SwitchToBuild : MonoBehaviour
             SerializedObject serializedObject = new SerializedObject(clientInfo);
             SerializedProperty platformProperty = serializedObject.FindProperty("Platform");
             platformProperty.stringValue = platform;
-
-            // Save the updated asset
             serializedObject.ApplyModifiedProperties();
             Debug.Log("Platform set to: " + platform + " in client_info.asset");
         }
@@ -64,7 +59,6 @@ public class SwitchToBuild : MonoBehaviour
         }
     }
 
-    // Modify the embedded_content_manifest.txt file with the platform name
     private static void ModifyTextFile(string platform)
     {
         string txtFilePath = "Assets/Generated/Resources/Configuration/embedded_content_manifest.txt";
@@ -72,30 +66,21 @@ public class SwitchToBuild : MonoBehaviour
         if (File.Exists(txtFilePath))
         {
             string[] lines = File.ReadAllLines(txtFilePath);
+
             for (int i = 0; i < lines.Length; i++)
             {
-                if (lines[i].Contains("standalonewindows64") ||
-                    lines[i].Contains("standalonelinux64") ||
-                    lines[i].Contains("standaloneosx") ||
-                    lines[i].Contains("android") ||
-                    lines[i].Contains("webgl"))
+                if (ShouldSkipLine(lines[i]))
                 {
-                    // Skip specific lines that break the game.
-                    if (lines[i].Contains("asset:worldtraynodeprefabs/androidcontainer?dl=res&x=prefab") ||
-                        lines[i].Contains("asset:mockauthproject/assetbundles/android/test_cube?dl=res&x=unity3d") ||
-						lines[i].Contains("asset:swrveassets.xcassets/app_icons.imageset/1.0.0_android?dl=res&x=png") ||
-						lines[i].Contains("asset:swrveassets.xcassets/app_icons.imageset/androidgo?dl=res&x=png") ||
-						lines[i].Contains("asset:swrveassets.xcassets/app_icons.imageset/round_android?dl=res&x=png"))
-                    {
-                        continue; // Skip these lines
-                    }
-
-                    lines[i] = lines[i].Replace("standalonewindows64", platform)
-                                       .Replace("standalonelinux64", platform)
-                                       .Replace("standaloneosx", platform)
-                                       .Replace("webgl", platform)
-                                       .Replace("android", platform);
+                    continue;
                 }
+
+                if (!lines[i].Contains("assetbundles/generated/") && !lines[i].Contains("assetbundles\\generated\\"))
+                {
+                    continue;
+                }
+
+                lines[i] = ReplaceGeneratedPlatformSegments(lines[i], platform, "assetbundles/generated/");
+                lines[i] = ReplaceGeneratedPlatformSegments(lines[i], platform, "assetbundles\\generated\\");
             }
 
             File.WriteAllLines(txtFilePath, lines);
@@ -105,6 +90,86 @@ public class SwitchToBuild : MonoBehaviour
         {
             Debug.LogError(".txt file not found.");
         }
+    }
+
+    private static bool ShouldSkipLine(string line)
+    {
+        return line.Contains("asset:worldtraynodeprefabs/androidcontainer?dl=res&x=prefab") ||
+               line.Contains("asset:mockauthproject/assetbundles/android/test_cube?dl=res&x=unity3d") ||
+               line.Contains("asset:swrveassets.xcassets/app_icons.imageset/1.0.0_android?dl=res&x=png") ||
+               line.Contains("asset:swrveassets.xcassets/app_icons.imageset/androidgo?dl=res&x=png") ||
+               line.Contains("asset:swrveassets.xcassets/app_icons.imageset/round_android?dl=res&x=png") ||
+               line.Contains("asset:swrveassets.xcassets/app_icons.imageset/1.0.0_ios?dl=res&x=png") ||
+               line.Contains("asset:definitions/disneystoreitems/disneystoreitem_137_rainbowkiosk?dl=res&x=asset") ||
+               line.Contains("asset:definitions/disneystoreitems/disneystoreitem_137_rainbowkiosk.reward?dl=res&x=asset") ||
+               line.Contains("asset:definitions/decorations/decoration148_rainbowkiosk?dl=res&x=asset");
+    }
+
+    private static string ReplaceGeneratedPlatformSegments(string line, string newPlatform, string marker)
+    {
+        int searchFrom = 0;
+
+        while (true)
+        {
+            int idx = line.IndexOf(marker, searchFrom, System.StringComparison.Ordinal);
+            if (idx < 0)
+            {
+                break;
+            }
+
+            int segStart = idx + marker.Length;
+            int segEnd = FindNextDelimiter(line, segStart);
+
+            if (segEnd <= segStart)
+            {
+                searchFrom = segStart;
+                continue;
+            }
+
+            string currentPlatform = line.Substring(segStart, segEnd - segStart);
+
+            if (IsKnownPlatform(currentPlatform))
+            {
+                line = line.Substring(0, segStart) + newPlatform + line.Substring(segEnd);
+                segEnd = segStart + newPlatform.Length;
+            }
+
+            searchFrom = segEnd;
+        }
+
+        return line;
+    }
+
+    private static int FindNextDelimiter(string s, int startIndex)
+    {
+        int best = s.Length;
+
+        int a = s.IndexOf('/', startIndex);
+        if (a >= 0 && a < best) best = a;
+
+        int b = s.IndexOf('\\', startIndex);
+        if (b >= 0 && b < best) best = b;
+
+        int c = s.IndexOf('?', startIndex);
+        if (c >= 0 && c < best) best = c;
+
+        int d = s.IndexOf('&', startIndex);
+        if (d >= 0 && d < best) best = d;
+
+        int e = s.IndexOf('#', startIndex);
+        if (e >= 0 && e < best) best = e;
+
+        return best;
+    }
+
+    private static bool IsKnownPlatform(string p)
+    {
+        return p == "standalonewindows64" ||
+               p == "standalonelinux64" ||
+               p == "standaloneosx" ||
+               p == "android" ||
+               p == "ios" ||
+               p == "webgl";
     }
 }
 

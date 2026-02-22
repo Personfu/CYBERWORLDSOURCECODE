@@ -1,8 +1,10 @@
 fileFormatVersion: 2
-guid: 66277a3d7758abd4c98b7d58754c79f2
+guid: cd4b4ede281604347afb45ff118eec76
+timeCreated: 1767544690
+licenseType: Free
 NativeFormatImporter:
-  externalObjects: {}
+  name:
   mainObjectFileID: 7400000
-  userData: 
-  assetBundleName: cdn/halloweenresources
-  assetBundleVariant: 
+  userData:
+  assetBundleName:
+  assetBundleVariant:

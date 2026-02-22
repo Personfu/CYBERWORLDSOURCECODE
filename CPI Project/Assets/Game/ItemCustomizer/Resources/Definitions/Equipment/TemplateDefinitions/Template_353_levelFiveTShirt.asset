@@ -3,16 +3,17 @@
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8ece58e73b924e2d8be523e938e36614, type: 3}
   m_Name: Template_353_levelFiveTShirt
-  m_EditorClassIdentifier:
+  m_EditorClassIdentifier: 
   Id: 353
-  AssetName: levelTwoTShirt
+  AssetName: levelFiveTShirt
   WorkInProgress: 0
   Name: Clothing.353.LevelTwoTShirt.Title
   Description: Clothing.353.LevelTwoTShirt.Description

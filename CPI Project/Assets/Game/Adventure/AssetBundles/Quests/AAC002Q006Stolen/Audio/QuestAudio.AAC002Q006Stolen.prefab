@@ -114,7 +114,7 @@ MonoBehaviour:
     _parameters: []
     _reference: {fileID: 0}
   Guid: 
-  _componentHolder: {fileID: 0}
+  _componentHolder: {fileID: 114340456368302641}
   _onEventNotifyEventName: 
   _audioClip: {fileID: 8300000, guid: 024aa82cc7a1ea24da69ebbb67d148a9, type: 3}
   _audioClipHandle:
@@ -163,7 +163,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _eventName: DIA/HB/AAC002Q006/Obj8/7
-  _eventID: 0
+  _eventID: -719277192
   _overrideEventTriggerAction: 0
   _overrideParameters:
     _overrideIncomingEventAction: 0
@@ -298,7 +298,7 @@ MonoBehaviour:
     _parameters: []
     _reference: {fileID: 0}
   Guid: 
-  _componentHolder: {fileID: 0}
+  _componentHolder: {fileID: 114352938113390456}
   _onEventNotifyEventName: 
   _audioClip: {fileID: 8300000, guid: c6e89cbc6eb81454f8094227265d2463, type: 3}
   _audioClipHandle:
@@ -347,7 +347,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _eventName: DIA/GY/AAC002Q006/Obj2/2
-  _eventID: 0
+  _eventID: -603741573
   _overrideEventTriggerAction: 0
   _overrideParameters:
     _overrideIncomingEventAction: 0
@@ -605,7 +605,7 @@ MonoBehaviour:
     _parameters: []
     _reference: {fileID: 0}
   Guid: 
-  _componentHolder: {fileID: 0}
+  _componentHolder: {fileID: 114182290165875584}
   _onEventNotifyEventName: 
   _audioClip: {fileID: 8300000, guid: 7cb6fb6902e892144baf806306f6fc89, type: 3}
   _audioClipHandle:
@@ -654,7 +654,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _eventName: DIA/AA/AAC002Q006/Obj8/2
-  _eventID: 0
+  _eventID: 391051919
   _overrideEventTriggerAction: 0
   _overrideParameters:
     _overrideIncomingEventAction: 0
@@ -789,7 +789,7 @@ MonoBehaviour:
     _parameters: []
     _reference: {fileID: 0}
   Guid: 
-  _componentHolder: {fileID: 0}
+  _componentHolder: {fileID: 114616191962537986}
   _onEventNotifyEventName: 
   _audioClip: {fileID: 8300000, guid: c47a8dd1463090442b529e3f02161e07, type: 3}
   _audioClipHandle:
@@ -838,7 +838,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _eventName: DIA/GY/AAC002Q006/Obj3/Idle
-  _eventID: 0
+  _eventID: 772682144
   _overrideEventTriggerAction: 0
   _overrideParameters:
     _overrideIncomingEventAction: 0
@@ -973,7 +973,7 @@ MonoBehaviour:
     _parameters: []
     _reference: {fileID: 0}
   Guid: 
-  _componentHolder: {fileID: 0}
+  _componentHolder: {fileID: 114304079528298348}
   _onEventNotifyEventName: 
   _audioClip: {fileID: 8300000, guid: e98cc98f62abc62418ad407889b409e7, type: 3}
   _audioClipHandle:
@@ -1022,7 +1022,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _eventName: DIA/GY/AAC002Q006/Obj1/1
-  _eventID: 0
+  _eventID: -2028663013
   _overrideEventTriggerAction: 0
   _overrideParameters:
     _overrideIncomingEventAction: 0
@@ -1157,7 +1157,7 @@ MonoBehaviour:
     _parameters: []
     _reference: {fileID: 0}
   Guid: 
-  _componentHolder: {fileID: 0}
+  _componentHolder: {fileID: 114355345357130410}
   _onEventNotifyEventName: 
   _audioClip: {fileID: 8300000, guid: 00dd8585f8797c44ba92fd8f8d3db426, type: 3}
   _audioClipHandle:
@@ -1206,7 +1206,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _eventName: DIA/GY/AAC002Q006/Obj2/1
-  _eventID: 0
+  _eventID: -200457046
   _overrideEventTriggerAction: 0
   _overrideParameters:
     _overrideIncomingEventAction: 0
@@ -1341,7 +1341,7 @@ MonoBehaviour:
     _parameters: []
     _reference: {fileID: 0}
   Guid: 
-  _componentHolder: {fileID: 0}
+  _componentHolder: {fileID: 114540458370087561}
   _onEventNotifyEventName: 
   _audioClip: {fileID: 8300000, guid: 71a6d52e17d6d0c4b9c6467a59f948d6, type: 3}
   _audioClipHandle:
@@ -1390,7 +1390,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _eventName: DIA/GY/AAC002Q006/Obj1/Idle2
-  _eventID: 0
+  _eventID: 627831984
   _overrideEventTriggerAction: 0
   _overrideParameters:
     _overrideIncomingEventAction: 0
@@ -1525,7 +1525,7 @@ MonoBehaviour:
     _parameters: []
     _reference: {fileID: 0}
   Guid: 
-  _componentHolder: {fileID: 0}
+  _componentHolder: {fileID: 114198121459138063}
   _onEventNotifyEventName: 
   _audioClip: {fileID: 8300000, guid: 6ee59fa93c7f5d84fbd6257ec833cf0a, type: 3}
   _audioClipHandle:
@@ -1574,7 +1574,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _eventName: DIA/AA/AAC002Q006/Obj3/Idle
-  _eventID: 0
+  _eventID: 1191823282
   _overrideEventTriggerAction: 0
   _overrideParameters:
     _overrideIncomingEventAction: 0
@@ -1709,7 +1709,7 @@ MonoBehaviour:
     _parameters: []
     _reference: {fileID: 0}
   Guid: 
-  _componentHolder: {fileID: 0}
+  _componentHolder: {fileID: 114320732312955883}
   _onEventNotifyEventName: 
   _audioClip: {fileID: 8300000, guid: ac32995ee0e59724d8ccd6eac4868df6, type: 3}
   _audioClipHandle:
@@ -1758,7 +1758,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _eventName: DIA/AA/AAC002Q006/Obj8/1
-  _eventID: 0
+  _eventID: -1175032022
   _overrideEventTriggerAction: 0
   _overrideParameters:
     _overrideIncomingEventAction: 0
@@ -1893,7 +1893,7 @@ MonoBehaviour:
     _parameters: []
     _reference: {fileID: 0}
   Guid: 
-  _componentHolder: {fileID: 0}
+  _componentHolder: {fileID: 114717693233410289}
   _onEventNotifyEventName: 
   _audioClip: {fileID: 8300000, guid: 33090d148694d1f49a3fb22a3e0b7d68, type: 3}
   _audioClipHandle:
@@ -1942,7 +1942,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _eventName: DIA/AA/AAC002Q006/Obj1/Idle2
-  _eventID: 0
+  _eventID: 404525666
   _overrideEventTriggerAction: 0
   _overrideParameters:
     _overrideIncomingEventAction: 0
@@ -2077,7 +2077,7 @@ MonoBehaviour:
     _parameters: []
     _reference: {fileID: 0}
   Guid: 
-  _componentHolder: {fileID: 0}
+  _componentHolder: {fileID: 114350325210344327}
   _onEventNotifyEventName: 
   _audioClip: {fileID: 8300000, guid: 00b2a416845706b44b2065b5ae8d9678, type: 3}
   _audioClipHandle:
@@ -2126,7 +2126,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _eventName: DIA/HB/AAC002Q006/Obj8/3
-  _eventID: 0
+  _eventID: 1250091276
   _overrideEventTriggerAction: 0
   _overrideParameters:
     _overrideIncomingEventAction: 0
@@ -2264,7 +2264,7 @@ MonoBehaviour:
     _parameters: []
     _reference: {fileID: 0}
   Guid: 
-  _componentHolder: {fileID: 0}
+  _componentHolder: {fileID: 114878389059936541}
   _onEventNotifyEventName: 
   _playMode: 1
   _randomWeights: 640000006400000064000000
@@ -2288,7 +2288,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _eventName: SFX/AO/Lighthouse/IceMelt/End
-  _eventID: 0
+  _eventID: -1499871167
   _overrideEventTriggerAction: 0
   _overrideParameters:
     _overrideIncomingEventAction: 0
@@ -2423,7 +2423,7 @@ MonoBehaviour:
     _parameters: []
     _reference: {fileID: 0}
   Guid: 
-  _componentHolder: {fileID: 0}
+  _componentHolder: {fileID: 114206084489674584}
   _onEventNotifyEventName: 
   _audioClip: {fileID: 8300000, guid: bd01fd796b7421040bc61eb9ddb322e7, type: 3}
   _audioClipHandle:
@@ -2472,7 +2472,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _eventName: DIA/HB/AAC002Q006/Obj6/Note3
-  _eventID: 0
+  _eventID: -702887582
   _overrideEventTriggerAction: 0
   _overrideParameters:
     _overrideIncomingEventAction: 0
@@ -2607,7 +2607,7 @@ MonoBehaviour:
     _parameters: []
     _reference: {fileID: 0}
   Guid: 
-  _componentHolder: {fileID: 0}
+  _componentHolder: {fileID: 114700026887362231}
   _onEventNotifyEventName: 
   _audioClip: {fileID: 8300000, guid: 7d3f7ffddb5bc684a97bb40226947582, type: 3}
   _audioClipHandle:
@@ -2656,7 +2656,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _eventName: DIA/AA/AAC002Q006/Obj1/Idle1
-  _eventID: 0
+  _eventID: -1161558275
   _overrideEventTriggerAction: 0
   _overrideParameters:
     _overrideIncomingEventAction: 0
@@ -2790,7 +2790,7 @@ MonoBehaviour:
     _parameters: []
     _reference: {fileID: 0}
   Guid: 
-  _componentHolder: {fileID: 0}
+  _componentHolder: {fileID: 114244330251251182}
   _onEventNotifyEventName: 
   _audioClip: {fileID: 8300000, guid: 86a98f4f7150b104d95a7f7cbf61d385, type: 3}
   _audioClipHandle:
@@ -2942,7 +2942,7 @@ MonoBehaviour:
     _parameters: []
     _reference: {fileID: 0}
   Guid: 
-  _componentHolder: {fileID: 0}
+  _componentHolder: {fileID: 114603632103016852}
   _onEventNotifyEventName: 
   _stages:
   - {fileID: 114620597707638645}
@@ -2964,7 +2964,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _eventName: SFX/AO/HerbertBase/IceBergRaiseFly
-  _eventID: 0
+  _eventID: 833422901
   _overrideEventTriggerAction: 0
   _overrideParameters:
     _overrideIncomingEventAction: 0
@@ -3098,7 +3098,7 @@ MonoBehaviour:
     _parameters: []
     _reference: {fileID: 0}
   Guid: 
-  _componentHolder: {fileID: 0}
+  _componentHolder: {fileID: 114615146752690287}
   _onEventNotifyEventName: 
   _audioClip: {fileID: 8300000, guid: b886702a1af999247b630f904b3c8527, type: 3}
   _audioClipHandle:
@@ -3248,7 +3248,7 @@ MonoBehaviour:
     _parameters: []
     _reference: {fileID: 0}
   Guid: 
-  _componentHolder: {fileID: 0}
+  _componentHolder: {fileID: 114508604028268062}
   _onEventNotifyEventName: 
   _audioClip: {fileID: 8300000, guid: 60a7083d43212004788a88fd81fc826b, type: 3}
   _audioClipHandle:
@@ -3297,7 +3297,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _eventName: DIA/HB/AAC002Q006/Obj4/Note2
-  _eventID: 0
+  _eventID: 323315665
   _overrideEventTriggerAction: 0
   _overrideParameters:
     _overrideIncomingEventAction: 0
@@ -3432,7 +3432,7 @@ MonoBehaviour:
     _parameters: []
     _reference: {fileID: 0}
   Guid: 
-  _componentHolder: {fileID: 0}
+  _componentHolder: {fileID: 114962467514081376}
   _onEventNotifyEventName: 
   _audioClip: {fileID: 8300000, guid: 8eb604e308907ce488a1aed6c648ce45, type: 3}
   _audioClipHandle:
@@ -3481,7 +3481,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _eventName: DIA/AA/AAC002Q006/Obj8/10
-  _eventID: 0
+  _eventID: 2012488570
   _overrideEventTriggerAction: 0
   _overrideParameters:
     _overrideIncomingEventAction: 0
@@ -3616,7 +3616,7 @@ MonoBehaviour:
     _parameters: []
     _reference: {fileID: 0}
   Guid: 
-  _componentHolder: {fileID: 0}
+  _componentHolder: {fileID: 114000326058200182}
   _onEventNotifyEventName: 
   _audioClip: {fileID: 8300000, guid: 9df154dc2fe60174c8cc816d8fa0e818, type: 3}
   _audioClipHandle:
@@ -3665,7 +3665,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _eventName: SFX/AO/Item/DisappearSparkle
-  _eventID: 0
+  _eventID: -525356704
   _overrideEventTriggerAction: 0
   _overrideParameters:
     _overrideIncomingEventAction: 0
@@ -3884,7 +3884,7 @@ MonoBehaviour:
     _parameters: []
     _reference: {fileID: 0}
   Guid: 
-  _componentHolder: {fileID: 0}
+  _componentHolder: {fileID: 114933242681309187}
   _onEventNotifyEventName: 
   _audioClip: {fileID: 8300000, guid: 2d56ce3061b209848a08d204eceea3b0, type: 3}
   _audioClipHandle:
@@ -3933,7 +3933,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _eventName: DIA/HB/AAC002Q006/Obj7/Note4
-  _eventID: 0
+  _eventID: -446099424
   _overrideEventTriggerAction: 0
   _overrideParameters:
     _overrideIncomingEventAction: 0
@@ -4068,7 +4068,7 @@ MonoBehaviour:
     _parameters: []
     _reference: {fileID: 0}
   Guid: 
-  _componentHolder: {fileID: 0}
+  _componentHolder: {fileID: 114347766938589803}
   _onEventNotifyEventName: 
   _audioClip: {fileID: 8300000, guid: add32bb015c5f104ab5a74844755db86, type: 3}
   _audioClipHandle:
@@ -4117,7 +4117,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _eventName: SFX/AO/HeatTrail/Loop
-  _eventID: 0
+  _eventID: -705024534
   _overrideEventTriggerAction: 0
   _overrideParameters:
     _overrideIncomingEventAction: 0
@@ -4251,7 +4251,7 @@ MonoBehaviour:
     _parameters: []
     _reference: {fileID: 0}
   Guid: 
-  _componentHolder: {fileID: 0}
+  _componentHolder: {fileID: 114397361218980780}
   _onEventNotifyEventName: 
   _audioClip: {fileID: 8300000, guid: fa0b6f2e91f1ad84889cedafba38f3bb, type: 3}
   _audioClipHandle:
@@ -4401,7 +4401,7 @@ MonoBehaviour:
     _parameters: []
     _reference: {fileID: 0}
   Guid: 
-  _componentHolder: {fileID: 0}
+  _componentHolder: {fileID: 114666474221400128}
   _onEventNotifyEventName: 
   _audioClip: {fileID: 8300000, guid: ae35e18b274ff104692f03a7e2d4cddf, type: 3}
   _audioClipHandle:
@@ -4450,7 +4450,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _eventName: DIA/HB/AAC002Q006/Obj3/Note1
-  _eventID: 0
+  _eventID: -1903714811
   _overrideEventTriggerAction: 0
   _overrideParameters:
     _overrideIncomingEventAction: 0
@@ -4585,7 +4585,7 @@ MonoBehaviour:
     _parameters: []
     _reference: {fileID: 0}
   Guid: 
-  _componentHolder: {fileID: 0}
+  _componentHolder: {fileID: 114860494465394530}
   _onEventNotifyEventName: 
   _audioClip: {fileID: 8300000, guid: 45f1f9efb489d524eb50b762abdc1696, type: 3}
   _audioClipHandle:
@@ -4634,7 +4634,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _eventName: SFX/AO/HerbertBase/IcebergRotate
-  _eventID: 0
+  _eventID: 797993207
   _overrideEventTriggerAction: 0
   _overrideParameters:
     _overrideIncomingEventAction: 0
@@ -4769,7 +4769,7 @@ MonoBehaviour:
     _parameters: []
     _reference: {fileID: 0}
   Guid: 
-  _componentHolder: {fileID: 0}
+  _componentHolder: {fileID: 114054162852041467}
   _onEventNotifyEventName: 
   _showInMixerView: 1
   _targetGroupComponentPath: Audio.Manager_SFX
@@ -4891,7 +4891,7 @@ MonoBehaviour:
     _parameters: []
     _reference: {fileID: 0}
   Guid: 
-  _componentHolder: {fileID: 0}
+  _componentHolder: {fileID: 114744931370034706}
   _onEventNotifyEventName: 
   _audioClip: {fileID: 8300000, guid: 585f914e97f49e54d88e020fe93bf24c, type: 3}
   _audioClipHandle:
@@ -4940,7 +4940,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _eventName: DIA/AA/AAC002Q006/Obj3/1
-  _eventID: 0
+  _eventID: -1309287977
   _overrideEventTriggerAction: 0
   _overrideParameters:
     _overrideIncomingEventAction: 0
@@ -5074,7 +5074,7 @@ MonoBehaviour:
     _parameters: []
     _reference: {fileID: 0}
   Guid: 
-  _componentHolder: {fileID: 0}
+  _componentHolder: {fileID: 114413570118545317}
   _onEventNotifyEventName: 
   _audioClip: {fileID: 8300000, guid: 8cd6f503f0c12f5419903a2bd3ed3361, type: 3}
   _audioClipHandle:
@@ -5224,7 +5224,7 @@ MonoBehaviour:
     _parameters: []
     _reference: {fileID: 0}
   Guid: 
-  _componentHolder: {fileID: 0}
+  _componentHolder: {fileID: 114669315884027633}
   _onEventNotifyEventName: 
   _audioClip: {fileID: 8300000, guid: 797f4ac62a814c948ad79795c56082ce, type: 3}
   _audioClipHandle:
@@ -5273,7 +5273,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _eventName: DIA/HB/AAC002Q006/Obj8/4
-  _eventID: 0
+  _eventID: -315992665
   _overrideEventTriggerAction: 0
   _overrideParameters:
     _overrideIncomingEventAction: 0
@@ -5413,7 +5413,7 @@ MonoBehaviour:
     _parameters: []
     _reference: {fileID: 0}
   Guid: 
-  _componentHolder: {fileID: 0}
+  _componentHolder: {fileID: 114334630582167830}
   _onEventNotifyEventName: 
   _showInMixerView: 1
   _targetGroupComponentPath: 
@@ -5535,7 +5535,7 @@ MonoBehaviour:
     _parameters: []
     _reference: {fileID: 0}
   Guid: 
-  _componentHolder: {fileID: 0}
+  _componentHolder: {fileID: 114309801567874544}
   _onEventNotifyEventName: 
   _audioClip: {fileID: 8300000, guid: f86cd3f3d4b5b114690a3de52df52b63, type: 3}
   _audioClipHandle:
@@ -5584,7 +5584,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _eventName: DIA/AA/AAC002Q006/Obj3/3
-  _eventID: 0
+  _eventID: -146488563
   _overrideEventTriggerAction: 0
   _overrideParameters:
     _overrideIncomingEventAction: 0
@@ -5719,7 +5719,7 @@ MonoBehaviour:
     _parameters: []
     _reference: {fileID: 0}
   Guid: 
-  _componentHolder: {fileID: 0}
+  _componentHolder: {fileID: 114231372958282088}
   _onEventNotifyEventName: 
   _audioClip: {fileID: 8300000, guid: 1a7e478d7c3d9b940adfad82ffcfd321, type: 3}
   _audioClipHandle:
@@ -5768,7 +5768,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _eventName: SFX/AO/Note/Appear
-  _eventID: 0
+  _eventID: 1077217871
   _overrideEventTriggerAction: 0
   _overrideParameters:
     _overrideIncomingEventAction: 0
@@ -5903,7 +5903,7 @@ MonoBehaviour:
     _parameters: []
     _reference: {fileID: 0}
   Guid: 
-  _componentHolder: {fileID: 0}
+  _componentHolder: {fileID: 114220709389023129}
   _onEventNotifyEventName: 
   _audioClip: {fileID: 8300000, guid: b954d711f7596fe42bf7cffe30ee7507, type: 3}
   _audioClipHandle:
@@ -5952,7 +5952,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _eventName: DIA/AA/AAC002Q006/Obj3/2
-  _eventID: 0
+  _eventID: 1419595378
   _overrideEventTriggerAction: 0
   _overrideParameters:
     _overrideIncomingEventAction: 0
@@ -6086,7 +6086,7 @@ MonoBehaviour:
     _parameters: []
     _reference: {fileID: 0}
   Guid: 
-  _componentHolder: {fileID: 0}
+  _componentHolder: {fileID: 114180457340053243}
   _onEventNotifyEventName: 
   _audioClip: {fileID: 8300000, guid: be89a74ee300851438c3d75dabc3ce62, type: 3}
   _audioClipHandle:
@@ -6266,7 +6266,7 @@ MonoBehaviour:
     _parameters: []
     _reference: {fileID: 0}
   Guid: 
-  _componentHolder: {fileID: 0}
+  _componentHolder: {fileID: 114134502011494451}
   _onEventNotifyEventName: 
   _showInMixerView: 1
   _targetGroupComponentPath: Audio.Manager_DIA
@@ -6388,7 +6388,7 @@ MonoBehaviour:
     _parameters: []
     _reference: {fileID: 0}
   Guid: 
-  _componentHolder: {fileID: 0}
+  _componentHolder: {fileID: 114382473204126142}
   _onEventNotifyEventName: 
   _audioClip: {fileID: 8300000, guid: a1cf2c9b8cddf9444b7f25c1c06a016f, type: 3}
   _audioClipHandle:
@@ -6437,7 +6437,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _eventName: DIA/GY/AAC002Q006/Obj0/3
-  _eventID: 0
+  _eventID: -1645581462
   _overrideEventTriggerAction: 0
   _overrideParameters:
     _overrideIncomingEventAction: 0
@@ -6572,7 +6572,7 @@ MonoBehaviour:
     _parameters: []
     _reference: {fileID: 0}
   Guid: 
-  _componentHolder: {fileID: 0}
+  _componentHolder: {fileID: 114923871506962798}
   _onEventNotifyEventName: 
   _audioClip: {fileID: 8300000, guid: 031d99a556cef8543a9c18b34ced0fef, type: 3}
   _audioClipHandle:
@@ -6621,7 +6621,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _eventName: DIA/HB/AAC002Q006/Obj8/6
-  _eventID: 0
+  _eventID: 846806749
   _overrideEventTriggerAction: 0
   _overrideParameters:
     _overrideIncomingEventAction: 0
@@ -6755,7 +6755,7 @@ MonoBehaviour:
     _parameters: []
     _reference: {fileID: 0}
   Guid: 
-  _componentHolder: {fileID: 0}
+  _componentHolder: {fileID: 114620597707638645}
   _onEventNotifyEventName: 
   _audioClip: {fileID: 8300000, guid: 38daddeb0050ce645be90b696fec7723, type: 3}
   _audioClipHandle:
@@ -6874,7 +6874,7 @@ MonoBehaviour:
   _bypassListenerEffects: 0
   _bypassReverbZones: 0
   _overrideAudioMixerGroup: 1
-  _audioMixerGroup: {fileID: 24300146, guid: c4bb5625c53dacf468047ad3f7e00e00, type: 2}
+  _audioMixerGroup: {fileID: 24300056, guid: c4bb5625c53dacf468047ad3f7e00e00, type: 2}
   _notifyParentComponent: 0
   _audioBusName: 
   _overrideAudioBus: 0
@@ -6907,7 +6907,7 @@ MonoBehaviour:
     _parameters: []
     _reference: {fileID: 0}
   Guid: 047710e2-3eea-43cb-858d-d06dc7f150b3
-  _componentHolder: {fileID: 0}
+  _componentHolder: {fileID: 114435821890338848}
   _onEventNotifyEventName: 
   _selectedComponent: {fileID: 0}
   _startOnSwitch: 1
@@ -6929,7 +6929,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _eventName: MUS/Quest/AuntArctic/C002Q006
-  _eventID: 0
+  _eventID: 165541780
   _overrideEventTriggerAction: 0
   _overrideParameters:
     _overrideIncomingEventAction: 0
@@ -7064,7 +7064,7 @@ MonoBehaviour:
     _parameters: []
     _reference: {fileID: 0}
   Guid: 
-  _componentHolder: {fileID: 0}
+  _componentHolder: {fileID: 114388040365000014}
   _onEventNotifyEventName: 
   _audioClip: {fileID: 8300000, guid: d9c29bae6a19b894dac42ced2b9d5acf, type: 3}
   _audioClipHandle:
@@ -7113,7 +7113,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _eventName: DIA/AA/AAC002Q006/Obj8/8
-  _eventID: 0
+  _eventID: 1197620973
   _overrideEventTriggerAction: 0
   _overrideParameters:
     _overrideIncomingEventAction: 0
@@ -7248,7 +7248,7 @@ MonoBehaviour:
     _parameters: []
     _reference: {fileID: 0}
   Guid: 
-  _componentHolder: {fileID: 0}
+  _componentHolder: {fileID: 114450144749298455}
   _onEventNotifyEventName: 
   _audioClip: {fileID: 8300000, guid: b66475de906b7ef4e9cd9c657261b20c, type: 3}
   _audioClipHandle:
@@ -7297,7 +7297,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _eventName: DIA/AA/AAC002Q006/Obj8/5
-  _eventID: 0
+  _eventID: 1150566806
   _overrideEventTriggerAction: 0
   _overrideParameters:
     _overrideIncomingEventAction: 0
@@ -7432,7 +7432,7 @@ MonoBehaviour:
     _parameters: []
     _reference: {fileID: 0}
   Guid: 
-  _componentHolder: {fileID: 0}
+  _componentHolder: {fileID: 114778658473518748}
   _onEventNotifyEventName: 
   _audioClip: {fileID: 8300000, guid: 94d9a69b12d82ba4887e1dd204ec4de5, type: 3}
   _audioClipHandle:
@@ -7481,7 +7481,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _eventName: DIA/AA/AAC002Q006/Obj0/2
-  _eventID: 0
+  _eventID: 1520351927
   _overrideEventTriggerAction: 0
   _overrideParameters:
     _overrideIncomingEventAction: 0
@@ -7616,7 +7616,7 @@ MonoBehaviour:
     _parameters: []
     _reference: {fileID: 0}
   Guid: 
-  _componentHolder: {fileID: 0}
+  _componentHolder: {fileID: 114048641889731462}
   _onEventNotifyEventName: 
   _audioClip: {fileID: 8300000, guid: 10550f23fb2c94640a5f833831018d69, type: 3}
   _audioClipHandle:
@@ -7665,7 +7665,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _eventName: MUS/Quest/Stinger/General1
-  _eventID: 0
+  _eventID: -440631183
   _overrideEventTriggerAction: 0
   _overrideParameters:
     _overrideIncomingEventAction: 0
@@ -7800,7 +7800,7 @@ MonoBehaviour:
     _parameters: []
     _reference: {fileID: 0}
   Guid: 
-  _componentHolder: {fileID: 0}
+  _componentHolder: {fileID: 114400895885025219}
   _onEventNotifyEventName: 
   _audioClip: {fileID: 8300000, guid: 4c728fdf3c986164e9d03b8c20ed992b, type: 3}
   _audioClipHandle:
@@ -7849,7 +7849,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _eventName: DIA/GY/AAC002Q006/Obj0/5
-  _eventID: 0
+  _eventID: 1842816780
   _overrideEventTriggerAction: 0
   _overrideParameters:
     _overrideIncomingEventAction: 0
@@ -7984,7 +7984,7 @@ MonoBehaviour:
     _parameters: []
     _reference: {fileID: 0}
   Guid: 
-  _componentHolder: {fileID: 0}
+  _componentHolder: {fileID: 114909492066366064}
   _onEventNotifyEventName: 
   _audioClip: {fileID: 8300000, guid: ffd30317308a5364e9b6e76bc12b63c7, type: 3}
   _audioClipHandle:
@@ -8033,7 +8033,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _eventName: DIA/GY/AAC002Q006/Obj0/4
-  _eventID: 0
+  _eventID: 276732839
   _overrideEventTriggerAction: 0
   _overrideParameters:
     _overrideIncomingEventAction: 0
@@ -8168,7 +8168,7 @@ MonoBehaviour:
     _parameters: []
     _reference: {fileID: 0}
   Guid: 
-  _componentHolder: {fileID: 0}
+  _componentHolder: {fileID: 114505690420349880}
   _onEventNotifyEventName: 
   _audioClip: {fileID: 8300000, guid: 1207550910a3a2844a587697d3af248f, type: 3}
   _audioClipHandle:
@@ -8217,7 +8217,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _eventName: DIA/HB/AAC002Q006/Obj8/9
-  _eventID: 0
+  _eventID: -268938498
   _overrideEventTriggerAction: 0
   _overrideParameters:
     _overrideIncomingEventAction: 0
@@ -8352,7 +8352,7 @@ MonoBehaviour:
     _parameters: []
     _reference: {fileID: 0}
   Guid: 
-  _componentHolder: {fileID: 0}
+  _componentHolder: {fileID: 114684762758375765}
   _onEventNotifyEventName: 
   _audioClip: {fileID: 8300000, guid: 45a3c91b903dfba418be3db1fb9fa146, type: 3}
   _audioClipHandle:
@@ -8401,7 +8401,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _eventName: DIA/AA/AAC002Q006/Obj0/1
-  _eventID: 0
+  _eventID: -45732014
   _overrideEventTriggerAction: 0
   _overrideParameters:
     _overrideIncomingEventAction: 0
@@ -8536,7 +8536,7 @@ MonoBehaviour:
     _parameters: []
     _reference: {fileID: 0}
   Guid: 
-  _componentHolder: {fileID: 0}
+  _componentHolder: {fileID: 114901200914439038}
   _onEventNotifyEventName: 
   _audioClip: {fileID: 8300000, guid: 4a9435ffec7d22d43a9166237adc42b8, type: 3}
   _audioClipHandle:
@@ -8585,7 +8585,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _eventName: DIA/GY/AAC002Q006/Obj1/Idle1
-  _eventID: 0
+  _eventID: -938251957
   _overrideEventTriggerAction: 0
   _overrideParameters:
     _overrideIncomingEventAction: 0
@@ -8719,7 +8719,7 @@ MonoBehaviour:
     _parameters: []
     _reference: {fileID: 0}
   Guid: 
-  _componentHolder: {fileID: 0}
+  _componentHolder: {fileID: 114068323271474149}
   _onEventNotifyEventName: 
   _audioClip: {fileID: 8300000, guid: d9abe7dd2aa14a4429b69e5fa09cfcf7, type: 3}
   _audioClipHandle:
@@ -8869,7 +8869,7 @@ MonoBehaviour:
     _parameters: []
     _reference: {fileID: 0}
   Guid: 
-  _componentHolder: {fileID: 0}
+  _componentHolder: {fileID: 114452767030983410}
   _onEventNotifyEventName: 
   _showInMixerView: 1
   _targetGroupComponentPath: Audio.Manager_Music
@@ -8993,7 +8993,7 @@ MonoBehaviour:
     _parameters: []
     _reference: {fileID: 0}
   Guid: 
-  _componentHolder: {fileID: 0}
+  _componentHolder: {fileID: 114378715438103503}
   _onEventNotifyEventName: 
   _playlist:
   - {fileID: 114397361218980780}
@@ -9020,7 +9020,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _eventName: SFX/AO/Hotsauce/TwistRemove
-  _eventID: 0
+  _eventID: 508457157
   _overrideEventTriggerAction: 0
   _overrideParameters:
     _overrideIncomingEventAction: 0
@@ -9154,7 +9154,7 @@ MonoBehaviour:
     _parameters: []
     _reference: {fileID: 0}
   Guid: 
-  _componentHolder: {fileID: 0}
+  _componentHolder: {fileID: 114448216902282100}
   _onEventNotifyEventName: 
   _audioClip: {fileID: 8300000, guid: e0e438e3cd38a8548941a276bfe827ac, type: 3}
   _audioClipHandle:

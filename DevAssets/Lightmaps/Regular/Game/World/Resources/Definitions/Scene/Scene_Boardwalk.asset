@@ -111,3 +111,27 @@ MonoBehaviour:
     PlayerPrefsKey: SunsetPartyToggle
     AdditiveScenes:
     - WorldPenguinDay2017_Boardwalk_Week1_Decorations
+  - DateDefinitionKey:
+      Id: 41
+      type: ClubPenguin.Core.ScheduledEventDateDefinition, Core
+    PlayerPrefsKey: SunsetPartyToggle
+    AdditiveScenes:
+    - Boardwalk_Halloween2025_Decorations
+  - DateDefinitionKey:
+      Id: 51
+      type: ClubPenguin.Core.ScheduledEventDateDefinition, Core
+    PlayerPrefsKey: SunsetPartyToggle
+    AdditiveScenes:
+    - Boardwalk_Halloween2017_Decorations
+  - DateDefinitionKey:
+      Id: 52
+      type: ClubPenguin.Core.ScheduledEventDateDefinition, Core
+    PlayerPrefsKey: SunsetPartyToggle
+    AdditiveScenes:
+    - Boardwalk_Halloween2017_Decorations
+  - DateDefinitionKey:
+      Id: 53
+      type: ClubPenguin.Core.ScheduledEventDateDefinition, Core
+    PlayerPrefsKey: SunsetPartyToggle
+    AdditiveScenes:
+    - Boardwalk_Halloween2017_Decorations

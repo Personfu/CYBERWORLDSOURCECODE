@@ -3,6 +3,7 @@ using DevonLocalization.Core;
 using Disney.LaunchPadFramework;
 using Disney.MobileNetwork;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -14,7 +15,7 @@ namespace ClubPenguin
 
 		public SpriteSelector StorySpriteSelector;
 
-		public Text StoryText;
+		public TMP_Text StoryText;
 
 		public GameObject StoryContent;
 

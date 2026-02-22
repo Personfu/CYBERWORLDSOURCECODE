@@ -7,61 +7,73 @@ using UnityEngine;
 
 namespace ClubPenguin
 {
-	public class ChatMessageSender : MonoBehaviour
-	{
-		public struct SendChatMessage
-		{
-			public readonly string Message;
+    public class ChatMessageSender : MonoBehaviour
+    {
+        public const string LOCAL_ONLY_PREFIX = "\u200B";
 
-			public readonly SizzleClipDefinition SizzleClip;
+        public struct SendChatMessage
+        {
+            public readonly string Message;
 
-			public readonly bool IsChatPhrase;
+            public readonly SizzleClipDefinition SizzleClip;
 
-			public readonly ChatServiceEvents.ChatMessageQuestObjective Quest;
+            public readonly bool IsChatPhrase;
 
-			public SendChatMessage(string message, SizzleClipDefinition sizzleClip, bool isChatPhrase = false)
-			{
-				Message = message;
-				SizzleClip = sizzleClip;
-				IsChatPhrase = isChatPhrase;
-				Quest = new ChatServiceEvents.ChatMessageQuestObjective();
-			}
-		}
+            public readonly ChatServiceEvents.ChatMessageQuestObjective Quest;
 
-		private EventChannel eventChannel;
+            public SendChatMessage(string message, SizzleClipDefinition sizzleClip, bool isChatPhrase = false)
+            {
+                Message = message;
+                SizzleClip = sizzleClip;
+                IsChatPhrase = isChatPhrase;
+                Quest = new ChatServiceEvents.ChatMessageQuestObjective();
+            }
+        }
 
-		private EventDispatcher eventDispatcher;
+        private EventChannel eventChannel;
 
-		private void OnEnable()
-		{
-			eventDispatcher = Service.Get<EventDispatcher>();
-			eventChannel = new EventChannel(eventDispatcher);
-			eventChannel.AddListener<ChatServiceEvents.SendChatActivity>(onSendChatActivity);
-			eventChannel.AddListener<ChatServiceEvents.SendChatActivityCancel>(onSendChatActivityCancel);
-			eventChannel.AddListener<SendChatMessage>(onSendChatMessage, EventDispatcher.Priority.LAST);
-		}
+        private EventDispatcher eventDispatcher;
 
-		private void OnDisable()
-		{
-			eventChannel.RemoveAllListeners();
-		}
+        private void OnEnable()
+        {
+            eventDispatcher = Service.Get<EventDispatcher>();
+            eventChannel = new EventChannel(eventDispatcher);
+            eventChannel.AddListener<ChatServiceEvents.SendChatActivity>(onSendChatActivity);
+            eventChannel.AddListener<ChatServiceEvents.SendChatActivityCancel>(onSendChatActivityCancel);
+            eventChannel.AddListener<SendChatMessage>(onSendChatMessage, EventDispatcher.Priority.LAST);
+        }
 
-		private bool onSendChatActivity(ChatServiceEvents.SendChatActivity evt)
-		{
-			Service.Get<INetworkServicesManager>().ChatService.SendActivity();
-			return false;
-		}
+        private void OnDisable()
+        {
+            eventChannel.RemoveAllListeners();
+        }
 
-		private bool onSendChatActivityCancel(ChatServiceEvents.SendChatActivityCancel evt)
-		{
-			Service.Get<INetworkServicesManager>().ChatService.SendActivityCancel();
-			return false;
-		}
+        private bool onSendChatActivity(ChatServiceEvents.SendChatActivity evt)
+        {
+            Service.Get<INetworkServicesManager>().ChatService.SendActivity();
+            return false;
+        }
 
-		private bool onSendChatMessage(SendChatMessage evt)
-		{
-			Service.Get<INetworkServicesManager>().ChatService.SendMessage(evt.Message, (!(evt.SizzleClip == null)) ? evt.SizzleClip.Id : 0, evt.Quest.QuestId, evt.Quest.Objective);
-			return false;
-		}
-	}
+        private bool onSendChatActivityCancel(ChatServiceEvents.SendChatActivityCancel evt)
+        {
+            Service.Get<INetworkServicesManager>().ChatService.SendActivityCancel();
+            return false;
+        }
+
+        private bool onSendChatMessage(SendChatMessage evt)
+        {
+            if (!string.IsNullOrEmpty(evt.Message) && evt.Message.StartsWith(LOCAL_ONLY_PREFIX))
+            {
+                return false;
+            }
+
+            Service.Get<INetworkServicesManager>().ChatService.SendMessage(
+                evt.Message,
+                (!(evt.SizzleClip == null)) ? evt.SizzleClip.Id : 0,
+                evt.Quest.QuestId,
+                evt.Quest.Objective
+            );
+            return false;
+        }
+    }
 }

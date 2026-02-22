@@ -703,6 +703,10 @@ GameObject:
   - component: {fileID: 114786632517005533}
   - component: {fileID: 5475378708365982570}
   - component: {fileID: 8218555682106519695}
+  - component: {fileID: 2550802040070552268}
+  - component: {fileID: 2017276239156149988}
+  - component: {fileID: 3421703197393753796}
+  - component: {fileID: 4186698939753740025}
   m_Layer: 0
   m_Name: Rory
   m_TagString: Untagged
@@ -842,6 +846,126 @@ MonoBehaviour:
   EventName: Halloween
   DateDefinitionKey:
     Id: 41
+    type: ClubPenguin.Core.ScheduledEventDateDefinition, Core
+  SpawnData:
+  - SpawnPrefabKey:
+      Key: Costumes/Rory/Fangs_BEAK_END_jnt
+      type: UnityEngine.GameObject, UnityEngine.CoreModule
+    SpawnParentTransform: {fileID: 4667076225788904}
+    SpawnOffset: {x: 0, y: 0, z: 0}
+    SpawnRotation: {x: 0, y: 0, z: 0}
+    SpawnScale: {x: 0, y: 0, z: 0}
+  SwapMaterialData:
+  - SwapTarget: {fileID: 1583883461385501}
+    SwapMaterialKey:
+      Key: Costumes/Rory/Rory_Halloween
+      type: UnityEngine.Material, UnityEngine.CoreModule
+    DestroyTexture: 0
+--- !u!114 &2550802040070552268
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1317087901377605}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2553fbdb2efe07533355fd9c02f87b62, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EventName: Halloween
+  DateDefinitionKey:
+    Id: 47
+    type: ClubPenguin.Core.ScheduledEventDateDefinition, Core
+  SpawnData:
+  - SpawnPrefabKey:
+      Key: Costumes/Rory/Fangs_BEAK_END_jnt
+      type: UnityEngine.GameObject, UnityEngine.CoreModule
+    SpawnParentTransform: {fileID: 4667076225788904}
+    SpawnOffset: {x: 0, y: 0, z: 0}
+    SpawnRotation: {x: 0, y: 0, z: 0}
+    SpawnScale: {x: 0, y: 0, z: 0}
+  SwapMaterialData:
+  - SwapTarget: {fileID: 1583883461385501}
+    SwapMaterialKey:
+      Key: Costumes/Rory/Rory_Halloween
+      type: UnityEngine.Material, UnityEngine.CoreModule
+    DestroyTexture: 0
+--- !u!114 &2017276239156149988
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1317087901377605}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2553fbdb2efe07533355fd9c02f87b62, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EventName: Halloween
+  DateDefinitionKey:
+    Id: 51
+    type: ClubPenguin.Core.ScheduledEventDateDefinition, Core
+  SpawnData:
+  - SpawnPrefabKey:
+      Key: Costumes/Rory/Fangs_BEAK_END_jnt
+      type: UnityEngine.GameObject, UnityEngine.CoreModule
+    SpawnParentTransform: {fileID: 4667076225788904}
+    SpawnOffset: {x: 0, y: 0, z: 0}
+    SpawnRotation: {x: 0, y: 0, z: 0}
+    SpawnScale: {x: 0, y: 0, z: 0}
+  SwapMaterialData:
+  - SwapTarget: {fileID: 1583883461385501}
+    SwapMaterialKey:
+      Key: Costumes/Rory/Rory_Halloween
+      type: UnityEngine.Material, UnityEngine.CoreModule
+    DestroyTexture: 0
+--- !u!114 &3421703197393753796
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1317087901377605}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2553fbdb2efe07533355fd9c02f87b62, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EventName: Halloween
+  DateDefinitionKey:
+    Id: 52
+    type: ClubPenguin.Core.ScheduledEventDateDefinition, Core
+  SpawnData:
+  - SpawnPrefabKey:
+      Key: Costumes/Rory/Fangs_BEAK_END_jnt
+      type: UnityEngine.GameObject, UnityEngine.CoreModule
+    SpawnParentTransform: {fileID: 4667076225788904}
+    SpawnOffset: {x: 0, y: 0, z: 0}
+    SpawnRotation: {x: 0, y: 0, z: 0}
+    SpawnScale: {x: 0, y: 0, z: 0}
+  SwapMaterialData:
+  - SwapTarget: {fileID: 1583883461385501}
+    SwapMaterialKey:
+      Key: Costumes/Rory/Rory_Halloween
+      type: UnityEngine.Material, UnityEngine.CoreModule
+    DestroyTexture: 0
+--- !u!114 &4186698939753740025
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1317087901377605}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2553fbdb2efe07533355fd9c02f87b62, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EventName: Halloween
+  DateDefinitionKey:
+    Id: 53
     type: ClubPenguin.Core.ScheduledEventDateDefinition, Core
   SpawnData:
   - SpawnPrefabKey:
@@ -1736,6 +1860,7 @@ SkinnedMeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   serializedVersion: 2
   m_Quality: 0
   m_UpdateWhenOffscreen: 0

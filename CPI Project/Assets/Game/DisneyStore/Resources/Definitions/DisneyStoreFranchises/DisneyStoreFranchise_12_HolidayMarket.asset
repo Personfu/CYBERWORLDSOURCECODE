@@ -40,5 +40,5 @@ MonoBehaviour:
   FranchiseHeaderPath:
     Key: DisneyShop/Images/DisneyShop_HolidayParty_BG
     type: UnityEngine.Sprite, UnityEngine
-  FranchiseBackgroundColor: {r: 0.5698112, g: 0.10213591, b: 0.14110893, a: 1}
+  FranchiseBackgroundColor: {r: 0.6901961, g: 0.08627451, b: 0.13725491, a: 1}
   SortingIdDesc: 13

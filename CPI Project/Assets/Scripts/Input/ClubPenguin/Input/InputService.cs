@@ -37,6 +37,7 @@ namespace ClubPenguin.Input
 
 		private void Update()
 		{
+			ActiveInputDevice.Update();
 			controlScheme.StartFrame();
 			bool flag = true;
 			foreach (InputMapLib priority in inputMapPriority.PriorityList)

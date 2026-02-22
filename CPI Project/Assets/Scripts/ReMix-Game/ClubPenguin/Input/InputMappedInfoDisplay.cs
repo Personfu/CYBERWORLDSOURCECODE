@@ -33,8 +33,9 @@ namespace ClubPenguin.Input
 				chatToggle.OnChatOpened += onChatOpened;
 				display.enabled = !chatToggle.ChatOpen;
 			}
-			Service.Get<InputService>().PopulateInputInfo(inputInfo);
-			display.text = inputInfo.PrimaryKey;
+
+			ActiveInputDevice.OnChanged += onActiveDeviceChanged;
+			Refresh();
 		}
 
 		private void OnDisable()
@@ -43,6 +44,18 @@ namespace ClubPenguin.Input
 			{
 				chatToggle.OnChatOpened -= onChatOpened;
 			}
+			ActiveInputDevice.OnChanged -= onActiveDeviceChanged;
+		}
+
+		private void onActiveDeviceChanged(ActiveInputDevice.Kind kind)
+		{
+			Refresh();
+		}
+
+		private void Refresh()
+		{
+			Service.Get<InputService>().PopulateInputInfo(inputInfo);
+			display.text = inputInfo.PrimaryKey;
 		}
 
 		private void onChatOpened(bool chatOpen)

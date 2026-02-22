@@ -6,6 +6,7 @@ using System.Text;
 using UnityEditor.Animations;
 using UnityEditor.U2D;
 using UnityEditor.U2D.Sprites;
+using UnityEngine.Audio;
 using UnityEngine.UI;
 using System.Linq;
 
@@ -15,12 +16,16 @@ public class GuidAndAssetReplacer : EditorWindow
 
     private List<GuidPair> guidPairs = new List<GuidPair>();
     private int selectedTab = 0;
-    private string[] tabs = new string[] { "Sprite", "Texture", "Audio", "Material", "Animation", "Mesh", "Prefab", "MonoBehaviour", "Sprite Restorer" };
+    private string[] tabs = new string[] { "Sprite", "Texture", "Audio", "Material", "Animation", "Mesh", "Prefab", "MonoBehaviour", "Audio Mixer", "Sprite Restorer" };
 
     private List<AssetPair>[] assetPairs;
     private List<AssetPair> animationClipPairs = new List<AssetPair>();
     private List<AssetPair> animatorControllerPairs = new List<AssetPair>();
     private List<AssetPair> animatorOverrideControllerPairs = new List<AssetPair>();
+
+    private List<AssetPair> audioMixerPairs = new List<AssetPair>();
+    private List<AudioMixerGroupMapping> audioMixerGroupMappings = new List<AudioMixerGroupMapping>();
+    private Vector2 mixerGroupScroll;
 
     private Texture2D selectedTexture;
     private Vector2 spriteRestorerScroll;
@@ -117,6 +122,10 @@ public class GuidAndAssetReplacer : EditorWindow
         }
         else if (selectedTab == 8)
         {
+            DrawAudioMixerTab();
+        }
+        else if (selectedTab == 9)
+        {
             DrawSpriteRestorerTab();
         }
         else
@@ -126,7 +135,7 @@ public class GuidAndAssetReplacer : EditorWindow
 
         GUILayout.Space(20);
 
-        if (selectedTab != 8 && GUILayout.Button("Start Replacement", GUILayout.Height(30)))
+        if (selectedTab != 9 && GUILayout.Button("Start Replacement", GUILayout.Height(30)))
         {
             if (EditorUtility.DisplayDialog("Confirm Replacement",
                 "Are you sure you want to perform the replacement? This operation will modify files.\n\nNote: Sprite references may not resolve if not imported properly.",
@@ -207,12 +216,10 @@ private void ReplaceAnimClipSpriteReferencesYAML_SingleFile(string animFilePath,
     string content = File.ReadAllText(animFilePath);
     bool updated = false;
 
-    // For each guid replacement, update every instance in the anim file
     foreach (var oldGuid in guidMap.Keys)
     {
         string newGuid = guidMap[oldGuid];
 
-        // Regex: update all {fileID: 21300000, guid: OLDGUID, type: X}
         string pattern = $@"\{{\s*fileID:\s*21300000,\s*guid:\s*{oldGuid},\s*type:\s*\d+\s*\}}";
         string replacement = $"{{fileID: 21300000, guid: {newGuid}, type: 3}}";
         var replaced = System.Text.RegularExpressions.Regex.Replace(content, pattern, replacement);
@@ -223,7 +230,6 @@ private void ReplaceAnimClipSpriteReferencesYAML_SingleFile(string animFilePath,
             content = replaced;
         }
 
-        // Also cover possible block YAML:
         string blockPattern = $@"fileID:\s*21300000\s*\n\s*guid:\s*{oldGuid}\s*\n\s*type:\s*\d+";
         string blockReplacement = $"fileID: 21300000\nguid: {newGuid}\ntype: 3";
         replaced = System.Text.RegularExpressions.Regex.Replace(content, blockPattern, blockReplacement);
@@ -235,7 +241,6 @@ private void ReplaceAnimClipSpriteReferencesYAML_SingleFile(string animFilePath,
         }
     }
 
-    // For multi-sprite sheets, update fileID+guid at once
     foreach (var oldFileId in fileIdMap.Keys)
     {
         string newFileId = fileIdMap[oldFileId];
@@ -252,7 +257,6 @@ private void ReplaceAnimClipSpriteReferencesYAML_SingleFile(string animFilePath,
                 content = replaced;
             }
 
-            // Block YAML
             string blockPattern = $@"fileID:\s*{oldFileId}\s*\n\s*guid:\s*{oldGuid}\s*\n\s*type:\s*\d+";
             string blockReplacement = $"fileID: {newFileId}\nguid: {newGuid}\ntype: 3";
             replaced = System.Text.RegularExpressions.Regex.Replace(content, blockPattern, blockReplacement);
@@ -525,7 +529,6 @@ private void ReplaceAnimClipSpriteReferencesYAML_SingleFile(string animFilePath,
         return;
     }
 
-    // Get the SpriteEditor data provider directly
     var factory = new SpriteDataProviderFactories();
     factory.Init();
     var dataProvider = factory.GetSpriteEditorDataProviderFromObject(importer);
@@ -538,7 +541,6 @@ private void ReplaceAnimClipSpriteReferencesYAML_SingleFile(string animFilePath,
 
     dataProvider.InitSpriteEditorDataProvider();
 
-    // Get existing sprite rects
     List<SpriteRect> spriteRects = new List<SpriteRect>(dataProvider.GetSpriteRects());
     Dictionary<string, SpriteRect> existingSprites = spriteRects.ToDictionary(x => x.name, x => x);
 
@@ -555,7 +557,6 @@ private void ReplaceAnimClipSpriteReferencesYAML_SingleFile(string animFilePath,
         Sprite sprite = AssetDatabase.LoadAssetAtPath<Sprite>(path);
         if (sprite != null)
         {
-            // Create or update sprite rect
             SpriteRect spriteRect;
             if (!existingSprites.TryGetValue(sprite.name, out spriteRect))
             {
@@ -585,16 +586,12 @@ private void ReplaceAnimClipSpriteReferencesYAML_SingleFile(string animFilePath,
         progress++;
     }
 
-    // Apply the new sprite rects
     dataProvider.SetSpriteRects(spriteRects.ToArray());
     
-    // Apply changes
     dataProvider.Apply();
 
-    // Reimport the texture
     AssetDatabase.ImportAsset(texturePath, ImportAssetOptions.ForceUpdate);
 
-    // Get the new sprites
     Sprite[] allSprites = AssetDatabase.LoadAllAssetsAtPath(texturePath).OfType<Sprite>().ToArray();
     foreach (var pair in assetPairs[0])
     {
@@ -736,13 +733,11 @@ private void ReplaceAnimClipSpriteReferencesYAML_SingleFile(string animFilePath,
                             {
                                 if (keyframes[k].value is Sprite sprite)
                                 {
-                                    // Check replacement pairs
                                     foreach (var pair in assetPairs[0])
                                     {
                                         if (pair.findAsset is Sprite findSprite && 
                                             pair.replaceAsset is Sprite replaceSprite)
                                         {
-                                            // Direct reference match
                                             if (sprite == findSprite)
                                             {
                                                 keyframes[k].value = replaceSprite;
@@ -751,7 +746,6 @@ private void ReplaceAnimClipSpriteReferencesYAML_SingleFile(string animFilePath,
                                                 continue;
                                             }
 
-                                            // Texture/name match for different GUIDs
                                             if (sprite.texture == findSprite.texture && 
                                                 sprite.name == findSprite.name)
                                             {
@@ -762,7 +756,6 @@ private void ReplaceAnimClipSpriteReferencesYAML_SingleFile(string animFilePath,
                                         }
                                     }
 
-                                    // Check restored sprites
                                     foreach (var restoredPair in newSprites)
                                     {
                                         Sprite restoredSprite = restoredPair.Value as Sprite;
@@ -786,7 +779,6 @@ private void ReplaceAnimClipSpriteReferencesYAML_SingleFile(string animFilePath,
                         }
                     }
 
-                    // Handle direct sprite references in legacy clips
                     SerializedObject clipSO = new SerializedObject(animationClip);
                     SerializedProperty spriteProperty = clipSO.FindProperty("m_Sprite");
                     if (spriteProperty != null && spriteProperty.objectReferenceValue != null)
@@ -799,7 +791,6 @@ private void ReplaceAnimClipSpriteReferencesYAML_SingleFile(string animFilePath,
                                 if (pair.findAsset is Sprite findSprite && 
                                     pair.replaceAsset is Sprite replaceSprite)
                                 {
-                                    // Direct reference match
                                     if (sprite == findSprite)
                                     {
                                         spriteProperty.objectReferenceValue = replaceSprite;
@@ -808,7 +799,6 @@ private void ReplaceAnimClipSpriteReferencesYAML_SingleFile(string animFilePath,
                                         continue;
                                     }
 
-                                    // Texture/name match
                                     if (sprite.texture == findSprite.texture && 
                                         sprite.name == findSprite.name)
                                     {
@@ -825,7 +815,7 @@ private void ReplaceAnimClipSpriteReferencesYAML_SingleFile(string animFilePath,
                     {
                         EditorUtility.SetDirty(animationClip);
                         fileModified = true;
-                        AssetDatabase.SaveAssets(); // Immediate save
+                        AssetDatabase.SaveAssets();
                     }
                 }
                 else
@@ -1075,6 +1065,320 @@ private void ReplaceAnimClipSpriteReferencesYAML_SingleFile(string animFilePath,
         }
     }
 
+    private void DrawAudioMixerTab()
+    {
+        GUILayout.Label("Audio Mixer Replacement", EditorStyles.boldLabel);
+        GUILayout.Label("Assign a Find and Replace Audio Mixer. Groups will be matched by name.", EditorStyles.wordWrappedLabel);
+        GUILayout.Space(5);
+
+        if (GUILayout.Button("Add Audio Mixer Pair"))
+            audioMixerPairs.Add(new AssetPair());
+
+        if (audioMixerPairs.Count > 0)
+        {
+            EditorGUILayout.BeginHorizontal();
+            if (GUILayout.Button("Clear List"))
+            {
+                audioMixerPairs.Clear();
+                audioMixerGroupMappings.Clear();
+            }
+            if (GUILayout.Button("Delete 'Find' Assets"))
+            {
+                if (EditorUtility.DisplayDialog("Confirm Delete",
+                    "Delete all 'Find' Audio Mixer assets from the list? This cannot be undone.",
+                    "Yes", "No"))
+                {
+                    foreach (var pair in audioMixerPairs)
+                    {
+                        if (pair.findAsset != null)
+                        {
+                            string assetPath = AssetDatabase.GetAssetPath(pair.findAsset);
+                            if (!string.IsNullOrEmpty(assetPath))
+                            {
+                                if (AssetDatabase.DeleteAsset(assetPath))
+                                    Debug.Log($"Deleted asset: {assetPath}");
+                                else
+                                    Debug.LogWarning($"Failed to delete asset: {assetPath}");
+                            }
+                        }
+                    }
+                    AssetDatabase.Refresh();
+                }
+            }
+            EditorGUILayout.EndHorizontal();
+        }
+
+        for (int i = 0; i < audioMixerPairs.Count; i++)
+        {
+            EditorGUILayout.BeginHorizontal();
+            GUILayout.Label("Find", GUILayout.Width(30));
+            audioMixerPairs[i].findAsset = EditorGUILayout.ObjectField(audioMixerPairs[i].findAsset, typeof(AudioMixer), false, GUILayout.Width(200));
+            if (audioMixerPairs[i].findAsset != null)
+            {
+                var ap = AssetDatabase.GetAssetPath(audioMixerPairs[i].findAsset);
+                EditorGUILayout.SelectableLabel($"{audioMixerPairs[i].findAsset.name} ({ap})", GUILayout.Width(220));
+            }
+            GUILayout.Label("Replace", GUILayout.Width(50));
+            audioMixerPairs[i].replaceAsset = EditorGUILayout.ObjectField(audioMixerPairs[i].replaceAsset, typeof(AudioMixer), false, GUILayout.Width(200));
+            if (audioMixerPairs[i].replaceAsset != null)
+            {
+                var ap = AssetDatabase.GetAssetPath(audioMixerPairs[i].replaceAsset);
+                EditorGUILayout.SelectableLabel($"{audioMixerPairs[i].replaceAsset.name} ({ap})", GUILayout.Width(220));
+            }
+            if (GUILayout.Button("Duplicate", GUILayout.Width(75)))
+            {
+                audioMixerPairs.Insert(i + 1, new AssetPair
+                {
+                    findAsset = audioMixerPairs[i].findAsset,
+                    replaceAsset = audioMixerPairs[i].replaceAsset
+                });
+            }
+            if (GUILayout.Button("Remove", GUILayout.Width(60)))
+            {
+                audioMixerPairs.RemoveAt(i);
+                i--;
+            }
+            EditorGUILayout.EndHorizontal();
+        }
+
+        GUILayout.Space(10);
+
+        if (audioMixerPairs.Count > 0 && GUILayout.Button("Build Group Mappings", GUILayout.Height(25)))
+        {
+            BuildAudioMixerGroupMappings();
+        }
+
+        if (audioMixerGroupMappings.Count > 0)
+        {
+            GUILayout.Space(5);
+            GUILayout.Label($"Group Mappings ({audioMixerGroupMappings.Count}):", EditorStyles.boldLabel);
+            mixerGroupScroll = EditorGUILayout.BeginScrollView(mixerGroupScroll, GUILayout.Height(200));
+
+            for (int i = 0; i < audioMixerGroupMappings.Count; i++)
+            {
+                var mapping = audioMixerGroupMappings[i];
+                EditorGUILayout.BeginHorizontal();
+
+                Color prevColor = GUI.backgroundColor;
+                if (mapping.isMixerSelf)
+                    GUI.backgroundColor = new Color(0.7f, 0.85f, 1f);
+                else if (mapping.replaceGroup == null)
+                    GUI.backgroundColor = new Color(1f, 0.6f, 0.6f);
+                else
+                    GUI.backgroundColor = new Color(0.6f, 1f, 0.6f);
+
+                GUILayout.Label(mapping.groupPath, GUILayout.Width(250));
+                GUILayout.Label("→", GUILayout.Width(20));
+
+                if (mapping.isMixerSelf)
+                    GUILayout.Label("(mixer asset)", EditorStyles.miniLabel, GUILayout.Width(200));
+                else if (mapping.replaceGroup != null)
+                    GUILayout.Label(mapping.replaceGroup.name, GUILayout.Width(200));
+                else
+                    GUILayout.Label("(no match found)", EditorStyles.boldLabel, GUILayout.Width(200));
+
+                GUILayout.Label($"[{mapping.findFileId} → {mapping.replaceFileId}]", EditorStyles.miniLabel, GUILayout.Width(200));
+
+                GUI.backgroundColor = prevColor;
+
+                EditorGUILayout.EndHorizontal();
+            }
+
+            EditorGUILayout.EndScrollView();
+
+            int unmatchedCount = audioMixerGroupMappings.Count(m => m.replaceGroup == null && !m.isMixerSelf);
+            if (unmatchedCount > 0)
+            {
+                EditorGUILayout.HelpBox($"{unmatchedCount} group(s) have no match in the replacement mixer. " +
+                    "These references will NOT be updated.", MessageType.Warning);
+            }
+        }
+    }
+
+    private void BuildAudioMixerGroupMappings()
+    {
+        audioMixerGroupMappings.Clear();
+
+        foreach (var pair in audioMixerPairs)
+        {
+            if (pair.findAsset == null || pair.replaceAsset == null) continue;
+
+            AudioMixer findMixer = pair.findAsset as AudioMixer;
+            AudioMixer replaceMixer = pair.replaceAsset as AudioMixer;
+            if (findMixer == null || replaceMixer == null) continue;
+
+            AudioMixerGroup[] findGroups = findMixer.FindMatchingGroups(string.Empty);
+            AudioMixerGroup[] replaceGroups = replaceMixer.FindMatchingGroups(string.Empty);
+
+            Dictionary<string, AudioMixerGroup> replaceGroupLookup = new Dictionary<string, AudioMixerGroup>();
+            foreach (var g in replaceGroups)
+            {
+                if (g != null && !replaceGroupLookup.ContainsKey(g.name))
+                    replaceGroupLookup[g.name] = g;
+            }
+
+            foreach (var findGroup in findGroups)
+            {
+                if (findGroup == null) continue;
+
+                AssetDatabase.TryGetGUIDAndLocalFileIdentifier(findGroup, out string findGuid, out long findLocalId);
+
+                AudioMixerGroup matchedReplace = null;
+                long replaceLocalId = 0;
+
+                if (replaceGroupLookup.TryGetValue(findGroup.name, out matchedReplace))
+                {
+                    AssetDatabase.TryGetGUIDAndLocalFileIdentifier(matchedReplace, out string replaceGuid, out replaceLocalId);
+                }
+
+                audioMixerGroupMappings.Add(new AudioMixerGroupMapping
+                {
+                    findGroup = findGroup,
+                    replaceGroup = matchedReplace,
+                    groupPath = findGroup.name,
+                    findFileId = findLocalId,
+                    replaceFileId = replaceLocalId
+                });
+            }
+
+            AssetDatabase.TryGetGUIDAndLocalFileIdentifier(findMixer, out string findMixerGuid, out long findMixerId);
+            AssetDatabase.TryGetGUIDAndLocalFileIdentifier(replaceMixer, out string replaceMixerGuid, out long replaceMixerId);
+
+            audioMixerGroupMappings.Add(new AudioMixerGroupMapping
+            {
+                findGroup = null,
+                replaceGroup = null,
+                groupPath = $"[Mixer] {findMixer.name}",
+                findFileId = findMixerId,
+                replaceFileId = replaceMixerId,
+                isMixerSelf = true
+            });
+        }
+
+        int matchedCount = audioMixerGroupMappings.Count(m => m.replaceGroup != null || m.isMixerSelf);
+        int unmatchedCount = audioMixerGroupMappings.Count(m => m.replaceGroup == null && !m.isMixerSelf);
+        Debug.Log($"Audio Mixer group mapping: {matchedCount} matched, {unmatchedCount} unmatched.");
+    }
+
+    private void ReplaceAudioMixerReferences(ref int modifiedFiles, ref string log)
+    {
+        if (audioMixerPairs.Count == 0) return;
+
+        Dictionary<string, string> mixerGuidMap = new Dictionary<string, string>();
+        Dictionary<string, string> fileIdMap = new Dictionary<string, string>();
+
+        foreach (var pair in audioMixerPairs)
+        {
+            if (pair.findAsset == null || pair.replaceAsset == null) continue;
+
+            string findGuid = AssetDatabase.AssetPathToGUID(AssetDatabase.GetAssetPath(pair.findAsset));
+            string replaceGuid = AssetDatabase.AssetPathToGUID(AssetDatabase.GetAssetPath(pair.replaceAsset));
+
+            if (!string.IsNullOrEmpty(findGuid) && !string.IsNullOrEmpty(replaceGuid) && findGuid != replaceGuid)
+            {
+                mixerGuidMap[findGuid] = replaceGuid;
+            }
+        }
+
+        if (audioMixerGroupMappings.Count == 0)
+            BuildAudioMixerGroupMappings();
+
+        foreach (var mapping in audioMixerGroupMappings)
+        {
+            if (mapping.findFileId != 0 && mapping.replaceFileId != 0 && mapping.findFileId != mapping.replaceFileId)
+            {
+                if (mapping.replaceGroup != null || mapping.isMixerSelf)
+                {
+                    fileIdMap[mapping.findFileId.ToString()] = mapping.replaceFileId.ToString();
+                }
+            }
+        }
+
+        if (mixerGuidMap.Count == 0)
+        {
+            Debug.Log("Audio Mixer: No GUID replacements to perform.");
+            return;
+        }
+
+        string[] files = Directory.GetFiles(Application.dataPath, "*.*", SearchOption.AllDirectories);
+        List<string> targetExtensions = new List<string> { ".prefab", ".unity", ".asset", ".controller", ".overrideController", ".mixer" };
+
+        for (int i = 0; i < files.Length; i++)
+        {
+            string filePath = files[i].Replace("\\", "/");
+
+            if (EditorUtility.DisplayCancelableProgressBar("Replacing Audio Mixer references...",
+                Path.GetFileName(filePath), (float)i / files.Length))
+            {
+                break;
+            }
+
+            string ext = Path.GetExtension(filePath).ToLower();
+            if (!targetExtensions.Contains(ext) || filePath.EndsWith(".meta"))
+                continue;
+
+            string assetPath = "Assets" + filePath.Substring(Application.dataPath.Length);
+
+            bool skip = false;
+            foreach (var folder in ignoreFolders)
+            {
+                if (assetPath.ToLower().Contains("/" + folder.ToLower() + "/"))
+                {
+                    skip = true;
+                    break;
+                }
+            }
+            if (skip) continue;
+
+            string content = File.ReadAllText(filePath);
+            bool fileModified = false;
+
+            foreach (var guidPair in mixerGuidMap)
+            {
+                if (content.Contains(guidPair.Key))
+                {
+                    foreach (var fidPair in fileIdMap)
+                    {
+                        string findPattern = $"fileID: {fidPair.Key}, guid: {guidPair.Key}";
+                        string replacePattern = $"fileID: {fidPair.Value}, guid: {guidPair.Value}";
+
+                        if (content.Contains(findPattern))
+                        {
+                            content = content.Replace(findPattern, replacePattern);
+                            fileModified = true;
+                        }
+
+                        string findCompact = $"fileID: {fidPair.Key}, guid: {guidPair.Key},";
+                        string replaceCompact = $"fileID: {fidPair.Value}, guid: {guidPair.Value},";
+
+                        if (content.Contains(findCompact))
+                        {
+                            content = content.Replace(findCompact, replaceCompact);
+                            fileModified = true;
+                        }
+                    }
+
+                    if (content.Contains(guidPair.Key))
+                    {
+                        content = content.Replace(guidPair.Key, guidPair.Value);
+                        fileModified = true;
+                    }
+                }
+            }
+
+            if (fileModified)
+            {
+                File.WriteAllText(filePath, content, Encoding.UTF8);
+                modifiedFiles++;
+                log += $"[Audio Mixer] Replaced references in {assetPath}\n";
+                Debug.Log($"[Audio Mixer] Replaced references in {assetPath}");
+            }
+        }
+
+        EditorUtility.ClearProgressBar();
+        Debug.Log($"[Audio Mixer] Replacement complete. GUID pairs: {mixerGuidMap.Count}, FileID pairs: {fileIdMap.Count}");
+    }
+
     private System.Type GetAssetType(int index)
     {
         switch (index)
@@ -1319,13 +1623,11 @@ private void ReplaceAnimClipSpriteReferencesYAML_SingleFile(string animFilePath,
                             {
                                 if (keyframes[k].value is Sprite sprite)
                                 {
-                                    // Check replacement pairs
                                     foreach (var pair in assetPairs[0])
                                     {
                                         if (pair.findAsset is Sprite findSprite && 
                                             pair.replaceAsset is Sprite replaceSprite)
                                         {
-                                            // Direct reference match
                                             if (sprite == findSprite)
                                             {
                                                 keyframes[k].value = replaceSprite;
@@ -1334,7 +1636,6 @@ private void ReplaceAnimClipSpriteReferencesYAML_SingleFile(string animFilePath,
                                                 continue;
                                             }
 
-                                            // Texture/name match for different GUIDs
                                             if (sprite.texture == findSprite.texture && 
                                                 sprite.name == findSprite.name)
                                             {
@@ -1345,7 +1646,6 @@ private void ReplaceAnimClipSpriteReferencesYAML_SingleFile(string animFilePath,
                                         }
                                     }
 
-                                    // Check restored sprites
                                     foreach (var restoredPair in newSprites)
                                     {
                                         Sprite restoredSprite = restoredPair.Value as Sprite;
@@ -1369,7 +1669,6 @@ private void ReplaceAnimClipSpriteReferencesYAML_SingleFile(string animFilePath,
                         }
                     }
 
-                    // Handle direct sprite references in legacy clips
                     SerializedObject clipSO = new SerializedObject(animationClip);
                     SerializedProperty spriteProperty = clipSO.FindProperty("m_Sprite");
                     if (spriteProperty != null && spriteProperty.objectReferenceValue != null)
@@ -1382,7 +1681,6 @@ private void ReplaceAnimClipSpriteReferencesYAML_SingleFile(string animFilePath,
                                 if (pair.findAsset is Sprite findSprite && 
                                     pair.replaceAsset is Sprite replaceSprite)
                                 {
-                                    // Direct reference match
                                     if (sprite == findSprite)
                                     {
                                         spriteProperty.objectReferenceValue = replaceSprite;
@@ -1391,7 +1689,6 @@ private void ReplaceAnimClipSpriteReferencesYAML_SingleFile(string animFilePath,
                                         continue;
                                     }
 
-                                    // Texture/name match
                                     if (sprite.texture == findSprite.texture && 
                                         sprite.name == findSprite.name)
                                     {
@@ -1408,7 +1705,7 @@ private void ReplaceAnimClipSpriteReferencesYAML_SingleFile(string animFilePath,
                     {
                         EditorUtility.SetDirty(animationClip);
                         fileModified = true;
-                        AssetDatabase.SaveAssets(); // Immediate save
+                        AssetDatabase.SaveAssets();
                     }
                 }
                 else if (mainAsset is AnimatorController controller)
@@ -1444,12 +1741,10 @@ private void ReplaceAnimClipSpriteReferencesYAML_SingleFile(string animFilePath,
 {
     bool overrideModified = false;
     
-    // Get current overrides
     List<KeyValuePair<AnimationClip, AnimationClip>> overrides = 
         new List<KeyValuePair<AnimationClip, AnimationClip>>(overrideController.overridesCount);
     overrideController.GetOverrides(overrides);
     
-    // Check for replacements using index-based access
     for (int j = 0; j < overrides.Count; j++)
     {
         var currentOverride = overrides[j];
@@ -1459,14 +1754,12 @@ private void ReplaceAnimClipSpriteReferencesYAML_SingleFile(string animFilePath,
 
         foreach (var pair in animationClipPairs)
         {
-            // Check original clip
             if (pair.findAsset != null && currentOverride.Key == pair.findAsset)
             {
                 newOriginalClip = (AnimationClip)pair.replaceAsset;
                 clipModified = true;
             }
             
-            // Check override clip
             if (pair.findAsset != null && currentOverride.Value == pair.findAsset)
             {
                 newOverrideClip = (AnimationClip)pair.replaceAsset;
@@ -1494,12 +1787,12 @@ private void ReplaceAnimClipSpriteReferencesYAML_SingleFile(string animFilePath,
                     bool matModified = false;
                     var shader = mat.shader;
 #if UNITY_2021_1_OR_NEWER
-                    int propertyCount = UnityEditor.ShaderUtil.GetPropertyCount(shader);
+                    int propertyCount = shader.GetPropertyCount();
                     for (int j = 0; j < propertyCount; j++)
                     {
-                        if (UnityEditor.ShaderUtil.GetPropertyType(shader, j) == UnityEditor.ShaderUtil.ShaderPropertyType.TexEnv)
+                        if (shader.GetPropertyType(j) == UnityEngine.Rendering.ShaderPropertyType.Texture)
                         {
-                            string propertyName = UnityEditor.ShaderUtil.GetPropertyName(shader, j);
+                            string propertyName = shader.GetPropertyName(j);
                             Texture currentTex = mat.GetTexture(propertyName);
                             foreach (var pair in assetPairs[1])
                             {
@@ -1611,10 +1904,8 @@ if (mainAsset != null)
         log += $"Replaced object references in {assetPath}\n";
     }
 
-    // === BEGIN: Robust YAML .anim GUID/fileID replacement for this file ===
     if (Path.GetExtension(filePath).ToLower() == ".anim")
     {
-        // Build guidMap and fileIdMap for sprites
         Dictionary<string, string> guidMap = new Dictionary<string, string>();
         Dictionary<string, string> fileIdMap = new Dictionary<string, string>();
         if (assetPairs != null && assetPairs.Length > 0)
@@ -1637,7 +1928,6 @@ if (mainAsset != null)
         }
         ReplaceAnimClipSpriteReferencesYAML_SingleFile(filePath, guidMap, fileIdMap);
     }
-    // === END: Robust YAML .anim GUID/fileID replacement for this file ===
 }
 
 if (fileModified)
@@ -1651,6 +1941,8 @@ if (fileModified)
             AssetDatabase.SaveAssets();
             AssetDatabase.Refresh();
         }
+
+        ReplaceAudioMixerReferences(ref modifiedFiles, ref log);
 
         log += $"Done. Modified {modifiedFiles} files.\n";
         Debug.Log(log);
@@ -1666,5 +1958,15 @@ if (fileModified)
     {
         public UnityEngine.Object findAsset;
         public UnityEngine.Object replaceAsset;
+    }
+
+    private class AudioMixerGroupMapping
+    {
+        public AudioMixerGroup findGroup;
+        public AudioMixerGroup replaceGroup;
+        public string groupPath;
+        public long findFileId;
+        public long replaceFileId;
+        public bool isMixerSelf;
     }
 }

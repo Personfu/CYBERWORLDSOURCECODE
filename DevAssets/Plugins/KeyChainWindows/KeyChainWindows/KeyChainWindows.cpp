@@ -21,6 +21,7 @@ KEYCHAINWINDOWS_API int _cryptProtectData(const char* dataIn, int* sizeOut, char
     DATA_BLOB pDataIn = {0};
     DATA_BLOB pDataOut = {0};
 
+    // Include the terminator so the decrypted output is always a proper C-string.
     pDataIn.cbData = (DWORD)(strlen(dataIn) + 1);
     pDataIn.pbData = (BYTE*)dataIn;
 
@@ -49,7 +50,7 @@ KEYCHAINWINDOWS_API int _cryptProtectData(const char* dataIn, int* sizeOut, char
 // Exported function: unprotect data
 KEYCHAINWINDOWS_API int _cryptUnprotectData(const unsigned char* dataIn, int size, char** dataOut)
 {
-    if (!dataIn || !dataOut || size == 0) return 0;
+    if (!dataIn || !dataOut || size <= 0) return 0;
 
     DATA_BLOB pDataIn = {0};
     DATA_BLOB pDataOut = {0};
@@ -62,7 +63,8 @@ KEYCHAINWINDOWS_API int _cryptUnprotectData(const unsigned char* dataIn, int siz
         return 0;
     }
 
-    char* buf = (char*)CoTaskMemAlloc(pDataOut.cbData);
+    // Allocate +1 and force a terminator so Marshal.PtrToStringAnsi is safe.
+    char* buf = (char*)CoTaskMemAlloc((size_t)pDataOut.cbData + 1);
     if (!buf) {
         LocalFree(pDataOut.pbData);
         *dataOut = nullptr;
@@ -70,10 +72,20 @@ KEYCHAINWINDOWS_API int _cryptUnprotectData(const unsigned char* dataIn, int siz
     }
 
     memcpy(buf, pDataOut.pbData, pDataOut.cbData);
+    buf[pDataOut.cbData] = '\0';
     LocalFree(pDataOut.pbData);
 
     *dataOut = buf;
     return 1;
+}
+
+// Exported function: free memory allocated by this DLL
+KEYCHAINWINDOWS_API void _keyChainFree(void* ptr)
+{
+    if (ptr)
+    {
+        CoTaskMemFree(ptr);
+    }
 }
 
 #ifdef __cplusplus

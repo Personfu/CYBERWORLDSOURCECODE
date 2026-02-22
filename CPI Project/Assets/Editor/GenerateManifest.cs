@@ -223,7 +223,6 @@ public class GenerateManifest
                     // Correct assetPart: relative path after AssetBundles folder
                     string relAsset = assetPath.Replace("\\", "/");
 
-
                     string[] folders = relAsset.Split('/');
                     int idxAssetBundles = Array.FindIndex(folders, f => string.Equals(f, "AssetBundles", StringComparison.OrdinalIgnoreCase));
                     string assetPart = idxAssetBundles >= 0
@@ -316,8 +315,6 @@ public class GenerateManifest
             Debug.Log($"ContentVersion got updated with new sha-1: {hash} and at path: {ContentVersionPath}");
 
             AssetDatabase.Refresh();
-
-
         }
         catch (Exception e)
         {
@@ -345,6 +342,8 @@ public class GenerateManifest
             return "standalonelinux64";
         if (t == BuildTarget.Android)
             return "android";
+        if (t == BuildTarget.iOS)
+            return "ios";
         if (t == BuildTarget.WebGL)
             return "webgl";
 

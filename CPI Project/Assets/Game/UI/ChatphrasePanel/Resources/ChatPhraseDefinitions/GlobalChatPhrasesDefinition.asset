@@ -3,14 +3,15 @@
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: efce208d8620d1c708c512c72507fb5e, type: 3}
   m_Name: GlobalChatPhrasesDefinition
-  m_EditorClassIdentifier:
+  m_EditorClassIdentifier: 
   ChatPhraseDefinitions:
   - {fileID: 11400000, guid: 675a9f92b21923b42b25107210eb8ef2, type: 2}
   - {fileID: 11400000, guid: fbac206141fde794eacb11946a3bd213, type: 2}
@@ -34,3 +35,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: d31b808963f0ce843ada1f2b3684c079, type: 2}
   - {fileID: 11400000, guid: 693d8c27a4a965346a295fb7aa03d45a, type: 2}
   - {fileID: 11400000, guid: 7dc951250a8c0a44e8acdf7bd66f0ac0, type: 2}
+  - {fileID: 11400000, guid: 57e3bdbc1cdfcfc4dbb7911cfbb06304, type: 2}
+  - {fileID: 11400000, guid: 793d12489632e3348bd7bb92c72ef76c, type: 2}
+  - {fileID: 11400000, guid: d0f3431509720494d86720d8e6e55b90, type: 2}

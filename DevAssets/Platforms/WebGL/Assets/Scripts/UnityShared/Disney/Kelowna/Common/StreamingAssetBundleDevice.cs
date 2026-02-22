@@ -168,73 +168,46 @@ namespace Disney.Kelowna.Common
             : base(deviceManager)
         {
             // Get the current base URL dynamically instead of hardcoding
-            streamingAssetsPath = GetCurrentBaseURL();
-            Debug.Log("Dynamic StreamingAssets Base URL: " + streamingAssetsPath);
+            streamingAssetsPath = GetStreamingAssetsBaseURL();
+            Debug.Log("StreamingAssets Base URL: " + streamingAssetsPath);
         }
 
-        private string GetCurrentBaseURL()
+        private string GetStreamingAssetsBaseURL()
         {
-            string baseUrl = Application.absoluteURL;
-
-            // If Application.absoluteURL is empty (e.g., in editor or standalone builds),
-            // fall back to a reasonable default
-            if (string.IsNullOrEmpty(baseUrl))
+#if UNITY_WEBGL && !UNITY_EDITOR
+            // For WebGL builds, use Application.streamingAssetsPath
+            string streamingAssetsUrl = Application.streamingAssetsPath;
+            
+            // Ensure it ends with a forward slash for URL concatenation
+            if (!streamingAssetsUrl.EndsWith("/"))
             {
-#if UNITY_EDITOR
-                // In editor, use localhost for testing
-                return "http://localhost/StreamingAssets/";
+                streamingAssetsUrl += "/";
+            }
+            
+            Debug.Log("WebGL StreamingAssets URL from Application.streamingAssetsPath: " + streamingAssetsUrl);
+            return streamingAssetsUrl;
 #else
-                // For standalone builds, try to construct from dataPath
-                // This is a fallback and might not work for all scenarios
-                string dataPath = Application.dataPath;
-                if (dataPath.StartsWith("http", StringComparison.OrdinalIgnoreCase))
+            // For standalone builds (Windows, Mac, Linux)
+            string dataPath = Application.dataPath;
+            
+            if (dataPath.StartsWith("http", StringComparison.OrdinalIgnoreCase))
+            {
+                // Already a web URL (shouldn't happen in standalone, but handle it)
+                if (!dataPath.EndsWith("/"))
                 {
-                    // Already a web URL (WebGL)
-                    return dataPath;
+                    dataPath += "/";
                 }
-                else
-                {
-                    // Local file path, convert to file:// URL
-                    return "file://" + Path.Combine(dataPath, "StreamingAssets/");
-                }
+                return dataPath + "StreamingAssets/";
+            }
+            else
+            {
+                // Local file path, convert to file:// URL
+                string streamingPath = Path.Combine(dataPath, "StreamingAssets");
+                // Normalize path separators to forward slashes for URLs
+                streamingPath = streamingPath.Replace('\\', '/');
+                return "file:///" + streamingPath + "/";
+            }
 #endif
-            }
-
-            // Parse the current URL to get the base path
-            try
-            {
-                Uri currentUri = new Uri(baseUrl);
-                string pathAndQuery = currentUri.PathAndQuery;
-
-                // Remove the filename if present (for index.html, etc.)
-                if (!string.IsNullOrEmpty(pathAndQuery) && pathAndQuery.Contains("/"))
-                {
-                    int lastSlashIndex = pathAndQuery.LastIndexOf('/');
-                    if (lastSlashIndex >= 0)
-                    {
-                        pathAndQuery = pathAndQuery.Substring(0, lastSlashIndex + 1);
-                    }
-                }
-
-                // Construct the base URL with StreamingAssets path
-                UriBuilder uriBuilder = new UriBuilder(currentUri.Scheme, currentUri.Host, currentUri.Port)
-                {
-                    Path = pathAndQuery + "StreamingAssets/"
-                };
-
-                return uriBuilder.Uri.ToString();
-            }
-            catch (Exception ex)
-            {
-                Debug.LogError($"Error parsing current URL '{baseUrl}': {ex.Message}");
-
-                // Fallback: use the URL directly with StreamingAssets appended
-                if (!baseUrl.EndsWith("/"))
-                {
-                    baseUrl += "/";
-                }
-                return baseUrl + "StreamingAssets/";
-            }
         }
 
         public override AssetRequest<TAsset> LoadAsync<TAsset>(string deviceList, ref ContentManifest.AssetEntry entry, AssetLoadedHandler<TAsset> handler = null)
@@ -253,30 +226,35 @@ namespace Disney.Kelowna.Common
             if (string.IsNullOrEmpty(key))
             {
                 Debug.LogError("Asset entry key is null or empty.");
-                yield break; // Exit the coroutine if the key is invalid
+                yield break;
             }
 
-            // Construct the URL for HTTP loading.
-            // The 'key' should contain the relative path to the asset bundle within StreamingAssets,
-            // using forward slashes (e.g., "assetbundles/generated/webgl/screenpenguinhome.sa.unity3d").
-            // We directly concatenate it with the base HTTP URL.
+            // Construct the URL by concatenating base path with asset key
+            // The key should contain the relative path within StreamingAssets
             string url = streamingAssetsPath + key + ".txt";
 
-            // Ensure the URL is properly formatted (handle any double slashes)
+            // Clean up any URL formatting issues
             url = url.Replace("//StreamingAssets/", "/StreamingAssets/")
-                    .Replace(":///", "://");
+                     .Replace(":///", "://");
 
-            Debug.Log("Loading asset from dynamically constructed URL: " + url);
+            Debug.Log($"Loading asset bundle: key='{key}', url='{url}'");
 
             // Load the asset
             wrapper.LoadFromDownload(url);
             yield return wrapper.WebRequest;
 
             AssetBundle assetBundle = wrapper.AssetBundle;
+            
+            if (assetBundle == null)
+            {
+                Debug.LogError($"Failed to load AssetBundle from URL: {url}");
+            }
+            
             if (handler != null)
             {
                 handler(key, (TAsset)(object)assetBundle);
             }
+            
             yield return null;
         }
 

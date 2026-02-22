@@ -23,7 +23,6 @@ MonoBehaviour:
   EquipmentTemplates: []
   EquipmentInstances:
   - Definition: {fileID: 11400000, guid: 2ef3a3f897dfdcd4aa04d3af265cb869, type: 2}
-  - Definition: {fileID: 11400000, guid: a32af00f7d24ddf4f8cd2fdedadd1d76, type: 2}
   DecorationInstances: []
   DecorationPurchaseRights: []
   IglooSlots:

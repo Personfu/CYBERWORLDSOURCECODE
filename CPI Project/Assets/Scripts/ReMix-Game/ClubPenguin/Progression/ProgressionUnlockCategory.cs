@@ -17,6 +17,7 @@ namespace ClubPenguin.Progression
 		iglooSlots,
 		partySupplies,
 		tubes,
-		structurePurchaseRights
+		structurePurchaseRights,
+		equipmentInstances
 	}
 }

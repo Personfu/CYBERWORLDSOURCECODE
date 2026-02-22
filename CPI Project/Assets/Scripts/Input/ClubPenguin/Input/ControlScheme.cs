@@ -113,6 +113,7 @@ namespace ClubPenguin.Input
 				SprintModifier = ScriptableObject.CreateInstance<KeyCodeInput>();
 				SprintModifier.Keys = new KeyCode[0];
 			}
+			ApplyDefaultGamepadBindings();
 			populateInputList();
 			foreach (InputLib input in inputList)
 			{
@@ -151,5 +152,31 @@ namespace ClubPenguin.Input
 			Back.Keys.CopyTo(MergedBackCellphone.Keys, 0);
 			Cellphone.Keys.CopyTo(MergedBackCellphone.Keys, Back.Keys.Length);
 		}
+
+		private void ApplyDefaultGamepadBindings()
+		{
+			if (Jump != null) Jump.SetGamepadBindings(ActiveInputDevice.GamepadControl.ButtonSouth);
+
+			if (Action1 != null) Action1.SetGamepadBindings(ActiveInputDevice.GamepadControl.ButtonWest);
+			if (Action2 != null) Action2.SetGamepadBindings(ActiveInputDevice.GamepadControl.ButtonNorth);
+			if (Action3 != null) Action3.SetGamepadBindings(ActiveInputDevice.GamepadControl.ButtonEast);
+
+			if (WalkModifier != null) WalkModifier.SetGamepadBindings(ActiveInputDevice.GamepadControl.LeftTrigger);
+			if (SprintModifier != null) SprintModifier.SetGamepadBindings(ActiveInputDevice.GamepadControl.RightTrigger);
+
+			if (Chat != null) Chat.SetGamepadBindings(ActiveInputDevice.GamepadControl.LeftShoulder);
+			if (QuickEmote != null) QuickEmote.SetGamepadBindings(ActiveInputDevice.GamepadControl.RightShoulder);
+
+			if (UI_Submit != null) UI_Submit.SetGamepadBindings(ActiveInputDevice.GamepadControl.ButtonSouth);
+			if (UI_Accept != null) UI_Accept.SetGamepadBindings(ActiveInputDevice.GamepadControl.ButtonSouth);
+			if (UI_Cancel != null) UI_Cancel.SetGamepadBindings(ActiveInputDevice.GamepadControl.ButtonEast);
+
+			if (UI_Navigation != null) UI_Navigation.SetGamepadBindings(ActiveInputDevice.GamepadControl.DpadRight);
+			if (UI_NavigationBackwards != null) UI_NavigationBackwards.SetGamepadBindings(ActiveInputDevice.GamepadControl.DpadLeft);
+
+			if (Cancel != null) Cancel.SetGamepadBindings(ActiveInputDevice.GamepadControl.Select);
+			if (Back != null) Back.SetGamepadBindings(ActiveInputDevice.GamepadControl.Select);
+		}
+
 	}
 }

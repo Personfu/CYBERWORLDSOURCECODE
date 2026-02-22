@@ -267,6 +267,11 @@ SkinnedMeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 3
   m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -288,9 +293,11 @@ SkinnedMeshRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   serializedVersion: 2
   m_Quality: 0
   m_UpdateWhenOffscreen: 0
@@ -2262,6 +2269,10 @@ GameObject:
   - component: {fileID: 114358453812251590}
   - component: {fileID: 4302650373726409130}
   - component: {fileID: 8314135476358040999}
+  - component: {fileID: 315416860686055062}
+  - component: {fileID: 3412086257308664292}
+  - component: {fileID: 8825406027903344769}
+  - component: {fileID: 374895482404678423}
   m_Layer: 11
   m_Name: Gary
   m_TagString: NPC
@@ -2292,7 +2303,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 23.999996, z: 0}
 --- !u!95 &95658438772378859
 Animator:
-  serializedVersion: 5
+  serializedVersion: 7
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -2306,6 +2317,7 @@ Animator:
   m_ApplyRootMotion: 1
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
@@ -2454,6 +2466,202 @@ MonoBehaviour:
       Key: Costumes/Gary/Gary_Halloween_Robot
       type: UnityEngine.Material, UnityEngine
     DestroyTexture: 0
+--- !u!114 &315416860686055062
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1979163053798210}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2553fbdb2efe07533355fd9c02f87b62, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EventName: Halloween
+  DateDefinitionKey:
+    Id: 47
+    type: ClubPenguin.Core.ScheduledEventDateDefinition, Core
+  SpawnData:
+  - SpawnPrefabKey:
+      Key: Costumes/Gary/Gary_Halloween_Robot_ArmLeft_l_FOREARM_int
+      type: UnityEngine.GameObject, UnityEngine
+    SpawnParentTransform: {fileID: 4172436292810681}
+    SpawnOffset: {x: 0, y: 0, z: 0}
+    SpawnRotation: {x: 0, y: 0, z: 0}
+    SpawnScale: {x: 0, y: 0, z: 0}
+  - SpawnPrefabKey:
+      Key: Costumes/Gary/Gary_Halloween_Robot_ArmRight_r_FOREARM_int
+      type: UnityEngine.GameObject, UnityEngine
+    SpawnParentTransform: {fileID: 4739175040214122}
+    SpawnOffset: {x: 0, y: 0, z: 0}
+    SpawnRotation: {x: 0, y: 0, z: 0}
+    SpawnScale: {x: 0, y: 0, z: 0}
+  - SpawnPrefabKey:
+      Key: Costumes/Gary/Gary_Halloween_Robot_Goggles_m_glasses_int
+      type: UnityEngine.GameObject, UnityEngine
+    SpawnParentTransform: {fileID: 4139805988062121}
+    SpawnOffset: {x: 0, y: 0, z: 0}
+    SpawnRotation: {x: 0, y: 0, z: 0}
+    SpawnScale: {x: 0, y: 0, z: 0}
+  SwapMaterialData:
+  - SwapTarget: {fileID: 1094087475241621}
+    SwapMaterialKey:
+      Key: Costumes/Gary/Gary_Halloween_Robot
+      type: UnityEngine.Material, UnityEngine
+    DestroyTexture: 0
+  - SwapTarget: {fileID: 0}
+    SwapMaterialKey:
+      Key: Costumes/Gary/Gary_Halloween_Robot
+      type: UnityEngine.Material, UnityEngine
+    DestroyTexture: 0
+--- !u!114 &3412086257308664292
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1979163053798210}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2553fbdb2efe07533355fd9c02f87b62, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EventName: Halloween
+  DateDefinitionKey:
+    Id: 51
+    type: ClubPenguin.Core.ScheduledEventDateDefinition, Core
+  SpawnData:
+  - SpawnPrefabKey:
+      Key: Costumes/Gary/Gary_Halloween_Robot_ArmLeft_l_FOREARM_int
+      type: UnityEngine.GameObject, UnityEngine
+    SpawnParentTransform: {fileID: 4172436292810681}
+    SpawnOffset: {x: 0, y: 0, z: 0}
+    SpawnRotation: {x: 0, y: 0, z: 0}
+    SpawnScale: {x: 0, y: 0, z: 0}
+  - SpawnPrefabKey:
+      Key: Costumes/Gary/Gary_Halloween_Robot_ArmRight_r_FOREARM_int
+      type: UnityEngine.GameObject, UnityEngine
+    SpawnParentTransform: {fileID: 4739175040214122}
+    SpawnOffset: {x: 0, y: 0, z: 0}
+    SpawnRotation: {x: 0, y: 0, z: 0}
+    SpawnScale: {x: 0, y: 0, z: 0}
+  - SpawnPrefabKey:
+      Key: Costumes/Gary/Gary_Halloween_Robot_Goggles_m_glasses_int
+      type: UnityEngine.GameObject, UnityEngine
+    SpawnParentTransform: {fileID: 4139805988062121}
+    SpawnOffset: {x: 0, y: 0, z: 0}
+    SpawnRotation: {x: 0, y: 0, z: 0}
+    SpawnScale: {x: 0, y: 0, z: 0}
+  SwapMaterialData:
+  - SwapTarget: {fileID: 1094087475241621}
+    SwapMaterialKey:
+      Key: Costumes/Gary/Gary_Halloween_Robot
+      type: UnityEngine.Material, UnityEngine
+    DestroyTexture: 0
+  - SwapTarget: {fileID: 0}
+    SwapMaterialKey:
+      Key: Costumes/Gary/Gary_Halloween_Robot
+      type: UnityEngine.Material, UnityEngine
+    DestroyTexture: 0
+--- !u!114 &8825406027903344769
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1979163053798210}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2553fbdb2efe07533355fd9c02f87b62, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EventName: Halloween
+  DateDefinitionKey:
+    Id: 52
+    type: ClubPenguin.Core.ScheduledEventDateDefinition, Core
+  SpawnData:
+  - SpawnPrefabKey:
+      Key: Costumes/Gary/Gary_Halloween_Robot_ArmLeft_l_FOREARM_int
+      type: UnityEngine.GameObject, UnityEngine
+    SpawnParentTransform: {fileID: 4172436292810681}
+    SpawnOffset: {x: 0, y: 0, z: 0}
+    SpawnRotation: {x: 0, y: 0, z: 0}
+    SpawnScale: {x: 0, y: 0, z: 0}
+  - SpawnPrefabKey:
+      Key: Costumes/Gary/Gary_Halloween_Robot_ArmRight_r_FOREARM_int
+      type: UnityEngine.GameObject, UnityEngine
+    SpawnParentTransform: {fileID: 4739175040214122}
+    SpawnOffset: {x: 0, y: 0, z: 0}
+    SpawnRotation: {x: 0, y: 0, z: 0}
+    SpawnScale: {x: 0, y: 0, z: 0}
+  - SpawnPrefabKey:
+      Key: Costumes/Gary/Gary_Halloween_Robot_Goggles_m_glasses_int
+      type: UnityEngine.GameObject, UnityEngine
+    SpawnParentTransform: {fileID: 4139805988062121}
+    SpawnOffset: {x: 0, y: 0, z: 0}
+    SpawnRotation: {x: 0, y: 0, z: 0}
+    SpawnScale: {x: 0, y: 0, z: 0}
+  SwapMaterialData:
+  - SwapTarget: {fileID: 1094087475241621}
+    SwapMaterialKey:
+      Key: Costumes/Gary/Gary_Halloween_Robot
+      type: UnityEngine.Material, UnityEngine
+    DestroyTexture: 0
+  - SwapTarget: {fileID: 0}
+    SwapMaterialKey:
+      Key: Costumes/Gary/Gary_Halloween_Robot
+      type: UnityEngine.Material, UnityEngine
+    DestroyTexture: 0
+--- !u!114 &374895482404678423
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1979163053798210}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2553fbdb2efe07533355fd9c02f87b62, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EventName: Halloween
+  DateDefinitionKey:
+    Id: 53
+    type: ClubPenguin.Core.ScheduledEventDateDefinition, Core
+  SpawnData:
+  - SpawnPrefabKey:
+      Key: Costumes/Gary/Gary_Halloween_Robot_ArmLeft_l_FOREARM_int
+      type: UnityEngine.GameObject, UnityEngine
+    SpawnParentTransform: {fileID: 4172436292810681}
+    SpawnOffset: {x: 0, y: 0, z: 0}
+    SpawnRotation: {x: 0, y: 0, z: 0}
+    SpawnScale: {x: 0, y: 0, z: 0}
+  - SpawnPrefabKey:
+      Key: Costumes/Gary/Gary_Halloween_Robot_ArmRight_r_FOREARM_int
+      type: UnityEngine.GameObject, UnityEngine
+    SpawnParentTransform: {fileID: 4739175040214122}
+    SpawnOffset: {x: 0, y: 0, z: 0}
+    SpawnRotation: {x: 0, y: 0, z: 0}
+    SpawnScale: {x: 0, y: 0, z: 0}
+  - SpawnPrefabKey:
+      Key: Costumes/Gary/Gary_Halloween_Robot_Goggles_m_glasses_int
+      type: UnityEngine.GameObject, UnityEngine
+    SpawnParentTransform: {fileID: 4139805988062121}
+    SpawnOffset: {x: 0, y: 0, z: 0}
+    SpawnRotation: {x: 0, y: 0, z: 0}
+    SpawnScale: {x: 0, y: 0, z: 0}
+  SwapMaterialData:
+  - SwapTarget: {fileID: 1094087475241621}
+    SwapMaterialKey:
+      Key: Costumes/Gary/Gary_Halloween_Robot
+      type: UnityEngine.Material, UnityEngine
+    DestroyTexture: 0
+  - SwapTarget: {fileID: 0}
+    SwapMaterialKey:
+      Key: Costumes/Gary/Gary_Halloween_Robot
+      type: UnityEngine.Material, UnityEngine
+    DestroyTexture: 0
 --- !u!1 &1999539137845859
 GameObject:
   m_ObjectHideFlags: 0
@@ -2503,6 +2711,11 @@ SkinnedMeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 3
   m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -2524,9 +2737,11 @@ SkinnedMeshRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   serializedVersion: 2
   m_Quality: 0
   m_UpdateWhenOffscreen: 0

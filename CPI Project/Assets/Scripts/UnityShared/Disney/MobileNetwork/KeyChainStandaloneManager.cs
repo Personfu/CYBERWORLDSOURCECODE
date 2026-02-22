@@ -4,7 +4,7 @@ namespace Disney.MobileNetwork
 {
 	public class KeyChainStandaloneManager : KeyChainManager
 	{
-#if UNITY_STANDALONE_WIN || UNITY_STANDALONE_OSX || UNITY_STANDALONE_LINUX
+#if UNITY_STANDALONE_WIN || UNITY_STANDALONE_OSX || UNITY_STANDALONE_LINUX || UNITY_WEBGL
         protected override void Init()
 		{
 		}

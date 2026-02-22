@@ -3,14 +3,15 @@
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 00bc5ec66f9c4b1a36f618fc531e778d, type: 3}
   m_Name: SizzleClips
-  m_EditorClassIdentifier:
+  m_EditorClassIdentifier: 
   Assets:
   - {fileID: 11400000, guid: 9829e99b7d792864fa80419075ae1320, type: 2}
   - {fileID: 11400000, guid: 67208a41342f0914c9a53ab39fc921d4, type: 2}
@@ -33,3 +34,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 1f83bead8c9bdb54881fcb82d6669b11, type: 2}
   - {fileID: 11400000, guid: b03c4f61b816c474896968fb49a5c767, type: 2}
   - {fileID: 11400000, guid: 6e1dbac801d0a39448b5e36105149db7, type: 2}
+  - {fileID: 11400000, guid: e5153d994162c6348b7221f2c7421df8, type: 2}
+  - {fileID: 11400000, guid: 07f4d05dad84a7148a81032acf0044fa, type: 2}
+  - {fileID: 11400000, guid: 47f1411532543144dbb170c81bd80027, type: 2}

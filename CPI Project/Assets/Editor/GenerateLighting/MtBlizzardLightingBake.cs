@@ -123,6 +123,12 @@ public class MtBlizzardLightingBake : MonoBehaviour
                 Gol.StaticObject13.isStatic = false;
                 SetStaticRecursively(Gol.StaticObject13, false);
 
+                Gol.StaticObject14.isStatic = true;
+                SetStaticRecursively(Gol.StaticObject14, true);
+
+                Gol.StaticObject15.isStatic = true;
+                SetStaticRecursively(Gol.StaticObject15, true);
+
                 Gol.ChangeSource(AmbientMode.Skybox);
 
                 // ========== Progress Bar Patch with Elapsed Time ==========
@@ -186,6 +192,12 @@ public class MtBlizzardLightingBake : MonoBehaviour
 
                     Gol.StaticObject13.isStatic = false;
                     SetStaticRecursively(Gol.StaticObject13, false);
+
+                    Gol.StaticObject14.isStatic = false;
+                    SetStaticRecursively(Gol.StaticObject14, false);
+
+                    Gol.StaticObject15.isStatic = false;
+                    SetStaticRecursively(Gol.StaticObject15, false);
 
                     Gol.ChangeSource(AmbientMode.Flat);
 

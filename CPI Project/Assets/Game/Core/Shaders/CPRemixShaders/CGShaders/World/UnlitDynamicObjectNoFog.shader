@@ -3,66 +3,62 @@ Shader "CpRemix/World/Unlit Dynamic Object (NO FOG)"
     Properties
     {
         _TintColor ("Tint Color", Color) = (1, 1, 1, 1)
-        _AdditiveColor ("Additive Color", Color) = (0, 0, 0, 1) // Additive color property
+        _AdditiveColor ("Additive Color", Color) = (0, 0, 0, 1)
         _MainTex ("Texture", 2D) = "white" {}
     }
+
     SubShader
     {
-        Tags { "RenderType" = "Opaque" }
+        Tags { "RenderType"="Opaque" }
+        LOD 100
+
         Pass
         {
-            Tags { "RenderType" = "Opaque" }
-            GpuProgramID 51075
+            Tags { "RenderType"="Opaque" }
+
             CGPROGRAM
             #pragma vertex vert
             #pragma fragment frag
-            
             #include "UnityCG.cginc"
-            
+
+            sampler2D _MainTex;
+            float4 _MainTex_ST;
+
+            float4 _TintColor;
+            float4 _AdditiveColor;
+
+            struct appdata
+            {
+                float4 vertex : POSITION;
+                float2 uv     : TEXCOORD0;
+                float4 color  : COLOR;
+            };
+
             struct v2f
             {
-                float4 position : SV_POSITION0;
-                float2 texcoord : TEXCOORD0;
-                float4 color : COLOR0;
+                float4 pos   : SV_POSITION;
+                float2 uv    : TEXCOORD0;
+                float4 color : COLOR;
             };
-            
-            struct fout
-            {
-                float4 sv_target : SV_Target0;
-            };
-            
-            // $Globals ConstantBuffers for Vertex Shader
-            float4 _MainTex_ST;
-            // $Globals ConstantBuffers for Fragment Shader
-            float4 _TintColor;
-            float4 _AdditiveColor; // Reference to _AdditiveColor
-            
-            // Texture params for Vertex Shader
-            sampler2D _MainTex;
-            
-            // Vertex shader function
-            v2f vert(appdata_full v)
+
+            v2f vert (appdata v)
             {
                 v2f o;
-                o.position = UnityObjectToClipPos(v.vertex);
-                o.texcoord.xy = v.texcoord.xy * _MainTex_ST.xy + _MainTex_ST.zw;
+                o.pos = UnityObjectToClipPos(v.vertex);
+                o.uv = v.uv * _MainTex_ST.xy + _MainTex_ST.zw;
                 o.color = v.color;
                 return o;
             }
-            
-            // Fragment shader function
-            fout frag(v2f inp)
-            {
-                fout o;
-                float4 tmp0 = tex2D(_MainTex, inp.texcoord.xy);
-                tmp0 = tmp0 * inp.color;
-                
-                // Apply the additive color effect
-                float4 finalColor = tmp0 * _TintColor; // Apply tint color
-                finalColor.rgb += _AdditiveColor.rgb * _AdditiveColor.a; // Additive effect based on alpha
 
-                o.sv_target = saturate(finalColor); // Ensure color doesn't exceed 1.0
-                return o;
+            fixed4 frag (v2f i) : SV_Target
+            {
+                fixed4 c = tex2D(_MainTex, i.uv) * i.color;
+
+                c *= _TintColor;
+
+                c.rgb += _AdditiveColor.rgb * _AdditiveColor.a;
+
+                return saturate(c);
             }
             ENDCG
         }

@@ -74,3 +74,21 @@ MonoBehaviour:
     PlayerPrefsKey: SunsetPartyToggle
     AdditiveScenes:
     - RDMA_Beach_Decorations
+  - DateDefinitionKey:
+      Id: 51
+      type: ClubPenguin.Core.ScheduledEventDateDefinition, Core
+    PlayerPrefsKey: SunsetPartyToggle
+    AdditiveScenes:
+    - Beach_Halloween2017_Decorations
+  - DateDefinitionKey:
+      Id: 52
+      type: ClubPenguin.Core.ScheduledEventDateDefinition, Core
+    PlayerPrefsKey: SunsetPartyToggle
+    AdditiveScenes:
+    - Beach_Halloween2017_Decorations
+  - DateDefinitionKey:
+      Id: 53
+      type: ClubPenguin.Core.ScheduledEventDateDefinition, Core
+    PlayerPrefsKey: SunsetPartyToggle
+    AdditiveScenes:
+    - Beach_Halloween2017_Decorations

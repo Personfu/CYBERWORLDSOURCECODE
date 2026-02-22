@@ -9188,6 +9188,10 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 1163618559}
+  - {fileID: 744310573}
+  - {fileID: 1430080920}
+  - {fileID: 1551036116}
   - {fileID: 1391329615}
   - {fileID: 1580810063}
   - {fileID: 313405233}
@@ -13694,6 +13698,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!23 &6740
 MeshRenderer:
@@ -13742,6 +13747,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!23 &6741
 MeshRenderer:
@@ -13790,6 +13796,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!23 &6753
 MeshRenderer:
@@ -13838,6 +13845,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!23 &6754
 MeshRenderer:
@@ -13886,6 +13894,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!23 &6773
 MeshRenderer:
@@ -13934,6 +13943,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!23 &6777
 MeshRenderer:
@@ -13982,6 +13992,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!23 &6786
 MeshRenderer:
@@ -14030,6 +14041,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!23 &6788
 MeshRenderer:
@@ -14078,6 +14090,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!23 &6794
 MeshRenderer:
@@ -14126,6 +14139,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!23 &6833
 MeshRenderer:
@@ -14174,6 +14188,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!23 &6837
 MeshRenderer:
@@ -14222,6 +14237,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!23 &6842
 MeshRenderer:
@@ -14270,6 +14286,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!23 &6847
 MeshRenderer:
@@ -14318,6 +14335,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!23 &6850
 MeshRenderer:
@@ -14366,6 +14384,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!23 &6851
 MeshRenderer:
@@ -14414,6 +14433,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!23 &6852
 MeshRenderer:
@@ -14462,6 +14482,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!23 &6855
 MeshRenderer:
@@ -14510,6 +14531,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!23 &6872
 MeshRenderer:
@@ -14558,6 +14580,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!23 &6873
 MeshRenderer:
@@ -14606,6 +14629,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!23 &6880
 MeshRenderer:
@@ -14654,6 +14678,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!23 &6898
 MeshRenderer:
@@ -14702,6 +14727,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!23 &6902
 MeshRenderer:
@@ -14750,6 +14776,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!23 &6927
 MeshRenderer:
@@ -14798,6 +14825,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!23 &6945
 MeshRenderer:
@@ -14846,6 +14874,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!23 &6949
 MeshRenderer:
@@ -14894,6 +14923,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!23 &6959
 MeshRenderer:
@@ -14942,6 +14972,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!23 &6981
 MeshRenderer:
@@ -14990,6 +15021,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!23 &6994
 MeshRenderer:
@@ -15038,6 +15070,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!23 &7005
 MeshRenderer:
@@ -15086,6 +15119,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!23 &7007
 MeshRenderer:
@@ -15134,6 +15168,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!23 &7018
 MeshRenderer:
@@ -15182,6 +15217,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!23 &7020
 MeshRenderer:
@@ -15230,6 +15266,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!23 &7022
 MeshRenderer:
@@ -15278,6 +15315,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!23 &7023
 MeshRenderer:
@@ -15326,6 +15364,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!23 &7030
 MeshRenderer:
@@ -15374,6 +15413,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!23 &7039
 MeshRenderer:
@@ -15422,6 +15462,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!23 &7040
 MeshRenderer:
@@ -15470,6 +15511,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!23 &7042
 MeshRenderer:
@@ -15518,6 +15560,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!23 &7054
 MeshRenderer:
@@ -15566,6 +15609,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!23 &7057
 MeshRenderer:
@@ -15614,6 +15658,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!23 &7064
 MeshRenderer:
@@ -15662,6 +15707,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!23 &7080
 MeshRenderer:
@@ -15710,6 +15756,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!23 &7084
 MeshRenderer:
@@ -15758,6 +15805,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!23 &7085
 MeshRenderer:
@@ -15806,6 +15854,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!23 &7090
 MeshRenderer:
@@ -15854,6 +15903,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!23 &7091
 MeshRenderer:
@@ -15902,6 +15952,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!23 &7099
 MeshRenderer:
@@ -15950,6 +16001,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!23 &7110
 MeshRenderer:
@@ -15998,6 +16050,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!23 &7115
 MeshRenderer:
@@ -16046,6 +16099,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!23 &7122
 MeshRenderer:
@@ -16094,6 +16148,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!23 &7155
 MeshRenderer:
@@ -16142,6 +16197,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!23 &7157
 MeshRenderer:
@@ -16190,6 +16246,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!23 &7168
 MeshRenderer:
@@ -16238,6 +16295,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!23 &7175
 MeshRenderer:
@@ -16286,6 +16344,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!23 &7177
 MeshRenderer:
@@ -16334,6 +16393,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!23 &7179
 MeshRenderer:
@@ -16382,6 +16442,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!23 &7194
 MeshRenderer:
@@ -16430,6 +16491,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!23 &7201
 MeshRenderer:
@@ -16478,6 +16540,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!23 &7203
 MeshRenderer:
@@ -16526,6 +16589,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!23 &7206
 MeshRenderer:
@@ -16574,6 +16638,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!23 &7208
 MeshRenderer:
@@ -16622,6 +16687,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!23 &7210
 MeshRenderer:
@@ -16670,6 +16736,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!23 &7219
 MeshRenderer:
@@ -16718,6 +16785,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!23 &7220
 MeshRenderer:
@@ -16766,6 +16834,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!23 &7239
 MeshRenderer:
@@ -16814,6 +16883,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!23 &7243
 MeshRenderer:
@@ -16862,6 +16932,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!23 &7246
 MeshRenderer:
@@ -16910,6 +16981,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!23 &7249
 MeshRenderer:
@@ -16958,6 +17030,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!23 &7253
 MeshRenderer:
@@ -17006,6 +17079,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!23 &7256
 MeshRenderer:
@@ -17054,6 +17128,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!23 &7280
 MeshRenderer:
@@ -17102,6 +17177,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!23 &7282
 MeshRenderer:
@@ -17150,6 +17226,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!23 &7284
 MeshRenderer:
@@ -17198,6 +17275,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!23 &7296
 MeshRenderer:
@@ -17246,6 +17324,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!23 &7304
 MeshRenderer:
@@ -17294,6 +17373,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!23 &7305
 MeshRenderer:
@@ -17342,6 +17422,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!23 &7316
 MeshRenderer:
@@ -17390,6 +17471,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!23 &7323
 MeshRenderer:
@@ -17438,6 +17520,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!23 &7324
 MeshRenderer:
@@ -17486,6 +17569,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!23 &7329
 MeshRenderer:
@@ -17534,6 +17618,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!23 &7334
 MeshRenderer:
@@ -17582,6 +17667,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!23 &7340
 MeshRenderer:
@@ -17630,6 +17716,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!23 &7341
 MeshRenderer:
@@ -17678,6 +17765,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!23 &7345
 MeshRenderer:
@@ -17726,6 +17814,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!23 &7368
 MeshRenderer:
@@ -17774,6 +17863,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!23 &7377
 MeshRenderer:
@@ -17822,6 +17912,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!23 &7392
 MeshRenderer:
@@ -17870,6 +17961,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!23 &7404
 MeshRenderer:
@@ -17918,6 +18010,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!23 &7410
 MeshRenderer:
@@ -17966,6 +18059,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!23 &7412
 MeshRenderer:
@@ -18014,6 +18108,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!23 &7413
 MeshRenderer:
@@ -18062,6 +18157,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!23 &7415
 MeshRenderer:
@@ -18110,6 +18206,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!23 &7421
 MeshRenderer:
@@ -18158,6 +18255,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!23 &7424
 MeshRenderer:
@@ -18206,6 +18304,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!23 &7451
 MeshRenderer:
@@ -18254,6 +18353,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!23 &7453
 MeshRenderer:
@@ -18302,6 +18402,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!23 &7455
 MeshRenderer:
@@ -18350,6 +18451,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!23 &7462
 MeshRenderer:
@@ -18398,6 +18500,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!23 &7471
 MeshRenderer:
@@ -18446,6 +18549,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!23 &7475
 MeshRenderer:
@@ -18494,6 +18598,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!23 &7478
 MeshRenderer:
@@ -18542,6 +18647,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!23 &7481
 MeshRenderer:
@@ -18590,6 +18696,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!23 &7496
 MeshRenderer:
@@ -18638,6 +18745,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!23 &7502
 MeshRenderer:
@@ -18686,6 +18794,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!23 &7506
 MeshRenderer:
@@ -18734,6 +18843,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!23 &7521
 MeshRenderer:
@@ -18782,6 +18892,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!23 &7524
 MeshRenderer:
@@ -18830,6 +18941,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!23 &7525
 MeshRenderer:
@@ -18878,6 +18990,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!23 &7531
 MeshRenderer:
@@ -18926,6 +19039,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!23 &7534
 MeshRenderer:
@@ -18974,6 +19088,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!23 &7540
 MeshRenderer:
@@ -19022,6 +19137,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!23 &7553
 MeshRenderer:
@@ -19070,6 +19186,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!23 &7555
 MeshRenderer:
@@ -19118,6 +19235,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!23 &7556
 MeshRenderer:
@@ -19166,6 +19284,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!23 &7561
 MeshRenderer:
@@ -19214,6 +19333,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!23 &7566
 MeshRenderer:
@@ -19262,6 +19382,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!23 &7568
 MeshRenderer:
@@ -19310,6 +19431,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!23 &7570
 MeshRenderer:
@@ -19358,6 +19480,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!23 &7573
 MeshRenderer:
@@ -19406,6 +19529,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!23 &7576
 MeshRenderer:
@@ -19454,6 +19578,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!23 &7579
 MeshRenderer:
@@ -19502,6 +19627,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!23 &7582
 MeshRenderer:
@@ -19550,6 +19676,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!23 &7585
 MeshRenderer:
@@ -19598,6 +19725,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!23 &7592
 MeshRenderer:
@@ -19646,6 +19774,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!23 &7596
 MeshRenderer:
@@ -19694,6 +19823,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!23 &7601
 MeshRenderer:
@@ -19742,6 +19872,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!23 &7603
 MeshRenderer:
@@ -19790,6 +19921,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!23 &7604
 MeshRenderer:
@@ -19838,6 +19970,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!23 &7605
 MeshRenderer:
@@ -19886,6 +20019,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!23 &7608
 MeshRenderer:
@@ -19934,6 +20068,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!23 &7610
 MeshRenderer:
@@ -19982,6 +20117,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!23 &7627
 MeshRenderer:
@@ -20030,6 +20166,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!23 &7644
 MeshRenderer:
@@ -20078,6 +20215,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!23 &7647
 MeshRenderer:
@@ -20126,6 +20264,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!23 &7660
 MeshRenderer:
@@ -20174,6 +20313,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!23 &7664
 MeshRenderer:
@@ -20222,6 +20362,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!23 &7667
 MeshRenderer:
@@ -20270,6 +20411,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!23 &7669
 MeshRenderer:
@@ -20318,6 +20460,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!23 &7671
 MeshRenderer:
@@ -20366,6 +20509,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!23 &7679
 MeshRenderer:
@@ -20414,6 +20558,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!23 &7690
 MeshRenderer:
@@ -20462,6 +20607,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!23 &7692
 MeshRenderer:
@@ -20510,6 +20656,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!23 &7702
 MeshRenderer:
@@ -20558,6 +20705,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!23 &7710
 MeshRenderer:
@@ -20606,6 +20754,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!23 &7716
 MeshRenderer:
@@ -20654,6 +20803,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!23 &7723
 MeshRenderer:
@@ -20702,6 +20852,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!23 &7739
 MeshRenderer:
@@ -20750,6 +20901,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!23 &7740
 MeshRenderer:
@@ -20798,6 +20950,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!23 &7742
 MeshRenderer:
@@ -20846,6 +20999,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!23 &7744
 MeshRenderer:
@@ -20894,6 +21048,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!23 &7749
 MeshRenderer:
@@ -20942,6 +21097,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!23 &7759
 MeshRenderer:
@@ -20990,6 +21146,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!23 &7763
 MeshRenderer:
@@ -21038,6 +21195,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!23 &7768
 MeshRenderer:
@@ -21086,6 +21244,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!23 &7778
 MeshRenderer:
@@ -21134,6 +21293,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!23 &7782
 MeshRenderer:
@@ -21182,6 +21342,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!23 &7809
 MeshRenderer:
@@ -21230,6 +21391,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!23 &7810
 MeshRenderer:
@@ -21278,6 +21440,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!23 &7816
 MeshRenderer:
@@ -21326,6 +21489,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!23 &7817
 MeshRenderer:
@@ -21374,6 +21538,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!23 &7832
 MeshRenderer:
@@ -21422,6 +21587,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!23 &7835
 MeshRenderer:
@@ -21470,6 +21636,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!23 &7839
 MeshRenderer:
@@ -21518,6 +21685,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!23 &7845
 MeshRenderer:
@@ -21566,6 +21734,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!23 &7849
 MeshRenderer:
@@ -21614,6 +21783,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!23 &7850
 MeshRenderer:
@@ -21662,6 +21832,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!23 &7853
 MeshRenderer:
@@ -21710,6 +21881,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!23 &7855
 MeshRenderer:
@@ -21758,6 +21930,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!23 &7860
 MeshRenderer:
@@ -21806,6 +21979,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!23 &7864
 MeshRenderer:
@@ -21854,6 +22028,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!23 &7875
 MeshRenderer:
@@ -21902,6 +22077,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!23 &7878
 MeshRenderer:
@@ -21950,6 +22126,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!23 &7883
 MeshRenderer:
@@ -21998,6 +22175,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!23 &7886
 MeshRenderer:
@@ -22046,6 +22224,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!23 &7887
 MeshRenderer:
@@ -22094,6 +22273,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!23 &7901
 MeshRenderer:
@@ -22142,6 +22322,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!23 &7910
 MeshRenderer:
@@ -22190,6 +22371,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!23 &7918
 MeshRenderer:
@@ -22238,6 +22420,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!23 &7921
 MeshRenderer:
@@ -22286,6 +22469,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!23 &7923
 MeshRenderer:
@@ -22334,6 +22518,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!23 &7927
 MeshRenderer:
@@ -22382,6 +22567,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!23 &7935
 MeshRenderer:
@@ -22430,6 +22616,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!23 &7939
 MeshRenderer:
@@ -22478,6 +22665,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!23 &7940
 MeshRenderer:
@@ -22526,6 +22714,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!23 &7944
 MeshRenderer:
@@ -22574,6 +22763,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!23 &7952
 MeshRenderer:
@@ -22622,6 +22812,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!23 &7954
 MeshRenderer:
@@ -22670,6 +22861,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!23 &7973
 MeshRenderer:
@@ -22718,6 +22910,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!23 &7991
 MeshRenderer:
@@ -22766,6 +22959,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!23 &7996
 MeshRenderer:
@@ -22814,6 +23008,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!23 &8000
 MeshRenderer:
@@ -22862,6 +23057,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!23 &8004
 MeshRenderer:
@@ -22910,6 +23106,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!23 &8013
 MeshRenderer:
@@ -22958,6 +23155,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!23 &8017
 MeshRenderer:
@@ -23006,6 +23204,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!23 &8027
 MeshRenderer:
@@ -23054,6 +23253,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!23 &8028
 MeshRenderer:
@@ -23102,6 +23302,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!23 &8031
 MeshRenderer:
@@ -23150,6 +23351,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!23 &8036
 MeshRenderer:
@@ -23198,6 +23400,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!23 &8044
 MeshRenderer:
@@ -23246,6 +23449,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!23 &8046
 MeshRenderer:
@@ -23294,6 +23498,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!23 &8047
 MeshRenderer:
@@ -23342,6 +23547,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!23 &8057
 MeshRenderer:
@@ -23390,6 +23596,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!23 &8062
 MeshRenderer:
@@ -23438,6 +23645,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!23 &8073
 MeshRenderer:
@@ -23486,6 +23694,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!29 &8078
 OcclusionCullingSettings:
@@ -26126,14 +26335,14 @@ Light:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 424}
   m_Enabled: 1
-  serializedVersion: 11
+  serializedVersion: 12
   m_Type: 1
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Intensity: 1.2
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
-  m_CookieSize: 10
+  m_CookieSize2D: {x: 10, y: 10}
   m_Shadows:
     m_Type: 0
     m_Resolution: -1
@@ -32853,6 +33062,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!33 &652489341
 MeshFilter:
@@ -33136,6 +33346,140 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 17168e4336c6d1c458e6e19ed3a7da6a, type: 3}
+--- !u!1001 &744310572
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 4727}
+    m_Modifications:
+    - target: {fileID: 2560485491929074682, guid: d495a770332c3374591b06ae7e6799cb,
+        type: 3}
+      propertyPath: m_Name
+      value: Halloween2017_Town_Event (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3106179152240122964, guid: d495a770332c3374591b06ae7e6799cb,
+        type: 3}
+      propertyPath: DateDefinitionKey.Id
+      value: 51
+      objectReference: {fileID: 0}
+    - target: {fileID: 4395506665886848258, guid: d495a770332c3374591b06ae7e6799cb,
+        type: 3}
+      propertyPath: DateDefinitionKey.Id
+      value: 51
+      objectReference: {fileID: 0}
+    - target: {fileID: 6213056803162192390, guid: d495a770332c3374591b06ae7e6799cb,
+        type: 3}
+      propertyPath: DateDefinitionKey.Id
+      value: 51
+      objectReference: {fileID: 0}
+    - target: {fileID: 6786209046201848712, guid: d495a770332c3374591b06ae7e6799cb,
+        type: 3}
+      propertyPath: DateDefinitionKey.Id
+      value: 51
+      objectReference: {fileID: 0}
+    - target: {fileID: 6786209046201848712, guid: d495a770332c3374591b06ae7e6799cb,
+        type: 3}
+      propertyPath: 'DisableData.Array.data[0]'
+      value: 
+      objectReference: {fileID: 658}
+    - target: {fileID: 6786209046201848712, guid: d495a770332c3374591b06ae7e6799cb,
+        type: 3}
+      propertyPath: 'DisableData.Array.data[1]'
+      value: 
+      objectReference: {fileID: 3322}
+    - target: {fileID: 6786209046201848712, guid: d495a770332c3374591b06ae7e6799cb,
+        type: 3}
+      propertyPath: 'DisableData.Array.data[2]'
+      value: 
+      objectReference: {fileID: 519}
+    - target: {fileID: 6786209046201848712, guid: d495a770332c3374591b06ae7e6799cb,
+        type: 3}
+      propertyPath: SwapMaterialData.Array.data[0].SwapTarget
+      value: 
+      objectReference: {fileID: 1424995991023326886}
+    - target: {fileID: 6786209046201848712, guid: d495a770332c3374591b06ae7e6799cb,
+        type: 3}
+      propertyPath: SwapMaterialData.Array.data[1].SwapTarget
+      value: 
+      objectReference: {fileID: 3140}
+    - target: {fileID: 6786209046201848712, guid: d495a770332c3374591b06ae7e6799cb,
+        type: 3}
+      propertyPath: SwapMaterialData.Array.data[2].SwapTarget
+      value: 
+      objectReference: {fileID: 699695684881005205}
+    - target: {fileID: 6786209046201848712, guid: d495a770332c3374591b06ae7e6799cb,
+        type: 3}
+      propertyPath: SwapMaterialData.Array.data[3].SwapTarget
+      value: 
+      objectReference: {fileID: 699695684881005206}
+    - target: {fileID: 6786209046201848712, guid: d495a770332c3374591b06ae7e6799cb,
+        type: 3}
+      propertyPath: SwapMaterialData.Array.data[4].SwapTarget
+      value: 
+      objectReference: {fileID: 4121660755077557991}
+    - target: {fileID: 6788967132561204881, guid: d495a770332c3374591b06ae7e6799cb,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6788967132561204881, guid: d495a770332c3374591b06ae7e6799cb,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6788967132561204881, guid: d495a770332c3374591b06ae7e6799cb,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6788967132561204881, guid: d495a770332c3374591b06ae7e6799cb,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6788967132561204881, guid: d495a770332c3374591b06ae7e6799cb,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6788967132561204881, guid: d495a770332c3374591b06ae7e6799cb,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6788967132561204881, guid: d495a770332c3374591b06ae7e6799cb,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6788967132561204881, guid: d495a770332c3374591b06ae7e6799cb,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6788967132561204881, guid: d495a770332c3374591b06ae7e6799cb,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6788967132561204881, guid: d495a770332c3374591b06ae7e6799cb,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: d495a770332c3374591b06ae7e6799cb, type: 3}
+--- !u!4 &744310573 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6788967132561204881, guid: d495a770332c3374591b06ae7e6799cb,
+    type: 3}
+  m_PrefabInstance: {fileID: 744310572}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &745993412
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -39511,6 +39855,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!33 &1112067726
 MeshFilter:
@@ -39733,6 +40078,120 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1c5d47bf3dc021c46969a8625d5fb712, type: 3}
+--- !u!1001 &1163618558
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 4727}
+    m_Modifications:
+    - target: {fileID: 2560485491929074682, guid: d495a770332c3374591b06ae7e6799cb,
+        type: 3}
+      propertyPath: m_Name
+      value: Halloween2017_Town_Event
+      objectReference: {fileID: 0}
+    - target: {fileID: 6786209046201848712, guid: d495a770332c3374591b06ae7e6799cb,
+        type: 3}
+      propertyPath: 'DisableData.Array.data[0]'
+      value: 
+      objectReference: {fileID: 658}
+    - target: {fileID: 6786209046201848712, guid: d495a770332c3374591b06ae7e6799cb,
+        type: 3}
+      propertyPath: 'DisableData.Array.data[1]'
+      value: 
+      objectReference: {fileID: 3322}
+    - target: {fileID: 6786209046201848712, guid: d495a770332c3374591b06ae7e6799cb,
+        type: 3}
+      propertyPath: 'DisableData.Array.data[2]'
+      value: 
+      objectReference: {fileID: 519}
+    - target: {fileID: 6786209046201848712, guid: d495a770332c3374591b06ae7e6799cb,
+        type: 3}
+      propertyPath: SwapMaterialData.Array.data[0].SwapTarget
+      value: 
+      objectReference: {fileID: 1424995991023326886}
+    - target: {fileID: 6786209046201848712, guid: d495a770332c3374591b06ae7e6799cb,
+        type: 3}
+      propertyPath: SwapMaterialData.Array.data[1].SwapTarget
+      value: 
+      objectReference: {fileID: 3140}
+    - target: {fileID: 6786209046201848712, guid: d495a770332c3374591b06ae7e6799cb,
+        type: 3}
+      propertyPath: SwapMaterialData.Array.data[2].SwapTarget
+      value: 
+      objectReference: {fileID: 699695684881005205}
+    - target: {fileID: 6786209046201848712, guid: d495a770332c3374591b06ae7e6799cb,
+        type: 3}
+      propertyPath: SwapMaterialData.Array.data[3].SwapTarget
+      value: 
+      objectReference: {fileID: 699695684881005206}
+    - target: {fileID: 6786209046201848712, guid: d495a770332c3374591b06ae7e6799cb,
+        type: 3}
+      propertyPath: SwapMaterialData.Array.data[4].SwapTarget
+      value: 
+      objectReference: {fileID: 4121660755077557991}
+    - target: {fileID: 6788967132561204881, guid: d495a770332c3374591b06ae7e6799cb,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6788967132561204881, guid: d495a770332c3374591b06ae7e6799cb,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6788967132561204881, guid: d495a770332c3374591b06ae7e6799cb,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6788967132561204881, guid: d495a770332c3374591b06ae7e6799cb,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6788967132561204881, guid: d495a770332c3374591b06ae7e6799cb,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6788967132561204881, guid: d495a770332c3374591b06ae7e6799cb,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6788967132561204881, guid: d495a770332c3374591b06ae7e6799cb,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6788967132561204881, guid: d495a770332c3374591b06ae7e6799cb,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6788967132561204881, guid: d495a770332c3374591b06ae7e6799cb,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6788967132561204881, guid: d495a770332c3374591b06ae7e6799cb,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: d495a770332c3374591b06ae7e6799cb, type: 3}
+--- !u!4 &1163618559 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6788967132561204881, guid: d495a770332c3374591b06ae7e6799cb,
+    type: 3}
+  m_PrefabInstance: {fileID: 1163618558}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1164757535
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -40958,6 +41417,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!33 &1370615579
 MeshFilter:
@@ -41895,6 +42355,140 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 884bc92617a501f4e8269afde553568e, type: 3}
+--- !u!1001 &1430080919
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 4727}
+    m_Modifications:
+    - target: {fileID: 2560485491929074682, guid: d495a770332c3374591b06ae7e6799cb,
+        type: 3}
+      propertyPath: m_Name
+      value: Halloween2017_Town_Event (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3106179152240122964, guid: d495a770332c3374591b06ae7e6799cb,
+        type: 3}
+      propertyPath: DateDefinitionKey.Id
+      value: 52
+      objectReference: {fileID: 0}
+    - target: {fileID: 4395506665886848258, guid: d495a770332c3374591b06ae7e6799cb,
+        type: 3}
+      propertyPath: DateDefinitionKey.Id
+      value: 52
+      objectReference: {fileID: 0}
+    - target: {fileID: 6213056803162192390, guid: d495a770332c3374591b06ae7e6799cb,
+        type: 3}
+      propertyPath: DateDefinitionKey.Id
+      value: 52
+      objectReference: {fileID: 0}
+    - target: {fileID: 6786209046201848712, guid: d495a770332c3374591b06ae7e6799cb,
+        type: 3}
+      propertyPath: DateDefinitionKey.Id
+      value: 52
+      objectReference: {fileID: 0}
+    - target: {fileID: 6786209046201848712, guid: d495a770332c3374591b06ae7e6799cb,
+        type: 3}
+      propertyPath: 'DisableData.Array.data[0]'
+      value: 
+      objectReference: {fileID: 658}
+    - target: {fileID: 6786209046201848712, guid: d495a770332c3374591b06ae7e6799cb,
+        type: 3}
+      propertyPath: 'DisableData.Array.data[1]'
+      value: 
+      objectReference: {fileID: 3322}
+    - target: {fileID: 6786209046201848712, guid: d495a770332c3374591b06ae7e6799cb,
+        type: 3}
+      propertyPath: 'DisableData.Array.data[2]'
+      value: 
+      objectReference: {fileID: 519}
+    - target: {fileID: 6786209046201848712, guid: d495a770332c3374591b06ae7e6799cb,
+        type: 3}
+      propertyPath: SwapMaterialData.Array.data[0].SwapTarget
+      value: 
+      objectReference: {fileID: 1424995991023326886}
+    - target: {fileID: 6786209046201848712, guid: d495a770332c3374591b06ae7e6799cb,
+        type: 3}
+      propertyPath: SwapMaterialData.Array.data[1].SwapTarget
+      value: 
+      objectReference: {fileID: 3140}
+    - target: {fileID: 6786209046201848712, guid: d495a770332c3374591b06ae7e6799cb,
+        type: 3}
+      propertyPath: SwapMaterialData.Array.data[2].SwapTarget
+      value: 
+      objectReference: {fileID: 699695684881005205}
+    - target: {fileID: 6786209046201848712, guid: d495a770332c3374591b06ae7e6799cb,
+        type: 3}
+      propertyPath: SwapMaterialData.Array.data[3].SwapTarget
+      value: 
+      objectReference: {fileID: 699695684881005206}
+    - target: {fileID: 6786209046201848712, guid: d495a770332c3374591b06ae7e6799cb,
+        type: 3}
+      propertyPath: SwapMaterialData.Array.data[4].SwapTarget
+      value: 
+      objectReference: {fileID: 4121660755077557991}
+    - target: {fileID: 6788967132561204881, guid: d495a770332c3374591b06ae7e6799cb,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6788967132561204881, guid: d495a770332c3374591b06ae7e6799cb,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6788967132561204881, guid: d495a770332c3374591b06ae7e6799cb,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6788967132561204881, guid: d495a770332c3374591b06ae7e6799cb,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6788967132561204881, guid: d495a770332c3374591b06ae7e6799cb,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6788967132561204881, guid: d495a770332c3374591b06ae7e6799cb,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6788967132561204881, guid: d495a770332c3374591b06ae7e6799cb,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6788967132561204881, guid: d495a770332c3374591b06ae7e6799cb,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6788967132561204881, guid: d495a770332c3374591b06ae7e6799cb,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6788967132561204881, guid: d495a770332c3374591b06ae7e6799cb,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: d495a770332c3374591b06ae7e6799cb, type: 3}
+--- !u!4 &1430080920 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6788967132561204881, guid: d495a770332c3374591b06ae7e6799cb,
+    type: 3}
+  m_PrefabInstance: {fileID: 1430080919}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1444448395
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -42920,6 +43514,140 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9017bdcfd9bb5be439bced39e8bfc97a, type: 3}
+--- !u!1001 &1551036115
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 4727}
+    m_Modifications:
+    - target: {fileID: 2560485491929074682, guid: d495a770332c3374591b06ae7e6799cb,
+        type: 3}
+      propertyPath: m_Name
+      value: Halloween2017_Town_Event (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3106179152240122964, guid: d495a770332c3374591b06ae7e6799cb,
+        type: 3}
+      propertyPath: DateDefinitionKey.Id
+      value: 53
+      objectReference: {fileID: 0}
+    - target: {fileID: 4395506665886848258, guid: d495a770332c3374591b06ae7e6799cb,
+        type: 3}
+      propertyPath: DateDefinitionKey.Id
+      value: 53
+      objectReference: {fileID: 0}
+    - target: {fileID: 6213056803162192390, guid: d495a770332c3374591b06ae7e6799cb,
+        type: 3}
+      propertyPath: DateDefinitionKey.Id
+      value: 53
+      objectReference: {fileID: 0}
+    - target: {fileID: 6786209046201848712, guid: d495a770332c3374591b06ae7e6799cb,
+        type: 3}
+      propertyPath: DateDefinitionKey.Id
+      value: 53
+      objectReference: {fileID: 0}
+    - target: {fileID: 6786209046201848712, guid: d495a770332c3374591b06ae7e6799cb,
+        type: 3}
+      propertyPath: 'DisableData.Array.data[0]'
+      value: 
+      objectReference: {fileID: 658}
+    - target: {fileID: 6786209046201848712, guid: d495a770332c3374591b06ae7e6799cb,
+        type: 3}
+      propertyPath: 'DisableData.Array.data[1]'
+      value: 
+      objectReference: {fileID: 3322}
+    - target: {fileID: 6786209046201848712, guid: d495a770332c3374591b06ae7e6799cb,
+        type: 3}
+      propertyPath: 'DisableData.Array.data[2]'
+      value: 
+      objectReference: {fileID: 519}
+    - target: {fileID: 6786209046201848712, guid: d495a770332c3374591b06ae7e6799cb,
+        type: 3}
+      propertyPath: SwapMaterialData.Array.data[0].SwapTarget
+      value: 
+      objectReference: {fileID: 1424995991023326886}
+    - target: {fileID: 6786209046201848712, guid: d495a770332c3374591b06ae7e6799cb,
+        type: 3}
+      propertyPath: SwapMaterialData.Array.data[1].SwapTarget
+      value: 
+      objectReference: {fileID: 3140}
+    - target: {fileID: 6786209046201848712, guid: d495a770332c3374591b06ae7e6799cb,
+        type: 3}
+      propertyPath: SwapMaterialData.Array.data[2].SwapTarget
+      value: 
+      objectReference: {fileID: 699695684881005205}
+    - target: {fileID: 6786209046201848712, guid: d495a770332c3374591b06ae7e6799cb,
+        type: 3}
+      propertyPath: SwapMaterialData.Array.data[3].SwapTarget
+      value: 
+      objectReference: {fileID: 699695684881005206}
+    - target: {fileID: 6786209046201848712, guid: d495a770332c3374591b06ae7e6799cb,
+        type: 3}
+      propertyPath: SwapMaterialData.Array.data[4].SwapTarget
+      value: 
+      objectReference: {fileID: 4121660755077557991}
+    - target: {fileID: 6788967132561204881, guid: d495a770332c3374591b06ae7e6799cb,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6788967132561204881, guid: d495a770332c3374591b06ae7e6799cb,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6788967132561204881, guid: d495a770332c3374591b06ae7e6799cb,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6788967132561204881, guid: d495a770332c3374591b06ae7e6799cb,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6788967132561204881, guid: d495a770332c3374591b06ae7e6799cb,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6788967132561204881, guid: d495a770332c3374591b06ae7e6799cb,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6788967132561204881, guid: d495a770332c3374591b06ae7e6799cb,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6788967132561204881, guid: d495a770332c3374591b06ae7e6799cb,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6788967132561204881, guid: d495a770332c3374591b06ae7e6799cb,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6788967132561204881, guid: d495a770332c3374591b06ae7e6799cb,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: d495a770332c3374591b06ae7e6799cb, type: 3}
+--- !u!4 &1551036116 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6788967132561204881, guid: d495a770332c3374591b06ae7e6799cb,
+    type: 3}
+  m_PrefabInstance: {fileID: 1551036115}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1564674936
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -49491,6 +50219,18 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a01018b0ad10ecf4e92cde555f8494cc, type: 3}
+--- !u!1 &699695684881005205 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8608289931470489759, guid: a01018b0ad10ecf4e92cde555f8494cc,
+    type: 3}
+  m_PrefabInstance: {fileID: 699695684881005204}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &699695684881005206 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 380513486755747355, guid: a01018b0ad10ecf4e92cde555f8494cc,
+    type: 3}
+  m_PrefabInstance: {fileID: 699695684881005204}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &716831049351001907
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -54777,6 +55517,12 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f68fe96e87622fe23a3f141259a79a1a, type: 3}
+--- !u!1 &4121660755077557991 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8711602808124519499, guid: f68fe96e87622fe23a3f141259a79a1a,
+    type: 3}
+  m_PrefabInstance: {fileID: 4121660755077557990}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &4123337026673236565 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4064854661549240041, guid: 27a2cad7ab552677680ab382aacca8ac,

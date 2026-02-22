@@ -2607,7 +2607,7 @@ ParticleSystem:
     vectorLabel1_3: W
 --- !u!199 &199829452427152483
 ParticleSystemRenderer:
-  serializedVersion: 6
+  serializedVersion: 7
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -2654,6 +2654,7 @@ ParticleSystemRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_RenderMode: 4
   m_MeshDistribution: 0
   m_SortMode: 0
@@ -2685,7 +2686,6 @@ ParticleSystemRenderer:
   m_MeshWeighting1: 1
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
-  m_MaskInteraction: 0
 --- !u!114 &114571533105546545
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5362,7 +5362,7 @@ ParticleSystem:
     vectorLabel1_3: W
 --- !u!199 &199591589115899658
 ParticleSystemRenderer:
-  serializedVersion: 6
+  serializedVersion: 7
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -5409,6 +5409,7 @@ ParticleSystemRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_RenderMode: 0
   m_MeshDistribution: 0
   m_SortMode: 0
@@ -5440,7 +5441,6 @@ ParticleSystemRenderer:
   m_MeshWeighting1: 1
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
-  m_MaskInteraction: 0
 --- !u!114 &114595807097524859
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5495,7 +5495,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1337223215144170}
-  m_Mesh: {fileID: 4300000, guid: dc5d978dcf63e924691155fa21736afe, type: 2}
+  m_Mesh: {fileID: 1646766584305008040, guid: d887b562a822d504cb9d3f96c64bd591, type: 3}
 --- !u!23 &23383002799635281
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -5543,6 +5543,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!1 &1383355048291362
 GameObject:
@@ -5555,7 +5556,8 @@ GameObject:
   - component: {fileID: 4770938020508626}
   - component: {fileID: 33105854835343993}
   - component: {fileID: 23208565496228626}
-  m_Layer: 0
+  - component: {fileID: 7675630164199675373}
+  m_Layer: 30
   m_Name: mouthBottom
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5584,7 +5586,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1383355048291362}
-  m_Mesh: {fileID: 4300000, guid: 6342e919e9cf25a46a9ff46b2ff87013, type: 2}
+  m_Mesh: {fileID: 3631265552201738928, guid: 9fed65088ff405c45b1377c61ad65474, type: 3}
 --- !u!23 &23208565496228626
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -5632,7 +5634,29 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &7675630164199675373
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1383355048291362}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.5152447, y: 0.17784795, z: 0.1527529}
+  m_Center: {x: -0.017758794, y: 0.5409742, z: 0.16420577}
 --- !u!1 &1686178203537382
 GameObject:
   m_ObjectHideFlags: 0
@@ -5644,7 +5668,8 @@ GameObject:
   - component: {fileID: 4148676532659431}
   - component: {fileID: 33403072671979469}
   - component: {fileID: 23181154178067749}
-  m_Layer: 0
+  - component: {fileID: 8073331512106648480}
+  m_Layer: 30
   m_Name: face
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5673,7 +5698,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1686178203537382}
-  m_Mesh: {fileID: 4300000, guid: b2e9839816550264baef598fd6fb7c21, type: 2}
+  m_Mesh: {fileID: 6559932801383998556, guid: 018ba708516cd794f9888fb1523c9818, type: 3}
 --- !u!23 &23181154178067749
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -5721,7 +5746,29 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &8073331512106648480
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1686178203537382}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.87099093, y: 0.8467306, z: 0.2795062}
+  m_Center: {x: -0.011498958, y: 0.73688287, z: 0.13263437}
 --- !u!1 &1847008295386541
 GameObject:
   m_ObjectHideFlags: 0
@@ -8307,7 +8354,7 @@ ParticleSystem:
     vectorLabel1_3: W
 --- !u!199 &199331164411189402
 ParticleSystemRenderer:
-  serializedVersion: 6
+  serializedVersion: 7
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -8354,6 +8401,7 @@ ParticleSystemRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_RenderMode: 4
   m_MeshDistribution: 0
   m_SortMode: 0
@@ -8385,7 +8433,6 @@ ParticleSystemRenderer:
   m_MeshWeighting1: 1
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
-  m_MaskInteraction: 0
 --- !u!114 &114363789439637788
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8610,7 +8657,7 @@ ParticleSystem:
         m_RotationOrder: 4
     startSizeY:
       serializedVersion: 2
-      minMaxState: 0
+      minMaxState: 3
       scalar: 1
       minScalar: 1
       maxCurve:
@@ -8627,7 +8674,7 @@ ParticleSystem:
         m_RotationOrder: 4
     startSizeZ:
       serializedVersion: 2
-      minMaxState: 0
+      minMaxState: 3
       scalar: 1
       minScalar: 1
       maxCurve:
@@ -10989,7 +11036,7 @@ ParticleSystem:
     vectorLabel1_3: W
 --- !u!199 &199059216295265573
 ParticleSystemRenderer:
-  serializedVersion: 6
+  serializedVersion: 7
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -11036,6 +11083,7 @@ ParticleSystemRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_RenderMode: 4
   m_MeshDistribution: 0
   m_SortMode: 0
@@ -11067,7 +11115,6 @@ ParticleSystemRenderer:
   m_MeshWeighting1: 1
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
-  m_MaskInteraction: 0
 --- !u!114 &114215115216287077
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11092,7 +11139,8 @@ GameObject:
   - component: {fileID: 4629357667795729}
   - component: {fileID: 33357790448214698}
   - component: {fileID: 23854141287680734}
-  m_Layer: 0
+  - component: {fileID: 6402685686690788892}
+  m_Layer: 30
   m_Name: tablet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11121,7 +11169,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1950424981378070}
-  m_Mesh: {fileID: 4300000, guid: e88ee6db1c4c4204fa9384ba8e132660, type: 2}
+  m_Mesh: {fileID: 4999432379968118326, guid: f21131384877d3e49a8fd9a9ec4905aa, type: 3}
 --- !u!23 &23854141287680734
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -11148,7 +11196,6 @@ MeshRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: a02314de44ab6964f954154c6f40d6e1, type: 2}
-  - {fileID: 2100000, guid: a02314de44ab6964f954154c6f40d6e1, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -11170,7 +11217,29 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &6402685686690788892
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1950424981378070}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 2.3391414, y: 1.7098494, z: 0.98143756}
+  m_Center: {x: -0.0000063180923, y: 0.8265517, z: -0.18422292}
 --- !u!1 &1952667999996145
 GameObject:
   m_ObjectHideFlags: 0
@@ -13844,7 +13913,7 @@ ParticleSystem:
     vectorLabel1_3: W
 --- !u!199 &199305398891063713
 ParticleSystemRenderer:
-  serializedVersion: 6
+  serializedVersion: 7
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -13891,6 +13960,7 @@ ParticleSystemRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_RenderMode: 4
   m_MeshDistribution: 0
   m_SortMode: 0
@@ -13922,7 +13992,6 @@ ParticleSystemRenderer:
   m_MeshWeighting1: 1
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
-  m_MaskInteraction: 0
 --- !u!114 &114112888642706328
 MonoBehaviour:
   m_ObjectHideFlags: 0

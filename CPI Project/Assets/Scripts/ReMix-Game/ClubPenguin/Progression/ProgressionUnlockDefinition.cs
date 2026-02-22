@@ -33,6 +33,8 @@ namespace ClubPenguin.Progression
 
 		public TemplateDefinition[] equipmentTemplates = new TemplateDefinition[0];
 
+		public TemplateDefinition[] equipmentInstances = new TemplateDefinition[0];
+
 		public LotDefinition[] lots = new LotDefinition[0];
 
 		public DecorationDefinition[] decorationPurchaseRights = new DecorationDefinition[0];
