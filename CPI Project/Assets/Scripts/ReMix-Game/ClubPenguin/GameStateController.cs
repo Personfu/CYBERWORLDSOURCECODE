@@ -198,7 +198,7 @@ namespace ClubPenguin
 			}
 			GameSettings gameSettings = Service.Get<GameSettings>();
 			gameSettings.FirstSession = false;
-			yield return ClubPenguin.Video.Video.PlayFullScreenVideo("Trailer/IntroVideo.mp4");
+			yield return ClubPenguin.Video.Video.PlayFullScreenVideo("IntroVideo/IntroVideo.webm");
 			isPlayingIntroVideo = false;
 			Service.Get<SceneTransitionService>().LoadScene("Home", "Loading");
 		}

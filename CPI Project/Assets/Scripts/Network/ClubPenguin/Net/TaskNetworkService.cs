@@ -1,7 +1,9 @@
 using ClubPenguin.Net.Client;
 using ClubPenguin.Net.Domain;
 using Disney.LaunchPadFramework;
+using Disney.Kelowna.Common;
 using Disney.MobileNetwork;
+using hg.ApiWebKit;
 using hg.ApiWebKit.core.http;
 using UnityEngine;
 
@@ -22,17 +24,51 @@ namespace ClubPenguin.Net
 
 		public void ClaimReward(string taskId)
 		{
+			ICommonGameSettings commonGameSettings = Service.Get<ICommonGameSettings>();
+			if (clubPenguinClient.OfflineMode && string.IsNullOrEmpty(commonGameSettings.CPAPIServicehost))
+			{
+				OfflineDatabase offlineDatabase = Service.Get<OfflineDatabase>();
+				IOfflineDefinitionLoader offlineDefinitionLoader = Service.Get<IOfflineDefinitionLoader>();
+				ClaimTaskRewardResponse responseBody;
+				if (ClaimTaskRewardOperation.ClaimTaskReward(taskId, out responseBody, offlineDatabase, offlineDefinitionLoader))
+				{
+					ClubPenguin.Net.Offline.PlayerAssets assets = offlineDatabase.Read<ClubPenguin.Net.Offline.PlayerAssets>();
+					Service.Get<EventDispatcher>().DispatchEvent(new RewardServiceEvents.MyAssetsReceived(assets.Assets));
+					Reward reward = null;
+					if (responseBody != null && responseBody.reward != null)
+					{
+						reward = responseBody.reward.ToReward();
+					}
+					if (reward != null)
+					{
+						Service.Get<EventDispatcher>().DispatchEvent(new RewardServiceEvents.MyRewardEarned(RewardSource.TASK, taskId, reward));
+					}
+					handleCPResponse(responseBody);
+				}
+				return;
+			}
 			APICall<ClaimTaskRewardOperation> aPICall = clubPenguinClient.TaskApi.ClaimTaskReward(taskId);
 			aPICall.OnResponse += delegate(ClaimTaskRewardOperation op, HttpResponse httpResponse)
 			{
-				Reward reward = op.ResponseBody.reward.ToReward();
+				Reward reward = null;
+				if (op.ResponseBody != null && op.ResponseBody.reward != null)
+				{
+					reward = op.ResponseBody.reward.ToReward();
+				}
 				if (reward != null)
 				{
 					Service.Get<EventDispatcher>().DispatchEvent(new RewardServiceEvents.MyRewardEarned(RewardSource.TASK, taskId, reward));
 				}
 				handleCPResponse(op.ResponseBody);
 			};
-			aPICall.OnError += handleCPResponseError;
+			aPICall.OnError += delegate(ClaimTaskRewardOperation op, HttpResponse response)
+			{
+				if (clubPenguinClient.OfflineMode && response != null && response.StatusCode == HttpStatusCode.Gone)
+				{
+					return;
+				}
+				handleCPResponseError(op, response);
+			};
 			aPICall.Execute();
 		}
 

@@ -2,7 +2,6 @@
     "name": "UnityShared",
     "rootNamespace": "",
     "references": [
-        "BouncyCastle.Crypto",
         "Foundation",
         "FoundationUnity",
         "LitJson",

@@ -77,7 +77,7 @@ namespace ClubPenguin
 				SplashScreen.SetActive(false);
 			}
 			Service.Get<ICPSwrveService>().Action("intro_video_fresh_boot", "start");
-			yield return ClubPenguin.Video.Video.PlayFullScreenVideo("Trailer/IntroVideo.mp4");
+			yield return ClubPenguin.Video.Video.PlayFullScreenVideo("IntroVideo/IntroVideo.webm");
 			loadScene();
 		}
 

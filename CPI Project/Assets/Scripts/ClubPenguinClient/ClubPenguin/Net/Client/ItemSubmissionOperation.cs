@@ -66,6 +66,19 @@ namespace ClubPenguin.Net.Client
             pa.Assets.coins += (int)data.SubmissionRewardCoins;
             offlineDatabase.Write(pa);
 
+            const string taskId = "ClothingCatalogSubmission";
+            TaskProgress taskProgress = default(TaskProgress);
+            taskProgress.taskId = taskId;
+            taskProgress.counter = 1;
+            taskProgress.claimed = false;
+            TaskProgress existing;
+            if (SetTaskProgressOperation.TryGetOfflineTaskProgress(offlineDatabase, taskId, out existing))
+            {
+                taskProgress.counter = existing.counter + 1;
+                taskProgress.claimed = existing.claimed;
+            }
+            SetTaskProgressOperation.SetOfflineTaskProgress(offlineDatabase, taskProgress);
+
             offlineDatabase.Write(data);
 
             Response = new ItemSubmissionResponse();

@@ -145,12 +145,12 @@ namespace ClubPenguin.DailyChallenge
 		public void ClaimTaskReward(ClubPenguin.Task.Task task)
 		{
 			Service.Get<INetworkServicesManager>().TaskService.ClaimReward(task.Id);
-			taskService.SetRewardClaimed(task);
 		}
 
 		private bool onTaskCounterChanged(TaskNetworkServiceEvents.TaskCounterChanged evt)
 		{
 			taskService.SetTaskProgress(evt.TaskId, evt.Counter);
+			upsertServerTaskProgress(evt.TaskId, evt.Counter, null);
 			return false;
 		}
 
@@ -163,6 +163,29 @@ namespace ClubPenguin.DailyChallenge
 				taskService.SetTaskProgress(taskProgress.taskId, taskProgress.counter, taskProgress.claimed);
 			}
 			return false;
+		}
+
+		private void upsertServerTaskProgress(string taskId, int counter, bool? claimed)
+		{
+			for (int i = 0; i < serverTaskProgress.Count; i++)
+			{
+				if (serverTaskProgress[i].taskId == taskId)
+				{
+					TaskProgress value = serverTaskProgress[i];
+					value.counter = counter;
+					if (claimed.HasValue)
+					{
+						value.claimed = claimed.Value;
+					}
+					serverTaskProgress[i] = value;
+					return;
+				}
+			}
+			TaskProgress item = default(TaskProgress);
+			item.taskId = taskId;
+			item.counter = counter;
+			item.claimed = (claimed.HasValue && claimed.Value);
+			serverTaskProgress.Add(item);
 		}
 	}
 }

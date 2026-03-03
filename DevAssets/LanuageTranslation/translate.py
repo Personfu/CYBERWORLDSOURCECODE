@@ -1,11 +1,12 @@
 import os
+
+os.environ.setdefault("HF_HUB_DISABLE_SYMLINKS_WARNING", "1")
+
 import sys
 import json
 import torch
 from transformers import MarianMTModel, MarianTokenizer
 from tqdm import tqdm
-
-os.environ["HF_HUB_DISABLE_SYMLINKS_WARNING"] = "1"
 
 if os.name == "nt":
     try:
@@ -21,6 +22,15 @@ DEFAULT_BATCH_SIZE_CPU = 32
 DEFAULT_BATCH_SIZE_GPU = 32
 
 USE_FP16_ON_GPU = True
+
+USE_GREEDY_DECODE = True
+
+env_cpu_threads = os.environ.get("TRANSLATE_CPU_THREADS")
+if env_cpu_threads:
+    try:
+        torch.set_num_threads(max(1, int(env_cpu_threads)))
+    except Exception:
+        pass
 
 languages = {
     "es_LA": "es",
@@ -78,10 +88,17 @@ def translate_batch(batch, model, tokenizer, device):
     results = {}
     texts = [v for _, v in batch]
     keys = [k for k, _ in batch]
+
     encoded = tokenizer(texts, return_tensors="pt", truncation=True, padding=True)
     encoded = {k: v.to(device) for k, v in encoded.items()}
-    with torch.no_grad():
-        output = model.generate(**encoded)
+
+    gen_kwargs = {}
+    if USE_GREEDY_DECODE:
+        gen_kwargs["num_beams"] = 1
+
+    with torch.inference_mode():
+        output = model.generate(**encoded, **gen_kwargs)
+
     decoded = tokenizer.batch_decode(output, skip_special_tokens=True)
     for k, t in zip(keys, decoded):
         results[k] = t
@@ -106,7 +123,10 @@ def translate_language(data, lang_code, model_code, device):
     model.eval()
 
     items = list(data.items())
-    batches = [items[i:i+BATCH_SIZE] for i in range(0, len(items), BATCH_SIZE)]
+    total_entries = len(items)
+    batches = [items[i:i+BATCH_SIZE] for i in range(0, total_entries, BATCH_SIZE)]
+    print(f"{lang_code}: {total_entries} entries, {len(batches)} batches\n")
+
     output_data = {}
 
     for batch in tqdm(batches, desc=f"Translating {lang_code}", ncols=100):

@@ -501,6 +501,12 @@ private void ReplaceAnimClipSpriteReferencesYAML_SingleFile(string animFilePath,
             string path = AssetDatabase.GUIDToAssetPath(guid);
             EditorUtility.DisplayProgressBar("Searching sprites", path, (float)progress / total);
 
+            if (path == texturePath)
+            {
+                progress++;
+                continue;
+            }
+
             Sprite sprite = AssetDatabase.LoadAssetAtPath<Sprite>(path);
             if (sprite != null && sprite.texture == selectedTexture)
             {

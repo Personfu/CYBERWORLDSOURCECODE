@@ -20,6 +20,10 @@ namespace ClubPenguin
 
 		private EventChannel eventChannel;
 
+		private readonly HashSet<long> missingThemeIdsLogged = new HashSet<long>();
+
+		private readonly HashSet<long> missingScheduleIdsLogged = new HashSet<long>();
+
 		public CatalogCache cache
 		{
 			get;
@@ -68,9 +72,14 @@ namespace ClubPenguin
 			CatalogThemeScheduleDefinition scheduleById = GetScheduleById(id);
 			if (scheduleById == null)
 			{
-				return null;
+				return GetFallbackTheme();
 			}
-			return GetThemeById(scheduleById.CatalogThemeId);
+			CatalogThemeDefinition themeById = GetThemeById(scheduleById.CatalogThemeId);
+			if (themeById != null)
+			{
+				return themeById;
+			}
+			return GetFallbackTheme();
 		}
 
 		public CatalogThemeDefinition GetThemeById(long themeId)
@@ -83,12 +92,26 @@ namespace ClubPenguin
 				{
 					result = dictionary[(int)themeId];
 				}
-				else
+				else if (!missingThemeIdsLogged.Contains(themeId))
 				{
 					Log.LogErrorFormatted(this, "Unable to locate theme definition with id {0}.", themeId);
+					missingThemeIdsLogged.Add(themeId);
 				}
 			}
 			return result;
+		}
+
+		private CatalogThemeDefinition GetFallbackTheme()
+		{
+			Dictionary<int, CatalogThemeDefinition> dictionary = Service.Get<GameData>().Get<Dictionary<int, CatalogThemeDefinition>>();
+			if (dictionary != null && dictionary.Count > 0)
+			{
+				foreach (CatalogThemeDefinition value in dictionary.Values)
+				{
+					return value;
+				}
+			}
+			return null;
 		}
 
 		public CatalogThemeScheduleDefinition GetScheduleById(long scheduleId)
@@ -101,9 +124,10 @@ namespace ClubPenguin
 				{
 					result = dictionary[(int)scheduleId];
 				}
-				else
+				else if (!missingScheduleIdsLogged.Contains(scheduleId))
 				{
 					Log.LogErrorFormatted(this, "Unable to locate schedule definition with id {0}.", scheduleId);
+					missingScheduleIdsLogged.Add(scheduleId);
 				}
 			}
 			return result;
@@ -303,9 +327,12 @@ namespace ClubPenguin
 				CurrentThemeData currentThemeData = evt.Themes[0];
 				CatalogThemeDefinition themeByScheduelId = Service.Get<CatalogServiceProxy>().GetThemeByScheduelId(currentThemeData.scheduledThemeChallengeId);
 				TaskDefinition clothingCatalogChallenge = Service.Get<TaskService>().ClothingCatalogChallenge;
-				clothingCatalogChallenge.Title = themeByScheduelId.Title;
-				clothingCatalogChallenge.CompletionMessage = themeByScheduelId.CompleteMessage;
-				clothingCatalogChallenge.Description = themeByScheduelId.Description;
+				if (clothingCatalogChallenge != null && themeByScheduelId != null)
+				{
+					clothingCatalogChallenge.Title = themeByScheduelId.Title;
+					clothingCatalogChallenge.CompletionMessage = themeByScheduelId.CompleteMessage;
+					clothingCatalogChallenge.Description = themeByScheduelId.Description;
+				}
 			}
 			return false;
 		}

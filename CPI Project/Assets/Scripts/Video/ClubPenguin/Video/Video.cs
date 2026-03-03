@@ -68,8 +68,19 @@ namespace ClubPenguin.Video
         public IEnumerator Play(string videoPath)
         {
           Debug.Log("Video playback started: " + videoPath);
-          VideoClip clip = ResolveClip(videoPath);
+          VideoClip clip = null;
           string url = null;
+
+#if UNITY_WEBGL && !UNITY_EDITOR
+          url = ResolveUrl(videoPath);
+          if (string.IsNullOrEmpty(url))
+          {
+            Debug.LogWarning("Video not found: " + videoPath);
+            yield break;
+          }
+          Debug.Log("Video URL resolved: " + url);
+#else
+          clip = ResolveClip(videoPath);
           if (clip != null)
           {
             Debug.Log("Video clip resolved from Resources: " + clip.name);
@@ -84,6 +95,7 @@ namespace ClubPenguin.Video
             }
             Debug.Log("Video URL resolved: " + url);
           }
+#endif
 
           GameObject root = new GameObject("VideoPlaybackRoot");
           DontDestroyOnLoad(root);
@@ -167,9 +179,17 @@ namespace ClubPenguin.Video
           bool started = false;
           bool hasError = false;
           bool skipRequested = false;
+          bool playRequested = false;
 
           skipButton.onClick.AddListener(delegate
           {
+#if UNITY_WEBGL && !UNITY_EDITOR
+            if (!started)
+            {
+              playRequested = true;
+              return;
+            }
+#endif
             skipRequested = true;
           });
 
@@ -215,6 +235,44 @@ namespace ClubPenguin.Video
             rawImage.texture = renderTexture;
             aspectFitter.aspectRatio = (float)width / height;
 
+#if UNITY_WEBGL && !UNITY_EDITOR
+            if (player.source == VideoSource.Url)
+            {
+              float prePlayTimer = 0f;
+              while (!playRequested && !hasError)
+              {
+                bool gamepadPressed = false;
+                if (Gamepad.current != null)
+                {
+                  foreach (var control in Gamepad.current.allControls)
+                  {
+                    if (control is UnityEngine.InputSystem.Controls.ButtonControl btn && btn.wasPressedThisFrame)
+                    {
+                      gamepadPressed = true;
+                      break;
+                    }
+                  }
+                }
+
+                if (Keyboard.current != null && Keyboard.current.anyKey.wasPressedThisFrame
+                    || Mouse.current != null && Mouse.current.leftButton.wasPressedThisFrame
+                    || Touchscreen.current != null && Touchscreen.current.primaryTouch.press.wasPressedThisFrame
+                    || gamepadPressed)
+                {
+                  playRequested = true;
+                  break;
+                }
+
+                prePlayTimer += Time.unscaledDeltaTime;
+                if (prePlayTimer >= StartupTimeoutSeconds)
+                {
+                  playRequested = true;
+                  break;
+                }
+                yield return null;
+              }
+            }
+#endif
             player.Play();
 
             float startupTimer = 0f;
@@ -233,11 +291,17 @@ namespace ClubPenguin.Video
                 }
               }
 
-              if (skipRequested
+              bool inputPressed = skipRequested
                   || Keyboard.current != null && Keyboard.current.anyKey.wasPressedThisFrame
                   || Mouse.current != null && Mouse.current.leftButton.wasPressedThisFrame
                   || Touchscreen.current != null && Touchscreen.current.primaryTouch.press.wasPressedThisFrame
-                  || gamepadPressed)
+                  || gamepadPressed;
+
+#if UNITY_WEBGL && !UNITY_EDITOR
+              if (started && inputPressed)
+#else
+              if (inputPressed)
+#endif
               {
                 player.Stop();
                 break;
@@ -308,9 +372,13 @@ namespace ClubPenguin.Video
           {
             resourcePath = resourcePath.Substring(resourcesIndex + "Resources/".Length);
           }
-          if (resourcePath.EndsWith(".mp4"))
+          if (resourcePath.EndsWith(".mp4", System.StringComparison.OrdinalIgnoreCase))
           {
             resourcePath = resourcePath.Substring(0, resourcePath.Length - 4);
+          }
+          else if (resourcePath.EndsWith(".webm", System.StringComparison.OrdinalIgnoreCase))
+          {
+            resourcePath = resourcePath.Substring(0, resourcePath.Length - 5);
           }
 
           return Resources.Load<VideoClip>(resourcePath);

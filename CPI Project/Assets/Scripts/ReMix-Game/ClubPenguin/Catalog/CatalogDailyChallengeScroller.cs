@@ -91,7 +91,10 @@ namespace ClubPenguin.Catalog
 			GameObject gameObject = UnityEngine.Object.Instantiate(ChallengeItem);
 			gameObject.transform.SetParent(scrollRectContent, false);
 			CatalogChallengeItem component = gameObject.GetComponent<CatalogChallengeItem>();
-			component.SetChallengeTheme(themes[currentThemeDataIndex], currentThemeDataIndex);
+			if (component != null)
+			{
+				component.SetChallengeTheme(themes[currentThemeDataIndex], currentThemeDataIndex);
+			}
 			CatalogItemIcon component2 = gameObject.GetComponent<CatalogItemIcon>();
 			CurrentThemeData currentThemeData = themes[currentThemeDataIndex];
 			if (currentThemeData.mostPopularItem.HasValue)

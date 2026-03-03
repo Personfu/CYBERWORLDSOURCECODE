@@ -1,8 +1,11 @@
 using ClubPenguin.Net.Client;
 using ClubPenguin.Net.Domain;
+using ClubPenguin.Net.Offline;
+using Disney.Kelowna.Common;
 using Disney.LaunchPadFramework;
 using Disney.MobileNetwork;
 using hg.ApiWebKit.core.http;
+using System;
 
 namespace ClubPenguin.Net
 {
@@ -130,6 +133,7 @@ namespace ClubPenguin.Net
 
 		private void onSubmitItemResponse(ItemSubmissionOperation operation, HttpResponse response)
 		{
+			trySetOfflineCatalogTaskProgress();
 			CatalogServiceEvents.ItemSubmissionCompleteEvent evt = new CatalogServiceEvents.ItemSubmissionCompleteEvent(operation.Response);
 			Service.Get<EventDispatcher>().DispatchEvent(evt);
 			handleCPResponse(operation.Response);
@@ -181,6 +185,22 @@ namespace ClubPenguin.Net
 		{
 			CatalogServiceEvents.ItemSubmissionErrorEvent evt = new CatalogServiceEvents.ItemSubmissionErrorEvent(response);
 			Service.Get<EventDispatcher>().DispatchEvent(evt);
+		}
+
+		private void trySetOfflineCatalogTaskProgress()
+		{
+			ICommonGameSettings commonGameSettings = Service.Get<ICommonGameSettings>();
+			if (!commonGameSettings.OfflineMode)
+			{
+				return;
+			}
+			const string taskId = "ClothingCatalogSubmission";
+			OfflineDatabase offlineDatabase = Service.Get<OfflineDatabase>();
+			TaskProgress taskProgress;
+			if (SetTaskProgressOperation.TryGetOfflineTaskProgress(offlineDatabase, taskId, out taskProgress))
+			{
+				Service.Get<EventDispatcher>().DispatchEvent(new TaskNetworkServiceEvents.TaskCounterChanged(taskId, taskProgress.counter));
+			}
 		}
 	}
 }

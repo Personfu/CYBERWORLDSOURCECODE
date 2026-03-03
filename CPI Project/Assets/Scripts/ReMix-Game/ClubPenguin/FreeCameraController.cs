@@ -143,11 +143,13 @@ namespace ClubPenguin
             {
                 Vector3 forward = Target.forward;
                 forward.y = 0f;
-                Target.position -= forward.normalized * GetAxisOrButton(LeftVertical) * ZSpeed * getFOVModification(ZSpeedModifierFOV);
+                // Changed -= to += to fix reversed controls
+                Target.position += forward.normalized * GetAxisOrButton(LeftVertical) * ZSpeed * getFOVModification(ZSpeedModifierFOV);
             }
             else
             {
-                Target.position -= Target.forward * GetAxisOrButton(LeftVertical) * ZSpeed * getFOVModification(ZSpeedModifierFOV);
+                // Changed -= to += to fix reversed controls
+                Target.position += Target.forward * GetAxisOrButton(LeftVertical) * ZSpeed * getFOVModification(ZSpeedModifierFOV);
             }
 
             Target.position += Vector3.up * yValue * YSpeed * getFOVModification(YSpeedModifierFOV);
@@ -155,7 +157,9 @@ namespace ClubPenguin
             Quaternion lhs = Quaternion.AngleAxis(GetAxisOrButton(RightHorizontal) * XSensitivity * getFOVModification(RotationModifierFOV), Vector3.up);
             Target.transform.rotation = lhs * Target.transform.rotation;
 
-            Quaternion rhs = Quaternion.AngleAxis(GetAxisOrButton(RightVertical) * YSensitivity * getFOVModification(RotationModifierFOV), Vector3.right);
+            // Changed Vector3.right to Vector3.left to invert the vertical rotation direction
+            // If this feels wrong, switch it back to Vector3.right
+            Quaternion rhs = Quaternion.AngleAxis(GetAxisOrButton(RightVertical) * YSensitivity * getFOVModification(RotationModifierFOV), Vector3.left);
             Target.transform.rotation = Target.transform.rotation * rhs;
 
             if (GetButton(LeftBumper))

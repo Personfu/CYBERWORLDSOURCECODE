@@ -44,6 +44,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 7afe9ae9404aa944893c1e5f679f55cd, type: 2}
   - {fileID: 11400000, guid: 8748d97d0b816f24b83ca54737bcaf9d, type: 2}
   - {fileID: 11400000, guid: ecdf56b4f05aa0a4eb0dc4d5f29644e2, type: 2}
+  equipmentInstances: []
   lots:
   - {fileID: 11400000, guid: 06579eb64f70a4d4a8abb56ae43f310a, type: 2}
   decorationPurchaseRights:
@@ -75,6 +76,11 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 31319a280bb35bb40a387f19bab38418, type: 2}
   - {fileID: 11400000, guid: f4c769d8161d524da9d225fecc30a51b, type: 2}
   - {fileID: 11400000, guid: cf05b85d313e96a37a0a3d9f87772ebc, type: 2}
+  - {fileID: 11400000, guid: 1bff31025b1dcde42a5f694d69a4a005, type: 2}
+  - {fileID: 11400000, guid: 7c004a723388cc342a860628a551a636, type: 2}
+  - {fileID: 11400000, guid: 2eacc5a0aa514f84e9c0dd6e4223821c, type: 2}
+  - {fileID: 11400000, guid: 72b697af14f2fab42ae90bd9a4c83af1, type: 2}
+  - {fileID: 11400000, guid: 864312ed16ad20041b24a034d0a3f0fa, type: 2}
   structurePurchaseRights:
   - {fileID: 11400000, guid: 17d8ec801dbd81448bb8051d02c2ee48, type: 2}
   musicTracks:

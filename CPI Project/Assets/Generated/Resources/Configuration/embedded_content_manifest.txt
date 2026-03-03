@@ -4185,6 +4185,8 @@ asset:definitions/equipment/cowpokehat_add_head_0lod?dl=res&x=asset
 asset:definitions/equipment/cowpokehat_add_head_1lod?dl=res&x=asset
 asset:definitions/equipment/cowpokehat_sec_head_0lod?dl=res&x=asset
 asset:definitions/equipment/cowpokehat_sec_head_1lod?dl=res&x=asset
+asset:definitions/equipment/cpitee_rep_torso_0lod?dl=res&x=asset
+asset:definitions/equipment/cpitee_rep_torso_1lod?dl=res&x=asset
 asset:definitions/equipment/crabbyeyes_sec_head_0lod?dl=res&x=asset
 asset:definitions/equipment/crabbyeyes_sec_head_1lod?dl=res&x=asset
 asset:definitions/equipment/crabcostume_add_head_0lod?dl=res&x=asset
@@ -5871,6 +5873,7 @@ asset:definitions/equipment/templatedefinitions/template_401_anniversary4hat?dl=
 asset:definitions/equipment/templatedefinitions/template_402_anniversary20hat?dl=res&x=asset
 asset:definitions/equipment/templatedefinitions/template_403_anniversary21hat?dl=res&x=asset
 asset:definitions/equipment/templatedefinitions/template_404_anniversary21shirt?dl=res&x=asset
+asset:definitions/equipment/templatedefinitions/template_405_cpitee?dl=res&x=asset
 asset:definitions/equipment/templatedefinitions/template_999_placeholder?dl=res&x=asset
 asset:definitions/equipment/templaterenderdefinitions/alienbody_renderdata?dl=res&x=asset
 asset:definitions/equipment/templaterenderdefinitions/alienfeet_renderdata?dl=res&x=asset
@@ -7072,6 +7075,11 @@ asset:definitions/decorations/decoration331_rockhopperpictureframe?dl=res&x=asse
 asset:definitions/decorations/decoration332_djbooth?dl=res&x=asset
 asset:definitions/decorations/decoration333_djpillar?dl=res&x=asset
 asset:definitions/decorations/decoration334_purplestagecurtain?dl=res&x=asset
+asset:definitions/decorations/decoration335_bluepufflestatue?dl=res&x=asset
+asset:definitions/decorations/decoration336_redpufflestatue?dl=res&x=asset
+asset:definitions/decorations/decoration337_greenpufflestatue?dl=res&x=asset
+asset:definitions/decorations/decoration338_pinkpufflestatue?dl=res&x=asset
+asset:definitions/decorations/decoration339_orangepufflestatue?dl=res&x=asset
 asset:definitions/features/igloo?dl=res&x=asset
 asset:definitions/groups/group_0_beach?dl=res&x=asset
 asset:definitions/groups/group_1_vendor?dl=res&x=asset
@@ -7372,9 +7380,9 @@ asset:definitions/structures/structure6_shopsmall?dl=res&x=asset
 asset:definitions/structures/structure7_shopmedium?dl=res&x=asset
 asset:definitions/structures/structure8_shoplarge?dl=res&x=asset
 asset:definitions/structures/structure9_cavemedium?dl=res&x=asset
+asset:introvideo/introvideo?dl=res&x=webm
 asset:prefabs/remotepenguin?dl=res&x=prefab
 asset:prefabs/remotepenguinota?dl=res&x=prefab
-asset:trailer/introvideo?dl=res&x=mp4
 asset:definitions/claimablereward/claimablereward_0_worldpenguinday?dl=res&x=asset
 asset:definitions/claimablereward/claimablereward_0_worldpenguinday.reward?dl=res&x=asset
 asset:definitions/claimablereward/claimablereward_1_borninchina?dl=res&x=asset
@@ -7462,6 +7470,8 @@ asset:definitions/claimablereward/claimablereward_43_holiday2025.reward?dl=res&x
 asset:definitions/claimablereward/claimablereward_44_anniversary21?dl=res&x=asset
 asset:definitions/claimablereward/claimablereward_44_anniversary21.reward?dl=res&x=asset
 asset:definitions/claimablereward/claimablereward_45_antibully?dl=res&x=asset
+asset:definitions/claimablereward/claimablereward_46_cpistafftee?dl=res&x=asset
+asset:definitions/claimablereward/claimablereward_46_cpistafftee.reward?dl=res&x=asset
 asset:definitions/rewardtheme/claimedreward_20thanniversary?dl=res&x=asset
 asset:definitions/rewardtheme/claimedreward_anniversary19?dl=res&x=asset
 asset:definitions/rewardtheme/claimedreward_anniversary2026?dl=res&x=asset
@@ -7482,6 +7492,7 @@ asset:definitions/rewardtheme/claimedreward_penguinday?dl=res&x=asset
 asset:definitions/rewardtheme/claimedreward_pirateparty2018?dl=res&x=asset
 asset:definitions/rewardtheme/claimedreward_pizzaweekend?dl=res&x=asset
 asset:definitions/rewardtheme/claimedreward_rdma?dl=res&x=asset
+asset:definitions/rewardtheme/claimedreward_staffpicks?dl=res&x=asset
 asset:definitions/rewardtheme/claimedreward_summersplash2018?dl=res&x=asset
 asset:definitions/rewardtheme/claimedreward_unreleasedblueprints?dl=res&x=asset
 asset:definitions/rewardtheme/claimedreward_waddleon2018?dl=res&x=asset
@@ -11514,6 +11525,7 @@ asset:quests/aac002q004icy/zones/herbertbase/objects/animations/herbertbaselaser
 asset:quests/djc001q002stars/mascots/dialog/dj-1-2-obj1-ry-backhome?dl=bundle:sa-bundle&x=asset&b=assetbundles/generated/standalonewindows64/quest/djcadence/c01q02.sa.unity3d&p=game/adventure/assetbundles
 asset:avatar/equipment/lei/lei_icon?dl=bundle:sa-bundle&x=png&b=assetbundles/generated/standalonewindows64/avatar.sa.unity3d&p=assetpipeline/bundleassets/assetbundles
 asset:definitions/tasks/rockhopper/year1eatcake?dl=bundle:sa-bundle&x=asset&b=assetbundles/generated/standalonewindows64/tasks.sa.unity3d&p=game/adventure/assetbundles
+asset:furniture/level02/pufflestatue/orangepufflestatue_furnitureicon?dl=bundle:sa-bundle&x=png&b=assetbundles/generated/standalonewindows64/igloo/level02.sa.unity3d&p=modules/igloo/assetbundles
 asset:decals/fabric_community_denim?dl=bundle:sa-bundle&x=png&b=assetbundles/generated/standalonewindows64/avatar.sa.unity3d&p=assetpipeline/bundleassets/assetbundles
 asset:furniture/bundles/fruitpack/fruit/strawberry_furnitureicon?dl=bundle:sa-bundle&x=png&b=assetbundles/generated/standalonewindows64/igloo/bundles/fruitpack.sa.unity3d&p=modules/igloo/assetbundles
 asset:quests/aac002q005storm/dialog/jpg/jpgidle3?dl=bundle:sa-bundle&x=asset&b=assetbundles/generated/standalonewindows64/quest/auntarctic/c02q05.sa.unity3d&p=game/adventure/assetbundles
@@ -11953,6 +11965,7 @@ asset:quests/aac002q006stolen/fsm/questfsm.aac002q006stolen.obj3?dl=bundle:sa-bu
 asset:decals/decal_starter_paintsplat?dl=bundle:sa-bundle&x=png&b=assetbundles/generated/standalonewindows64/avatar.sa.unity3d&p=assetpipeline/bundleassets/assetbundles
 asset:quests/aac001q002lava/fsm/questfsm.aac001q002lava.obj3?dl=bundle:sa-bundle&x=asset&b=assetbundles/generated/standalonewindows64/quest/auntarctic/c01q02.sa.unity3d&p=game/adventure/assetbundles
 asset:avatar/equipment/superheromask/superheromask_icon?dl=bundle:sa-bundle&x=png&b=assetbundles/generated/standalonewindows64/avatar.sa.unity3d&p=assetpipeline/bundleassets/assetbundles
+asset:furniture/level02/pufflestatue/pinkpufflestatue_furnitureicon?dl=bundle:sa-bundle&x=png&b=assetbundles/generated/standalonewindows64/igloo/level02.sa.unity3d&p=modules/igloo/assetbundles
 asset:quests/djc001q004tea/zones/beach/djc001q004tea?dl=bundle:sa-bundle&x=prefab&b=assetbundles/generated/standalonewindows64/quest/djcadence/c01q04.sa.unity3d&p=game/adventure/assetbundles
 asset:tasks/townbuskbongos/watchers.manifest?dl=bundle:sa-bundle&x=asset&b=assetbundles/generated/standalonewindows64/tasks.sa.unity3d&p=game/adventure/assetbundles
 asset:definitions/quests/rockhopper/rhc001q003curseddummy.object.0.reward?dl=bundle:sa-bundle&x=asset&b=assetbundles/generated/standalonewindows64/quest.sa.unity3d&p=game/adventure/assetbundles
@@ -13365,6 +13378,7 @@ asset:quests/rhc001q003curseddummy/fsm/questfsm.rhc001q003curseddummy.obj8rhspee
 asset:tasks/wpd2017geyser/watchers/watchertask_wpd2017geyser?dl=bundle:sa-bundle&x=asset&b=assetbundles/generated/standalonewindows64/tasks.sa.unity3d&p=game/adventure/assetbundles
 asset:furniture/events/halloweenparty2018/tombstoneb/tombstoneb_furnitureicon?dl=bundle:sa-bundle&x=png&b=assetbundles/generated/standalonewindows64/igloo/event.sa.unity3d&p=modules/igloo/assetbundles
 asset:avatar/equipment/returningmemberjacketnine/returningmemberjacketnine_icon?dl=bundle:sa-bundle&x=png&b=assetbundles/generated/standalonewindows64/avatar.sa.unity3d&p=assetpipeline/bundleassets/assetbundles
+asset:furniture/level02/pufflestatue/greenpufflestatue?dl=bundle:sa-bundle&x=prefab&b=assetbundles/generated/standalonewindows64/igloo/level02.sa.unity3d&p=modules/igloo/assetbundles
 asset:quests/djc001q001plan/zones/beach/sparklesrisehighposter?dl=bundle:sa-bundle&x=prefab&b=assetbundles/generated/standalonewindows64/quest/djcadence/c01q01.sa.unity3d&p=game/adventure/assetbundles
 asset:decals/fabric_townhero_tiretread?dl=bundle:sa-bundle&x=png&b=assetbundles/generated/standalonewindows64/avatar.sa.unity3d&p=assetpipeline/bundleassets/assetbundles
 asset:tasks/bumpyroad/watchers/watcher_bumpyroad?dl=bundle:sa-bundle&x=asset&b=assetbundles/generated/standalonewindows64/tasks.sa.unity3d&p=game/adventure/assetbundles
@@ -13479,6 +13493,7 @@ asset:definitions/tasks/djcadence/campgroundtent?dl=bundle:sa-bundle&x=asset&b=a
 asset:quests/aac002q006stolen/zones/beach/objects/herbertbasemini/animations/herbertbaseairfloatshaking?dl=bundle:sa-bundle&x=anim&b=assetbundles/generated/standalonewindows64/quest/auntarctic/c02q06.sa.unity3d&p=game/adventure/assetbundles
 asset:quests/aac002q002view/zones/beach/objects/metalcrate/animations/animationmetalcratedelaydisappear?dl=bundle:sa-bundle&x=anim&b=assetbundles/generated/standalonewindows64/quest/auntarctic/c02q02.sa.unity3d&p=game/adventure/assetbundles
 asset:avatar/equipment/shellbeardshat/shellbeardshat_icon?dl=bundle:sa-bundle&x=png&b=assetbundles/generated/standalonewindows64/avatar.sa.unity3d&p=assetpipeline/bundleassets/assetbundles
+asset:furniture/level02/pufflestatue/pinkpufflestatue?dl=bundle:sa-bundle&x=prefab&b=assetbundles/generated/standalonewindows64/igloo/level02.sa.unity3d&p=modules/igloo/assetbundles
 asset:furniture/level01/coffeetable/coffeetable?dl=bundle:sa-bundle&x=prefab&b=assetbundles/generated/standalonewindows64/igloo/level01.sa.unity3d&p=modules/igloo/assetbundles
 asset:avatar/equipment/beardiestbeard/beardiestbeard_icon?dl=bundle:sa-bundle&x=png&b=assetbundles/generated/standalonewindows64/avatar.sa.unity3d&p=assetpipeline/bundleassets/assetbundles
 asset:definitions/tasks/rockhopper/divingbraincoral.reward?dl=bundle:sa-bundle&x=asset&b=assetbundles/generated/standalonewindows64/tasks.sa.unity3d&p=game/adventure/assetbundles
@@ -14569,6 +14584,7 @@ asset:avatar/equipment/spikeyhair/spikeyhair_icon?dl=bundle:sa-bundle&x=png&b=as
 asset:tasks/divingstairstube/watchers.manifest?dl=bundle:sa-bundle&x=asset&b=assetbundles/generated/standalonewindows64/tasks.sa.unity3d&p=game/adventure/assetbundles
 asset:tasks/boardwalktricktreat/watchers.manifest?dl=bundle:sa-bundle&x=asset&b=assetbundles/generated/standalonewindows64/tasks.sa.unity3d&p=game/adventure/assetbundles
 asset:tasks/earthday2017_task1/watchers/watcherexit_earthday2017_task1?dl=bundle:sa-bundle&x=asset&b=assetbundles/generated/standalonewindows64/tasks.sa.unity3d&p=game/adventure/assetbundles
+asset:furniture/level02/pufflestatue/bluepufflestatue_furnitureicon?dl=bundle:sa-bundle&x=png&b=assetbundles/generated/standalonewindows64/igloo/level02.sa.unity3d&p=modules/igloo/assetbundles
 asset:decals/decal_rdma_bubbles?dl=bundle:sa-bundle&x=png&b=assetbundles/generated/standalonewindows64/avatar.sa.unity3d&p=assetpipeline/bundleassets/assetbundles
 asset:decals/fabric_flat_townhero_blue?dl=bundle:sa-bundle&x=png&b=assetbundles/generated/standalonewindows64/avatar.sa.unity3d&p=assetpipeline/bundleassets/assetbundles
 asset:definitions/tasks/rookie/unityday2017_bold?dl=bundle:sa-bundle&x=asset&b=assetbundles/generated/standalonewindows64/tasks.sa.unity3d&p=game/adventure/assetbundles
@@ -15149,6 +15165,7 @@ asset:quests/aac001q003hatch/zones/beach/triggers/starfishtrigger?dl=bundle:sa-b
 asset:definitions/tasks/rookie/boardwalkrubberduck?dl=bundle:sa-bundle&x=asset&b=assetbundles/generated/standalonewindows64/tasks.sa.unity3d&p=game/adventure/assetbundles
 asset:quests/aac002q003dots/zones/beach/triggers/aac002q003triggerwalkedinfrontofbush?dl=bundle:sa-bundle&x=prefab&b=assetbundles/generated/standalonewindows64/quest/auntarctic/c02q03.sa.unity3d&p=game/adventure/assetbundles
 asset:quests/aac001q005lighthouse/zones/boardwalk/triggers/triggeractopenlighthouse?dl=bundle:sa-bundle&x=prefab&b=assetbundles/generated/standalonewindows64/quest/auntarctic/c01q05.sa.unity3d&p=game/adventure/assetbundles
+asset:furniture/level02/pufflestatue/redpufflestatue?dl=bundle:sa-bundle&x=prefab&b=assetbundles/generated/standalonewindows64/igloo/level02.sa.unity3d&p=modules/igloo/assetbundles
 asset:tasks/beachrivercocoa/watchers.manifest?dl=bundle:sa-bundle&x=asset&b=assetbundles/generated/standalonewindows64/tasks.sa.unity3d&p=game/adventure/assetbundles
 asset:quests/rhc001q003curseddummy/zones/boardwalk/triggers/triggeracttreasurechest?dl=bundle:sa-bundle&x=prefab&b=assetbundles/generated/standalonewindows64/quest/rockhopper/c01q03.sa.unity3d&p=game/adventure/assetbundles
 asset:definitions/tasks/rookie/towntubeacross?dl=bundle:sa-bundle&x=asset&b=assetbundles/generated/standalonewindows64/tasks.sa.unity3d&p=game/adventure/assetbundles
@@ -15243,6 +15260,7 @@ asset:tasks/global_driveleft/watchers.manifest?dl=bundle:sa-bundle&x=asset&b=ass
 asset:definitions/decorationrenderdata/terraintallsand_renderdata?dl=bundle:sa-bundle&x=asset&b=assetbundles/generated/standalonewindows64/igloo.sa.unity3d&p=modules/igloo/assetbundles
 asset:lighting/menuicon/lighting_icon_stormy?dl=bundle:sa-bundle&x=png&b=assetbundles/generated/standalonewindows64/igloo.sa.unity3d&p=modules/igloo/assetbundles
 asset:tasks/townbuoy/watchers.manifest?dl=bundle:sa-bundle&x=asset&b=assetbundles/generated/standalonewindows64/tasks.sa.unity3d&p=game/adventure/assetbundles
+asset:furniture/level02/pufflestatue/bluepufflestatue?dl=bundle:sa-bundle&x=prefab&b=assetbundles/generated/standalonewindows64/igloo/level02.sa.unity3d&p=modules/igloo/assetbundles
 asset:quests/rkc002q001peak/fsm/questfsm.rkc002q001peak.obj6?dl=bundle:sa-bundle&x=asset&b=assetbundles/generated/standalonewindows64/quest/rookie/c02q01.sa.unity3d&p=game/adventure/assetbundles
 asset:tasks/migratorpirateanimal10/watchers.manifest?dl=bundle:sa-bundle&x=asset&b=assetbundles/generated/standalonewindows64/tasks.sa.unity3d&p=game/adventure/assetbundles
 asset:tasks/beachstagefireworks/watchers.manifest?dl=bundle:sa-bundle&x=asset&b=assetbundles/generated/standalonewindows64/tasks.sa.unity3d&p=game/adventure/assetbundles
@@ -15407,6 +15425,7 @@ asset:quests/rhc001q005curethecurse/fsm/questfsm.rhc001q005curethecurse.obj4?dl=
 asset:screenquestsdetailsdefinitions/screenquestsdetailspause?dl=bundle:sa-bundle&x=asset&b=assetbundles/generated/standalonewindows64/screenquestsdetailspause.sa.unity3d&p=game/ui/screenquests/screenquestsdetails/assetbundles
 asset:definitions/quests/djcadence/djc001q002stars.complete.reward?dl=bundle:sa-bundle&x=asset&b=assetbundles/generated/standalonewindows64/quest.sa.unity3d&p=game/adventure/assetbundles
 asset:decals/decal_pizzaevent_cocoavendor?dl=bundle:sa-bundle&x=png&b=assetbundles/generated/standalonewindows64/avatar.sa.unity3d&p=assetpipeline/bundleassets/assetbundles
+asset:furniture/level02/pufflestatue/redpufflestatue_furnitureicon?dl=bundle:sa-bundle&x=png&b=assetbundles/generated/standalonewindows64/igloo/level02.sa.unity3d&p=modules/igloo/assetbundles
 asset:quests/rkc001q005delivery/fsm/questfsm.rkc001q005delivery.obj2?dl=bundle:sa-bundle&x=asset&b=assetbundles/generated/standalonewindows64/quest/rookie/c01q05.sa.unity3d&p=game/adventure/assetbundles
 asset:decals/decal_cars3_lmqflame1?dl=bundle:sa-bundle&x=png&b=assetbundles/generated/standalonewindows64/avatar.sa.unity3d&p=assetpipeline/bundleassets/assetbundles
 asset:tasks/snowmeltserve/watchers.manifest?dl=bundle:sa-bundle&x=asset&b=assetbundles/generated/standalonewindows64/tasks.sa.unity3d&p=game/adventure/assetbundles
@@ -15604,6 +15623,7 @@ asset:tasks/wpd2017geyser_v2/watchers/watchertask_wpd2017geyser_v2?dl=bundle:sa-
 asset:quests/rkc002q001peak/zones/mtblizzard/triggers/triggerwalkreturnreachedtop?dl=bundle:sa-bundle&x=prefab&b=assetbundles/generated/standalonewindows64/quest/rookie/c02q01.sa.unity3d&p=game/adventure/assetbundles
 asset:definitions/tasks/rookie/mtblizzblueegg.reward?dl=bundle:sa-bundle&x=asset&b=assetbundles/generated/standalonewindows64/tasks.sa.unity3d&p=game/adventure/assetbundles
 asset:quests/djc001q005concert/fsm/questfsm.djc001q005concert.obj1?dl=bundle:sa-bundle&x=asset&b=assetbundles/generated/standalonewindows64/quest/djcadence/c01q05.sa.unity3d&p=game/adventure/assetbundles
+asset:furniture/level02/pufflestatue/orangepufflestatue?dl=bundle:sa-bundle&x=prefab&b=assetbundles/generated/standalonewindows64/igloo/level02.sa.unity3d&p=modules/igloo/assetbundles
 asset:tasks/divingtreasure/watchers/watcher_divingtreasure_interaction8?dl=bundle:sa-bundle&x=asset&b=assetbundles/generated/standalonewindows64/tasks.sa.unity3d&p=game/adventure/assetbundles
 asset:definitions/tasks/rookie/town_jackhammer.reward?dl=bundle:sa-bundle&x=asset&b=assetbundles/generated/standalonewindows64/tasks.sa.unity3d&p=game/adventure/assetbundles
 asset:furniture/level01/terrainshortrock/terrainshortrock?dl=bundle:sa-bundle&x=prefab&b=assetbundles/generated/standalonewindows64/igloo/level01.sa.unity3d&p=modules/igloo/assetbundles
@@ -15616,6 +15636,7 @@ asset:definitions/tasks/rockhopper/cannondown?dl=bundle:sa-bundle&x=asset&b=asse
 asset:tasks/waterfaller/watchers/watcher_waterfaller?dl=bundle:sa-bundle&x=asset&b=assetbundles/generated/standalonewindows64/tasks.sa.unity3d&p=game/adventure/assetbundles
 asset:furniture/events/holiday2017/fireplace/fireplace?dl=bundle:sa-bundle&x=prefab&b=assetbundles/generated/standalonewindows64/igloo/event.sa.unity3d&p=modules/igloo/assetbundles
 asset:quests/rhc001q001treasurequest/zones/boardwalk/parallelstatemachines/parallelstaggerspawndigtriggers?dl=bundle:sa-bundle&x=prefab&b=assetbundles/generated/standalonewindows64/quest/rockhopper/c01q01.sa.unity3d&p=game/adventure/assetbundles
+asset:furniture/level02/pufflestatue/greenpufflestatue_furnitureicon?dl=bundle:sa-bundle&x=png&b=assetbundles/generated/standalonewindows64/igloo/level02.sa.unity3d&p=modules/igloo/assetbundles
 asset:scenes/defaultigloo/materials/tree?dl=bundle:sa-bundle&x=mat&b=assetbundles/generated/standalonewindows64/igloo.sa.unity3d&p=modules/igloo/assetbundles
 asset:quests/aac002q006stolen/zones/beach/objects/herbertbasemini/animations/herbertbasewaterpos1idle?dl=bundle:sa-bundle&x=anim&b=assetbundles/generated/standalonewindows64/quest/auntarctic/c02q06.sa.unity3d&p=game/adventure/assetbundles
 asset:quests/rkc002q001peak/zones/mtblizzard/triggers/triggerwalkwaypointboss1?dl=bundle:sa-bundle&x=prefab&b=assetbundles/generated/standalonewindows64/quest/rookie/c02q01.sa.unity3d&p=game/adventure/assetbundles
@@ -15733,5 +15754,5 @@ bundle:assetbundles/generated/standalonewindows64/screentoyboxtubes.sa.unity3d?d
 bundle:assetbundles/generated/standalonewindows64/tasks.sa.unity3d?d=assetbundles/generated/standalonewindows64/mascot.sa.unity3d&p=0
 bundle:assetbundles/generated/standalonewindows64/ui/dailychallenges.sa.unity3d?d=&p=0
 baseuri:
-contentversion:5b0edf495c8050d8bb811d1198ee6fbd004a4320
+contentversion:ac418f1b343ce6bf69674278ab29a55e2069970b
 contentmanifesthash:

@@ -33,17 +33,14 @@ namespace ClubPenguin.Adventure
                         }
                         else
                         {
-                            Debug.LogError("HeldObjectsData is not available for the given handle.");
                         }
                     }
                     else
                     {
-                        Debug.LogError("Failed to add entity or entity is null.");
                     }
                 }
                 else
                 {
-                    Debug.LogError("CPDataEntityCollection is not available.");
                 }
             }
         }

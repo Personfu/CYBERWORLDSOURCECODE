@@ -457,6 +457,11 @@ MonoBehaviour:
     - SlotIndex: 3
       PartType: 2
       Required: 1
+  - Name: cpiTee
+    Parts:
+    - SlotIndex: 8
+      PartType: 0
+      Required: 1
   - Name: crabbyeyes
     Parts:
     - SlotIndex: 3

@@ -97,9 +97,12 @@ namespace ClubPenguin.UI
 		{
 			CatalogThemeDefinition themeByScheduelId = Service.Get<CatalogServiceProxy>().GetThemeByScheduelId(currentTheme.scheduledThemeChallengeId);
 			TaskDefinition clothingCatalogChallenge = Service.Get<TaskService>().ClothingCatalogChallenge;
-			clothingCatalogChallenge.Title = themeByScheduelId.Title;
-			clothingCatalogChallenge.CompletionMessage = themeByScheduelId.CompleteMessage;
-			clothingCatalogChallenge.Description = themeByScheduelId.Description;
+			if (themeByScheduelId != null && clothingCatalogChallenge != null)
+			{
+				clothingCatalogChallenge.Title = themeByScheduelId.Title;
+				clothingCatalogChallenge.CompletionMessage = themeByScheduelId.CompleteMessage;
+				clothingCatalogChallenge.Description = themeByScheduelId.Description;
+			}
 		}
 
 		private void loadDailies()

@@ -55,7 +55,7 @@ namespace ClubPenguin.Catalog
 			}
 			if (ThemeTitleText != null)
 			{
-				ThemeTitleText.text = Service.Get<Localizer>().GetTokenTranslation(catalogChallengeTheme.Title);
+				ThemeTitleText.text = ((catalogChallengeTheme != null) ? Service.Get<Localizer>().GetTokenTranslation(catalogChallengeTheme.Title) : string.Empty);
 			}
 			if (TopSellerTitleText != null)
 			{
@@ -69,7 +69,7 @@ namespace ClubPenguin.Catalog
 
 		public void OnCLick()
 		{
-			Service.Get<ICPSwrveService>().Action("clothing_catalog_theme", catalogChallengeTheme.Title);
+			Service.Get<ICPSwrveService>().Action("clothing_catalog_theme", (catalogChallengeTheme != null) ? catalogChallengeTheme.Title : currentThemeData.scheduledThemeChallengeId.ToString());
 			Service.Get<CatalogServiceProxy>().CurrentThemeIndex = themeIndex;
 			CatalogContext.EventBus.DispatchEvent(new CatalogUIEvents.ShowItemsForThemeEvent(currentThemeData, -1L));
 		}

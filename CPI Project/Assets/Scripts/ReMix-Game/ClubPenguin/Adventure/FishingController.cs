@@ -200,7 +200,6 @@ namespace ClubPenguin.Adventure
             // Check if cinematicCameraFishingController is null
             if (cinematicCameraFishingController == null)
             {
-                Debug.LogError("CinematicCameraFishingController is not set.");
                 return; // Return early if the camera controller is missing
             }
             originalCameraPosition = cinematicCameraFishingController.transform.position;
@@ -208,7 +207,6 @@ namespace ClubPenguin.Adventure
             // Check if _rodPropLineEndTransform is null
             if (_rodPropLineEndTransform == null)
             {
-                Debug.LogError("RodPropLineEndTransform is not set.");
                 return; // Return early if the rod transform is missing
             }
             _rodPropLineParent = _rodPropLineEndTransform.parent;
@@ -216,7 +214,6 @@ namespace ClubPenguin.Adventure
             // Check if reelSpring is null before using it
             if (reelSpring == null)
             {
-                Debug.LogError("ReelSpring is not set.");
                 return;
             }
             SimpleSpringInterper simpleSpringInterper = reelSpring;
@@ -225,7 +222,6 @@ namespace ClubPenguin.Adventure
             // Check if locomotionBroadcaster is null
             if (locomotionBroadcaster == null)
             {
-                Debug.LogError("LocomotionEventBroadcaster is missing on the player.");
                 return;
             }
             locomotionBroadcaster.BroadcastOnControlsLocked();
@@ -233,7 +229,6 @@ namespace ClubPenguin.Adventure
             // Check if eventDispatcher is null
             if (eventDispatcher == null)
             {
-                Debug.LogError("EventDispatcher is not set.");
                 return;
             }
             eventDispatcher.DispatchEvent(new UIDisablerEvents.DisableUIElement("Joystick", true));
@@ -241,7 +236,6 @@ namespace ClubPenguin.Adventure
             // Check if userControl is null
             if (userControl == null)
             {
-                Debug.LogError("PenguinUserControl is missing on the player.");
                 return;
             }
             userControl.enabled = true;
@@ -252,7 +246,6 @@ namespace ClubPenguin.Adventure
             // Check if player is null before accessing its components
             if (player == null)
             {
-                Debug.LogError("Player GameObject is not set.");
                 return;
             }
 
@@ -262,7 +255,6 @@ namespace ClubPenguin.Adventure
             // Check if prizeDropContainer is null
             if (prizeDropContainer == null)
             {
-                Debug.LogError("PrizeDropContainer is not set.");
                 return;
             }
             prizeDropContainer.transform.localPosition = config.PrizeDropOffset;
@@ -280,7 +272,6 @@ namespace ClubPenguin.Adventure
             clickListener = GetComponent<ClickListener>();
             if (clickListener == null)
             {
-                Debug.LogError("ClickListener component is missing.");
                 return;
             }
 
@@ -301,26 +292,22 @@ namespace ClubPenguin.Adventure
             minigameService = Service.Get<MinigameService>();
             if (minigameService == null)
             {
-                Debug.LogError("MinigameService is not initialized.");
             }
 
             eventDispatcher = Service.Get<EventDispatcher>();
             if (eventDispatcher == null)
             {
-                Debug.LogError("EventDispatcher is not initialized.");
             }
 
             questService = Service.Get<QuestService>();
             if (questService == null)
             {
-                Debug.LogError("QuestService is not initialized.");
             }
 
             // Player reference
             player = SceneRefs.ZoneLocalPlayerManager.LocalPlayerGameObject;
             if (player == null)
             {
-                Debug.LogError("Player GameObject is not set.");
                 return; // If player is null, we can't continue, so return early
             }
 
@@ -328,14 +315,12 @@ namespace ClubPenguin.Adventure
             locomotionBroadcaster = player.GetComponent<LocomotionEventBroadcaster>();
             if (locomotionBroadcaster == null)
             {
-                Debug.LogError("LocomotionEventBroadcaster is missing on the player.");
             }
 
             // FishingRod reference
             fishingRod = getChildByNameRecursive(player, "FishingRodProp(Clone)");
             if (fishingRod == null)
             {
-                Debug.LogError("FishingRodProp(Clone) child is missing from the player.");
                 return; // Return early as we can't proceed without the fishing rod
             }
 
@@ -343,7 +328,6 @@ namespace ClubPenguin.Adventure
             GameObject rodObject = getChildByNameRecursive(fishingRod, "string_end_jnt");
             if (rodObject == null)
             {
-                Debug.LogError("string_end_jnt child is missing from the fishing rod.");
                 return; // Return early as we can't proceed without the rod's transform
             }
             _rodPropLineEndTransform = rodObject.transform; // Now that we have a valid GameObject, access its Transform
@@ -352,64 +336,54 @@ namespace ClubPenguin.Adventure
             playerAnimator = player.GetComponent<Animator>();
             if (playerAnimator == null)
             {
-                Debug.LogError("Animator component is missing on the player.");
             }
 
             // FishingRodAnimator reference
             fishingRodAnimator = fishingRod.GetComponent<Animator>();
             if (fishingRodAnimator == null)
             {
-                Debug.LogError("Animator component is missing on the fishing rod.");
             }
 
             // PrizeDropContainerAnimator reference
             if (prizeDropContainer == null)
             {
-                Debug.LogError("PrizeDropContainer is not set.");
                 return;
             }
             prizeDropContainerAnimator = prizeDropContainer.GetComponentInChildren<Animator>();
             if (prizeDropContainerAnimator == null)
             {
-                Debug.LogError("Animator component is missing in the PrizeDropContainer.");
             }
 
             // BobberAnimator reference
             if (bobberRootTransform == null)
             {
-                Debug.LogError("BobberRootTransform is not set.");
                 return;
             }
             _bobberAnimator = bobberRootTransform.GetComponentInChildren<Animator>();
             if (_bobberAnimator == null)
             {
-                Debug.LogError("Animator component is missing in the bobber root.");
             }
 
             // CinematicFishing and CinematicFishingZoom GameObject references
             GameObject cinematicFishingObject = GameObject.Find("CinematicFishing");
             if (cinematicFishingObject == null)
             {
-                Debug.LogError("CinematicFishing GameObject is missing from the scene.");
                 return;
             }
             cinematicCameraFishingController = cinematicFishingObject.GetComponent<CameraController>();
             if (cinematicCameraFishingController == null)
             {
-                Debug.LogError("CameraController component is missing on CinematicFishing.");
                 return;
             }
 
             GameObject cinematicFishingZoomObject = GameObject.Find("CinematicFishingZoom");
             if (cinematicFishingZoomObject == null)
             {
-                Debug.LogError("CinematicFishingZoom GameObject is missing from the scene.");
                 return;
             }
             cinematicCameraFishingControllerZoom = cinematicFishingZoomObject.GetComponent<CameraController>();
             if (cinematicCameraFishingControllerZoom == null)
             {
-                Debug.LogError("CameraController component is missing on CinematicFishingZoom.");
                 return;
             }
 
@@ -435,30 +409,27 @@ namespace ClubPenguin.Adventure
             userControl = player.GetComponent<PenguinUserControl>();
             if (userControl == null)
             {
-                Debug.LogError("PenguinUserControl component is missing on the player.");
             }
         }
 
         private GameObject getChildByNameRecursive(GameObject parent, string name)
         {
-            // Print the parent's name to check the context
-            Debug.Log($"Searching for '{name}' in parent: {parent.name}");
-
-            Transform[] children = parent.GetComponentsInChildren<Transform>(true); // Get all child transforms (true to include inactive ones)
-
-            foreach (Transform child in children)
+            if (parent == null || string.IsNullOrEmpty(name))
             {
-                Debug.Log($"Checking child: {child.name}"); // Log each child's name
+                return null;
+            }
 
-                if (child.name == name)
+            Transform[] children = parent.GetComponentsInChildren<Transform>(true);
+            for (int i = 0; i < children.Length; i++)
+            {
+                Transform child = children[i];
+                if (child != null && child.name == name)
                 {
-                    Debug.Log($"Found '{name}' under parent '{parent.name}'");
-                    return child.gameObject; // Return the GameObject when a match is found
+                    return child.gameObject;
                 }
             }
 
-            Debug.Log($"'{name}' not found under parent '{parent.name}'");
-            return null; // Return null if no match is found
+            return null;
         }
 
 
@@ -661,7 +632,27 @@ namespace ClubPenguin.Adventure
 			playerAnimator.SetInteger("PropMode", 3);
 			fishingRodAnimator.SetInteger("PropMode", 3);
 			yield return new WaitForEndOfFrame();
-			float castingAnimationTime = playerAnimator.GetCurrentAnimatorClipInfo(1)[0].clip.length;
+			float castingAnimationTime = 0f;
+			if (playerAnimator != null)
+			{
+				AnimatorClipInfo[] clips = playerAnimator.GetCurrentAnimatorClipInfo(1);
+				if (clips != null && clips.Length > 0 && clips[0].clip != null)
+				{
+					castingAnimationTime = clips[0].clip.length;
+				}
+				else
+				{
+					clips = playerAnimator.GetCurrentAnimatorClipInfo(0);
+					if (clips != null && clips.Length > 0 && clips[0].clip != null)
+					{
+						castingAnimationTime = clips[0].clip.length;
+					}
+					else
+					{
+						castingAnimationTime = 0.2f;
+					}
+				}
+			}
 			yield return new WaitForSeconds(castingAnimationTime);
 			setupStartingAnimatorValues();
 			SetBobberHierarchy(true);
@@ -961,7 +952,27 @@ namespace ClubPenguin.Adventure
 			eventDispatcher.DispatchEvent(default(FishingEvents.DeactivateBobberButton));
 			fxSmallSplash.Play();
 			_bobberAnimator.Play(ANIM_MISS);
-			float animDuration = _bobberAnimator.GetCurrentAnimatorClipInfo(0)[0].clip.length;
+			float animDuration = 0f;
+			if (_bobberAnimator != null)
+			{
+				AnimatorClipInfo[] clips = _bobberAnimator.GetCurrentAnimatorClipInfo(0);
+				if (clips != null && clips.Length > 0 && clips[0].clip != null)
+				{
+					animDuration = clips[0].clip.length;
+				}
+				else
+				{
+					animDuration = _bobberAnimator.GetCurrentAnimatorStateInfo(0).length;
+					if (animDuration <= 0f)
+					{
+						animDuration = 0.2f;
+					}
+				}
+			}
+			if (animDuration <= 0f)
+			{
+				animDuration = 0.2f;
+			}
 			yield return new WaitForSeconds(animDuration * missSplashFactor);
 			fxSmallSplash.Play();
 			yield return new WaitForSeconds(animDuration * (1f - missSplashFactor));

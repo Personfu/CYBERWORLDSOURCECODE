@@ -2,7 +2,7 @@
 
 > [!IMPORTANT]
 > ### Unity Version
-> - **Unity 6000.3.9f1 LTS**
+> - **Unity 6000.3.10f1 LTS**
 
 > [!IMPORTANT]
 > ## **Builds can be found here:**
@@ -39,7 +39,6 @@
 > - To launch the game in the Unity editor:
 >   - Open `Assets/Game/Core/Scenes/Boot.unity`
 >  - Hit the Play button.
-> - **Android/Mobile support:** Please make sure to read everything carefully in the **Platforms** folder before proceeding.
 > - **Join our Discord for support, chatting, or for future updates:** [join here](https://discord.gg/2V6tYJPbpc)
 
 > [!IMPORTANT]
@@ -115,11 +114,15 @@
 >     - Added support to the Progression Unlock Service to allow unlocking of equipment instances.
 >     - Added support to type in commands via the ingame chat. Currently, there are only 3 commands: !ae {Template.ID}, !at {Tube.ID}, and !ac {coins.amount}.
 >     - Added the video trailer button to standalone from mobile. This will appear on the homescreen.
->     - Added the Dot's Clothing Catalog Daily Challenges to Offline Mode. Note: This does enable the Daily Challenges UI in the Cellphone but it does not work as it is not currently coded in the Offline Server and API.
+>     - Added the Dot's Clothing Catalog Daily Challenges to Offline Mode.
+>     - Added the Daily challenges to Offline Mode.
 >     - Added the daily fishing bait limit check to Offline Mode.
 >     - Added the ability to exit the Tube Race Lobby in the Offline Room Runner.
 >     - Added the ability to gain the 5 coins from the Puffle Treasure Chest in Offline Mode.
 >     - Added a whole bunch of custom decals and fabrics.
+>     - Added 5 Puffle statues to the igloos. They unlock at Player Level 2.
+>     - Added a CPI staff inspired shirt in game.
+>     - Added the Wet Suit to Penguin Level 23.
 
 > [!IMPORTANT]
 > - What has been fixed:
