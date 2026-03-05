@@ -472,7 +472,7 @@ namespace ClubPenguin
 			}
 		}
 
-		[Invokable("PartySwitcher.Regular", Description = "Force regular (no annual party).")]
+		[Invokable("PartySwitcher.Evergreen", Description = "Force regular (no parties).")]
 		[PublicTweak]
 		public void AnnualParties_End()
 		{

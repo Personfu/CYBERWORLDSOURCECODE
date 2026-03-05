@@ -1970,7 +1970,8 @@ GameObject:
   - component: {fileID: 7318989417309312551}
   - component: {fileID: 4903864157228226953}
   - component: {fileID: 7570268246654741620}
-  m_Layer: 0
+  - component: {fileID: 4503442392704951322}
+  m_Layer: 30
   m_Name: candleDish
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2049,6 +2050,27 @@ MeshRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &4503442392704951322
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 82474741109790888}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.24157974, y: 0.08363344, z: 0.27665004}
+  m_Center: {x: 0.0003240445, y: 0.000000007450581, z: 0.000007875266}
 --- !u!1 &88598485141035335
 GameObject:
   m_ObjectHideFlags: 0
@@ -7015,7 +7037,8 @@ GameObject:
   - component: {fileID: 7038233592799173313}
   - component: {fileID: 6140674244421015198}
   - component: {fileID: 5408927230040180505}
-  m_Layer: 0
+  - component: {fileID: 1499633052770501121}
+  m_Layer: 30
   m_Name: candleFlame
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7113,6 +7136,27 @@ MonoBehaviour:
   YAxisRotationSpeed: 1000
   ZAxisRotationSpeed: 0
   isActive: 1
+--- !u!65 &1499633052770501121
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 355759214653794895}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.08639148, y: 0.13896334, z: 0.07456906}
+  m_Center: {x: 0.005116198, y: 0.026433092, z: -0.0000000018626458}
 --- !u!1 &359188259896672783
 GameObject:
   m_ObjectHideFlags: 0
@@ -7759,7 +7803,8 @@ GameObject:
   - component: {fileID: 5848048503041006373}
   - component: {fileID: 6886495779677350807}
   - component: {fileID: 8419179420396652575}
-  m_Layer: 0
+  - component: {fileID: 3846423865286225565}
+  m_Layer: 30
   m_Name: candleFlame
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7857,6 +7902,27 @@ MonoBehaviour:
   YAxisRotationSpeed: 1000
   ZAxisRotationSpeed: 0
   isActive: 1
+--- !u!65 &3846423865286225565
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 380052969243471678}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.08639147, y: 0.13896334, z: 0.07456905}
+  m_Center: {x: 0.005115244, y: 0.026429277, z: -0.0000038165695}
 --- !u!1 &380644354855625564
 GameObject:
   m_ObjectHideFlags: 0
@@ -28543,7 +28609,8 @@ GameObject:
   - component: {fileID: 4097347871290337139}
   - component: {fileID: 4542382005244543557}
   - component: {fileID: 6708951363919254103}
-  m_Layer: 0
+  - component: {fileID: 3893152066764616815}
+  m_Layer: 30
   m_Name: candle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -28622,6 +28689,27 @@ MeshRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &3893152066764616815
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1247891328092854779}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.13170242, y: 0.3912363, z: 0.150857}
+  m_Center: {x: -0.00000000372532, y: -0.00000024586913, z: 0.0000043176115}
 --- !u!1 &1248747249436432404
 GameObject:
   m_ObjectHideFlags: 0
@@ -106191,7 +106279,8 @@ GameObject:
   - component: {fileID: 5375929034794735515}
   - component: {fileID: 5363357440864933192}
   - component: {fileID: 697125682310702204}
-  m_Layer: 0
+  - component: {fileID: 506214526413821127}
+  m_Layer: 30
   m_Name: candleDish
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -106270,6 +106359,27 @@ MeshRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &506214526413821127
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4351551648075196544}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.24157974, y: 0.08363344, z: 0.27665004}
+  m_Center: {x: 0.0003240445, y: 0.000000007450581, z: 0.00000978262}
 --- !u!1 &4358353860556402840
 GameObject:
   m_ObjectHideFlags: 0
@@ -106371,7 +106481,8 @@ GameObject:
   - component: {fileID: 7946250740100635655}
   - component: {fileID: 7420240528296918798}
   - component: {fileID: 2126022349238047644}
-  m_Layer: 0
+  - component: {fileID: 7792677490404098977}
+  m_Layer: 30
   m_Name: candle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -106450,6 +106561,27 @@ MeshRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &7792677490404098977
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4360928547832030271}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.13170245, y: 0.39123634, z: 0.15085703}
+  m_Center: {x: -0.000000003725291, y: -0.0000040605664, z: 0.0000005029143}
 --- !u!1 &4368615655345083235
 GameObject:
   m_ObjectHideFlags: 0
@@ -107185,7 +107317,8 @@ GameObject:
   - component: {fileID: 7226813310215040926}
   - component: {fileID: 5045337916574639878}
   - component: {fileID: 2568741564156496226}
-  m_Layer: 0
+  - component: {fileID: 5307595050338684232}
+  m_Layer: 30
   m_Name: candleDish
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -107264,6 +107397,27 @@ MeshRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &5307595050338684232
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4394924490493472057}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.24157967, y: 0.08363344, z: 0.27664995}
+  m_Center: {x: 0.00032595173, y: 0.000000007450581, z: 0.000007875274}
 --- !u!1 &4413327935446238998
 GameObject:
   m_ObjectHideFlags: 0
@@ -113200,7 +113354,8 @@ GameObject:
   - component: {fileID: 690090956636543533}
   - component: {fileID: 8109346392606820936}
   - component: {fileID: 2845137098880484718}
-  m_Layer: 0
+  - component: {fileID: 6771704408020513234}
+  m_Layer: 30
   m_Name: candleFlame
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -113298,6 +113453,27 @@ MonoBehaviour:
   YAxisRotationSpeed: 1000
   ZAxisRotationSpeed: 0
   isActive: 1
+--- !u!65 &6771704408020513234
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4538294973653274983}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.08639148, y: 0.13896334, z: 0.07456906}
+  m_Center: {x: 0.005117152, y: 0.026429277, z: -0.0000000018626458}
 --- !u!1 &4551456383672323175
 GameObject:
   m_ObjectHideFlags: 0
@@ -122912,7 +123088,8 @@ GameObject:
   - component: {fileID: 2900152054210437473}
   - component: {fileID: 4114843995676291709}
   - component: {fileID: 6900723117229516717}
-  m_Layer: 0
+  - component: {fileID: 2779195864650933505}
+  m_Layer: 30
   m_Name: candleDish
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -122991,6 +123168,27 @@ MeshRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &2779195864650933505
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5107308435927044391}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.24157965, y: 0.08363343, z: 0.27664995}
+  m_Center: {x: 0.00032404438, y: 0.00000048428774, z: 0.000007875259}
 --- !u!1 &5109379842009446134
 GameObject:
   m_ObjectHideFlags: 0
@@ -132070,7 +132268,8 @@ GameObject:
   - component: {fileID: 2593590886973960958}
   - component: {fileID: 2385084425754993201}
   - component: {fileID: 6131585495026405083}
-  m_Layer: 0
+  - component: {fileID: 69987078522667977}
+  m_Layer: 30
   m_Name: candle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -132149,6 +132348,27 @@ MeshRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &69987078522667977
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5521270819998498330}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.13170248, y: 0.39123636, z: 0.15085708}
+  m_Center: {x: 0.0000019036233, y: 0.000003568828, z: -0.0000033117828}
 --- !u!1 &5525174940454360159
 GameObject:
   m_ObjectHideFlags: 0
@@ -136276,7 +136496,8 @@ GameObject:
   - component: {fileID: 7766004416766565885}
   - component: {fileID: 2423216791687539784}
   - component: {fileID: 778117009102883421}
-  m_Layer: 0
+  - component: {fileID: 331060801877454849}
+  m_Layer: 30
   m_Name: candleFlame
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -136374,6 +136595,27 @@ MonoBehaviour:
   YAxisRotationSpeed: 1000
   ZAxisRotationSpeed: 0
   isActive: 1
+--- !u!65 &331060801877454849
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5785252760860629824}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.08639147, y: 0.13896334, z: 0.07456905}
+  m_Center: {x: 0.0051171514, y: 0.026433092, z: -0.0000019093638}
 --- !u!1 &5798484260336373824
 GameObject:
   m_ObjectHideFlags: 0
@@ -147662,7 +147904,8 @@ GameObject:
   - component: {fileID: 5159475644489839711}
   - component: {fileID: 3843111622049536265}
   - component: {fileID: 1072619770012258864}
-  m_Layer: 0
+  - component: {fileID: 1976427415246585130}
+  m_Layer: 30
   m_Name: candleDish
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -147741,6 +147984,27 @@ MeshRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &1976427415246585130
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6330780554463528677}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.24157968, y: 0.08363344, z: 0.27664998}
+  m_Center: {x: 0.0003240444, y: 0.000000007450581, z: 0.000011689962}
 --- !u!1 &6335171508486867716
 GameObject:
   m_ObjectHideFlags: 0
@@ -149015,7 +149279,8 @@ GameObject:
   - component: {fileID: 7387768801000244494}
   - component: {fileID: 6328360430742201800}
   - component: {fileID: 1069434443142933780}
-  m_Layer: 0
+  - component: {fileID: 7106327710682164607}
+  m_Layer: 30
   m_Name: candleFlame
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -149113,6 +149378,27 @@ MonoBehaviour:
   YAxisRotationSpeed: 1000
   ZAxisRotationSpeed: 0
   isActive: 1
+--- !u!65 &7106327710682164607
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6377347724599045645}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.08639145, y: 0.13896334, z: 0.07456903}
+  m_Center: {x: 0.0051161963, y: 0.026433092, z: 0.0000009519641}
 --- !u!1 &6382076411641080311
 GameObject:
   m_ObjectHideFlags: 0
@@ -150700,7 +150986,8 @@ GameObject:
   - component: {fileID: 6880224687960953719}
   - component: {fileID: 7467225993296490035}
   - component: {fileID: 5782805617509811398}
-  m_Layer: 0
+  - component: {fileID: 6885212377199854079}
+  m_Layer: 30
   m_Name: candle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -150779,6 +151066,27 @@ MeshRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &6885212377199854079
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6437150083833949158}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.13170245, y: 0.3912363, z: 0.15085703}
+  m_Center: {x: -0.000000003725257, y: -0.00000024586913, z: 0.00000050291425}
 --- !u!1 &6440608491230577185
 GameObject:
   m_ObjectHideFlags: 0
@@ -152566,7 +152874,8 @@ GameObject:
   - component: {fileID: 7504275961723705267}
   - component: {fileID: 9098383816713371116}
   - component: {fileID: 967662204953471863}
-  m_Layer: 0
+  - component: {fileID: 4515628803161780676}
+  m_Layer: 30
   m_Name: candle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -152645,6 +152954,27 @@ MeshRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &4515628803161780676
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6484765073056930165}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.13170247, y: 0.39123634, z: 0.15085706}
+  m_Center: {x: -0.0000000037252692, y: -0.00000024586913, z: 0.00000050291436}
 --- !u!1 &6485794009947300879
 GameObject:
   m_ObjectHideFlags: 0
@@ -175273,7 +175603,8 @@ GameObject:
   - component: {fileID: 2335588134616642401}
   - component: {fileID: 2891480035363779029}
   - component: {fileID: 6021606202331611591}
-  m_Layer: 0
+  - component: {fileID: 1639300841478418517}
+  m_Layer: 30
   m_Name: candleDish
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -175352,6 +175683,27 @@ MeshRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &1639300841478418517
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7345235744861632050}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.24157973, y: 0.08363344, z: 0.27665}
+  m_Center: {x: 0.00032499814, y: 0.000000007450581, z: 0.000007875246}
 --- !u!1 &7352919607970898171
 GameObject:
   m_ObjectHideFlags: 0
@@ -177659,7 +178011,8 @@ GameObject:
   - component: {fileID: 7483673994969664888}
   - component: {fileID: 5330460331200473483}
   - component: {fileID: 6893728531028439571}
-  m_Layer: 0
+  - component: {fileID: 6963817425223580602}
+  m_Layer: 30
   m_Name: candleFlame
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -177757,6 +178110,27 @@ MonoBehaviour:
   YAxisRotationSpeed: 1000
   ZAxisRotationSpeed: 0
   isActive: 1
+--- !u!65 &6963817425223580602
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7431865622735605300}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.08639147, y: 0.13896333, z: 0.07456905}
+  m_Center: {x: 0.0051166746, y: 0.026429275, z: -0.000007631104}
 --- !u!1 &7441003141346558222
 GameObject:
   m_ObjectHideFlags: 0
@@ -185302,7 +185676,8 @@ GameObject:
   - component: {fileID: 7841908362739617587}
   - component: {fileID: 1369045980707901840}
   - component: {fileID: 3291356675143894756}
-  m_Layer: 0
+  - component: {fileID: 8201424264371337685}
+  m_Layer: 30
   m_Name: candleDish
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -185381,6 +185756,27 @@ MeshRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &8201424264371337685
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7808551394666432017}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.2415797, y: 0.08363343, z: 0.27664998}
+  m_Center: {x: 0.0003240444, y: 0.00000000745058, z: 0.000007875255}
 --- !u!1 &7819203521264358848
 GameObject:
   m_ObjectHideFlags: 0
@@ -198020,7 +198416,8 @@ GameObject:
   - component: {fileID: 5029158713421952760}
   - component: {fileID: 2949333619297619130}
   - component: {fileID: 8269764279791752922}
-  m_Layer: 0
+  - component: {fileID: 8895672882935196960}
+  m_Layer: 30
   m_Name: candle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -198099,6 +198496,27 @@ MeshRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &8895672882935196960
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8345867094536470707}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.13170244, y: 0.3912363, z: 0.15085702}
+  m_Center: {x: -0.0000000037252756, y: -0.00000024586913, z: 0.00000050291425}
 --- !u!1 &8347543114460310706
 GameObject:
   m_ObjectHideFlags: 0
@@ -204161,7 +204579,8 @@ GameObject:
   - component: {fileID: 8962578478280636182}
   - component: {fileID: 5181016150978855374}
   - component: {fileID: 4716336270149142310}
-  m_Layer: 0
+  - component: {fileID: 983999454994372597}
+  m_Layer: 30
   m_Name: candleFlame
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -204259,6 +204678,27 @@ MonoBehaviour:
   YAxisRotationSpeed: 1000
   ZAxisRotationSpeed: 0
   isActive: 1
+--- !u!65 &983999454994372597
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8624471851619275706}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.08639146, y: 0.13896334, z: 0.07456904}
+  m_Center: {x: 0.0051142895, y: 0.026433092, z: 0.000003812682}
 --- !u!1 &8627288464658917812
 GameObject:
   m_ObjectHideFlags: 0
@@ -206112,7 +206552,8 @@ GameObject:
   - component: {fileID: 1468078796663388404}
   - component: {fileID: 2332708021466320866}
   - component: {fileID: 8164443067110103987}
-  m_Layer: 0
+  - component: {fileID: 8683200547308468473}
+  m_Layer: 30
   m_Name: candleDish
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -206191,6 +206632,27 @@ MeshRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &8683200547308468473
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8691426057663793542}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.24157965, y: 0.08363344, z: 0.27664995}
+  m_Center: {x: 0.00032404438, y: 0.000000007450581, z: 0.000007875264}
 --- !u!1 &8692926077734237044
 GameObject:
   m_ObjectHideFlags: 0
@@ -212432,7 +212894,8 @@ GameObject:
   - component: {fileID: 5380388948936263173}
   - component: {fileID: 5587647230208391759}
   - component: {fileID: 264095693554063228}
-  m_Layer: 0
+  - component: {fileID: 321836181918325232}
+  m_Layer: 30
   m_Name: candle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -212511,6 +212974,27 @@ MeshRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &321836181918325232
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9008540120795379731}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.13170242, y: 0.3912363, z: 0.150857}
+  m_Center: {x: -0.000001911074, y: -0.0000002458691, z: 0.0000005029142}
 --- !u!1 &9009597557379731720
 GameObject:
   m_ObjectHideFlags: 0
@@ -216426,7 +216910,8 @@ GameObject:
   - component: {fileID: 7870108442078844896}
   - component: {fileID: 8184721747911124246}
   - component: {fileID: 2149247816033659725}
-  m_Layer: 0
+  - component: {fileID: 6347014392513236719}
+  m_Layer: 30
   m_Name: candleFlame
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -216524,6 +217009,27 @@ MonoBehaviour:
   YAxisRotationSpeed: 1000
   ZAxisRotationSpeed: 0
   isActive: 1
+--- !u!65 &6347014392513236719
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9177104611534254723}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.08639146, y: 0.13896333, z: 0.07456904}
+  m_Center: {x: 0.005112382, y: 0.02643309, z: -0.0000038164076}
 --- !u!1 &9181363626161877015
 GameObject:
   m_ObjectHideFlags: 0
@@ -216535,7 +217041,8 @@ GameObject:
   - component: {fileID: 5927327283850173751}
   - component: {fileID: 905784684827501906}
   - component: {fileID: 7811331224303281026}
-  m_Layer: 0
+  - component: {fileID: 171174465455938373}
+  m_Layer: 30
   m_Name: candle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -216614,6 +217121,27 @@ MeshRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &171174465455938373
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9181363626161877015}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.13170247, y: 0.3912363, z: 0.15085706}
+  m_Center: {x: -0.0000000037252916, y: -0.00000024586913, z: -0.00000045075996}
 --- !u!1 &9181786120097951433
 GameObject:
   m_ObjectHideFlags: 0
