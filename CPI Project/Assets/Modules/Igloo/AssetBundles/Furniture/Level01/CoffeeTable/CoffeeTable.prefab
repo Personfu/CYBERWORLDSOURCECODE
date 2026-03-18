@@ -131,7 +131,7 @@ GameObject:
   - component: {fileID: 4503040413905681}
   - component: {fileID: 33764157046341936}
   - component: {fileID: 23009397169860510}
-  - component: {fileID: 4648606365208051642}
+  - component: {fileID: 3344468524335531899}
   m_Layer: 17
   m_Name: CoffeeTableMesh
   m_TagString: Untagged
@@ -179,6 +179,11 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
   m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -200,12 +205,14 @@ MeshRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &4648606365208051642
-MeshCollider:
+--- !u!65 &3344468524335531899
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -222,7 +229,6 @@ MeshCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 2935006212009539371, guid: 5c7b047e5e4e933cf84c9a73c845279f, type: 3}
+  serializedVersion: 3
+  m_Size: {x: 1.3889854, y: 0.35176107, z: 0.46866897}
+  m_Center: {x: 0, y: 0.17588054, z: -0.000000074505806}

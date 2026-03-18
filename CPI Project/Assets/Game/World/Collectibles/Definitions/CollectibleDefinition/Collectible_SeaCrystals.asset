@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: Collectible_SeaCrystals
   m_EditorClassIdentifier: 
   CollectibleType: SeaCrystals
-  SpawnCategory: 0
+  SpawnCategory: 1
   ExchangeRate: 1
-  RespawnSeconds: 86400
+  RespawnSeconds: 0
   SpriteAsset:
     Key: Images/Exchange_Collectible_SeaCrystals
     type: UnityEngine.Sprite, UnityEngine

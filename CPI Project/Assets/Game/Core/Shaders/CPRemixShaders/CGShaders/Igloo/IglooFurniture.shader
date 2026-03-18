@@ -2,158 +2,114 @@ Shader "CpRemix/Igloo/IglooFurniture"
 {
 	Properties
 	{
-	  _Color("Tint Color", Color) = (1,1,1,1)
-	  _MainTex("Texture (RGB)", 2D) = "white" {}
-	  _Highlight("Additional Highlight", Range(0, 1)) = 0
+		_Color("Tint Color", Color) = (1,1,1,1)
+		_MainTex("Texture (RGB)", 2D) = "white" {}
+		_Highlight("Additional Highlight", Range(0, 1)) = 0
 	}
-		SubShader
-	  {
+
+	SubShader
+	{
 		Tags
 		{
-		  "LIGHTMODE" = "FORWARDBASE"
-		  "QUEUE" = "Geometry"
-		  "RenderType" = "Opaque"
-		}
-		Pass // ind: 1, name: 
-		{
-		  Tags
-		  {
 			"LIGHTMODE" = "FORWARDBASE"
 			"QUEUE" = "Geometry"
 			"RenderType" = "Opaque"
-		  }
-			  CGPROGRAM
+		}
 
+		Pass
+		{
+			Tags
+			{
+				"LIGHTMODE" = "FORWARDBASE"
+				"QUEUE" = "Geometry"
+				"RenderType" = "Opaque"
+			}
 
-			  #pragma vertex vert
-			  #pragma fragment frag
+			CGPROGRAM
+			#pragma vertex vert
+			#pragma fragment frag
 
-			  #include "UnityCG.cginc"
-			  #include "AutoLight.cginc"
-			  #include "Lighting.cginc"
+			#include "UnityCG.cginc"
+			#include "Lighting.cginc"
 
+			sampler2D _MainTex;
 			float4 _MainTex_ST;
-
-		  //float4 _WorldSpaceLightPos0;
-		  //float4 unity_SHAr;
-		  //float4 unity_SHAg;
-		  //float4 unity_SHAb;
-		  //float4 unity_SHBr;
-		  //float4 unity_SHBg;
-		 // float4 unity_SHBb;
-		 // float4 unity_SHC;
-		 // float4x4 unity_ObjectToWorld;
-		 // float4x4 unity_WorldToObject;
-		//  float4x4 unity_MatrixVP;
-		  //float4 _LightColor0;
 			float4 _Color;
 			float _Highlight;
-			sampler2D _MainTex;
 
-		  struct v2f
-		  {
-		  float4 xlv_COLOR : COLOR;
-		  float2 xlv_TEXCOORD0 : TEXCOORD0;
-		  float4 xlv_COLOR2 : COLOR1;
-		  };
+			struct appdata
+			{
+				float4 vertex : POSITION;
+				float3 normal : NORMAL;
+				float4 texcoord : TEXCOORD0;
+				float4 color : COLOR;
+			};
 
-		  struct FragOutput
-		  {
-		  float4 gl_FragData : SV_Target;
-		  };
+			struct v2f
+			{
+				float4 color : COLOR0;
+				float2 uv : TEXCOORD0;
+				float4 color2 : COLOR1;
+				float4 pos : SV_POSITION;
+			};
 
-		  v2f vert(
-		  float4 _glesVertex : POSITION,
-		  float3 _glesNormal : NORMAL,
-		  float4 _glesMultiTexCoord0 : TEXCOORD0,
-		  float4 _glesColor : COLOR,
-		  out float4 gl_Position : SV_POSITION
-		  )
-		  {
-			v2f o;
-			float3 tmpvar_1;
-			tmpvar_1 = _glesNormal;
-			float3 normalWorldSpace_2;
-			float4 tmpvar_3;
-			float3 norm_4;
-			norm_4 = tmpvar_1;
-			float3x3 tmpvar_5;
-			tmpvar_5[0] = unity_WorldToObject[0].xyz;
-			tmpvar_5[1] = unity_WorldToObject[1].xyz;
-			tmpvar_5[2] = unity_WorldToObject[2].xyz;
-			float3 tmpvar_6;
-			tmpvar_6 = normalize(mul(norm_4, tmpvar_5));
-			normalWorldSpace_2 = tmpvar_6;
-			float4 tmpvar_7;
-			tmpvar_7.w = 1.0;
-			tmpvar_7.xyz = _glesVertex.xyz;
-			float4 tmpvar_8;
-			tmpvar_8.w = 1.0;
-			tmpvar_8.xyz = normalWorldSpace_2;
-			float3 res_9;
-			float3 x_10;
-			x_10.x = dot(unity_SHAr, tmpvar_8);
-			x_10.y = dot(unity_SHAg, tmpvar_8);
-			x_10.z = dot(unity_SHAb, tmpvar_8);
-			float3 x1_11;
-			float4 tmpvar_12;
-			tmpvar_12 = (normalWorldSpace_2.xyzz * normalWorldSpace_2.yzzx);
-			x1_11.x = dot(unity_SHBr, tmpvar_12);
-			x1_11.y = dot(unity_SHBg, tmpvar_12);
-			x1_11.z = dot(unity_SHBb, tmpvar_12);
-			res_9 = (x_10 + (x1_11 + (unity_SHC.xyz *
-			  ((normalWorldSpace_2.x * normalWorldSpace_2.x) - (normalWorldSpace_2.y * normalWorldSpace_2.y))
-			)));
-			float3 tmpvar_13;
-			tmpvar_13 = max(((1.055 *
-			  pow(max(res_9, float3(0.0, 0.0, 0.0)), float3(0.4166667, 0.4166667, 0.4166667))
-			) - 0.055), float3(0.0, 0.0, 0.0));
-			res_9 = tmpvar_13;
-			float4 tmpvar_14;
-			tmpvar_14.w = 1.0;
-			tmpvar_14.xyz = max(float3(0.0, 0.0, 0.0), tmpvar_13);
-			float3 tmpvar_15;
-			float4 tmpvar_16;
-			tmpvar_16.w = 0.0;
-			tmpvar_16.xyz = normalWorldSpace_2;
-			float tmpvar_17;
-			tmpvar_17 = clamp(((
-			  dot(tmpvar_16, _WorldSpaceLightPos0)
-			 + 1.0) / 4.0), 0.0, 1.0);
-			float3 tmpvar_18;
-			tmpvar_18 = (_LightColor0 * tmpvar_17).xyz;
-			tmpvar_15 = tmpvar_18;
-			float4 tmpvar_19;
-			tmpvar_19.w = 1.0;
-			tmpvar_19.xyz = tmpvar_15;
-			tmpvar_3 = (tmpvar_14 + tmpvar_19);
-			tmpvar_3 = (tmpvar_3 * _Color);
-			tmpvar_3 = (tmpvar_3 + _Highlight);
-			gl_Position = UnityObjectToClipPos(tmpvar_7);
-			o.xlv_COLOR = tmpvar_3;
+			inline float3 ComputeVertexLighting(float3 objectNormal)
+			{
+				float3x3 worldToObject3x3;
+				worldToObject3x3[0] = unity_WorldToObject[0].xyz;
+				worldToObject3x3[1] = unity_WorldToObject[1].xyz;
+				worldToObject3x3[2] = unity_WorldToObject[2].xyz;
 
-			o.xlv_TEXCOORD0 = _glesMultiTexCoord0.xy * _MainTex_ST.xy + _MainTex_ST.zw;
+				float3 normalWorldSpace = normalize(mul(objectNormal, worldToObject3x3));
+				float4 normalWS4 = float4(normalWorldSpace, 1.0);
 
-			o.xlv_COLOR2 = _glesColor;
-			return o;
-		  }
+				float3 sh0;
+				sh0.x = dot(unity_SHAr, normalWS4);
+				sh0.y = dot(unity_SHAg, normalWS4);
+				sh0.z = dot(unity_SHAb, normalWS4);
 
+				float4 shCross = normalWorldSpace.xyzz * normalWorldSpace.yzzx;
 
-		  FragOutput frag(v2f i)
-		  {
-			FragOutput o;
-			float4 tmpvar_1;
-			float4 tmpvar_2;
-			tmpvar_2 = tex2D(_MainTex, i.xlv_TEXCOORD0);
-			tmpvar_1 = tmpvar_2;
-			o.gl_FragData = ((i.xlv_COLOR * float4(0.9, 0.9, 0.9, 0.9)) * tmpvar_1 * i.xlv_COLOR2);
-			return o;
-		  }
+				float3 sh1;
+				sh1.x = dot(unity_SHBr, shCross);
+				sh1.y = dot(unity_SHBg, shCross);
+				sh1.z = dot(unity_SHBb, shCross);
 
+				float3 ambient = sh0 + sh1 + unity_SHC.xyz * ((normalWorldSpace.x * normalWorldSpace.x) - (normalWorldSpace.y * normalWorldSpace.y));
+				ambient = max((1.055 * pow(max(ambient, 0.0), 0.4166667)) - 0.055, 0.0);
 
-		  ENDCG
+				float ndl = clamp((dot(float4(normalWorldSpace, 0.0), _WorldSpaceLightPos0) + 1.0) / 4.0, 0.0, 1.0);
+				float3 direct = (_LightColor0.rgb * ndl);
 
-	} // end phase
-	  }
-		  FallBack "VertexLit"
+				return ambient + direct;
+			}
+
+			v2f vert(appdata v)
+			{
+				v2f o;
+
+				float3 lighting = ComputeVertexLighting(v.normal);
+				float4 litColor = float4(lighting, 1.0);
+
+				litColor *= _Color;
+				litColor += _Highlight;
+
+				o.pos = UnityObjectToClipPos(v.vertex);
+				o.color = litColor;
+				o.uv = v.texcoord.xy * _MainTex_ST.xy + _MainTex_ST.zw;
+				o.color2 = v.color;
+
+				return o;
+			}
+
+			fixed4 frag(v2f i) : SV_Target
+			{
+				fixed4 tex = tex2D(_MainTex, i.uv);
+				return (i.color * fixed4(0.9, 0.9, 0.9, 0.9)) * tex * i.color2;
+			}
+			ENDCG
+		}
+	}
+
+	FallBack "VertexLit"
 }

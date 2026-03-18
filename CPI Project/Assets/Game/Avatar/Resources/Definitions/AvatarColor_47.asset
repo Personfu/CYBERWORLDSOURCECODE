@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ColorId: 47
   ViewOrder: 47
-  ColorName: Dark Red
-  Color: 830005
+  ColorName: Hot Cocoa
+  Color: 6f3a2a

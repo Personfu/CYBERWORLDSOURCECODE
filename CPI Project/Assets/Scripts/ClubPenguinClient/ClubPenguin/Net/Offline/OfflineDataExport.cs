@@ -36,6 +36,8 @@ namespace ClubPenguin.Net.Offline
 
 		public SceneLayoutEntity IglooLayouts;
 
+		public DecorationInventoryEntity DecorationInventory;
+
 		public TubeData Tube;
 
 		public TutorialData Tutorials;
@@ -60,6 +62,7 @@ namespace ClubPenguin.Net.Offline
 			offlineDataExport.QuestStates = OfflineDatabase.Read<QuestStates>(token);
 			offlineDataExport.RegistrationProfile = OfflineDatabase.Read<RegistrationProfile>(token);
 			offlineDataExport.IglooLayouts = OfflineDatabase.Read<SceneLayoutEntity>(token);
+			offlineDataExport.DecorationInventory = OfflineDatabase.Read<DecorationInventoryEntity>(token);
 			offlineDataExport.Tube = OfflineDatabase.Read<TubeData>(token);
 			offlineDataExport.Tutorials = OfflineDatabase.Read<TutorialData>(token);
 			OfflineDataExport objectToSerialize = offlineDataExport;
@@ -111,6 +114,7 @@ namespace ClubPenguin.Net.Offline
 			OfflineDatabase.Write(offlineDataExport.QuestStates, token);
 			OfflineDatabase.Write(offlineDataExport.RegistrationProfile, token);
 			OfflineDatabase.Write(offlineDataExport.IglooLayouts, token);
+			OfflineDatabase.Write(offlineDataExport.DecorationInventory, token);
 			OfflineDatabase.Write(offlineDataExport.Tube, token);
 			OfflineDatabase.Write(offlineDataExport.Tutorials, token);
 		}

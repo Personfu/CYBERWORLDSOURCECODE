@@ -36,7 +36,8 @@ MonoBehaviour:
   StructurePurchaseRights: []
   MusicTracks: []
   Lighting: []
-  EmotePacks: []
+  EmotePacks:
+  - Definition: {fileID: 11400000, guid: c25d21729ccf1f248886ddab6c60e1de, type: 2}
   SizzleClips: []
   Consumables: []
   Durables: []

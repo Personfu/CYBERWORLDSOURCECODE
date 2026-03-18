@@ -102,15 +102,11 @@ Shader "CpRemix/UI/CurvedBorderButtonWithSparkle"
 		  {
 			v2f o;
 			float2 tmpvar_1 = (float2(1.0, 1.0) + (abs(_ShadowVec) * 0.5));
-			float2 tmpvar_2;
-			tmpvar_2.x = (tmpvar_1.x / tmpvar_1.y);
-			tmpvar_2.y = tmpvar_1.y;
-
 			o.pos = UnityObjectToClipPos(v.vertex);
 			o.xlv_COLOR = v.color * _Color;
 
 			float2 tmpvar_13 = (_ShadowVec * 0.5);
-			o.xlv_TEXCOORD0 = (((v.texcoord.xy * _Tile.xy) + _Tile.zw) * tmpvar_2) - tmpvar_13;
+			o.xlv_TEXCOORD0 = (((v.texcoord.xy * _Tile.xy) + _Tile.zw) * float2(tmpvar_1.x / tmpvar_1.y, tmpvar_1.y)) - tmpvar_13;
 			o.xlv_TEXCOORD1 = (((v.texcoord.xy * 2.0) - 1.0) * tmpvar_1) - tmpvar_13;
 
 			float tmpvar_4;
@@ -177,19 +173,13 @@ Shader "CpRemix/UI/CurvedBorderButtonWithSparkle"
 			 tmpvar_14 = sqrt(dot(tmpvar_9, tmpvar_9));
 			 float tmpvar_15;
 			 tmpvar_15 = (1.0 - ((clamp(tmpvar_14, tmpvar_6, 1.0) - tmpvar_6) * tmpvar_5));
-			 float4 tmpvar_16;
-			 tmpvar_16 = tex2D(_MainTex, i.xlv_TEXCOORD0);
-			 image_4 = tmpvar_16;
+			 image_4 = tex2D(_MainTex, i.xlv_TEXCOORD0);
 			 float2 tmpvar_17;
 			 tmpvar_17 = abs(((i.xlv_TEXCOORD0 - 0.5) * 2.0));
 			 float tmpvar_18;
 			 tmpvar_18 = max(tmpvar_17.x, tmpvar_17.y);
-			 float4 tmpvar_19;
-			 tmpvar_19 = tex2D(_EffectTex, i.xlv_TEXCOORD2);
-			 fx1_3 = tmpvar_19;
-			 float4 tmpvar_20;
-			 tmpvar_20 = tex2D(_EffectTex, i.xlv_TEXCOORD3);
-			 fx2_2 = tmpvar_20;
+			 fx1_3 = tex2D(_EffectTex, i.xlv_TEXCOORD2);
+			 fx2_2 = tex2D(_EffectTex, i.xlv_TEXCOORD3);
 			 fx1_3.w = (fx1_3.w * _EffectAlpha);
 			 fx2_2.w = (fx2_2.w * (_EffectAlpha * 0.7));
 			 xlat_mutable_Centre.xyz = lerp(_Centre.xyz, fx1_3.xyz, fx1_3.www);

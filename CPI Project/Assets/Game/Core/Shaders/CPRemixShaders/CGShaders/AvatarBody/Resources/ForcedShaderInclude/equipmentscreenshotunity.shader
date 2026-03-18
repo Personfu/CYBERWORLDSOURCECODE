@@ -153,169 +153,103 @@ Shader "CpRemix/Equipment Screenshot"
 			float4 tmpvar_8;
 			tmpvar_8.w = 1.0;
 			tmpvar_8.xyz = _glesVertex.xyz;
-			float2 tmpvar_9;
-			tmpvar_9.x = (-0.5 + _Decal1UOffset);
-			tmpvar_9.y = (-0.5 + _Decal1VOffset);
-			float2 tmpvar_10;
-			float2 point2D_11;
-			point2D_11 = tmpvar_1;
 			float2 pointLocalCenterToOrigin_12;
-			pointLocalCenterToOrigin_12 = tmpvar_9;
-			float angleRadians_13;
-			angleRadians_13 = _Decal1RotationRads;
+			pointLocalCenterToOrigin_12.x = (-0.5 + _Decal1UOffset);
+			pointLocalCenterToOrigin_12.y = (-0.5 + _Decal1VOffset);
 			float tmpvar_14;
-			tmpvar_14 = sin(angleRadians_13);
+			tmpvar_14 = sin(_Decal1RotationRads);
 			float tmpvar_15;
-			tmpvar_15 = cos(angleRadians_13);
+			tmpvar_15 = cos(_Decal1RotationRads);
 			float2x2 tmpvar_16;
 			tmpvar_16[0].x = tmpvar_15;
 			tmpvar_16[0].y = tmpvar_14;
 			tmpvar_16[1].x = -(tmpvar_14);
 			tmpvar_16[1].y = tmpvar_15;
-			tmpvar_10 = (mul((point2D_11 + pointLocalCenterToOrigin_12), tmpvar_16) - pointLocalCenterToOrigin_12);
-			decal1RotatedUVs_7 = tmpvar_10;
-			float2 tmpvar_17;
-			tmpvar_17.x = _Decal1UOffset;
-			tmpvar_17.y = _Decal1VOffset;
-			float2 tmpvar_18;
-			tmpvar_18.x = (-0.5 + _Decal2UOffset);
-			tmpvar_18.y = (-0.5 + _Decal2VOffset);
-			float2 tmpvar_19;
-			float2 point2D_20;
-			point2D_20 = tmpvar_1;
+			decal1RotatedUVs_7 = (mul((tmpvar_1 + pointLocalCenterToOrigin_12), tmpvar_16) - pointLocalCenterToOrigin_12);
 			float2 pointLocalCenterToOrigin_21;
-			pointLocalCenterToOrigin_21 = tmpvar_18;
-			float angleRadians_22;
-			angleRadians_22 = _Decal2RotationRads;
+			pointLocalCenterToOrigin_21.x = (-0.5 + _Decal2UOffset);
+			pointLocalCenterToOrigin_21.y = (-0.5 + _Decal2VOffset);
 			float tmpvar_23;
-			tmpvar_23 = sin(angleRadians_22);
+			tmpvar_23 = sin(_Decal2RotationRads);
 			float tmpvar_24;
-			tmpvar_24 = cos(angleRadians_22);
+			tmpvar_24 = cos(_Decal2RotationRads);
 			float2x2 tmpvar_25;
 			tmpvar_25[0].x = tmpvar_24;
 			tmpvar_25[0].y = tmpvar_23;
 			tmpvar_25[1].x = -(tmpvar_23);
 			tmpvar_25[1].y = tmpvar_24;
-			tmpvar_19 = (mul((point2D_20 + pointLocalCenterToOrigin_21), tmpvar_25) - pointLocalCenterToOrigin_21);
-			decal2RotatedUVs_6 = tmpvar_19;
-			float2 tmpvar_26;
-			tmpvar_26.x = _Decal2UOffset;
-			tmpvar_26.y = _Decal2VOffset;
-			float2 tmpvar_27;
-			tmpvar_27.x = (-0.5 + _Decal3UOffset);
-			tmpvar_27.y = (-0.5 + _Decal3VOffset);
-			float2 tmpvar_28;
-			float2 point2D_29;
-			point2D_29 = tmpvar_1;
+			decal2RotatedUVs_6 = (mul((tmpvar_1 + pointLocalCenterToOrigin_21), tmpvar_25) - pointLocalCenterToOrigin_21);
 			float2 pointLocalCenterToOrigin_30;
-			pointLocalCenterToOrigin_30 = tmpvar_27;
-			float angleRadians_31;
-			angleRadians_31 = _Decal3RotationRads;
+			pointLocalCenterToOrigin_30.x = (-0.5 + _Decal3UOffset);
+			pointLocalCenterToOrigin_30.y = (-0.5 + _Decal3VOffset);
 			float tmpvar_32;
-			tmpvar_32 = sin(angleRadians_31);
+			tmpvar_32 = sin(_Decal3RotationRads);
 			float tmpvar_33;
-			tmpvar_33 = cos(angleRadians_31);
+			tmpvar_33 = cos(_Decal3RotationRads);
 			float2x2 tmpvar_34;
 			tmpvar_34[0].x = tmpvar_33;
 			tmpvar_34[0].y = tmpvar_32;
 			tmpvar_34[1].x = -(tmpvar_32);
 			tmpvar_34[1].y = tmpvar_33;
-			tmpvar_28 = (mul((point2D_29 + pointLocalCenterToOrigin_30), tmpvar_34) - pointLocalCenterToOrigin_30);
-			decal3RotatedUVs_5 = tmpvar_28;
-			float2 tmpvar_35;
-			tmpvar_35.x = _Decal3UOffset;
-			tmpvar_35.y = _Decal3VOffset;
-			float2 tmpvar_36;
-			tmpvar_36.x = (-0.5 + _Decal4UOffset);
-			tmpvar_36.y = (-0.5 + _Decal4VOffset);
-			float2 tmpvar_37;
-			float2 point2D_38;
-			point2D_38 = tmpvar_1;
+			decal3RotatedUVs_5 = (mul((tmpvar_1 + pointLocalCenterToOrigin_30), tmpvar_34) - pointLocalCenterToOrigin_30);
 			float2 pointLocalCenterToOrigin_39;
-			pointLocalCenterToOrigin_39 = tmpvar_36;
-			float angleRadians_40;
-			angleRadians_40 = _Decal4RotationRads;
+			pointLocalCenterToOrigin_39.x = (-0.5 + _Decal4UOffset);
+			pointLocalCenterToOrigin_39.y = (-0.5 + _Decal4VOffset);
 			float tmpvar_41;
-			tmpvar_41 = sin(angleRadians_40);
+			tmpvar_41 = sin(_Decal4RotationRads);
 			float tmpvar_42;
-			tmpvar_42 = cos(angleRadians_40);
+			tmpvar_42 = cos(_Decal4RotationRads);
 			float2x2 tmpvar_43;
 			tmpvar_43[0].x = tmpvar_42;
 			tmpvar_43[0].y = tmpvar_41;
 			tmpvar_43[1].x = -(tmpvar_41);
 			tmpvar_43[1].y = tmpvar_42;
-			tmpvar_37 = (mul((point2D_38 + pointLocalCenterToOrigin_39), tmpvar_43) - pointLocalCenterToOrigin_39);
-			decal4RotatedUVs_4 = tmpvar_37;
-			float2 tmpvar_44;
-			tmpvar_44.x = _Decal4UOffset;
-			tmpvar_44.y = _Decal4VOffset;
-			float2 tmpvar_45;
-			tmpvar_45.x = (-0.5 + _Decal5UOffset);
-			tmpvar_45.y = (-0.5 + _Decal5VOffset);
-			float2 tmpvar_46;
-			float2 point2D_47;
-			point2D_47 = tmpvar_1;
+			decal4RotatedUVs_4 = (mul((tmpvar_1 + pointLocalCenterToOrigin_39), tmpvar_43) - pointLocalCenterToOrigin_39);
 			float2 pointLocalCenterToOrigin_48;
-			pointLocalCenterToOrigin_48 = tmpvar_45;
-			float angleRadians_49;
-			angleRadians_49 = _Decal5RotationRads;
+			pointLocalCenterToOrigin_48.x = (-0.5 + _Decal5UOffset);
+			pointLocalCenterToOrigin_48.y = (-0.5 + _Decal5VOffset);
 			float tmpvar_50;
-			tmpvar_50 = sin(angleRadians_49);
+			tmpvar_50 = sin(_Decal5RotationRads);
 			float tmpvar_51;
-			tmpvar_51 = cos(angleRadians_49);
+			tmpvar_51 = cos(_Decal5RotationRads);
 			float2x2 tmpvar_52;
 			tmpvar_52[0].x = tmpvar_51;
 			tmpvar_52[0].y = tmpvar_50;
 			tmpvar_52[1].x = -(tmpvar_50);
 			tmpvar_52[1].y = tmpvar_51;
-			tmpvar_46 = (mul((point2D_47 + pointLocalCenterToOrigin_48), tmpvar_52) - pointLocalCenterToOrigin_48);
-			decal5RotatedUVs_3 = tmpvar_46;
-			float2 tmpvar_53;
-			tmpvar_53.x = _Decal5UOffset;
-			tmpvar_53.y = _Decal5VOffset;
-			float2 tmpvar_54;
-			tmpvar_54.x = (-0.5 + _Decal6UOffset);
-			tmpvar_54.y = (-0.5 + _Decal6VOffset);
-			float2 tmpvar_55;
-			float2 point2D_56;
-			point2D_56 = tmpvar_1;
+			decal5RotatedUVs_3 = (mul((tmpvar_1 + pointLocalCenterToOrigin_48), tmpvar_52) - pointLocalCenterToOrigin_48);
 			float2 pointLocalCenterToOrigin_57;
-			pointLocalCenterToOrigin_57 = tmpvar_54;
-			float angleRadians_58;
-			angleRadians_58 = _Decal6RotationRads;
+			pointLocalCenterToOrigin_57.x = (-0.5 + _Decal6UOffset);
+			pointLocalCenterToOrigin_57.y = (-0.5 + _Decal6VOffset);
 			float tmpvar_59;
-			tmpvar_59 = sin(angleRadians_58);
+			tmpvar_59 = sin(_Decal6RotationRads);
 			float tmpvar_60;
-			tmpvar_60 = cos(angleRadians_58);
+			tmpvar_60 = cos(_Decal6RotationRads);
 			float2x2 tmpvar_61;
 			tmpvar_61[0].x = tmpvar_60;
 			tmpvar_61[0].y = tmpvar_59;
 			tmpvar_61[1].x = -(tmpvar_59);
 			tmpvar_61[1].y = tmpvar_60;
-			tmpvar_55 = (mul((point2D_56 + pointLocalCenterToOrigin_57), tmpvar_61) - pointLocalCenterToOrigin_57);
-			decal6RotatedUVs_2 = tmpvar_55;
-			float2 tmpvar_62;
-			tmpvar_62.x = _Decal6UOffset;
-			tmpvar_62.y = _Decal6VOffset;
+			decal6RotatedUVs_2 = (mul((tmpvar_1 + pointLocalCenterToOrigin_57), tmpvar_61) - pointLocalCenterToOrigin_57);
 			gl_Position = UnityObjectToClipPos(tmpvar_8);//mul(unity_MatrixVP, mul(unity_ObjectToWorld, tmpvar_8));(unity_MatrixVP * (unity_ObjectToWorld * tmpvar_8));
 			o.xlv_TEXCOORD0 = tmpvar_1;
 			o.xlv_TEXCOORD1 = (((
-			  (decal1RotatedUVs_7 + tmpvar_17)
+			  (decal1RotatedUVs_7 + float2(_Decal1UOffset, _Decal1VOffset))
 			 - float2(0.5, 0.5)) * _Decal1Scale) + float2(0.5, 0.5));
 			o.xlv_TEXCOORD2 = (((
-			  (decal2RotatedUVs_6 + tmpvar_26)
+			  (decal2RotatedUVs_6 + float2(_Decal2UOffset, _Decal2VOffset))
 			 - float2(0.5, 0.5)) * _Decal2Scale) + float2(0.5, 0.5));
 			o.xlv_TEXCOORD3 = (((
-			  (decal3RotatedUVs_5 + tmpvar_35)
+			  (decal3RotatedUVs_5 + float2(_Decal3UOffset, _Decal3VOffset))
 			 - float2(0.5, 0.5)) * _Decal3Scale) + float2(0.5, 0.5));
 			o.xlv_TEXCOORD4 = (((
-			  (decal4RotatedUVs_4 + tmpvar_44)
+			  (decal4RotatedUVs_4 + float2(_Decal4UOffset, _Decal4VOffset))
 			 - float2(0.5, 0.5)) * _Decal4Scale) + float2(0.5, 0.5));
 			o.xlv_TEXCOORD5 = (((
-			  (decal5RotatedUVs_3 + tmpvar_53)
+			  (decal5RotatedUVs_3 + float2(_Decal5UOffset, _Decal5VOffset))
 			 - float2(0.5, 0.5)) * _Decal5Scale) + float2(0.5, 0.5));
 			o.xlv_TEXCOORD6 = (((
-			  (decal6RotatedUVs_2 + tmpvar_62)
+			  (decal6RotatedUVs_2 + float2(_Decal6UOffset, _Decal6VOffset))
 			 - float2(0.5, 0.5)) * _Decal6Scale) + float2(0.5, 0.5));
 			 return o;
 		  }
@@ -326,78 +260,62 @@ Shader "CpRemix/Equipment Screenshot"
 			FragOutput o;
 			float3 decalOpacitySample_1;
 			float3 diffuseSample_2;
-			float3 tmpvar_3;
-			tmpvar_3 = tex2D(_Diffuse, i.xlv_TEXCOORD0).xyz;
-			diffuseSample_2 = tmpvar_3;
-			float3 tmpvar_4;
-			tmpvar_4 = tex2D(_Decal123OpacityTex, i.xlv_TEXCOORD0).xyz;
-			decalOpacitySample_1 = tmpvar_4;
-			float4 tmpvar_5;
-			tmpvar_5 = tex2D(_Decal3Tex, i.xlv_TEXCOORD3);
+			diffuseSample_2 = tex2D(_Diffuse, i.xlv_TEXCOORD0).xyz;
+			decalOpacitySample_1 = tex2D(_Decal123OpacityTex, i.xlv_TEXCOORD0).xyz;
 			float2 tmpvar_6;
 			tmpvar_6 = abs(((i.xlv_TEXCOORD3 - 0.5) * 2.0));
 			float4 tmpvar_7;
-			tmpvar_7 = (tmpvar_5 * float((
+			tmpvar_7 = (tex2D(_Decal3Tex, i.xlv_TEXCOORD3) * float((
 			  (1.0 + (255.0 * _Decal3Repeat))
 			 >=
 			  max(tmpvar_6.x, tmpvar_6.y)
 			)));
 			float tmpvar_8;
 			tmpvar_8 = (tmpvar_7.w * decalOpacitySample_1.z);
-			float4 tmpvar_9;
-			tmpvar_9 = tex2D(_Decal2Tex, i.xlv_TEXCOORD2);
 			float2 tmpvar_10;
 			tmpvar_10 = abs(((i.xlv_TEXCOORD2 - 0.5) * 2.0));
 			float4 tmpvar_11;
-			tmpvar_11 = (tmpvar_9 * float((
+			tmpvar_11 = (tex2D(_Decal2Tex, i.xlv_TEXCOORD2) * float((
 			  (1.0 + (255.0 * _Decal2Repeat))
 			 >=
 			  max(tmpvar_10.x, tmpvar_10.y)
 			)));
 			float tmpvar_12;
 			tmpvar_12 = (tmpvar_11.w * decalOpacitySample_1.y);
-			float4 tmpvar_13;
-			tmpvar_13 = tex2D(_Decal1Tex, i.xlv_TEXCOORD1);
 			float2 tmpvar_14;
 			tmpvar_14 = abs(((i.xlv_TEXCOORD1 - 0.5) * 2.0));
 			float4 tmpvar_15;
-			tmpvar_15 = (tmpvar_13 * float((
+			tmpvar_15 = (tex2D(_Decal1Tex, i.xlv_TEXCOORD1) * float((
 			  (1.0 + (255.0 * _Decal1Repeat))
 			 >=
 			  max(tmpvar_14.x, tmpvar_14.y)
 			)));
 			float tmpvar_16;
 			tmpvar_16 = (tmpvar_15.w * decalOpacitySample_1.x);
-			float4 tmpvar_17;
-			tmpvar_17 = tex2D(_Decal6Tex, i.xlv_TEXCOORD6);
 			float2 tmpvar_18;
 			tmpvar_18 = abs(((i.xlv_TEXCOORD6 - 0.5) * 2.0));
 			float4 tmpvar_19;
-			tmpvar_19 = (tmpvar_17 * float((
+			tmpvar_19 = (tex2D(_Decal6Tex, i.xlv_TEXCOORD6) * float((
 			  (1.0 + (255.0 * _Decal6Repeat))
 			 >=
 			  max(tmpvar_18.x, tmpvar_18.y)
 			)));
 			float tmpvar_20;
 			tmpvar_20 = (tmpvar_19.w * decalOpacitySample_1.z);
-			float4 tmpvar_21;
-			tmpvar_21 = tex2D(_Decal5Tex, i.xlv_TEXCOORD5);
 			float2 tmpvar_22;
 			tmpvar_22 = abs(((i.xlv_TEXCOORD5 - 0.5) * 2.0));
 			float4 tmpvar_23;
-			tmpvar_23 = (tmpvar_21 * float((
+			tmpvar_23 = (tex2D(_Decal5Tex, i.xlv_TEXCOORD5) * float((
 			  (1.0 + (255.0 * _Decal5Repeat))
 			 >=
 			  max(tmpvar_22.x, tmpvar_22.y)
 			)));
 			float tmpvar_24;
 			tmpvar_24 = ((tmpvar_23.w * decalOpacitySample_1.y) * (1.0 - tmpvar_20));
-			float4 tmpvar_25;
-			tmpvar_25 = tex2D(_Decal4Tex, i.xlv_TEXCOORD4);
 			float2 tmpvar_26;
 			tmpvar_26 = abs(((i.xlv_TEXCOORD4 - 0.5) * 2.0));
 			float4 tmpvar_27;
-			tmpvar_27 = (tmpvar_25 * float((
+			tmpvar_27 = (tex2D(_Decal4Tex, i.xlv_TEXCOORD4) * float((
 			  (1.0 + (255.0 * _Decal4Repeat))
 			 >=
 			  max(tmpvar_26.x, tmpvar_26.y)
@@ -410,8 +328,7 @@ Shader "CpRemix/Equipment Screenshot"
 			tmpvar_30 = min(1.0, (min(1.0,
 			  ((tmpvar_8 + tmpvar_12) + tmpvar_16)
 			) + tmpvar_29));
-			float4 tmpvar_31;
-			tmpvar_31.xyz = (((
+			o.color = float4(((diffuseSample_2 * (1.0 - tmpvar_30)) + ((((
 			  (((tmpvar_27.xyz * _Decal4Color) * tmpvar_28) + ((tmpvar_23.xyz * _Decal5Color) * tmpvar_24))
 			 +
 			  ((tmpvar_19.xyz * _Decal6Color) * tmpvar_20)
@@ -419,12 +336,7 @@ Shader "CpRemix/Equipment Screenshot"
 			  (((tmpvar_15.xyz * _Decal1Color) * tmpvar_16) + ((tmpvar_11.xyz * _Decal2Color) * tmpvar_12))
 			 +
 			  ((tmpvar_7.xyz * _Decal3Color) * tmpvar_8)
-			) * (1.0 - tmpvar_29)));
-			tmpvar_31.w = tmpvar_30;
-			float4 tmpvar_32;
-			tmpvar_32.w = 1.0;
-			tmpvar_32.xyz = ((diffuseSample_2 * (1.0 - tmpvar_30)) + (tmpvar_31.xyz * tmpvar_30));
-			o.color = tmpvar_32;
+			) * (1.0 - tmpvar_29))) * tmpvar_30)), 1.0);
 			return o;
 		  }
 
@@ -487,7 +399,6 @@ Shader "CpRemix/Equipment Screenshot"
                 fout o;
                 float4 tmp0;
                 float4 tmp1;
-                float4 tmp2;
                 tmp0 = tex2D(_BodyColorsMaskTex, inp.texcoord.xy);
                 tmp1.xyz = tmp0.yyy * _BodyGreenChannelColor;
                 tmp1.xyz = tmp0.xxx * _BodyRedChannelColor + tmp1.xyz;
@@ -497,8 +408,7 @@ Shader "CpRemix/Equipment Screenshot"
                 tmp0.w = tmp0.w > 0.3;
                 tmp1.w = tmp0.w ? 1.0 : 0.0;
                 tmp0.w = tmp0.w ? 0.0 : 1.0;
-                tmp2.xyz = tmp1.www * _BodyRedChannelColor;
-                o.sv_target.xyz = tmp1.xyz * tmp0.www + tmp2.xyz;
+                o.sv_target.xyz = tmp1.xyz * tmp0.www + tmp1.www * _BodyRedChannelColor;
                 tmp0.x = max(tmp0.y, tmp0.x);
                 o.sv_target.w = max(tmp0.z, tmp0.x);
                 return o;

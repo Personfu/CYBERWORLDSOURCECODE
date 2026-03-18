@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ColorId: 44
   ViewOrder: 44
-  ColorName: Candy apple
-  Color: ff433f
+  ColorName: orange
+  Color: ff6600

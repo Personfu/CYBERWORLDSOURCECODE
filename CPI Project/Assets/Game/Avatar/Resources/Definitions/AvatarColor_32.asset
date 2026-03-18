@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ColorId: 32
   ViewOrder: 32
-  ColorName: pink
-  Color: ff3399
+  ColorName: Dark Purple
+  Color: 660099

@@ -65,8 +65,7 @@ Shader "CpRemix/GPU Combined Avatar"
             {
                 OUT_Data_Vert o;
                 float3 normal_2 = v._glesNormal;
-                float tmpvar_3 = float(v._glesTANGENT.x);
-                float4 tmpvar_4 = bonequat[tmpvar_3];
+                float4 tmpvar_4 = bonequat[float(v._glesTANGENT.x)];
                 float3 tmpvar_5 = (2.0 * ((tmpvar_4.yzx * normal_2.zxy) - (tmpvar_4.zxy * normal_2.yzx)));
                 float3 tmpvar_6 = normalize(((normal_2 + (tmpvar_4.w * tmpvar_5)) + ((tmpvar_4.yzx * tmpvar_5.zxy) - (tmpvar_4.zxy * tmpvar_5.yzx))));
                 float3 BlendedPosition_7;
@@ -88,22 +87,13 @@ Shader "CpRemix/GPU Combined Avatar"
                 bonePosition_8 = bonepos[tmpvar_10.w];
                 float3 tmpvar_16 = (2.0 * ((boneQuaternion_9.yzx * v._glesVertex.zxy) - (boneQuaternion_9.zxy * v._glesVertex.yzx)));
                 BlendedPosition_7 = (BlendedPosition_7 + ((bonePosition_8.xyz + ((v._glesVertex.xyz + (boneQuaternion_9.w * tmpvar_16)) + ((boneQuaternion_9.yzx * tmpvar_16.zxy) - (boneQuaternion_9.zxy * tmpvar_16.yzx)))) * tmpvar_11.w));
-                float3 worldSpaceNormalNormalized_17 = tmpvar_6;
-                float3 worldSpaceLightDirNormalized_18;
-                float3 tmpvar_19;
-                float4 tmpvar_20;
-                tmpvar_20.w = 1;
-                tmpvar_20.xyz = BlendedPosition_7;
-                float3 tmpvar_21 = normalize((_WorldSpaceLightPos0.xyz - (BlendedPosition_7 * _WorldSpaceLightPos0.w)));
-                worldSpaceLightDirNormalized_18 = tmpvar_21;
-                float tmpvar_22 = max(0.0, dot(worldSpaceNormalNormalized_17, worldSpaceLightDirNormalized_18));
-                tmpvar_19 = ((_LightColor0.xyz * tmpvar_22) * 0.75);
+                float3 worldSpaceLightDirNormalized_18 = normalize((_WorldSpaceLightPos0.xyz - (BlendedPosition_7 * _WorldSpaceLightPos0.w)));
+                float tmpvar_22 = max(0.0, dot(tmpvar_6, worldSpaceLightDirNormalized_18));
+                float3 tmpvar_19 = ((_LightColor0.xyz * tmpvar_22) * 0.75);
                 tmpvar_19 = (tmpvar_19 + ((glstate_lightmodel_ambient * 2.0).xyz * 0.45));
-                float3 tmpvar_23 = max(tmpvar_19, (float3(0.6, 0.6, 0.6) * (tmpvar_22 + 0.5)));
-                tmpvar_19 = tmpvar_23;
-                o.gl_Position = mul(unity_MatrixVP , tmpvar_20);
+                o.gl_Position = mul(unity_MatrixVP , float4(BlendedPosition_7, 1));
                 o.xlv_TEXCOORD0 = v._glesMultiTexCoord0.xy;
-                o.xlv_TEXCOORD1 = tmpvar_23;
+                o.xlv_TEXCOORD1 = max(tmpvar_19, (float3(0.6, 0.6, 0.6) * (tmpvar_22 + 0.5)));
                 o.xlv_COLOR = v._glesColor.xyz;
                 return o;
             }
@@ -111,22 +101,11 @@ Shader "CpRemix/GPU Combined Avatar"
             OUT_Data_Frag frag(v2f f)
             {
                 OUT_Data_Frag o;
-                float4 tmpvar_1;
-                float3 lightingOrEmissive_2;
-                float emissive_3;
-                float4 diffuseAndPacked_4;
-                float4 tmpvar_5 = tex2D(_MainTex, f.xlv_TEXCOORD0);
-                diffuseAndPacked_4 = tmpvar_5;
-                float tmpvar_6 = ((diffuseAndPacked_4.w * 2.0) - 1.0);
-                emissive_3 = tmpvar_6;
+                float4 diffuseAndPacked_4 = tex2D(_MainTex, f.xlv_TEXCOORD0);
+                float emissive_3 = ((diffuseAndPacked_4.w * 2.0) - 1.0);
                 emissive_3 = (emissive_3 * float((emissive_3 >= 0.0)));
-                float3 tmpvar_7 = (((f.xlv_TEXCOORD1 * diffuseAndPacked_4.xyz) * (1.0 - emissive_3)) + (diffuseAndPacked_4.xyz * emissive_3));
-                lightingOrEmissive_2 = tmpvar_7;
-                float4 tmpvar_8;
-                tmpvar_8.w = 1.0;
-                tmpvar_8.xyz = lightingOrEmissive_2;
-                tmpvar_1 = tmpvar_8;
-                o.gl_FragData = tmpvar_1;
+                float3 lightingOrEmissive_2 = (((f.xlv_TEXCOORD1 * diffuseAndPacked_4.xyz) * (1.0 - emissive_3)) + (diffuseAndPacked_4.xyz * emissive_3));
+                o.gl_FragData = float4(lightingOrEmissive_2, 1.0);
                 return o;
             }
 

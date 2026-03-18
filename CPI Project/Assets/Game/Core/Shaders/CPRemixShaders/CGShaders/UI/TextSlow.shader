@@ -87,12 +87,10 @@ Shader "CpRemix/UI/TextSlow"
 			)
 			{
 				v2f o;
-				float2 tmpvar_1 = _glesMultiTexCoord0.xy;
-				float4 tmpvar_2 = (_glesColor * _Color);
 
 				gl_Position = UnityObjectToClipPos(_glesVertex);
-				o.xlv_COLOR = tmpvar_2;
-				o.xlv_TEXCOORD0 = tmpvar_1;
+				o.xlv_COLOR = (_glesColor * _Color);
+				o.xlv_TEXCOORD0 = _glesMultiTexCoord0.xy;
 
 				return o;
 			}

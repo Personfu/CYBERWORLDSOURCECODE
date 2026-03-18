@@ -1568,16 +1568,6 @@ asset:definitions/avatarcolor_44?dl=res&x=asset
 asset:definitions/avatarcolor_45?dl=res&x=asset
 asset:definitions/avatarcolor_46?dl=res&x=asset
 asset:definitions/avatarcolor_47?dl=res&x=asset
-asset:definitions/avatarcolor_48?dl=res&x=asset
-asset:definitions/avatarcolor_49?dl=res&x=asset
-asset:definitions/avatarcolor_50?dl=res&x=asset
-asset:definitions/avatarcolor_51?dl=res&x=asset
-asset:definitions/avatarcolor_52?dl=res&x=asset
-asset:definitions/avatarcolor_53?dl=res&x=asset
-asset:definitions/avatarcolor_54?dl=res&x=asset
-asset:definitions/avatarcolor_55?dl=res&x=asset
-asset:definitions/avatarcolor_56?dl=res&x=asset
-asset:definitions/avatarcolor_57?dl=res&x=asset
 asset:definitions/body/penguinavatar/beak_0lod?dl=res&x=asset
 asset:definitions/body/penguinavatar/beak_1lod?dl=res&x=asset
 asset:definitions/body/penguinavatar/eyewhite_0lod?dl=res&x=asset
@@ -7630,6 +7620,7 @@ asset:rewards/rewardpopupscreens/rewardpopupscreen_quests?dl=res&x=prefab
 asset:rewards/rewardpopupscreens/rewardpopupscreen_replay_splash?dl=res&x=prefab
 asset:rewards/rewardpopupscreens/rewardpopupscreen_splash?dl=res&x=prefab
 asset:rewards/rewardpopupscreens/rewardpopupscreen_splash_levelup?dl=res&x=prefab
+asset:rewards/sprites/20thbirthdaycake?dl=res&x=png
 asset:rewards/sprites/aacoyface?dl=res&x=png
 asset:rewards/sprites/aahappyface?dl=res&x=png
 asset:rewards/sprites/aaspyface?dl=res&x=png
@@ -7788,6 +7779,7 @@ asset:rewards/sprites/whistleface?dl=res&x=png
 asset:rewards/sprites/winkyface?dl=res&x=png
 asset:rewards/sprites/xmarks?dl=res&x=png
 asset:rewards/sprites/yetitarget?dl=res&x=png
+asset:rewards/sprites/yikesface?dl=res&x=png
 asset:tubeicons/blueduckytube/controls_tubesblueducky_disabled?dl=res&x=png
 asset:tubeicons/blueduckytube/controls_tubesblueducky_inactive?dl=res&x=png
 asset:tubeicons/blueduckytube/controls_tubesblueducky_off?dl=res&x=png
@@ -15264,6 +15256,7 @@ asset:furniture/level02/pufflestatue/bluepufflestatue?dl=bundle:sa-bundle&x=pref
 asset:quests/rkc002q001peak/fsm/questfsm.rkc002q001peak.obj6?dl=bundle:sa-bundle&x=asset&b=assetbundles/generated/standalonewindows64/quest/rookie/c02q01.sa.unity3d&p=game/adventure/assetbundles
 asset:tasks/migratorpirateanimal10/watchers.manifest?dl=bundle:sa-bundle&x=asset&b=assetbundles/generated/standalonewindows64/tasks.sa.unity3d&p=game/adventure/assetbundles
 asset:tasks/beachstagefireworks/watchers.manifest?dl=bundle:sa-bundle&x=asset&b=assetbundles/generated/standalonewindows64/tasks.sa.unity3d&p=game/adventure/assetbundles
+asset:avatar/equipment/corsage/corsage_icon?dl=bundle:sa-bundle&x=png&b=assetbundles/generated/standalonewindows64/avatar.sa.unity3d&p=assetpipeline/bundleassets/assetbundles
 asset:furniture/level0/picnicbasket/picnicbasket?dl=bundle:sa-bundle&x=prefab&b=assetbundles/generated/standalonewindows64/igloo/level00.sa.unity3d&p=modules/igloo/assetbundles
 asset:decals/decal_animal_crocodile?dl=bundle:sa-bundle&x=png&b=assetbundles/generated/standalonewindows64/avatar.sa.unity3d&p=assetpipeline/bundleassets/assetbundles
 asset:tasks/townbuoy/watchers/watcherswitch_townbuoy?dl=bundle:sa-bundle&x=asset&b=assetbundles/generated/standalonewindows64/tasks.sa.unity3d&p=game/adventure/assetbundles
@@ -15754,5 +15747,5 @@ bundle:assetbundles/generated/standalonewindows64/screentoyboxtubes.sa.unity3d?d
 bundle:assetbundles/generated/standalonewindows64/tasks.sa.unity3d?d=assetbundles/generated/standalonewindows64/mascot.sa.unity3d&p=0
 bundle:assetbundles/generated/standalonewindows64/ui/dailychallenges.sa.unity3d?d=&p=0
 baseuri:
-contentversion:ac418f1b343ce6bf69674278ab29a55e2069970b
+contentversion:d1e70f666cb4440343dbcff7ffc10950d2b613d7
 contentmanifesthash:

@@ -132,14 +132,7 @@ namespace ClubPenguin.Catalog
 		{
 			long scheduledThemeChallengeId = evt.Theme.scheduledThemeChallengeId;
 			CatalogThemeDefinition themeByScheduelId = Service.Get<CatalogServiceProxy>().GetThemeByScheduelId(scheduledThemeChallengeId);
-			if (themeByScheduelId != null)
-			{
-				HeaderText.text = Service.Get<Localizer>().GetTokenTranslation(themeByScheduelId.Title);
-			}
-			else
-			{
-				HeaderText.text = defaultHeaderText;
-			}
+			HeaderText.text = Service.Get<Localizer>().GetTokenTranslation(themeByScheduelId.Title);
 			return false;
 		}
 	}

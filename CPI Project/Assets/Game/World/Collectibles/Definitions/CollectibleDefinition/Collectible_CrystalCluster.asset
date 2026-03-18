@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: Collectible_CrystalCluster
   m_EditorClassIdentifier: 
   CollectibleType: CrystalCluster
-  SpawnCategory: 0
+  SpawnCategory: 1
   ExchangeRate: 1
-  RespawnSeconds: 86400
+  RespawnSeconds: 0
   SpriteAsset:
     Key: Images/Exchange_Collectible_NeonCrystal
     type: UnityEngine.Sprite, UnityEngine

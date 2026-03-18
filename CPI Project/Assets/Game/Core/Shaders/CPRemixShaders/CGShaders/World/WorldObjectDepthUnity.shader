@@ -69,19 +69,9 @@ Shader "CpRemix/World/WorldObject Depth"
 		)
 		{
 			v2f o;
-			float4 tmpvar_1;
-			tmpvar_1 = _glesColor;
 			float isBelowSurface_2;
 			float depthDeltaNormalized_3;
 			float3 worldSpaceNormalNormalized_4;
-			float3 tmpvar_5;
-			float2 tmpvar_6;
-			float2 tmpvar_7;
-			float4 tmpvar_8;
-			tmpvar_8.w = 1.0;
-			tmpvar_8.xyz = _glesVertex.xyz;
-			tmpvar_5 = tmpvar_1.xyz;
-			tmpvar_6 = ((_glesMultiTexCoord1.xy * unity_LightmapST.xy) + unity_LightmapST.zw);
 			float4 v_9;
 			v_9.x = unity_WorldToObject[0].x;
 			v_9.y = unity_WorldToObject[1].x;
@@ -97,44 +87,31 @@ Shader "CpRemix/World/WorldObject Depth"
 			v_11.y = unity_WorldToObject[1].z;
 			v_11.z = unity_WorldToObject[2].z;
 			v_11.w = unity_WorldToObject[3].z;
-			float3 tmpvar_12;
-			tmpvar_12 = normalize(((
+			worldSpaceNormalNormalized_4 = normalize(((
 				(v_9.xyz * _glesNormal.x)
 			   +
 				(v_10.xyz * _glesNormal.y)
 			  ) + (v_11.xyz * _glesNormal.z)));
-			worldSpaceNormalNormalized_4 = tmpvar_12;
-			float3 tmpvar_13;
-			tmpvar_13 = mul(unity_ObjectToWorld, _glesVertex).xyz;
-			float tmpvar_14;
-			tmpvar_14 = (1.0 - clamp((
+			float3 tmpvar_13 = mul(unity_ObjectToWorld, _glesVertex).xyz;
+			depthDeltaNormalized_3 = (1.0 - clamp((
 				(tmpvar_13.y - _DeepestYCoord)
 			   /
 				(_SurfaceYCoord - _DeepestYCoord)
 			  ), 0.0, 1.0));
-			depthDeltaNormalized_3 = tmpvar_14;
-			float tmpvar_15;
-			tmpvar_15 = (_SurfaceYCoord - tmpvar_13.y);
-			isBelowSurface_2 = tmpvar_15;
+			isBelowSurface_2 = (_SurfaceYCoord - tmpvar_13.y);
 			isBelowSurface_2 = (isBelowSurface_2 * float((isBelowSurface_2 > 0.0)));
-			float tmpvar_16;
-			tmpvar_16 = min(1.0, isBelowSurface_2);
-			isBelowSurface_2 = tmpvar_16;
-			float2 tmpvar_17;
-			tmpvar_17.x = (_SurfaceVelocityX * _SurfaceTexTile);
-			tmpvar_17.y = (_SurfaceVelocityZ * _SurfaceTexTile);
-			tmpvar_7 = ((tmpvar_13.xz * _SurfaceTexTile) - (_Time.xx * tmpvar_17));
-			Position = UnityObjectToClipPos(tmpvar_8);//mul(unity_MatrixVP, mul(unity_ObjectToWorld, tmpvar_8));
-			o.xlv_COLOR = tmpvar_5;
+			isBelowSurface_2 = min(1.0, isBelowSurface_2);
+			Position = UnityObjectToClipPos(float4(_glesVertex.xyz, 1.0));
+			o.xlv_COLOR = _glesColor.xyz;
 			o.xlv_TEXCOORD0 = _glesMultiTexCoord0.xy;
-			o.xlv_TEXCOORD1 = tmpvar_6;
+			o.xlv_TEXCOORD1 = ((_glesMultiTexCoord1.xy * unity_LightmapST.xy) + unity_LightmapST.zw);
 			o.xlv_TEXCOORD3 = ((_DepthColor * depthDeltaNormalized_3) + float((1.0 - depthDeltaNormalized_3)));
 			o.xlv_TEXCOORD4 = (_SurfaceReflectionColor * ((
 				((((worldSpaceNormalNormalized_4.y * worldSpaceNormalNormalized_4.y) * float(
 				  (worldSpaceNormalNormalized_4.y > 0.0)
-				))* tmpvar_16)* (1.0 - depthDeltaNormalized_3))
+				))* isBelowSurface_2)* (1.0 - depthDeltaNormalized_3))
 			   * 0.5)* _SurfaceMultiplier));
-			o.xlv_TEXCOORD5 = tmpvar_7;
+			o.xlv_TEXCOORD5 = ((tmpvar_13.xz * _SurfaceTexTile) - (_Time.xx * float2(_SurfaceVelocityX * _SurfaceTexTile, _SurfaceVelocityZ * _SurfaceTexTile)));
 			UNITY_TRANSFER_FOG(o,Position);
 			return o;
 		}
@@ -143,23 +120,13 @@ Shader "CpRemix/World/WorldObject Depth"
 		FragOutput frag(v2f i)
 		{
 			FragOutput o;
-			float3 outputColor_1;
-			float3 diffuseSample_2;
-			float3 tmpvar_3;
-			tmpvar_3 = tex2D(_Diffuse, i.xlv_TEXCOORD0).xyz;
-			diffuseSample_2 = tmpvar_3;
+			float3 diffuseSample_2 = tex2D(_Diffuse, i.xlv_TEXCOORD0).xyz;
 			
 			// Proper decode for RGBM or HDR lightmaps without extra brightness multiplication
 			float3 lightmapColor = DecodeLightmap(UNITY_SAMPLE_TEX2D(unity_Lightmap, i.xlv_TEXCOORD1));
 			
-			float3 color_5;
-			color_5 = lightmapColor;
-			
-			outputColor_1 = diffuseSample_2 * color_5 * i.xlv_COLOR * i.xlv_TEXCOORD3;
-			
-			float4 tmpvar_6;
-			tmpvar_6 = tex2D(_SurfaceReflectionsRGB, i.xlv_TEXCOORD5);
-			outputColor_1 = (outputColor_1 + (tmpvar_6.x * i.xlv_TEXCOORD4));
+			float3 outputColor_1 = diffuseSample_2 * lightmapColor * i.xlv_COLOR * i.xlv_TEXCOORD3;
+			outputColor_1 = (outputColor_1 + (tex2D(_SurfaceReflectionsRGB, i.xlv_TEXCOORD5).x * i.xlv_TEXCOORD4));
 			
 			float4 tmpvar_7;
 			tmpvar_7.w = 1.0;

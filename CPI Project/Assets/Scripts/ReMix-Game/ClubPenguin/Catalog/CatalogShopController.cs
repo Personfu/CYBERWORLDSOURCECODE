@@ -145,7 +145,7 @@ namespace ClubPenguin.Catalog
 			CatalogThemeDefinition themeByScheduelId = Service.Get<CatalogServiceProxy>().GetThemeByScheduelId(currentTheme.scheduledThemeChallengeId);
 			TemplateDefinition templateDefinition = Service.Get<GameData>().Get<Dictionary<int, TemplateDefinition>>().Values.ToList().First((TemplateDefinition x) => x.Id == evt.ItemData.equipment.definitionId);
 			string tokenTranslation = Service.Get<Localizer>().GetTokenTranslation(templateDefinition.Name);
-			string tokenTranslation2 = (themeByScheduelId != null) ? Service.Get<Localizer>().GetTokenTranslation(themeByScheduelId.Title) : "";
+			string tokenTranslation2 = Service.Get<Localizer>().GetTokenTranslation(themeByScheduelId.Title);
 			int level = Service.Get<ProgressionService>().Level;
 			long cost = evt.ItemData.cost;
 			Service.Get<ICPSwrveService>().PurchaseClothing(tokenTranslation, (int)cost, 1, level);
@@ -159,7 +159,7 @@ namespace ClubPenguin.Catalog
 			CatalogThemeDefinition themeByScheduelId = Service.Get<CatalogServiceProxy>().GetThemeByScheduelId(currentTheme.scheduledThemeChallengeId);
 			TemplateDefinition templateDefinition = Service.Get<GameData>().Get<Dictionary<int, TemplateDefinition>>().Values.ToList().First((TemplateDefinition x) => x.Id == evt.ItemData.equipment.definitionId);
 			bool flag = navCategory == CatalogShopNavEnum.POPULAR;
-			Service.Get<ICPSwrveService>().Action("clothing_catalog_item", "wear_it", (themeByScheduelId != null) ? themeByScheduelId.Title : "", templateDefinition.Name, flag.ToString());
+			Service.Get<ICPSwrveService>().Action("clothing_catalog_item", "wear_it", themeByScheduelId.Title, templateDefinition.Name, flag.ToString());
 			return false;
 		}
 
@@ -167,7 +167,7 @@ namespace ClubPenguin.Catalog
 		{
 			CatalogThemeDefinition themeByScheduelId = Service.Get<CatalogServiceProxy>().GetThemeByScheduelId(currentTheme.scheduledThemeChallengeId);
 			TemplateDefinition templateDefinition = Service.Get<GameData>().Get<Dictionary<int, TemplateDefinition>>().Values.ToList().First((TemplateDefinition x) => x.Id == evt.ItemData.equipment.definitionId);
-			Service.Get<ICPSwrveService>().Action("clothing_catalog_item", "more_details", (themeByScheduelId != null) ? themeByScheduelId.Title : "", templateDefinition.Name, evt.IsAlreadyOwned.ToString());
+			Service.Get<ICPSwrveService>().Action("clothing_catalog_item", "more_details", themeByScheduelId.Title, templateDefinition.Name, evt.IsAlreadyOwned.ToString());
 			return false;
 		}
 

@@ -44,6 +44,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 580679dbbaeed4f46b94dc42db2160b5, type: 2}
   - {fileID: 11400000, guid: 5fe18b0a5c4b5914689fe5d53749bcef, type: 2}
   - {fileID: 11400000, guid: 4219b6306924d244c9d04f84df7ad389, type: 2}
+  - {fileID: 11400000, guid: 59d4f11ff1d852144b2c0fefb9062869, type: 2}
+  - {fileID: 11400000, guid: 21ce1d02954016445ae028af5ea39920, type: 2}
   sizzleClips: []
   equipmentTemplates:
   - {fileID: 11400000, guid: d3d46df7fa2c4534280b844b59e17076, type: 2}

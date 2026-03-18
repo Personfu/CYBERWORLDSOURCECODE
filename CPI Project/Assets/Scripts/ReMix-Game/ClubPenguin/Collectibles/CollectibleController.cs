@@ -3,7 +3,9 @@ using ClubPenguin.Net;
 using Disney.Kelowna.Common;
 using Disney.Kelowna.Common.DataModel;
 using Disney.LaunchPadFramework;
+using Disney.Manimal.Common.Util;
 using Disney.MobileNetwork;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -152,6 +154,15 @@ namespace ClubPenguin.Collectibles
 			}
 			if (list[0].Collectible.SpawnCategory == SpawnCategory.Daily)
 			{
+				if (Service.Get<ICommonGameSettings>().OfflineMode)
+				{
+					long collectedTime = currentRoomState.GetRespawnTime(text);
+					long todayMidnightMs = DateTime.UtcNow.Date.GetTimeInMilliseconds();
+					if (collectedTime < todayMidnightMs)
+					{
+						return new RespawnResponse(RespawnState.READY_FOR_PICKUP, 0L);
+					}
+				}
 				return new RespawnResponse(RespawnState.NOT_AVAILABLE, 0L);
 			}
 			long respawnTime = currentRoomState.GetRespawnTime(text);

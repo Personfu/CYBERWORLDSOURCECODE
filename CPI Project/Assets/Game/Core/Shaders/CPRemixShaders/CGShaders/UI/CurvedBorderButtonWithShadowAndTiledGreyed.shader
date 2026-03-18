@@ -102,13 +102,9 @@ Shader "CpRemix/UI/CurvedBorderButtonWithShadowAndTiledGreyed"
                 v2f o;
                 float2 shadowVecAbs = abs(_ShadowVec) * 0.5;
                 float2 tmpvar_1 = float2(1.0, 1.0) + shadowVecAbs;
-                float2 tmpvar_2;
-                tmpvar_2.x = tmpvar_1.x / tmpvar_1.y;
-                tmpvar_2.y = tmpvar_1.y;
-
                 o.pos = UnityObjectToClipPos(v.vertex);
                 o.xlv_COLOR = v.color * _Color;
-                o.xlv_TEXCOORD0 = ((v.texcoord.xy * _Tile.xy + _Tile.zw) * tmpvar_2) - (0.5 * _ShadowVec);
+                o.xlv_TEXCOORD0 = ((v.texcoord.xy * _Tile.xy + _Tile.zw) * float2(tmpvar_1.x / tmpvar_1.y, tmpvar_1.y)) - (0.5 * _ShadowVec);
                 o.xlv_TEXCOORD1 = ((v.texcoord.xy * 2.0 - 1.0) * tmpvar_1) - (0.5 * _ShadowVec);
                 
                 return o;
@@ -144,8 +140,7 @@ Shader "CpRemix/UI/CurvedBorderButtonWithShadowAndTiledGreyed"
 
                 fragment_1.w = tmpvar_18;
                 fragment_1.xyz = pow(dot(fragment_1.xyz, float3(0.2126, 0.7152, 0.0722)), _GreyGamma) + _GreySaturate;
-                float4 tmpvar_19 = fragment_1 * i.xlv_COLOR;
-                o.gl_FragData = tmpvar_19;
+                o.gl_FragData = fragment_1 * i.xlv_COLOR;
                 return o;
             }
 

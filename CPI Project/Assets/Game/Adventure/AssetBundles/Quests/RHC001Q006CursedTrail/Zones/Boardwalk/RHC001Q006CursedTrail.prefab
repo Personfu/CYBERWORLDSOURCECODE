@@ -262,7 +262,8 @@ GameObject:
   - component: {fileID: 4332454290460002}
   - component: {fileID: 33675510263449202}
   - component: {fileID: 23580670948714686}
-  m_Layer: 0
+  - component: {fileID: 97328840581946408}
+  m_Layer: 30
   m_Name: ChestLid_0LOD
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -339,7 +340,29 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &97328840581946408
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1034541784402079}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1.0334171, y: 0.47697175, z: 0.7185622}
+  m_Center: {x: 0, y: 0.23311627, z: 0.3096268}
 --- !u!1 &1047976446975121
 GameObject:
   m_ObjectHideFlags: 0
@@ -3492,7 +3515,7 @@ ParticleSystem:
     vectorLabel1_3: W
 --- !u!199 &199145052556400578
 ParticleSystemRenderer:
-  serializedVersion: 6
+  serializedVersion: 7
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -3539,6 +3562,7 @@ ParticleSystemRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_RenderMode: 4
   m_MeshDistribution: 0
   m_SortMode: 0
@@ -3570,7 +3594,6 @@ ParticleSystemRenderer:
   m_MeshWeighting1: 1
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
-  m_MaskInteraction: 0
 --- !u!114 &114036138326672144
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6392,7 +6415,7 @@ ParticleSystem:
     vectorLabel1_3: W
 --- !u!199 &199138783377609172
 ParticleSystemRenderer:
-  serializedVersion: 6
+  serializedVersion: 7
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -6439,6 +6462,7 @@ ParticleSystemRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_RenderMode: 0
   m_MeshDistribution: 0
   m_SortMode: 0
@@ -6470,7 +6494,6 @@ ParticleSystemRenderer:
   m_MeshWeighting1: 1
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
-  m_MaskInteraction: 0
 --- !u!114 &114586359621028296
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7307,7 +7330,8 @@ GameObject:
   - component: {fileID: 4792555719511676}
   - component: {fileID: 33710764476664116}
   - component: {fileID: 23719858983227712}
-  m_Layer: 0
+  - component: {fileID: 8566321317785543977}
+  m_Layer: 30
   m_Name: PirateTreasureXModel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7336,7 +7360,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1313711418185240}
-  m_Mesh: {fileID: 4300000, guid: 6f6c13c9242c5bc44aabd4e088b280d2, type: 2}
+  m_Mesh: {fileID: 8126447166960401175, guid: 81e261d9ab9b1b24cb7264c7d3043c54, type: 3}
 --- !u!23 &23719858983227712
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -7384,7 +7408,30 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &8566321317785543977
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1313711418185240}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 8126447166960401175, guid: 81e261d9ab9b1b24cb7264c7d3043c54, type: 3}
 --- !u!1 &1316703920498053
 GameObject:
   m_ObjectHideFlags: 0
@@ -10295,7 +10342,7 @@ ParticleSystem:
     vectorLabel1_3: W
 --- !u!199 &199053254691604874
 ParticleSystemRenderer:
-  serializedVersion: 6
+  serializedVersion: 7
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -10342,6 +10389,7 @@ ParticleSystemRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_RenderMode: 0
   m_MeshDistribution: 0
   m_SortMode: 0
@@ -10373,7 +10421,6 @@ ParticleSystemRenderer:
   m_MeshWeighting1: 1
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
-  m_MaskInteraction: 0
 --- !u!114 &114624420883444440
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10669,7 +10716,8 @@ GameObject:
   - component: {fileID: 4336380157835594}
   - component: {fileID: 33114847924480956}
   - component: {fileID: 23246164921293466}
-  m_Layer: 0
+  - component: {fileID: 7282288543547311868}
+  m_Layer: 30
   m_Name: ChestBottom_0LOD
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10746,7 +10794,29 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &7282288543547311868
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1413606522898254}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1.0026768, y: 0.60468674, z: 0.7594875}
+  m_Center: {x: 0, y: 0.29242796, z: 0.02992557}
 --- !u!1 &1421849681300453
 GameObject:
   m_ObjectHideFlags: 0
@@ -10803,7 +10873,8 @@ GameObject:
   - component: {fileID: 4164409426036056}
   - component: {fileID: 33859345314820194}
   - component: {fileID: 23743132092384478}
-  m_Layer: 0
+  - component: {fileID: 3890538047279538665}
+  m_Layer: 30
   m_Name: ChestBottom_0LOD
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10880,7 +10951,29 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &3890538047279538665
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1460642958069828}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1.0026768, y: 0.60468674, z: 0.7594875}
+  m_Center: {x: 0, y: 0.29242796, z: 0.02992557}
 --- !u!1 &1469794232809394
 GameObject:
   m_ObjectHideFlags: 0
@@ -11381,7 +11474,8 @@ GameObject:
   - component: {fileID: 4373975933991346}
   - component: {fileID: 33638011970874123}
   - component: {fileID: 23699588745708961}
-  m_Layer: 0
+  - component: {fileID: 6243648166418645457}
+  m_Layer: 30
   m_Name: PirateTreasureXModel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11410,7 +11504,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1580729216272464}
-  m_Mesh: {fileID: 4300000, guid: 6f6c13c9242c5bc44aabd4e088b280d2, type: 2}
+  m_Mesh: {fileID: 8126447166960401175, guid: 81e261d9ab9b1b24cb7264c7d3043c54, type: 3}
 --- !u!23 &23699588745708961
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -11458,7 +11552,30 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &6243648166418645457
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1580729216272464}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 8126447166960401175, guid: 81e261d9ab9b1b24cb7264c7d3043c54, type: 3}
 --- !u!1 &1583417642055779
 GameObject:
   m_ObjectHideFlags: 0
@@ -14067,7 +14184,7 @@ ParticleSystem:
     vectorLabel1_3: W
 --- !u!199 &199912531077878872
 ParticleSystemRenderer:
-  serializedVersion: 6
+  serializedVersion: 7
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -14114,6 +14231,7 @@ ParticleSystemRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_RenderMode: 4
   m_MeshDistribution: 0
   m_SortMode: 0
@@ -14145,7 +14263,6 @@ ParticleSystemRenderer:
   m_MeshWeighting1: 1
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
-  m_MaskInteraction: 0
 --- !u!114 &114705844486359900
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -26531,7 +26648,8 @@ GameObject:
   - component: {fileID: 4851810533918732}
   - component: {fileID: 33011949498551309}
   - component: {fileID: 23044139596378934}
-  m_Layer: 0
+  - component: {fileID: 4820033495458220900}
+  m_Layer: 30
   m_Name: ChestLid_0LOD
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -26608,7 +26726,29 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &4820033495458220900
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1974364957732813}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1.0334171, y: 0.47697175, z: 0.7185622}
+  m_Center: {x: 0, y: 0.23311627, z: 0.3096306}
 --- !u!1 &1977975617649652
 GameObject:
   m_ObjectHideFlags: 0

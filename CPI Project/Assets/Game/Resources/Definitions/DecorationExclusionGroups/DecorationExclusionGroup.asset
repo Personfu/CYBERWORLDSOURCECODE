@@ -93,6 +93,8 @@ MonoBehaviour:
     type: ClubPenguin.DecorationInventory.DecorationDefinition, DecorationInventory
   - Id: 271
     type: ClubPenguin.DecorationInventory.DecorationDefinition, DecorationInventory
+  - Id: 331
+    type: ClubPenguin.DecorationInventory.DecorationDefinition, DecorationInventory
   Parent:
     Key: Definitions/DecorationExclusionGroups/DecorationExclusionGroup
     type: ClubPenguin.Core.GroupDefinition, Core

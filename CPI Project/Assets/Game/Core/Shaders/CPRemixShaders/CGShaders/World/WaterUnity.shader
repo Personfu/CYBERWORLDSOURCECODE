@@ -72,9 +72,7 @@ Shader "CpRemix/World/Water"
 			float _ShoreTextureSampleAmnt;
 			float4 _DiffuseWavesColor;
 			float _DiffuseWavesOpacity;
-
-			// Declare the fog coordinates
-			UNITY_FOG_COORDS(1)
+			float4 _SpecWavesColor;
 
 			struct v2f
 			{
@@ -102,85 +100,48 @@ Shader "CpRemix/World/Water"
 			)
 			{
 			  v2f o;
-			  float3 worldSpaceLightDirNormalized_1;
-			  float3 worldSpaceViewDirNormalized_2;
-			  float3 worldSpaceNormalNormalized_3;
-			  float specWaveBounce_4;
-			  float diffuseWaveBounce_5;
-			  float3 tmpvar_6;
-			  float3 tmpvar_7;
-			  float4 tmpvar_8;
-			  tmpvar_8.w = 1.0;
-			  tmpvar_8.xyz = _glesVertex.xyz;
-			  float tmpvar_9;
-			  tmpvar_9 = (1.0 + (_SinTime.w * _DiffuseWavesBounce));
-			  diffuseWaveBounce_5 = tmpvar_9;
-			  float tmpvar_10;
-			  tmpvar_10 = (1.0 + (_SinTime.w * _SpecWavesBounce));
-			  specWaveBounce_4 = tmpvar_10;
-			  float4 tmpvar_11;
-			  tmpvar_11.w = 0.0;
-			  tmpvar_11.xyz = _glesNormal;
-			  float3 tmpvar_12;
-			  tmpvar_12 = normalize(UnityObjectToClipPos(tmpvar_11).xyz);//(tmpvar_11 * unity_WorldToObject).xyz);
-			  worldSpaceNormalNormalized_3 = tmpvar_12;
-			  float3 tmpvar_13;
-			  float4 tmpvar_14;
-			  tmpvar_14 = UnityObjectToClipPos(_glesVertex);//mul(unity_ObjectToWorld, _glesVertex);
-			  tmpvar_13 = normalize((_WorldSpaceCameraPos - tmpvar_14.xyz));
-			  worldSpaceViewDirNormalized_2 = tmpvar_13;
-			  float3 tmpvar_15;
-			  tmpvar_15 = normalize((_WorldSpaceLightPos0.xyz - (tmpvar_14.xyz * _WorldSpaceLightPos0.w)));
-			  worldSpaceLightDirNormalized_1 = tmpvar_15;
-			  float3 tmpvar_16;
-			  tmpvar_16 = _LightColor0.xyz;
-			  float3 tmpvar_17;
-			  float3 lightColor_18;
-			  lightColor_18 = tmpvar_16;
-			  float spec_19;
-			  float3 I_20;
-			  I_20 = -(worldSpaceLightDirNormalized_1);
-			  float tmpvar_21;
-			  tmpvar_21 = max(0.0, dot((I_20 -
-				(2.0 * (dot(worldSpaceNormalNormalized_3, I_20) * worldSpaceNormalNormalized_3))
-			  ), worldSpaceViewDirNormalized_2));
-			  spec_19 = tmpvar_21;
-			  float tmpvar_22;
-			  tmpvar_22 = max(0.0, ((spec_19 * _Shininess) + (1.0 - _Shininess)));
-			  tmpvar_17 = (lightColor_18 * tmpvar_22);
-			  float3 tmpvar_23;
-			  tmpvar_23 = max(float3(0.5, 0.5, 0.5), (tmpvar_17 * _SpecIntensity));
-			  tmpvar_6 = tmpvar_23;
-			  tmpvar_7.x = sign(_glesColor.x);
-			  float tmpvar_24;
-			  tmpvar_24 = min(2.0, (1.0 - _SinTime.w));
-			  tmpvar_7.y = (tmpvar_24 - _glesColor.x);
-			  float tmpvar_25;
-			  tmpvar_25 = max(0.0, (1.0 - (
-				(_CosTime.w + 1.5)
-			   * 0.5)));
-			  tmpvar_7.z = tmpvar_25;
-			  float tmpvar_26;
-			  tmpvar_26 = max(0.0, ((_glesColor.x - _glesColor.y) - _glesColor.z));
-			  float2 tmpvar_27;
-			  tmpvar_27.x = tmpvar_26;
-			  tmpvar_27.y = (1.0 - tmpvar_26);
-			  gl_Position = UnityObjectToClipPos(tmpvar_8);//mul(unity_MatrixVP, (unity_ObjectToWorld, tmpvar_8));
+
+			  float diffuseWaveBounce = 1.0 + (_SinTime.w * _DiffuseWavesBounce);
+			  float specWaveBounce = 1.0 + (_SinTime.w * _SpecWavesBounce);
+
+			  float4 normalVec = float4(_glesNormal, 0.0);
+			  float3 worldNormal = normalize(UnityObjectToClipPos(normalVec).xyz);
+
+			  float4 clipPos = UnityObjectToClipPos(_glesVertex);
+			  float3 viewDir = normalize(_WorldSpaceCameraPos - clipPos.xyz);
+			  float3 lightDir = normalize(_WorldSpaceLightPos0.xyz - (clipPos.xyz * _WorldSpaceLightPos0.w));
+
+			  // Specular reflection
+			  float3 incidentLight = -lightDir;
+			  float spec = max(0.0, dot((incidentLight -
+				(2.0 * (dot(worldNormal, incidentLight) * worldNormal))
+			  ), viewDir));
+			  float specFactor = max(0.0, (spec * _Shininess) + (1.0 - _Shininess));
+			  float3 specColor = max(float3(0.5, 0.5, 0.5), (_LightColor0.xyz * specFactor) * _SpecIntensity);
+
+			  // Shore wave animation data
+			  float3 waveData;
+			  waveData.x = sign(_glesColor.x);
+			  waveData.y = min(2.0, (1.0 - _SinTime.w)) - _glesColor.x;
+			  waveData.z = max(0.0, 1.0 - ((_CosTime.w + 1.5) * 0.5));
+
+			  float shoreMask = max(0.0, (_glesColor.x - _glesColor.y) - _glesColor.z);
+
+			  gl_Position = UnityObjectToClipPos(float4(_glesVertex.xyz, 1.0));
 			  o.xlv_TEXCOORD0 = ((_glesMultiTexCoord0.xy + (
 				(normalize(_ShoreWavesUVDirection) * _Time.x)
 			   * _ShoreWavesTimeScale)) * _ShoreTile);
 			  o.xlv_TEXCOORD1 = ((_glesMultiTexCoord0.xy + (
 				((normalize(_DiffuseWavesUVDirection) * _Time.x) * _DiffuseWavesTimeScale)
-			   * diffuseWaveBounce_5)) * _DiffuseTile);
+			   * diffuseWaveBounce)) * _DiffuseTile);
 			  o.xlv_TEXCOORD2 = (((_glesMultiTexCoord0.xy +
 				((normalize(_SpecUVDirection) * _Time.x) * _SpecTimeScale)
-			  ) * _SpecTile) * specWaveBounce_4);
-			  o.xlv_TEXCOORD3 = tmpvar_6;
-			  o.xlv_TEXCOORD4 = tmpvar_7;
-			  o.xlv_TEXCOORD5 = tmpvar_27;
-			  o.xlv_TEXCOORD6 = max(max(tmpvar_6.x, tmpvar_6.y), tmpvar_6.z);
+			  ) * _SpecTile) * specWaveBounce);
+			  o.xlv_TEXCOORD3 = specColor;
+			  o.xlv_TEXCOORD4 = waveData;
+			  o.xlv_TEXCOORD5 = float2(shoreMask, 1.0 - shoreMask);
+			  o.xlv_TEXCOORD6 = max(max(specColor.x, specColor.y), specColor.z);
 
-			  // Handle fog
 			  UNITY_TRANSFER_FOG(o, gl_Position);
 
 			  return o;
@@ -190,46 +151,31 @@ Shader "CpRemix/World/Water"
 			fragOutput frag(v2f i)
 			{
 			  fragOutput o;
-			  float specSample_1;
-			  float3 shoreLineColor_2;
-			  float shoreLineSample_3;
-			  float tmpvar_4;
-			  tmpvar_4 = tex2D(_WavesMap, i.xlv_TEXCOORD0).x;
-			  shoreLineSample_3 = tmpvar_4;
-			  float tmpvar_5;
-			  tmpvar_5 = (((
-				((i.xlv_TEXCOORD4.y * min(1.0, (1.0 +
-				  sign(i.xlv_TEXCOORD4.y)
-				))) * i.xlv_TEXCOORD4.z)
-			   * i.xlv_TEXCOORD4.x) * _ShoreFoamBrightness) + 1.0);
-			  float3 tmpvar_6;
-			  tmpvar_6 = (((
-				((shoreLineSample_3 * _ShoreTextureSampleAmnt) + (1.0 - _ShoreTextureSampleAmnt))
-			   * tmpvar_5) * _ShoreWavesOpacity) * _ShoreWavesColor).xyz;
-			  shoreLineColor_2 = tmpvar_6;
-			  float4 tmpvar_7;
-			  tmpvar_7 = tex2D(_WavesMap, i.xlv_TEXCOORD1);
-			  float tmpvar_8;
-			  tmpvar_8 = (tmpvar_7.y * _DiffuseWavesOpacity);
-			  float tmpvar_9;
-			  tmpvar_9 = tex2D(_WavesMap, i.xlv_TEXCOORD2).z;
-			  specSample_1 = tmpvar_9;
-			  float4 tmpvar_10;
-			  tmpvar_10.xyz = (((_Color.xyz +
-				(shoreLineColor_2 * i.xlv_TEXCOORD5.x)
-			  ) + (
-				(_DiffuseWavesColor * tmpvar_8)
-			   * i.xlv_TEXCOORD5.y).xyz) + ((specSample_1 * i.xlv_TEXCOORD3) * i.xlv_TEXCOORD5.y));
-			  tmpvar_10.w = max(_Color.w, max((
-				max((specSample_1 * i.xlv_TEXCOORD6), tmpvar_8)
-			   * i.xlv_TEXCOORD5.y), (
-				(shoreLineSample_3 * _ShoreWavesOpacity)
-			   *
-				(i.xlv_TEXCOORD5.x * tmpvar_5)
-			  )));
-			  o.gl_FragData = tmpvar_10;
 
-			  // Apply fog in fragment shader
+			  float shoreLineSample = tex2D(_WavesMap, i.xlv_TEXCOORD0).x;
+
+			  float shoreFoam = (((i.xlv_TEXCOORD4.y * min(1.0, 1.0 + sign(i.xlv_TEXCOORD4.y)))
+				* i.xlv_TEXCOORD4.z) * i.xlv_TEXCOORD4.x * _ShoreFoamBrightness) + 1.0;
+
+			  float3 shoreLineColor = (((shoreLineSample * _ShoreTextureSampleAmnt + (1.0 - _ShoreTextureSampleAmnt))
+				* shoreFoam) * _ShoreWavesOpacity * _ShoreWavesColor).xyz;
+
+			  float diffuseSample = tex2D(_WavesMap, i.xlv_TEXCOORD1).y * _DiffuseWavesOpacity;
+			  float specSample = tex2D(_WavesMap, i.xlv_TEXCOORD2).z;
+
+			  o.gl_FragData.xyz = ((_Color.xyz +
+				(shoreLineColor * i.xlv_TEXCOORD5.x)
+			  ) + (
+				(_DiffuseWavesColor * diffuseSample)
+			   * i.xlv_TEXCOORD5.y).xyz) + ((specSample * _SpecWavesColor.xyz * i.xlv_TEXCOORD3) * i.xlv_TEXCOORD5.y);
+
+			  o.gl_FragData.w = max(_Color.w, max((
+				max(specSample * i.xlv_TEXCOORD6, diffuseSample)
+			   * i.xlv_TEXCOORD5.y), (
+				(shoreLineSample * _ShoreWavesOpacity)
+			   * (i.xlv_TEXCOORD5.x * shoreFoam)
+			  )));
+
 			  UNITY_APPLY_FOG(i.fogCoord, o.gl_FragData);
 
 			  return o;

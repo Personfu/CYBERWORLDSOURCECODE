@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ColorId: 34
   ViewOrder: 34
-  ColorName: peach
-  Color: ff6666
+  ColorName: Light Purple
+  Color: 9400fd

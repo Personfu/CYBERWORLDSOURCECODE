@@ -19,7 +19,7 @@
         "PlayMaker.dll",
         "Newtonsoft.Json.dll",
         "SmartFox2X.dll",
-        "BouncyCastle.Crypto.dll"
+        "BouncyCastle.Cryptography.dll"
     ],
     "autoReferenced": true,
     "defineConstraints": [],

@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ColorId: 40
   ViewOrder: 40
-  ColorName: Olive Green
-  Color: ADBA8D
+  ColorName: pink
+  Color: ff3399

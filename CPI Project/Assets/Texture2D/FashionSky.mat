@@ -8,7 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: FashionSky
-  m_Shader: {fileID: 4800000, guid: 59a8d50bc31190d438be20398f02ba0a, type: 3}
+  m_Shader: {fileID: 4800000, guid: 71a6b3b73ac0f0c4cb35f15e2984ae75, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
@@ -32,6 +32,10 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Tex:
+        m_Texture: {fileID: 8900000, guid: eb6f125b400219942a73cd592a987cf2, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _cubemap:
         m_Texture: {fileID: 8900000, guid: eb6f125b400219942a73cd592a987cf2, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}

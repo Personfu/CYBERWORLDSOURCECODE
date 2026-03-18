@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ColorId: 42
   ViewOrder: 42
-  ColorName: popcorn
-  Color: FEEA5C
+  ColorName: Dark Red
+  Color: 830005

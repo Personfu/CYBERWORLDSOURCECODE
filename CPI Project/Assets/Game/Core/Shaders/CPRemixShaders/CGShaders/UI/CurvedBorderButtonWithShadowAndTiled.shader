@@ -97,16 +97,10 @@ Shader "CpRemix/UI/CurvedBorderButtonWithShadowAndTiled"
             {
                 v2f o;
                 float2 tmpvar_1 = float2(1.0, 1.0) + (abs(_ShadowVec) * 0.5);
-                float2 tmpvar_2;
-                tmpvar_2.x = tmpvar_1.x / tmpvar_1.y;
-                tmpvar_2.y = tmpvar_1.y;
-                float4 tmpvar_3;
-                tmpvar_3.w = 1.0;
-                tmpvar_3.xyz = _glesVertex.xyz;
-                gl_Position = UnityObjectToClipPos(tmpvar_3);
+                gl_Position = UnityObjectToClipPos(float4(_glesVertex.xyz, 1.0));
                 o.xlv_COLOR = _glesColor * _Color;
                 float2 tmpvar_4 = _ShadowVec * 0.5;
-                o.xlv_TEXCOORD0 = (((_glesMultiTexCoord0.xy * _Tile.xy) + _Tile.zw) * tmpvar_2) - tmpvar_4;
+                o.xlv_TEXCOORD0 = (((_glesMultiTexCoord0.xy * _Tile.xy) + _Tile.zw) * float2(tmpvar_1.x / tmpvar_1.y, tmpvar_1.y)) - tmpvar_4;
                 o.xlv_TEXCOORD1 = (((_glesMultiTexCoord0.xy * 2.0) - 1.0) * tmpvar_1) - tmpvar_4;
                 return o;
             }
@@ -125,14 +119,12 @@ Shader "CpRemix/UI/CurvedBorderButtonWithShadowAndTiled"
                 float2 tmpvar_9 = pow(abs(i.xlv_TEXCOORD1 + _ShadowInnerVec), _Roundness);
                 float tmpvar_10 = sqrt(dot(tmpvar_7, tmpvar_7));
                 float tmpvar_11 = (1.0 - ((clamp(tmpvar_10, tmpvar_4, 1.0) - tmpvar_4) * tmpvar_3));
-                float4 tmpvar_12 = tex2D(_MainTex, i.xlv_TEXCOORD0);
-                image_2 = tmpvar_12;
+                image_2 = tex2D(_MainTex, i.xlv_TEXCOORD0);
                 float2 tmpvar_13 = abs(i.xlv_TEXCOORD0 - 0.5) * 2.0;
                 float tmpvar_14 = max(tmpvar_13.x, tmpvar_13.y);
                 float tmpvar_15 = _OuterShading * clamp(1.0 - ((clamp(sqrt(dot(tmpvar_8, tmpvar_8)), tmpvar_5, 1.0) - tmpvar_5) * (1.0 / _OuterShadowBlur)), 0.0, 1.0);
                 fragment_1 = lerp((_Border * min((tmpvar_11 * 1000.0), 1.0)), (lerp(_Centre, image_2, max((image_2.w - ((float(tmpvar_14 >= 1.0) * _TileAttenuation) * tmpvar_14)), 0.0)) * lerp((1.0 - _InnerShading), 1.0, clamp(1.0 - ((clamp(sqrt(dot(tmpvar_9, tmpvar_9)), tmpvar_6, 1.0) - tmpvar_6) * (1.0 / _InnerShadowBlur)), 0.0, 1.0))), ((1.0 - (clamp(tmpvar_10, tmpvar_4, 1.0) - tmpvar_4) * tmpvar_3)));
-                float tmpvar_16 = (tmpvar_11 > 0.0001) ? tmpvar_11 : tmpvar_15;
-                fragment_1.w = tmpvar_16;
+                fragment_1.w = (tmpvar_11 > 0.0001) ? tmpvar_11 : tmpvar_15;
                 o.gl_FragData = fragment_1 * i.xlv_COLOR;
                 return o;
             }

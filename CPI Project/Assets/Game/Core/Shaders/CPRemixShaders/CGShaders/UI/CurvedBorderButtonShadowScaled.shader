@@ -96,10 +96,7 @@ Shader "CpRemix/UI/CurvedBorderButtonShadowScaled"
 			 v2f o;
 			 float tmpvar_1;
 			 tmpvar_1 = (1.0 / (_ScaleImage));
-			 float4 tmpvar_2;
-			 tmpvar_2.w = 1.0;
-			 tmpvar_2.xyz = _glesVertex.xyz;
-			 gl_Position = UnityObjectToClipPos(tmpvar_2);//mul(unity_MatrixVP, mul(unity_ObjectToWorld, tmpvar_2));
+			 gl_Position = UnityObjectToClipPos(float4(_glesVertex.xyz, 1.0));
 			 o.xlv_COLOR = (_glesColor * _Color);
 			 o.xlv_TEXCOORD0 = ((_glesMultiTexCoord0.xy * tmpvar_1) + ((1.0 - tmpvar_1) / 2.0));
 			 o.xlv_TEXCOORD1 = (((_glesMultiTexCoord0.xy * 2.0) - 1.0) * _ScaleBox);
@@ -141,11 +138,7 @@ Shader "CpRemix/UI/CurvedBorderButtonShadowScaled"
 			 tmpvar_13 = (1.0 - ((
 			   clamp(sqrt(dot(tmpvar_6, tmpvar_6)), tmpvar_4, 1.0)
 			  - tmpvar_4) * tmpvar_3));
-			 float tmpvar_14;
-			 tmpvar_14 = min((tmpvar_10 * 1000.0), 1.0);
-			 float4 tmpvar_15;
-			 tmpvar_15 = tex2D(_MainTex, i.xlv_TEXCOORD0);
-			 image_2 = tmpvar_15;
+			 image_2 = tex2D(_MainTex, i.xlv_TEXCOORD0);
 			 float2 tmpvar_16;
 			 tmpvar_16 = abs(((i.xlv_TEXCOORD0 - 0.5) * 2.0));
 			 float tmpvar_17;
@@ -174,11 +167,9 @@ fragment_1.xyz = (((
   ((image_2 * tmpvar_18) * tmpvar_11)
 ) * tmpvar_19) + ((_Border *
   (1.0 - tmpvar_11)
-) * tmpvar_14)).xyz;
+) * min((tmpvar_10 * 1000.0), 1.0))).xyz;
 fragment_1.w = max(tmpvar_10, tmpvar_20);
-float4 tmpvar_21;
-tmpvar_21 = (fragment_1 * i.xlv_COLOR);
-o.gl_FragData = tmpvar_21;
+o.gl_FragData = (fragment_1 * i.xlv_COLOR);
 return o;
 }
 

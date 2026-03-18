@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ColorId: 28
   ViewOrder: 28
-  ColorName: blue
-  Color: 003366
+  ColorName: Dark Green
+  Color: 006600

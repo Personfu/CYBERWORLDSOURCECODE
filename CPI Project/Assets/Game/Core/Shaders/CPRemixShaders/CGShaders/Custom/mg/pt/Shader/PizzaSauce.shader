@@ -55,26 +55,16 @@ Shader "Custom/mg_pt_Shader_PizzaSauce"
 			FragOutput frag(v2f i)
 			{
 			  FragOutput o;
-			  float4 result_1;
-			  result_1 = float4(0.0, 0.0, 0.0, 0.0);
-			  float tmpvar_2;
-			  tmpvar_2 = abs(i.uv.x);
+			  float4 result_1 = float4(0.0, 0.0, 0.0, 0.0);
 			  float tmpvar_3;
-			  if ((tmpvar_2 < 0.5)) {
-				float tmpvar_4;
-				tmpvar_4 = abs(i.uv.y);
-				tmpvar_3 = (tmpvar_4 < 0.5);
+			  if ((abs(i.uv.x) < 0.5)) {
+				tmpvar_3 = (abs(i.uv.y) < 0.5);
 			  }
    else {
   tmpvar_3 = float(0);
 };
 if (tmpvar_3) {
-  float4 texcol_5;
-  float4 tmpvar_6;
-  float2 P_7;
-  P_7 = (i.uv.xy + float2(0.5, 0.5));
-  tmpvar_6 = tex2D(_MainTex, P_7);
-  texcol_5 = tmpvar_6;
+  float4 texcol_5 = tex2D(_MainTex, i.uv.xy + float2(0.5, 0.5));
   if ((texcol_5.w > 0.0)) {
 	result_1 = (texcol_5 * _Color);
   };

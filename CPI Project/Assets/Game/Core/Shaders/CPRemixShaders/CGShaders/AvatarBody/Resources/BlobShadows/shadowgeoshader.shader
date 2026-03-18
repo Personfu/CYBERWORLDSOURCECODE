@@ -57,21 +57,15 @@ Shader "CpRemix/BlobShadows/ShadowGeoShader"
 		  OUT_Data_Vert vert(appdata_t v)
 		  {
 			OUT_Data_Vert o;
-			float4 tmpvar_1;
-			tmpvar_1 = v._glesVertex;
 			float4 tmpvar_2;
-			tmpvar_2.xzw = tmpvar_1.xzw;
-			float maxScreenSpace_3;
-			float4 tmpvar_4;
+			tmpvar_2.xzw = v._glesVertex.xzw;
 			tmpvar_2.y = 0.0;
-			tmpvar_4 = mul(_blobShadowCamVp, tmpvar_2);
-			float tmpvar_5;
-			tmpvar_5 = max(abs(tmpvar_4.x), abs(tmpvar_4.y));
-			maxScreenSpace_3 = tmpvar_5;
+			float4 tmpvar_4 = mul(_blobShadowCamVp, tmpvar_2);
+			float maxScreenSpace_3 = max(abs(tmpvar_4.x), abs(tmpvar_4.y));
 			o.xlv_TEXCOORD0 = v._glesMultiTexCoord0.xy;
 			o.gl_Position = tmpvar_4;
 			o.xlv_TEXCOORD1 = max(0.0, ((maxScreenSpace_3 - 0.8) * 5.0));
-			o.xlv_TEXCOORD2 = tmpvar_1.y;
+			o.xlv_TEXCOORD2 = v._glesVertex.y;
 			return o;
 		  }
 
@@ -79,15 +73,9 @@ Shader "CpRemix/BlobShadows/ShadowGeoShader"
 		  OUT_Data_Frag frag(v2f f)
 		  {
 			OUT_Data_Frag o;
-			float4 tmpvar_1;
-			float4 tmpvar_2;
-			tmpvar_2 = tex2D(_MainTex, f.xlv_TEXCOORD0);
-			float4 tmpvar_3;
-			tmpvar_3.zw = float2(1.0, 1.0);
-			tmpvar_3.x = (tmpvar_2.x + f.xlv_TEXCOORD1);
-			tmpvar_3.y = f.xlv_TEXCOORD2;
-			tmpvar_1 = tmpvar_3;
-			o.gl_FragData = tmpvar_1;
+			o.gl_FragData.zw = float2(1.0, 1.0);
+			o.gl_FragData.x = tex2D(_MainTex, f.xlv_TEXCOORD0).x + f.xlv_TEXCOORD1;
+			o.gl_FragData.y = f.xlv_TEXCOORD2;
 			return o;
 		  }
 	  ENDCG
