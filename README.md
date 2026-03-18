@@ -2,7 +2,7 @@
 
 > [!IMPORTANT]
 > ### Unity Version
-> - **Unity 6000.3.10f1 LTS**
+> - **Unity 6000.3.11f1 LTS**
 
 > [!IMPORTANT]
 > ## **Builds can be found here:**
@@ -56,13 +56,13 @@
 >     - Changed the Waddle On login coins award from ```1000000``` to ```0```
 >     - Added 2 new lighting options to the igloos. Those are ```Holiday``` and ```Rainbow Migration```. The ```Holiday``` lighting can be unlocked at Penguin level 20 and the ```Rainbow Migration``` lighting can be unlocked at Penguin level 8.
 >     - Added an optional skybox in the project to allow a day/night cycle that will cycle every 15 minutes (unfinished)
->     - Added 40 new Penguin colors.
+>     - Added 30 new Penguin colors.
 >     - Unlock the ```Valentine's Day chair``` at level 8. The ID for the chair is 278 and it will sell at the Igloo furniture shop for 40 coins.
 >     - And most importantly, the game is no longer in the original 32-bit state! This recreation is in a 64-bit state.
 >     - Version 1.13.2
 >     - Changed the default 3 igloo save slots to 10 (10 is the max, higher than 10 causes data corruption and errors).
 >     - Changed the default 130 max igloo furniture limit to 750.
->     - Support for DirectX 12 and Vulkan. Note: DirectX 12 causes the game to crash while using windowed mode if you click out of the app.
+>     - Support for DirectX 12 and Vulkan.
 >     - Support for iL2CPP.
 >     - Added an annual looping event controller 3000.
 >     - Added a total of 58 new Igloo Music tracks. Now you have more different types of music to play in your igloo! 
@@ -123,6 +123,7 @@
 >     - Added 5 Puffle statues to the igloos. They unlock at Player Level 2.
 >     - Added a CPI staff inspired shirt in game.
 >     - Added the Wet Suit to Penguin Level 23.
+>     - Added the Corsage to Penguin Level 3.
 
 > [!IMPORTANT]
 > - What has been fixed:
@@ -157,6 +158,8 @@
 >     - Fixed the ```Snowy Pine Tree``` igloo furniture using the decoration category rather than Landscaping.
 >     - Fixed the original bug where the first trampoline on the Platforming wall in the Mt. Blizzard would give the wrong bounce direction.
 >     - Fixed the original bug that would spam errors about static infs.
+>     - Fixed an original bug with the YikesFace Emoji, it was missing a Reward sprite.
+>     - Fixed an original bug with Offline Mode where it won't load your Igloo furniture inventory on data import.
 
 > [!IMPORTANT]  
 > ## System Requirements
