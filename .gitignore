@@ -54,3 +54,4 @@ crashlytics-build.properties
 /DevAssets/FBX Models
 /DevAssets/FBXRestorerTool/FBX Models
 *.ods#
+/CPI Project/.vscode
