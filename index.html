@@ -3,41 +3,43 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CYBERWORLD MMORPG // FURIOS-INT</title>
+    <title>CYBERWORLD UNIFIED ENGINE // CyberOS v2026.3-FLLC</title>
     <script src="https://cdn.jsdelivr.net/npm/phaser@3.60.0/dist/phaser.min.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
     <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
-            background-color: #000;
-            margin: 0;
-            padding: 0;
-            overflow: hidden;
+            background: #050a0f;
             font-family: 'VT323', monospace;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
+            display: flex; justify-content: center; align-items: center;
+            height: 100vh; overflow: hidden;
+            background-image:
+                radial-gradient(white, rgba(255,255,255,.1) 2px, transparent 40px),
+                linear-gradient(rgba(0, 232, 255, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 232, 255, 0.03) 1px, transparent 1px);
+            background-size: 550px 550px, 40px 40px, 40px 40px;
         }
         #game-container {
             border: 4px solid #00e8ff;
-            box-shadow: 0 0 20px #00e8ff;
+            box-shadow: 0 0 30px rgba(0, 232, 255, 0.3), inset 0 0 30px rgba(0, 232, 255, 0.05);
+            width: 1024px; height: 768px;
+            position: relative;
         }
-        #ui-overlay {
-            position: absolute;
-            top: 10px;
-            left: 10px;
-            color: #00e8ff;
-            pointer-events: none;
-            z-index: 100;
+        .engine-badge {
+            position: fixed; bottom: 10px; left: 50%; transform: translateX(-50%);
+            font-family: 'VT323', monospace; font-size: 12px; color: #444;
+            text-align: center;
         }
+        .engine-badge span { color: #00e8ff; }
     </style>
 </head>
 <body>
-    <div id="ui-overlay">
-        <div>SYSTEM: FURIOS-INT NODE 2.1</div>
-        <div>UPLINK: STABLE</div>
-    </div>
     <div id="game-container"></div>
-    <script src="src/main.js" type="module"></script>
+    <div class="engine-badge">
+        <span>CYBERWORLD UNIFIED ENGINE v2026.3</span> — All Source Codes Compiled to ONE<br>
+        ClubPenguin + RuneScape + Pokémon + Hacking + Cybersecurity + FLLC<br>
+        Built by <span>Preston Furulie</span> // <span>CyberOS</span> // <span>fllc.net</span>
+    </div>
+    <script src="src/game.js" type="module"></script>
 </body>
 </html>
