@@ -1,0 +1,50 @@
+name: Discord Notifications
+
+on:
+  push:
+    branches: ["main", "Stable"]
+  pull_request:
+    types: [opened, closed, reopened]
+  release:
+    types: [published]
+  workflow_run:
+    workflows: ["CyberWorld Reports", "Repo Sync & Asset Manifest"]
+    types: [completed]
+  workflow_dispatch:
+    inputs:
+      message:
+        description: "Custom message to post to Discord"
+        required: false
+        default: "Manual notification triggered from GitHub Actions."
+
+jobs:
+  notify:
+    name: Send Discord Notification
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout source
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: pip install -r automations/requirements.txt
+
+      - name: Send Discord notification
+        env:
+          DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
+          GITHUB_EVENT_NAME: ${{ github.event_name }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+          GITHUB_ACTOR: ${{ github.actor }}
+          GITHUB_REF: ${{ github.ref }}
+          GITHUB_SHA: ${{ github.sha }}
+          GITHUB_RUN_ID: ${{ github.run_id }}
+          GITHUB_SERVER_URL: ${{ github.server_url }}
+          GITHUB_EVENT_PATH: ${{ github.event_path }}
+          WORKFLOW_CONCLUSION: ${{ github.event.workflow_run.conclusion }}
+          CUSTOM_MESSAGE: ${{ github.event.inputs.message }}
+        run: python automations/discord_notify.py
