@@ -1,0 +1,39 @@
+name: CyberWorld Reports
+
+on:
+  schedule:
+    # Run every day at 06:00 UTC
+    - cron: "0 6 * * *"
+  push:
+    branches: ["main", "Stable"]
+  workflow_dispatch:
+    inputs:
+      message:
+        description: "Optional note to include in the report"
+        required: false
+        default: ""
+
+jobs:
+  generate-report:
+    name: Generate & Push Report to Personfu/REPORTS
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout source
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: pip install -r automations/requirements.txt
+
+      - name: Generate and push CyberWorld report
+        env:
+          GH_PAT: ${{ secrets.GH_PAT }}
+          SOURCE_REPO: ${{ github.repository }}
+          REPORTS_REPO: Personfu/REPORTS
+          REPORT_BRANCH: main
+        run: python automations/cyberworld_report.py

@@ -1,0 +1,37 @@
+name: Repo Sync & Asset Manifest
+
+on:
+  schedule:
+    # Run every Sunday at 03:00 UTC
+    - cron: "0 3 * * 0"
+  push:
+    branches: ["main", "Stable"]
+    paths:
+      - "DevAssets/**"
+      - "docs/**"
+      - "src/**"
+  workflow_dispatch:
+
+jobs:
+  sync:
+    name: Sync Repos & Build Asset Manifest → Personfu/REPORTS
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout source
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: pip install -r automations/requirements.txt
+
+      - name: Run repo sync & asset manifest generator
+        env:
+          GH_PAT: ${{ secrets.GH_PAT }}
+          REPORTS_REPO: Personfu/REPORTS
+          REPORT_BRANCH: main
+        run: python automations/sync_repos.py

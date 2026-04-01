@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FLLC Enterprise Operations Center</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet" />
+  <style>
+    /* ── Base ────────────────────────────────────────────────── */
+    :root {
+      --neon:    #00ffcc;
+      --neon2:   #7a00ff;
+      --neon3:   #ff00aa;
+      --bg:      #050515;
+      --card:    #0d0d2b;
+      --border:  #1a2a4a;
+      --text:    #c8fffe;
+      --dim:     #556677;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body { height: 100%; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Share Tech Mono', monospace;
+      overflow-x: hidden;
+    }
+
+    /* ── Scanlines overlay ───────────────────────────────────── */
+    body::after {
+      content: "";
+      position: fixed; inset: 0;
+      background: repeating-linear-gradient(
+        0deg,
+        transparent,
+        transparent 2px,
+        rgba(0,0,0,.15) 2px,
+        rgba(0,0,0,.15) 4px
+      );
+      pointer-events: none;
+      z-index: 9999;
+    }
+
+    /* ── Header ──────────────────────────────────────────────── */
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem 2rem;
+      background: #080820;
+      border-bottom: 1px solid var(--border);
+    }
+    .logo {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 1.4rem;
+      font-weight: 900;
+      color: var(--neon);
+      text-shadow: 0 0 14px var(--neon);
+      letter-spacing: 3px;
+    }
+    .logo span { color: var(--neon2); }
+    .header-meta { font-size: .8rem; color: var(--dim); }
+    #clock { color: var(--neon); }
+
+    /* ── Nav tabs ────────────────────────────────────────────── */
+    nav {
+      display: flex;
+      gap: .5rem;
+      padding: .75rem 2rem;
+      background: #060618;
+      border-bottom: 1px solid var(--border);
+      flex-wrap: wrap;
+    }
+    nav button {
+      background: transparent;
+      border: 1px solid var(--neon2);
+      color: var(--neon2);
+      font-family: 'Share Tech Mono', monospace;
+      font-size: .85rem;
+      padding: .4rem 1rem;
+      cursor: pointer;
+      border-radius: 3px;
+      transition: background .2s, color .2s;
+    }
+    nav button:hover,
+    nav button.active {
+      background: var(--neon2);
+      color: #fff;
+    }
+
+    /* ── Main layout ─────────────────────────────────────────── */
+    main {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 1.5rem;
+      padding: 2rem;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    /* ── Cards ───────────────────────────────────────────────── */
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 1.25rem;
+    }
+    .card-full { grid-column: 1 / -1; }
+    .card h2 {
+      font-family: 'Orbitron', sans-serif;
+      font-size: .95rem;
+      color: var(--neon);
+      text-shadow: 0 0 8px var(--neon);
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: .5rem;
+    }
+    .card h2 .icon { font-size: 1.1rem; }
+
+    /* ── Metric grid ─────────────────────────────────────────── */
+    .metrics {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+      gap: .75rem;
+    }
+    .metric {
+      background: #0a0a22;
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: .75rem;
+      text-align: center;
+    }
+    .metric .val {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 1.6rem;
+      color: var(--neon);
+      text-shadow: 0 0 10px var(--neon);
+    }
+    .metric .lbl { font-size: .75rem; color: var(--dim); margin-top: .25rem; }
+
+    /* ── Status list ─────────────────────────────────────────── */
+    .status-list { list-style: none; }
+    .status-list li {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: .45rem 0;
+      border-bottom: 1px solid #0e1e2e;
+      font-size: .88rem;
+    }
+    .dot {
+      width: 9px; height: 9px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+    .dot-green  { background: #00ff88; box-shadow: 0 0 6px #00ff88; }
+    .dot-red    { background: #ff4466; box-shadow: 0 0 6px #ff4466; }
+    .dot-yellow { background: #ffcc00; box-shadow: 0 0 6px #ffcc00; }
+
+    /* ── Log terminal ────────────────────────────────────────── */
+    .log-box {
+      background: #020210;
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: .75rem 1rem;
+      height: 220px;
+      overflow-y: auto;
+      font-size: .82rem;
+      line-height: 1.6;
+    }
+    .log-box::-webkit-scrollbar { width: 5px; }
+    .log-box::-webkit-scrollbar-track { background: #0a0a1a; }
+    .log-box::-webkit-scrollbar-thumb { background: var(--neon2); border-radius: 3px; }
+    .log-entry { color: var(--dim); }
+    .log-entry .ts  { color: var(--neon2); margin-right: .4rem; }
+    .log-entry.ok   .msg { color: #00ff88; }
+    .log-entry.warn .msg { color: #ffcc00; }
+    .log-entry.err  .msg { color: #ff4466; }
+    .log-entry.info .msg { color: var(--neon); }
+
+    /* ── Activity timeline ───────────────────────────────────── */
+    .timeline { list-style: none; }
+    .timeline li {
+      display: flex;
+      gap: .75rem;
+      padding: .5rem 0;
+      border-bottom: 1px solid #0e1e2e;
+      font-size: .85rem;
+      align-items: flex-start;
+    }
+    .tl-icon { font-size: 1rem; flex-shrink: 0; }
+    .tl-time { color: var(--dim); font-size: .78rem; white-space: nowrap; }
+    .tl-text { flex: 1; }
+
+    /* ── Repo links ──────────────────────────────────────────── */
+    .repo-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: .75rem;
+    }
+    .repo-card {
+      background: #080822;
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: .9rem;
+      text-decoration: none;
+      color: var(--text);
+      transition: border-color .2s, background .2s;
+    }
+    .repo-card:hover { border-color: var(--neon); background: #0d0d30; }
+    .repo-card .repo-name {
+      font-family: 'Orbitron', sans-serif;
+      font-size: .82rem;
+      color: var(--neon);
+      margin-bottom: .35rem;
+    }
+    .repo-card .repo-desc { font-size: .78rem; color: var(--dim); }
+
+    /* ── Footer ──────────────────────────────────────────────── */
+    footer {
+      text-align: center;
+      padding: 1.5rem;
+      font-size: .8rem;
+      color: var(--dim);
+      border-top: 1px solid var(--border);
+      margin-top: 2rem;
+    }
+    footer a { color: var(--neon); text-decoration: none; }
+
+    /* ── Tab panels ──────────────────────────────────────────── */
+    .panel { display: none; }
+    .panel.active { display: contents; }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <div class="logo">FLLC <span>//</span> OPS CENTER</div>
+    <div class="header-meta">
+      <div>FLLC ENTERPRISE IT SOLUTIONS</div>
+      <div id="clock">--:--:-- UTC</div>
+    </div>
+  </header>
+
+  <!-- NAV -->
+  <nav id="nav">
+    <button class="active" data-panel="dashboard">📊 Dashboard</button>
+    <button data-panel="repos">🗂️ Repositories</button>
+    <button data-panel="automations">⚙️ Automations</button>
+    <button data-panel="discord">💬 Discord</button>
+    <button data-panel="reports">📋 Reports</button>
+  </nav>
+
+  <!-- MAIN CONTENT -->
+  <main id="main-content">
+
+    <!-- DASHBOARD PANEL -->
+    <section class="panel active" id="panel-dashboard">
+
+      <!-- KPI metrics -->
+      <div class="card card-full">
+        <h2><span class="icon">📡</span> System Status</h2>
+        <div class="metrics">
+          <div class="metric">
+            <div class="val" id="kpi-repos">3</div>
+            <div class="lbl">Repos in Scope</div>
+          </div>
+          <div class="metric">
+            <div class="val" id="kpi-workflows">3</div>
+            <div class="lbl">Active Workflows</div>
+          </div>
+          <div class="metric">
+            <div class="val" id="kpi-automations">3</div>
+            <div class="lbl">Python Automations</div>
+          </div>
+          <div class="metric">
+            <div class="val" id="kpi-reports">✓</div>
+            <div class="lbl">REPORTS Repo Live</div>
+          </div>
+          <div class="metric">
+            <div class="val" id="kpi-discord">✓</div>
+            <div class="lbl">Discord Notify</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Service status -->
+      <div class="card">
+        <h2><span class="icon">🟢</span> Services</h2>
+        <ul class="status-list" id="service-list">
+          <li><span>CyberWorld Reports</span><span class="dot dot-green"></span></li>
+          <li><span>Discord Notifier</span><span class="dot dot-green"></span></li>
+          <li><span>Repo Sync</span><span class="dot dot-green"></span></li>
+          <li><span>GitHub Actions</span><span class="dot dot-green"></span></li>
+          <li><span>Personfu/REPORTS</span><span class="dot dot-green"></span></li>
+        </ul>
+      </div>
+
+      <!-- Activity log -->
+      <div class="card">
+        <h2><span class="icon">🖥️</span> Automation Log</h2>
+        <div class="log-box" id="auto-log"></div>
+      </div>
+
+      <!-- Recent activity timeline -->
+      <div class="card">
+        <h2><span class="icon">⏱️</span> Recent Activity</h2>
+        <ul class="timeline" id="timeline">
+          <li>
+            <span class="tl-icon">🚀</span>
+            <span class="tl-text">CyberWorld Reports workflow deployed</span>
+            <span class="tl-time">today</span>
+          </li>
+          <li>
+            <span class="tl-icon">💬</span>
+            <span class="tl-text">Discord notifications configured</span>
+            <span class="tl-time">today</span>
+          </li>
+          <li>
+            <span class="tl-icon">🔄</span>
+            <span class="tl-text">Repo Sync workflow deployed</span>
+            <span class="tl-time">today</span>
+          </li>
+          <li>
+            <span class="tl-icon">📋</span>
+            <span class="tl-text">FLLC Ops Center launched</span>
+            <span class="tl-time">today</span>
+          </li>
+        </ul>
+      </div>
+
+    </section>
+
+    <!-- REPOS PANEL -->
+    <section class="panel" id="panel-repos">
+      <div class="card card-full">
+        <h2><span class="icon">🗂️</span> Repositories in Scope</h2>
+        <div class="repo-grid">
+          <a class="repo-card" href="https://github.com/Personfu/CYBERWORLDSOURCECODE" target="_blank" rel="noopener">
+            <div class="repo-name">Personfu/CYBERWORLDSOURCECODE</div>
+            <div class="repo-desc">CyberWorld game source code, assets, and automation scripts.</div>
+          </a>
+          <a class="repo-card" href="https://github.com/Personfu/REPORTS" target="_blank" rel="noopener">
+            <div class="repo-name">Personfu/REPORTS</div>
+            <div class="repo-desc">Auto-generated activity reports from all CyberWorld automations.</div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- AUTOMATIONS PANEL -->
+    <section class="panel" id="panel-automations">
+      <div class="card">
+        <h2><span class="icon">📊</span> cyberworld_report.py</h2>
+        <ul class="status-list">
+          <li><span>Collects open PRs, issues, commits</span><span class="dot dot-green"></span></li>
+          <li><span>Renders Markdown + HTML reports</span><span class="dot dot-green"></span></li>
+          <li><span>Pushes to Personfu/REPORTS</span><span class="dot dot-green"></span></li>
+          <li><span>Triggered: daily 06:00 UTC + push</span><span class="dot dot-green"></span></li>
+        </ul>
+      </div>
+      <div class="card">
+        <h2><span class="icon">💬</span> discord_notify.py</h2>
+        <ul class="status-list">
+          <li><span>Rich Discord embed notifications</span><span class="dot dot-green"></span></li>
+          <li><span>Supports: push, PR, release, workflow</span><span class="dot dot-green"></span></li>
+          <li><span>Manual trigger with custom message</span><span class="dot dot-green"></span></li>
+          <li><span>Uses DISCORD_WEBHOOK_URL secret</span><span class="dot dot-green"></span></li>
+        </ul>
+      </div>
+      <div class="card">
+        <h2><span class="icon">🔄</span> sync_repos.py</h2>
+        <ul class="status-list">
+          <li><span>Indexes all assets across repos</span><span class="dot dot-green"></span></li>
+          <li><span>Builds JSON asset manifest</span><span class="dot dot-green"></span></li>
+          <li><span>Pushes manifest to REPORTS</span><span class="dot dot-green"></span></li>
+          <li><span>Triggered: weekly Sunday 03:00 UTC</span><span class="dot dot-green"></span></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- DISCORD PANEL -->
+    <section class="panel" id="panel-discord">
+      <div class="card card-full">
+        <h2><span class="icon">💬</span> Discord Integration</h2>
+        <p style="margin-bottom:1rem; color: var(--dim);">
+          The Discord notifier posts rich embeds to your configured webhook on every push,
+          pull request, release, and workflow completion.
+        </p>
+        <ul class="status-list">
+          <li>
+            <span>Setup: add <code>DISCORD_WEBHOOK_URL</code> secret to repository</span>
+            <span class="dot dot-green"></span>
+          </li>
+          <li>
+            <span>Push events → neon cyan embed</span>
+            <span class="dot dot-green"></span>
+          </li>
+          <li>
+            <span>Pull Request events → electric violet embed</span>
+            <span class="dot dot-green"></span>
+          </li>
+          <li>
+            <span>Release events → gold embed</span>
+            <span class="dot dot-green"></span>
+          </li>
+          <li>
+            <span>Workflow completion → green/red embed</span>
+            <span class="dot dot-green"></span>
+          </li>
+          <li>
+            <span>Manual dispatch → custom message embed</span>
+            <span class="dot dot-green"></span>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- REPORTS PANEL -->
+    <section class="panel" id="panel-reports">
+      <div class="card card-full">
+        <h2><span class="icon">📋</span> Output Reports → Personfu/REPORTS</h2>
+        <div class="repo-grid">
+          <a class="repo-card"
+             href="https://github.com/Personfu/REPORTS/blob/main/cyberworld/latest.md"
+             target="_blank" rel="noopener">
+            <div class="repo-name">cyberworld/latest.md</div>
+            <div class="repo-desc">Latest Markdown activity report.</div>
+          </a>
+          <a class="repo-card"
+             href="https://github.com/Personfu/REPORTS/blob/main/cyberworld/latest.html"
+             target="_blank" rel="noopener">
+            <div class="repo-name">cyberworld/latest.html</div>
+            <div class="repo-desc">Latest HTML activity report (rendered).</div>
+          </a>
+          <a class="repo-card"
+             href="https://github.com/Personfu/REPORTS/blob/main/cyberworld/latest.json"
+             target="_blank" rel="noopener">
+            <div class="repo-name">cyberworld/latest.json</div>
+            <div class="repo-desc">Latest JSON data payload.</div>
+          </a>
+          <a class="repo-card"
+             href="https://github.com/Personfu/REPORTS/blob/main/cyberworld/assets/latest.json"
+             target="_blank" rel="noopener">
+            <div class="repo-name">cyberworld/assets/latest.json</div>
+            <div class="repo-desc">Latest asset manifest from Repo Sync.</div>
+          </a>
+          <a class="repo-card"
+             href="https://github.com/Personfu/REPORTS/blob/main/cyberworld/sync-report.md"
+             target="_blank" rel="noopener">
+            <div class="repo-name">cyberworld/sync-report.md</div>
+            <div class="repo-desc">Repo sync summary report.</div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    FLLC Enterprise IT Solutions //
+    <a href="https://github.com/Personfu/CYBERWORLDSOURCECODE" target="_blank">CyberWorld</a> //
+    Reports → <a href="https://github.com/Personfu/REPORTS" target="_blank">Personfu/REPORTS</a>
+  </footer>
+
+  <script>
+    /* ── Clock ───────────────────────────────────────────────── */
+    function updateClock() {
+      const now = new Date();
+      const h = String(now.getUTCHours()).padStart(2,'0');
+      const m = String(now.getUTCMinutes()).padStart(2,'0');
+      const s = String(now.getUTCSeconds()).padStart(2,'0');
+      document.getElementById('clock').textContent = `${h}:${m}:${s} UTC`;
+    }
+    updateClock();
+    setInterval(updateClock, 1000);
+
+    /* ── Tab navigation ──────────────────────────────────────── */
+    const navBtns   = document.querySelectorAll('nav button');
+    const panels    = document.querySelectorAll('.panel');
+    const mainEl    = document.getElementById('main-content');
+
+    navBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        navBtns.forEach(b => b.classList.remove('active'));
+        panels.forEach(p => p.classList.remove('active'));
+        btn.classList.add('active');
+        const target = document.getElementById(`panel-${btn.dataset.panel}`);
+        if (target) target.classList.add('active');
+      });
+    });
+
+    /* ── Automation log ──────────────────────────────────────── */
+    const logBox = document.getElementById('auto-log');
+    const LOG_ENTRIES = [
+      { type: 'info', msg: 'FLLC Ops Center initialised' },
+      { type: 'ok',   msg: 'cyberworld-reports.yml ✔ deployed' },
+      { type: 'ok',   msg: 'discord-notify.yml      ✔ deployed' },
+      { type: 'ok',   msg: 'sync-repos.yml          ✔ deployed' },
+      { type: 'ok',   msg: 'cyberworld_report.py    ✔ ready' },
+      { type: 'ok',   msg: 'discord_notify.py       ✔ ready' },
+      { type: 'ok',   msg: 'sync_repos.py           ✔ ready' },
+      { type: 'info', msg: 'Reports output → Personfu/REPORTS' },
+      { type: 'ok',   msg: 'All systems nominal' },
+    ];
+
+    function appendLog(type, msg, ts) {
+      const el = document.createElement('div');
+      el.className = `log-entry ${type}`;
+      el.innerHTML = `<span class="ts">[${ts}]</span><span class="msg">${msg}</span>`;
+      logBox.appendChild(el);
+      logBox.scrollTop = logBox.scrollHeight;
+    }
+
+    let logIdx = 0;
+    function tickLog() {
+      if (logIdx >= LOG_ENTRIES.length) return;
+      const entry = LOG_ENTRIES[logIdx++];
+      const now   = new Date();
+      const ts    = `${String(now.getUTCHours()).padStart(2,'0')}:${String(now.getUTCMinutes()).padStart(2,'0')}:${String(now.getUTCSeconds()).padStart(2,'0')}`;
+      appendLog(entry.type, entry.msg, ts);
+      if (logIdx < LOG_ENTRIES.length) {
+        setTimeout(tickLog, 350 + Math.random() * 300);
+      }
+    }
+    setTimeout(tickLog, 600);
+  </script>
+</body>
+</html>
